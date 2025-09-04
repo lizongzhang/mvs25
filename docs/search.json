@@ -67,14 +67,14 @@
     "href": "chap1.html",
     "title": "第1章",
     "section": "",
-    "text": "Chap 1 讲义\nR Introduction\nR中的常用统计分析工具\n\n习题答案\nUseful links\n\nggplot2 Aesthetic specifications https://ggplot2.tidyverse.org/articles/ggplot2-specs.html\nHTML COLOR CODES https://htmlcolorcodes.com\nColors in R http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf"
+    "text": "Chap 1 讲义\nR Introduction\nR中的常用统计分析工具\n\nUseful links\n\nggplot2 Aesthetic specifications https://ggplot2.tidyverse.org/articles/ggplot2-specs.html\nHTML COLOR CODES https://htmlcolorcodes.com\nColors in R http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf"
   },
   {
     "objectID": "chap1.html#讨论题1",
     "href": "chap1.html#讨论题1",
     "title": "第1章",
     "section": "讨论题1",
-    "text": "讨论题1\n阅读下述推文\n\n微信公众号狗熊会&gt;案例图书&gt;精品案例&gt;谁在看直播——基于RFM的粉丝聚类\n微信公众号狗熊会&gt;案例图书&gt;精品案例&gt;B站“低创”视频创作者识别\n\n1.1 数据来源？\n1.2 样本容量？\n1.3 研究中使用了哪些变量？\n1.4 使用了哪些统计方法？\n1.5 得出哪些有价值的结论？"
+    "text": "讨论题1\n阅读下述推文\n微信公众号狗熊会&gt;案例图书&gt;精品案例&gt;No.1探索性数据分析: 谁在看直播——基于RFM的粉丝聚类\n微信公众号狗熊会&gt;案例图书&gt;精品案例&gt;No4.机器学习:基于KNN的B站“哈尔滨旅游”视频热度分析\n1.1 数据来源？\n1.2 样本容量？\n1.3 研究中使用了哪些变量？\n1.4 使用了哪些统计方法？\n1.5 得出哪些有价值的结论？"
   },
   {
     "objectID": "case1code.html",
@@ -375,7 +375,7 @@
     "href": "teamwork.html",
     "title": "小组作业",
     "section": "",
-    "text": "每组3人，由组长填写在线问卷，提交分组信息：https://www.wjx.top/vm/e3AyWsR.aspx# \n\n封面\n题目 班级 学号 姓名\n\n\n1 前言\n研究背景、选题动机、研究目标和意义、提出要研究的问题\n\n\n2 数据概况\n介绍数据来源、数据收集过程、解释变量的含义\n运用聚类/判别/主成分/因子/对应/典型相关分析，至少运用4中方法\n\n\n3 聚类分析\n介绍分析过程，研究结论，可参考习题要求\n\n\n4 判别分析\n介绍分析过程，研究结论，可参考习题要求\n\n\n5 主成分分析\n介绍分析过程，研究结论，可参考习题要求\n\n\n6 因子分析\n介绍分析过程，研究结论，可参考习题要求\n\n\n7 对应分析\n介绍分析过程，研究结论，可参考习题要求\n\n\n8 典型相关分析\n介绍分析过程，研究结论，可参考习题要求\n\n\n9 结论和展望\n总结研究结论,本研究的不足和值得进一步研究的问题, 对本课程感想和建议等。\n\n\n小组作业要求\n汇报时长：第12周周五11.22日晚19:00 每个小组汇报，不超过10分钟\n汇报演示文稿的PDF文档提交至：Lizongzhang9@qq.com\n邮件主题：所有小组成员名字+多元统计小组作业\n提交下述三个文件，不要上传压缩文件，在附件中直接上传三个文件。\n\n汇报演示文稿的PDF文档，文件命名格式”所有小组成员名字+多元统计小组作业.PDF”\nR代码文件，文件命名格式”所有小组成员名字+多元统计小组作业.R”\nExcel数据文件，文件命名格式”所有小组成员名字+多元统计小组作业.xlsx”\n\n注意：\n\n未按规定格式写邮件主题和命名文件的，将扣3-5分。"
+    "text": "每组3人，由组长填写在线问卷，提交分组信息：https://www.wjx.top/vm/m1mykgE.aspx# \n\n封面\n题目 班级 学号 姓名\n\n\n1 前言\n研究背景、选题动机、研究目标和意义、提出要研究的问题\n\n\n2 数据概况\n介绍数据来源、数据收集过程、解释变量的含义\n运用聚类/判别/主成分/因子/对应/典型相关分析，至少运用4中方法\n\n\n3 聚类分析\n介绍分析过程，研究结论，可参考习题要求\n\n\n4 判别分析\n介绍分析过程，研究结论，可参考习题要求\n\n\n5 主成分分析\n介绍分析过程，研究结论，可参考习题要求\n\n\n6 因子分析\n介绍分析过程，研究结论，可参考习题要求\n\n\n7 对应分析\n介绍分析过程，研究结论，可参考习题要求\n\n\n8 典型相关分析\n介绍分析过程，研究结论，可参考习题要求\n\n\n9 结论和展望\n总结研究结论,本研究的不足和值得进一步研究的问题, 对本课程感想和建议等。\n\n\n小组作业汇报\n汇报时间：第12-13周\n时长不超过7分钟"
   },
   {
     "objectID": "chap1_slide.html#第1章-导论",
@@ -485,9 +485,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "多元统计24秋",
+    "title": "多元统计25秋",
     "section": "",
-    "text": "欢迎访问《多元统计》课程网站！\n教材"
+    "text": "欢迎访问《多元统计》课程网站！"
   },
   {
     "objectID": "index.html#课前软件准备",
@@ -499,9 +499,9 @@
   {
     "objectID": "index.html#教学视频",
     "href": "index.html#教学视频",
-    "title": "多元统计24秋",
+    "title": "多元统计25秋",
     "section": "教学视频",
-    "text": "教学视频\nR数据分析实战\n\n教学平台\n\n91速课(https://www.91suke.com)：发布作业，提交作业，测验，考勤等\n在91速课中设置姓名和学号的方法\n\nQQ群：提交小组作业，提问答疑\n\n课程考核\n\n平时成绩：50%\n\n个人作业：15%\n小组作业(案例分析)：20%\n测验：10%\n考勤： 5%\n\n期末考试：50%\n\n\n\n\n\nclick here"
+    "text": "教学视频\nR数据分析实战"
   },
   {
     "objectID": "case1pre.html#数据和变量",
@@ -625,14 +625,14 @@
   {
     "objectID": "index.html#软件准备",
     "href": "index.html#软件准备",
-    "title": "多元统计24秋",
+    "title": "多元统计25秋",
     "section": "软件准备",
     "text": "软件准备\nR和R Studio的下载\nR和RStudio的安装\n若无法安装R和R Studio, 请观看：\n不用安装就能用的RStudio——RStudio Cloud"
   },
   {
     "objectID": "index.html#参考书",
     "href": "index.html#参考书",
-    "title": "多元统计24秋",
+    "title": "多元统计25秋",
     "section": "参考书",
     "text": "参考书\n下载"
   },
@@ -676,6 +676,41 @@
     "href": "Rintro.html#r常用代码",
     "title": "R快速入门",
     "section": "1.5 R常用代码",
-    "text": "1.5 R常用代码\n管道符\n\n\nCode\n安装和加载包tidyverse\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n# %&gt;% 快捷键\n# Windows: Ctrl + Shift + M\n# Mac OS : Cmd + Shift + M"
+    "text": "1.5 R常用代码"
+  },
+  {
+    "objectID": "chap1.html#习题答案",
+    "href": "chap1.html#习题答案",
+    "title": "第1章",
+    "section": "习题答案",
+    "text": "习题答案\n习题代码"
+  },
+  {
+    "objectID": "index.html#教材",
+    "href": "index.html#教材",
+    "title": "多元统计25秋",
+    "section": "教材",
+    "text": "教材\n\n多元统计分析——基于R（第2版，费宇，中国人民大学出版社）.\n下载教材配套数据文件(QQ课程群)"
+  },
+  {
+    "objectID": "index.html#r基础",
+    "href": "index.html#r基础",
+    "title": "多元统计25秋",
+    "section": "R基础",
+    "text": "R基础\nR语言与统计应用课程网站"
+  },
+  {
+    "objectID": "index.html#教学平台",
+    "href": "index.html#教学平台",
+    "title": "多元统计25秋",
+    "section": "教学平台",
+    "text": "教学平台\n\nQQ群：提交作业，提问答疑\n\n91速课(https://www.91suke.com)：发布作业，提交作业，测验，考勤等\n在91速课中设置姓名和学号的方法"
+  },
+  {
+    "objectID": "index.html#课程考核",
+    "href": "index.html#课程考核",
+    "title": "多元统计25秋",
+    "section": "课程考核",
+    "text": "课程考核\n\n平时成绩：50%\n\n个人作业：15%\n小组作业(案例分析)：20%\n测验：10%\n考勤： 5%\n\n期末考试/考查：50%\n\n\n\n\n\nclick here"
   }
 ]
