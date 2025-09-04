@@ -6,7 +6,7 @@ title: "第1章"
 
 <img src="img/teacher.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap 1 讲义](https://lizongzhang.github.io/mvs/chap1.html)
   
-<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[R Introduction](https://lizongzhang.github.io/mvs/R0.html)
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[R Introduction](https://lizongzhang.github.io/mvs25/Rintro.html)
 
 <img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[R中的常用统计分析工具](https://lizongzhang.github.io/mvs/pre.html)
   

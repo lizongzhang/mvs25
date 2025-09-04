@@ -72,7 +72,7 @@ about:
 
     -   考勤： 5%
 
--   期末考试/考查：50%
+-   期末考查：课程论文 50%
 
 ::: {style="text-align: center;"}
 ![](img/bili_up.jpg){width="10%"}
