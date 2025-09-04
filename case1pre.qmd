@@ -1,0 +1,294 @@
+---
+title: "<span style='font-size: 80px;'>广州6大品牌奶茶店消费价格分析</span>"
+subtitle: "<span style='font-size: 80px;'>第3-4章</span>"
+date: today
+author: "<span style='color: #044875;'>Li Zongzhang</span>"
+format: 
+  revealjs:
+    incremental: FALSE
+    theme: sky
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    css: styles.css
+    footer: <https://lizongzhang.github.io/stat24>
+    include-before-body: header.html
+    code-block-height: 150px
+---
+
+## 1 数据和变量
+
+数据来源：大众点评网，广州六大品牌奶茶店
+
+样本容量：336
+
+数据来源：大众点评网，广州6大奶茶品牌
+
+零售价格: retail.price
+
+团购价格：group.price
+
+品牌： brand
+
+区位：area
+
+市区：荔湾，越秀，天河，海珠
+
+近郊：白云，番禺，黄埔
+
+远郊：花都，从化，南沙，增城
+
+## 2 图形工具
+
+2.1 帕累托图
+
+2.2 分组条形图
+
+2.3 分组直方图
+
+2.4 分组箱线图
+
+2.5 散点图
+
+## 2.1 帕累托图
+
+```{r}
+#| echo: FALSE
+par(family  = 'STKaiti')
+library(showtext)
+showtext_auto()
+```
+
+```{r}
+#| echo: TRUE
+library(tidyverse)
+library(readxl)
+data  <- read_excel("data/top6.xlsx")
+
+library(forcats)
+data %>% ggplot(aes(fct_infreq(brand), fill = brand)) + 
+  geom_bar() +
+  geom_text(stat = "count", aes(label = after_stat(count)), vjust = -0.5)+ 
+  scale_y_continuous(limits = c(0,100))+
+  guides(x = guide_axis(angle = 45)) +
+  labs(x = "品牌", fill = "品牌") +
+  theme_bw() +
+  theme(text = element_text(size = 15),
+        legend.position = "bottom",
+        legend.text = element_text(size = 10))
+```
+
+## 2.2 分组条形图
+
+```{r}
+#| echo: TRUE
+
+data %>%
+  group_by(area, brand) %>%
+  summarise(count = n(), .groups = "drop") %>% 
+  mutate(brand_order = paste(brand, area, rank(-count), sep = "_"))  %>% 
+  ggplot(aes(reorder(brand_order, -count),
+             count, fill = brand)) +
+  geom_col()+
+  facet_wrap(~ area, scales = "free_x", ncol = 3) +
+  geom_text(aes(label = count), vjust = -0.5) +
+  scale_x_discrete(labels = function(x) gsub("_.+$", "", x)) + # 移除排序编号
+  scale_y_continuous(limits = c(0, 42)) +
+  labs(x = "品牌", y = "数量") +
+  theme(axis.text.x = element_text(angle = 42, hjust = 1), 
+        legend.position = "none")
+```
+
+## 2.3 分组直方图
+
+```{r}
+#| echo: TRUE
+#按单个定性变量分组
+data %>% 
+  ggplot(aes(retail.price, fill = brand))+
+  geom_histogram(breaks = seq(6, 38, 2))+
+  facet_wrap(~brand, ncol = 2) +
+  scale_y_continuous(limits = c(0,60))+
+  scale_fill_brewer(palette  = "Set1") +
+  labs(title = "零售价直方图",
+       x = "零售价",
+       y = "频数") +
+  scale_x_continuous(breaks = seq(6, 36, 4),
+                     labels = seq(6, 36, 4)) +
+  theme_bw() +
+  theme(text = element_text(size = 15),
+        legend.position = "bottom",
+        legend.text = element_text(size = 10))
+```
+零售价格：喜茶\>茶百道\>TANNING\>CoCo都可\>书亦烧仙草\>益禾堂
+
+## 2.4 分组箱线图
+
+```{r}
+#| echo: TRUE
+data %>% 
+  ggplot(aes(retail.price, reorder(brand, retail.price, FUN = median),
+             col = brand))+
+  geom_boxplot()+
+  labs(title ="六大奶茶品牌零售价格",
+       x = "零售价格",
+       y = "品牌", fill = "品牌")+
+  theme_bw() +
+  theme(text = element_text(size = 15),
+        legend.position = "bottom",
+        legend.text = element_text(size = 10))
+  
+
+```
+零售价格：喜茶\>茶百道\>TANNING\>CoCo都可\>书亦烧仙草\>益禾堂
+
+## 2.5 散点图
+
+```{r}
+#| echo: TRUE
+data %>% 
+  ggplot(aes(retail.price, groupbuy.price,col = brand))+
+  geom_point()+
+  geom_jitter()+
+  geom_smooth(method = lm, se = F) +
+  labs(title = "零售价格与团购价散点图",
+       x = "零售价",
+       y = "团购价") +
+  theme_bw() +
+    theme(text = element_text(size = 15),
+        legend.position = "bottom",
+        legend.text = element_text(size = 10))
+```
+
+无论在市区、近郊、远郊，同一品牌的团购价格相同。
+
+# 3 报告描述性统计量
+
+全样本
+
+分品牌零售价格比较
+
+分区域零售价格比价
+
+## 3.1 全样本
+
+```{r}
+#| echo: TRUE
+library(psych)
+
+data %>% 
+  select(retail.price, groupbuy.price, comment.num) %>%
+  describe() %>% 
+  select(n, mean, sd, median, min, max, skew, kurtosis)
+```
+
+## 表格中添加分布图像 
+
+**{gtExtras}**
+
+```{r}
+#| echo: TRUE
+library(gtExtras)
+
+data %>% 
+  select(retail.price, groupbuy.price) %>%
+  gt_plt_summary()
+```
+
+## 表格中添加分布图像
+
+**{gtExtras}**
+
+```{r}
+#| echo: TRUE
+retail_group <- data %>% 
+  select(brand, retail.price) %>%
+  group_by(brand) %>%
+  summarize(mean = mean(retail.price) %>% round(3),
+            median = median(retail.price)%>% round(3),
+            sd = sd(retail.price)%>% round(3),
+            retail_t = list(retail.price))
+
+
+retail_group %>%
+  arrange(desc(mean)) %>% 
+  gt() %>% 
+  gt_plt_dist(retail_t,
+              type = "histogram",
+              line_color = "purple",
+              fill_color = "green",
+              bw = 1)
+```
+
+
+## 3.2 分品牌零售价格比较
+
+```{r}
+#| echo: TRUE
+data %>%
+  group_by(brand) %>%
+  summarize(n(),
+            min = min(retail.price),
+            q1 = quantile(retail.price, 0.25),
+            median = median(retail.price),
+            mean = mean(retail.price),
+            q3 = quantile(retail.price, 0.75),
+            max = max(retail.price),
+            sd = sd(retail.price)) %>% 
+  arrange(desc(median))
+```
+
+零售价格：喜茶\>茶百道\>TANNING\>CoCo都可\>书亦烧仙草\>益禾堂
+
+## 3.3 分区域零售价格比较
+
+```{r}
+#| echo: TRUE
+library(psych)
+
+data %>%
+  group_by(area) %>%
+  summarize(n(),
+            min = min(retail.price),
+            q1 = quantile(retail.price, 0.25),
+            median = median(retail.price),
+            mean = mean(retail.price),
+            q3 = quantile(retail.price, 0.75),
+            max = max(retail.price),
+            sd = sd(retail.price))%>% 
+  arrange(desc(median))
+```
+
+零售价格：市区>近郊>远郊
+
+# 4 研究结论
+
+-   门店数量：书亦烧仙草\>CoCo都可\>茶百道\>益禾堂\>TANNING\>喜茶
+
+-   零售价格：喜茶\>茶百道\>TANNING\>CoCo都可\>书亦烧仙草\>益禾堂
+
+-   团购价格：喜茶\>TANNING\>茶百道\>CoCo都可\>益禾堂\>书亦烧仙草
+
+-   无论在市区、近郊、远郊，同一个品牌的团购价格相同。
+
+-   零售价格：市区>近郊>远郊
+
+# 5 经验分享
+
+-   数据来源
+
+-   清洗数据
+
+-   R代码
+
+-   {gtExtras}
+
+-   提炼结论
+
+## 
+
+<div style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 60px;white-space: nowrap;">
+Thanks for your attention！
+</div>
+

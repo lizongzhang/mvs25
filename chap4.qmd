@@ -1,0 +1,62 @@
+---
+title: "第4章"
+---
+
+# 第4章 聚类分析
+
+<img src="img/teacher.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap 4 讲义](https://lizongzhang.github.io/mvs/chap4.html)
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap 4 R代码](https://lizongzhang.github.io/mvs/4CA.html)
+  
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap 4 习题代码](https://lizongzhang.github.io/mvs/4CAsolution.html)
+  
+  -   B站视频  
+    
+<img src="img/video.png"  style="width: 24px; height: 24px;margin-right: 10px">[系统聚类在R中的实现——10种红酒的聚类分析 《多元统计分析——基于R》例4.1讲评](https://www.bilibili.com/video/BV1fV4y1K7vV)
+  
+<img src="img/video.png"  style="width: 24px; height: 24px;margin-right: 10px">[系统聚类在R中的实现——cluster::agnes()函数的运用 习题4.1讲评](https://www.bilibili.com/video/BV1dB4y1L7S9/)  
+
+<img src="img/video.png"  style="width: 24px; height: 24px;margin-right: 10px"> [系统聚类中类间距离的定义方式如何选择？——20种啤酒的聚类分析 习题4.1讲评](https://www.bilibili.com/video/BV1tN4y1K7rA/) 
+
+<img src="img/video.png"  style="width: 24px; height: 24px;margin-right: 10px"> [系统聚类中是否需要对变量进行标准化变换？ ——16种饮料的聚类分析习题4.2讲评](https://www.bilibili.com/video/BV1td4y1M7Zr/) 
+      
+<img src="img/video.png"  style="width: 24px; height: 24px;margin-right: 10px">[系统聚类树状图的对比——dendextend::tanglegram()函数的运用](https://www.bilibili.com/video/BV1oe411L7jC/) 
+      
+<img src="img/video.png"  style="width: 24px; height: 24px;margin-right: 10px">[树状图的个性化设置 factoextra::fviz_dend()函数的运用](https://www.bilibili.com/video/BV1YT411K7LZ/) 
+      
+<img src="img/video.png"  style="width: 24px; height: 24px;margin-right: 10px"> [K均值聚类在R中的实现——31省区消费支出的聚类分析 例4.2讲评](https://www.bilibili.com/video/BV1Ht4y1P7ed/)       
+   
+<img src="img/video.png"  style="width: 24px; height: 24px;margin-right: 10px">[循环语句在KMeans聚类中的应用——113个城市空气质量的聚类分析 习题4.3讲评](ps://www.bilibili.com/video/BV1524y1R7jx/)     
+
+
+
+# 课堂练习
+
+## 题目1 
+
+## 拓展视频
+
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[如何从中国知网下载统计数据？](https://www.bilibili.com/video/BV19m4y1F7FE/)
+
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[八爪鱼客户端抓取网页数据？](https://www.bilibili.com/video/BV18u411D7GM/)
+
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[如何用Excel整理提取的网页数据？](https://www.bilibili.com/video/BV1HL411N7BG/)
+
+
+## 拓展资源
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">CSMAR 国泰安经济金融数据库  <http://www.gtarsc.com/Home>
+        
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">中国家庭追踪调查 CFPS <http://www.isss.pku.edu.cn/cfps/>
+    
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">中国家庭金融调查数据 CHFS  <https://chfs.swufe.edu.cn>
+    
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">中国健康与养老数据追踪调查数据CHARLS <http://charls.pku.edu.cn>
+    
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">暨南大学社会调查中心  <https://sdc-iesr.jnu.edu.cn>
+    
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">Kaggle  <https://www.kaggle.com/datasets>
+
+
+
+

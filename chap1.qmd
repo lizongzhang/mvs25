@@ -1,0 +1,91 @@
+---
+title: "第1章"
+---
+
+# 第1章 导论课程简介与R操作回顾
+
+<img src="img/teacher.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap 1 讲义](https://lizongzhang.github.io/mvs/chap1.html)
+  
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[R Introduction](https://lizongzhang.github.io/mvs/R0.html)
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[R中的常用统计分析工具](https://lizongzhang.github.io/mvs/pre.html)
+  
+  -   [习题答案](https://lizongzhang.github.io/mvs/1solution.html)
+
+  -   Useful links  
+  
+      -   ggplot2 Aesthetic specifications <https://ggplot2.tidyverse.org/articles/ggplot2-specs.html>
+      
+      -    HTML COLOR CODES <https://htmlcolorcodes.com>
+      
+      -    Colors in R <http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf>
+      
+
+# 课堂练习
+
+## 讨论题1 
+
+阅读下述推文
+
+- 微信公众号狗熊会>案例图书>精品案例>谁在看直播——基于RFM的粉丝聚类
+
+- 微信公众号狗熊会>案例图书>精品案例>B站“低创”视频创作者识别
+
+1.1 数据来源？
+
+1.2 样本容量？
+
+1.3 研究中使用了哪些变量？
+
+1.4 使用了哪些统计方法？
+
+1.5 得出哪些有价值的结论？
+      
+
+# 数据收集渠道
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">CSMAR 国泰安经济金融数据库  <http://www.gtarsc.com/Home>
+        
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">中国家庭追踪调查 CFPS <http://www.isss.pku.edu.cn/cfps/>
+    
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">中国家庭金融调查数据 CHFS  <https://chfs.swufe.edu.cn>
+    
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">中国健康与养老数据追踪调查数据CHARLS <http://charls.pku.edu.cn>
+    
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">暨南大学社会调查中心  <https://sdc-iesr.jnu.edu.cn>
+    
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">Kaggle  <https://www.kaggle.com/datasets>
+
+# R教学视频
+
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[R Studio 主界面](https://www.bilibili.com/video/BV1NP4y1A7ow/)
+
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[如何安装R扩展包](https://www.bilibili.com/video/BV12u411D7uP/)
+
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[RStudio如何导入EXCEL文件](https://www.bilibili.com/video/BV1gi4y1m7pD/) 
+
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[R Studio中的Project--如何高效管理数据、代码、图形](https://www.bilibili.com/video/BV1ZB4y127oJ/)
+
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[如何利用AI自动写R代码? RStudio中的Github Copilot](https://www.bilibili.com/video/BV1Vc411R767/)  
+
+
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[R语言代码风格：如何写出易读且美观的代码？](https://www.bilibili.com/video/BV1KM4m197E5/) 
+
+# 拓展资源
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">经管之家 <https://bbs.pinggu.org/> 
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">狗熊会(微信公众号) <https://www.xiong99.com.cn/> 
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">UCLA Data Analysis Examples <https://stats.oarc.ucla.edu/other/dae/> 
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">The Data And Story Library <https://dasl.datadescription.com/> 
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px"> Kaggle <https://www.kaggle.com/> 
+
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">CRAN Task Views <https://cran.r-project.org/web/views/>
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">Most Downloaded R Packages <https://www.r-pkg.org/>
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">RStudio Cloud <https://rstudio.cloud/>

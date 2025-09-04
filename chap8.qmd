@@ -1,0 +1,14 @@
+---
+title: "第8章"
+---
+
+# 第8章 对应分析
+
+<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[chap 8 讲义](https://lizongzhang.github.io/mvs/chap8.html)
+
+<img src="img/link.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Chap 8 R代码](https://lizongzhang.github.io/mvs/8CA.html)
+    
+<img src="img/link.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Chap 8 习题代码](https://lizongzhang.github.io/mvs/8CAex.html)
+        
+  -   [B站视频]<To be update>
+  

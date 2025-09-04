@@ -1,0 +1,21 @@
+---
+title: "第6章"
+---
+
+## 第6章 主成分分析
+
+<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"> [Chap 6 讲义](https://lizongzhang.github.io/mvs/chap6.html)
+
+<img src="img/link.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Chap 6 R代码](https://lizongzhang.github.io/mvs/6PCA.html)
+  
+<img src="img/link.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[PCA explained visually](https://setosa.io/ev/principal-component-analysis/)
+
+  -   B站视频 
+    
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[主成分分析在R中的实现——prcomp函数的运用 例题6.1](https://www.bilibili.com/video/BV1M14y1E7yp/)
+    
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[主成分分析的应用——31省区居民消费分析 习题6.7讲评](https://www.bilibili.com/video/BV1zK411S788/)
+    
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[主成分分析的可视化工具——相关圈和散点图的绘制 例题6.1](https://www.bilibili.com/video/BV11V4y1V7HV/) 
+
+  

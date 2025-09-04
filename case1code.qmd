@@ -1,0 +1,416 @@
+---
+title: "Case 1 based on Chap 3 and Chap 4"
+---
+
+
+```{r include = FALSE}
+# 指定图形的中文字体
+par(family  = 'STKaiti')
+library(showtext)
+showtext_auto()
+```
+
+
+### 分组条形图
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+
+```{r}
+library(readxl)
+data  <- read_excel("data/top6.xlsx")
+```
+
+
+
+```{r}
+#加载fct_infreq包
+library(forcats)
+data %>% ggplot(aes(fct_infreq(brand))) + 
+  geom_bar(col = 6, fill = 6) +
+  facet_wrap(~area) +
+  guides(x = guide_axis(angle = 45)) +
+  labs(x = "品牌")
+
+data %>% ggplot(aes(fct_infreq(area))) + 
+  geom_bar(col = 1, fill = "cyan")+
+  facet_wrap(~brand)+
+  guides(x = guide_axis(angle = 45)) +
+  labs(x = "品牌")
+```
+
+### 堆栈条形图
+
+```{r}
+#堆栈条形图
+#position = "fill" 堆栈
+data %>%
+  ggplot(aes(brand,fill = area))+
+  geom_bar(position = "fill",alpha=0.5)+
+  guides(x = guide_axis(angle = 45)) +
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())+
+  labs(title = "Brand and Area",
+       x = "Brand",
+       y = "Number")
+```
+
+## 直方图
+
+### 普通直方图
+
+```{r}
+data %>% 
+  ggplot(aes(retail.price))+
+  geom_histogram(col = 1, fill = 5, breaks = seq(2, 38, 2)) +
+  labs(title = "零售价直方图",
+       x = "团购价格",
+       y = "频数") +
+  scale_x_continuous(breaks = seq(2, 38, 2),
+                     labels = seq(2, 38, 2)) +
+  theme(text = element_text(size = 15)) 
+
+data %>%
+  filter(!is.na(groupbuy.price)) %>% 
+  ggplot(aes(groupbuy.price))+
+  geom_histogram(col = 1, fill = 5, breaks = seq(2, 38, 2)) +
+  labs(title = "团购价直方图",
+       x = "团购价",
+       y = "频数") +
+  scale_x_continuous(breaks = seq(2, 38, 2),
+                     labels = seq(2, 38, 2)) +
+  theme(text = element_text(size = 15)) 
+```
+
+### 分组直方图
+
+```{r}
+#按单个定性变量分组
+data %>% 
+  ggplot(aes(retail.price, fill = area))+
+  geom_histogram()+
+  facet_wrap(~area, ncol = 1) +
+  labs(title = "零售价直方图",
+       x = "零售价",
+       y = "频数") +
+  theme(text = element_text(size = 15)) 
+
+data %>% 
+  ggplot(aes(retail.price, fill = area))+
+  geom_density()+
+  facet_wrap(~area, ncol = 1) +
+  labs(title = "零售价直方图",
+       x = "零售价",
+       y = "概率密度") +
+  theme(text = element_text(size = 15)) 
+
+
+data %>% 
+  ggplot(aes(retail.price, color = brand, fill = brand))+
+  geom_histogram()+
+  facet_wrap(~brand, ncol = 1)+
+  labs(title = "零售价直方图",
+       x = "零售价",
+       y = "频数") +
+  theme(text = element_text(size = 15)) 
+
+#按两个定性变量分组后的直方图
+data %>% 
+  ggplot(aes(retail.price, fill = brand))+
+  geom_histogram(breaks = seq(2, 38, 2))+
+  facet_grid(vars(brand), vars(area)) +
+  labs(title = "零售价直方图",
+       x = "零售价",
+       y = "频数") +
+  theme(text = element_text(size = 10),
+        legend.position = "bottom") 
+```
+
+
+### 概率密度曲线
+
+```{r}
+data %>% 
+  ggplot(aes(retail.price, color = area))+
+  geom_histogram(aes(y = ..density..,
+                 fill = area), breaks = seq(2, 38, 1))+
+  geom_density(lwd = 1, linetype = 1)+
+  facet_wrap(~area,ncol=1)
+```
+
+## 频数折线图
+```{r}
+#分组频数折线图
+data %>% 
+  ggplot(aes(retail.price, col = area))+
+  geom_freqpoly(breaks = seq(2, 38, 1))+
+  facet_wrap(~area, ncol = 1)
+
+```
+
+## 箱线图
+
+### 简单箱线图
+
+```{r}
+data %>% 
+  ggplot(aes(retail.price))+
+  geom_boxplot()
+
+data %>%
+  filter(!is.na(groupbuy.price)) %>% 
+  ggplot(aes(groupbuy.price))+
+  geom_boxplot()
+```
+
+### 分组箱线图
+
+
+```{r}
+#facet_wrap 切面
+#ncol=1 图形排成1列
+data %>% 
+  ggplot(aes(retail.price,col = area)) +
+  geom_boxplot() +
+  facet_wrap(~area, ncol=1) +
+  labs(title = "零售价格箱线图",
+       x = "零售价格",
+       y = "频数") +
+  theme(text = element_text(size = 15))
+
+data %>% 
+  mutate(brand = reorder(brand, retail.price, FUN = median)) %>%  
+  ggplot(aes(retail.price, col = brand)) +
+  geom_boxplot()+
+  facet_wrap(~brand,ncol=1) +
+  labs(title = "零售价格箱线图",
+       x = "零售价格",
+       y = "频数") +
+  theme(text = element_text(size = 10))
+```
+
+### 按数值大小将箱线图排序
+
+```{r}
+#分组箱线图，箱体按价格降序排列
+#在aes()中设置X轴映射厂家
+#guides(x = guide_axis(n.dodge = 3)) X轴分类标签错位
+data %>% 
+  ggplot(aes(reorder(brand,-retail.price),
+             retail.price,col = brand))+
+  geom_boxplot()+
+  guides(x = guide_axis(n.dodge = 3))+
+  labs(title ="六大奶茶品牌零售价格",
+          x = "品牌",Y = "零售价格")
+
+data %>% 
+  ggplot(aes(retail.price,reorder(brand,-retail.price),
+             col = brand))+
+  geom_boxplot()+
+  labs(title ="六大奶茶品牌零售价格",
+       x = "零售价格",Y = "品牌")
+
+data %>% 
+  ggplot(aes(retail.price,reorder(area,-retail.price),
+             col = area))+
+  geom_boxplot()+
+  labs(title ="六大奶茶品牌零售价格",
+       x = "零售价格",Y = "区域")
+```
+
+
+# 散点图
+
+```{r}
+#aes(cty,hwy,col = drv) drv映射颜色
+data %>% 
+  ggplot(aes(retail.price, comment.num,col = area))+
+  geom_point()+
+  geom_smooth(method = lm, se = F) +
+  labs(title = "零售价格与评论数散点图",
+       x = "零售价格",
+       y = "评论数") 
+
+#aes(cty,hwy,col = drv) drv映射颜色
+data %>% 
+  ggplot(aes(retail.price, groupbuy.price,col = area))+
+  geom_point()+
+  geom_smooth(method = lm, se = F) +
+  labs(title = "零售价格与评论数散点图",
+       x = "零售价格",
+       y = "团购价") 
+
+data %>% 
+  ggplot(aes(retail.price, groupbuy.price,col = brand))+
+  geom_point()+
+  geom_jitter()+
+  geom_smooth(method = lm, se = F) +
+  labs(title = "零售价格与评论数散点图",
+       x = "零售价格",
+       y = "团购价") 
+
+
+data %>% 
+  ggplot(aes(retail.price, comment.num,col = brand))+
+  geom_point()+
+  geom_smooth(method = lm, se = F) +
+  labs(title = "零售价格与评论数散点图",
+       x = "零售价格",
+       y = "评论数")
+
+#四维定量变量
+
+#area映射颜色 comment.num 映射散点大小
+data %>% 
+  ggplot(aes(retail.price,
+             groupbuy.price,col = area, size = comment.num))+
+  geom_point()+
+  geom_jitter()+
+  facet_wrap(~voucher)+
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())+
+  labs(title = "零售价格与团购价格散点图",
+       x = "零售价格",
+       y = "团购价格")
+```
+
+# 描述统计
+
+## 全样本描述统计
+```{r}
+#描述统计
+library(psych)
+describe(data)
+summary(data)
+```
+
+## 分组描述统计
+
+```{r}
+#按area分组,报告retail.price的描述性统计量
+data %>%
+  group_by(area) %>%
+  summarize(n(),
+            min = min(retail.price),
+            q1 = quantile(retail.price, 0.25),
+            median = median(retail.price),
+            mean = mean(retail.price),
+            q3 = quantile(retail.price, 0.75),
+            max = max(retail.price),
+            sd = sd(retail.price))
+
+#按area分组,报告retail.price的描述性统计量，表格按mean降序排列
+district_table <- data %>%
+  group_by(district) %>%
+  summarize(n(),
+            min = min(retail.price),
+            q1 = quantile(retail.price, 0.25),
+            median = median(retail.price),
+            mean = mean(retail.price),
+            q3 = quantile(retail.price, 0.75),
+            max = max(retail.price),
+            sd = sd(retail.price)) %>% arrange(desc(mean))
+district_table
+
+#按area分组,报告retail.price的描述性统计量，表格按`n()`降序排列
+district_table <- data %>%
+  group_by(district) %>%
+  summarize(n(),
+            min = min(retail.price),
+            q1 = quantile(retail.price, 0.25),
+            median = median(retail.price),
+            mean = mean(retail.price),
+            q3 = quantile(retail.price, 0.75),
+            max = max(retail.price),
+            sd = sd(retail.price)) %>% arrange(desc(`n()`))
+district_table
+
+#按area分组,报告groupbuy.price的描述性统计量，表格按`n()`降序排列
+#filter(!is.na(groupbuy.price)) 剔除有缺失值的个案
+district_table <- data %>%
+  group_by(area) %>% 
+  filter(!is.na(groupbuy.price)) %>% 
+  summarize(n(),
+           retail.mean = mean(retail.price),
+           groupbuy.mean = mean(groupbuy.price)) %>% 
+           arrange(desc(`n()`))
+district_table
+
+#按品牌分组,报告retail.price的描述性统计量，表格按`n()`降序排列
+#filter(`n()`>20) 选择分店数量多于20家的品牌
+#MAC：`` option+tilda
+brand_table <- data %>%
+  group_by(brand) %>%
+  summarize(n(),
+            min = min(retail.price),
+            q1 = quantile(retail.price, 0.25),
+            median = median(retail.price),
+            mean = mean(retail.price),
+            q3 = quantile(retail.price, 0.75),
+            max = max(retail.price),
+            sd = sd(retail.price)) %>% filter(
+              `n()`>20) %>% arrange(desc(mean))
+brand_table
+
+#按brand, area两个变量分组
+
+brand_table <- data %>%
+  group_by(brand, area) %>%
+  summarize(n(),
+            min = min(retail.price),
+            q1 = quantile(retail.price, 0.25),
+            median = median(retail.price),
+            mean = mean(retail.price),
+            q3 = quantile(retail.price, 0.75),
+            max = max(retail.price),
+            sd = sd(retail.price)) %>% filter(
+              `n()`>10) %>% arrange(desc(mean))
+brand_table
+```
+
+# 区间估计
+
+## 总体均值的区间估计
+
+```{r}
+t.test(data$retail.price)
+# retail.price总体均值的95%的区间估计
+c(t.test(data$retail.price)$conf.int[1],
+t.test(data$retail.price)$conf.int[2])
+```
+
+## 总体方差的区间估计
+```{r}
+library(EnvStats)
+varTest(data$retail.price)
+# retail.price总体方差的95%的区间估计
+c(varTest(data$retail.price)$conf.int[1],
+varTest(data$retail.price)$conf.int[2])
+```
+
+
+# 假设检验
+
+## 总体均值的t检验
+
+```{r}
+mean(data$retail.price)
+#检验retail.price总体均值是否大于15.5？
+#右侧检验，显著性水平为0.01
+t.test(data$retail.price,alter = "greater", mu = 15.5, conf.level = 0.01)
+# p-value为0.001,拒绝原假设。
+```
+
+
+## 总体方差的卡方检验
+```{r}
+
+```
+
+
+## 两个总体方差的F检验
+
+## 两个总体均值的t检验

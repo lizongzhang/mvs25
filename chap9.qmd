@@ -1,0 +1,13 @@
+---
+title: "第9章"
+---
+
+# 第9章 典型相关分析
+
+<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[chap 9 讲义](https://lizongzhang.github.io/mvs/chap9.html)
+
+<img src="img/link.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Chap 9 R代码](https://lizongzhang.github.io/mvs/9CCA.html)
+        
+  -   [B站视频]<To be update>
+
+  
