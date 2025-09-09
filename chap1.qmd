@@ -102,16 +102,31 @@ title: "第1章"
 
 # 拓展资源
 
-<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">经管之家 <https://bbs.pinggu.org/> 
+## 学习素材
 
 <img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">狗熊会(微信公众号) <https://www.xiong99.com.cn/> 
 
 <img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">UCLA Data Analysis Examples <https://stats.oarc.ucla.edu/other/dae/> 
 
+
 <img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">The Data And Story Library <https://dasl.datadescription.com/> 
+
+## 数据库
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">CSMAR 国泰安经济金融数据库  <http://www.gtarsc.com/Home>
+        
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">中国家庭追踪调查 CFPS <http://www.isss.pku.edu.cn/cfps/>
+    
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">中国家庭金融调查数据 CHFS  <https://chfs.swufe.edu.cn>
+    
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">中国健康与养老数据追踪调查数据CHARLS <http://charls.pku.edu.cn>
+    
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">暨南大学社会调查中心  <https://sdc-iesr.jnu.edu.cn>
 
 <img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px"> Kaggle <https://www.kaggle.com/> 
 
+
+## R相关
 
 <img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">CRAN Task Views <https://cran.r-project.org/web/views/>
 
