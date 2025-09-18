@@ -6,11 +6,11 @@ title: "第6章"
 
 <img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"> [Chap 6 讲义](https://lizongzhang.github.io/mvs/chap6.html)
 
-<img src="img/link.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Chap 6 R代码](https://lizongzhang.github.io/mvs/6PCA.html)
+<img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[主成分分析 R代码](https://lizongzhang.github.io/mvs/6PCA.html)
   
 <img src="img/link.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[PCA explained visually](https://setosa.io/ev/principal-component-analysis/)
 
-  -   B站视频 
+## B站视频 
     
 <img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[主成分分析在R中的实现——prcomp函数的运用 例题6.1](https://www.bilibili.com/video/BV1M14y1E7yp/)
     

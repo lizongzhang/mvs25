@@ -4,14 +4,14 @@
     "href": "chap5.html",
     "title": "第5章",
     "section": "",
-    "text": "Chap 5 讲义\nChap 5 R代码\nChap 5 案例R代码\n\n\n\n判别分析在R中的实现——第1步判别函数的估计 MASS::lda()\n判别分析在R中的实现——第2步 预测 MASS::predict()\n判别分析在R中的实现——第3步 评估预测效果\n判别分析在R中的实现——第4步 可视化呈现\n判别分析在R中的实现——教材案例5.1讲评\n判别分析在R中的实现——教材习题5.3讲评\n判别分析在R中的实现——教材习题5.5讲评"
+    "text": "Chap 5 讲义\n判别分析 R代码\nChap 5 案例R代码\n\n\n\n判别分析在R中的实现——第1步判别函数的估计 MASS::lda()\n判别分析在R中的实现——第2步 预测 MASS::predict()\n判别分析在R中的实现——第3步 评估预测效果\n判别分析在R中的实现——第4步 可视化呈现\n判别分析在R中的实现——教材案例5.1讲评\n判别分析在R中的实现——教材习题5.3讲评\n判别分析在R中的实现——教材习题5.5讲评"
   },
   {
     "objectID": "chap5.html#第5章-判别分析-1",
     "href": "chap5.html#第5章-判别分析-1",
     "title": "第5章",
     "section": "",
-    "text": "Chap 5 讲义\nChap 5 R代码\nChap 5 案例R代码"
+    "text": "Chap 5 讲义\n判别分析 R代码\nChap 5 案例R代码"
   },
   {
     "objectID": "chap5.html#r视频",
@@ -102,14 +102,14 @@
     "href": "chap6.html",
     "title": "第6章",
     "section": "",
-    "text": "Chap 6 讲义\nChap 6 R代码\nPCA explained visually\n\nB站视频\n\n主成分分析在R中的实现——prcomp函数的运用 例题6.1\n主成分分析的应用——31省区居民消费分析 习题6.7讲评\n主成分分析的可视化工具——相关圈和散点图的绘制 例题6.1"
+    "text": "Chap 6 讲义\n主成分分析 R代码\nPCA explained visually"
   },
   {
     "objectID": "chap6.html#第6章-主成分分析",
     "href": "chap6.html#第6章-主成分分析",
     "title": "第6章",
     "section": "",
-    "text": "Chap 6 讲义\nChap 6 R代码\nPCA explained visually\n\nB站视频\n\n主成分分析在R中的实现——prcomp函数的运用 例题6.1\n主成分分析的应用——31省区居民消费分析 习题6.7讲评\n主成分分析的可视化工具——相关圈和散点图的绘制 例题6.1"
+    "text": "Chap 6 讲义\n主成分分析 R代码\nPCA explained visually"
   },
   {
     "objectID": "4solutions.html",
@@ -256,14 +256,14 @@
     "href": "chap9.html",
     "title": "第9章",
     "section": "",
-    "text": "第9章 典型相关分析\nchap 9 讲义\nChap 9 R代码\n\n[B站视频]"
+    "text": "chap 9 讲义\n典型相关分析 R代码"
   },
   {
     "objectID": "chap8.html",
     "href": "chap8.html",
     "title": "第8章",
     "section": "",
-    "text": "第8章 对应分析\nchap 8 讲义\nChap 8 R代码\nChap 8 习题代码\n\n[B站视频]"
+    "text": "chap 8 讲义\n对应分析 R代码\nChap 8 习题代码"
   },
   {
     "objectID": "teamwork.html",
@@ -466,14 +466,14 @@
     "href": "chap7.html",
     "title": "第7章",
     "section": "",
-    "text": "chap 7 讲义\n Chap 7 R代码\n Chap 7 习题代码"
+    "text": "chap 7 讲义\n 因子分析 R代码\n Chap 7 习题代码"
   },
   {
     "objectID": "chap7.html#第7章-因子分析",
     "href": "chap7.html#第7章-因子分析",
     "title": "第7章",
     "section": "",
-    "text": "chap 7 讲义\n Chap 7 R代码\n Chap 7 习题代码"
+    "text": "chap 7 讲义\n 因子分析 R代码\n Chap 7 习题代码"
   },
   {
     "objectID": "chap4.html",
@@ -537,5 +537,12 @@
     "title": "R快速入门",
     "section": "1.5 R常用代码",
     "text": "1.5 R常用代码"
+  },
+  {
+    "objectID": "chap6.html#b站视频",
+    "href": "chap6.html#b站视频",
+    "title": "第6章",
+    "section": "B站视频",
+    "text": "B站视频\n主成分分析在R中的实现——prcomp函数的运用 例题6.1\n主成分分析的应用——31省区居民消费分析 习题6.7讲评\n主成分分析的可视化工具——相关圈和散点图的绘制 例题6.1"
   }
 ]

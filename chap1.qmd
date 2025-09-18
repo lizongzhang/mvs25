@@ -8,7 +8,7 @@ title: "第1章"
   
 <img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[R Introduction](https://lizongzhang.github.io/mvs25/Rintro.html)
 
-<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[R中的常用统计分析工具](https://lizongzhang.github.io/mvs/pre.html)
+<img src="img/code.png" style="width: 24px; height: 24px;margin-right: 10px">[R中的常用统计分析工具](https://lizongzhang.github.io/mvs/pre.html)
   
 
 
@@ -68,7 +68,7 @@ title: "第1章"
 
 # 习题答案
 
-<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[习题代码](https://lizongzhang.github.io/mvs/1solution.html){target="_blank"}
+<img src="img/code.png" style="width: 24px; height: 24px;margin-right: 10px">[习题代码](https://lizongzhang.github.io/mvs/1solution.html){target="_blank"}
 
 
 # 数据收集渠道
