@@ -1,5 +1,5 @@
 ---
-title: "Kmodes R代码"
+title: "K-modes & K-prototypes R代码"
 author: "Li Zongzhang"
 date: today
 output:
@@ -16,14 +16,13 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE,comment="")
 ```
 
-
-<a href="https://github.com/lizongzhang/mvs25/raw/main/supermarket.csv" 
-   download="supermarket.csv"
+<a href="https://github.com/lizongzhang/mvs25/raw/main/supermarket.xlsx" 
+   target="_blank" 
    style="text-decoration: none; display: inline-flex; align-items: center;">
   <img src="img/download.png" 
        alt="Download icon" 
        style="width: 24px; height: 24px; margin-right: 8px;">
-  点击下载数据文件: supermarket.csv
+  点击下载数据文件: supermarket.xlsx
 </a>
 
 
@@ -54,7 +53,8 @@ library(readr)
 #| message: false
 #| warning: false
 # 读取数据
-supermarket <- read_csv("supermarket.csv")
+library(readxl)
+supermarket <- read_excel("supermarket.xlsx")
 
 # 数据预处理
 supermarket <- supermarket %>%

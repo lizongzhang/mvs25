@@ -13,7 +13,8 @@ library(tidyverse) # 用于数据处理和可视化
 library(readr)     # 用于读取 CSV 文件
 
 # 读取数据
-supermarket <- read_csv("supermarket.csv")
+library(readxl)
+supermarket <- read_excel("supermarket.xlsx")
 
 # 数据预处理
 supermarket <- supermarket %>%

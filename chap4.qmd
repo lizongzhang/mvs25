@@ -10,9 +10,9 @@ title: "第4章"
   
 <img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap4 习题代码](https://lizongzhang.github.io/mvs25/4solutions.html)
 
-<img src="img/teacher.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap4 Kmodes聚类 讲义](https://lizongzhang.github.io/mvs25/L4kmodes.html)
+<img src="img/teacher.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap4 K-modes & K-prototypes 聚类分析讲义](https://lizongzhang.github.io/mvs25/L4kmodes.html)
 
-<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[Kmodes R代码](https://lizongzhang.github.io/mvs25/kmodesR.html)
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[K-modes & K-prototypes R代码](https://lizongzhang.github.io/mvs25/kmodesR.html)
   
 # R软件操作 
     
