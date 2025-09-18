@@ -1,0 +1,13 @@
+---
+title: "第7章"
+---
+
+## 第7章 因子分析
+
+<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[chap 7 讲义](https://lizongzhang.github.io/mvs/chap7.html)
+
+<img src="img/link.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"> [Chap 7 R代码](https://lizongzhang.github.io/mvs/7factoranalysis.html)
+    
+<img src="img/link.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"> [Chap 7 习题代码](https://lizongzhang.github.io/mvs/chap7ex.html)
+
+  
