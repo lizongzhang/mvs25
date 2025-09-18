@@ -18,13 +18,15 @@ knitr::opts_chunk$set(echo = TRUE,comment="")
 
 
 <a href="https://github.com/lizongzhang/mvs25/raw/main/supermarket.csv" 
-   target="_blank" 
+   download="supermarket.csv"
    style="text-decoration: none; display: inline-flex; align-items: center;">
   <img src="img/download.png" 
        alt="Download icon" 
        style="width: 24px; height: 24px; margin-right: 8px;">
   点击下载数据文件: supermarket.csv
 </a>
+
+
 
 
 

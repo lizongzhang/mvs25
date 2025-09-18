@@ -201,7 +201,7 @@ https://www.kaggle.com/datasets/dev0914sharma/customer-clustering?resource=downl
 <img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[kaggle data](https://www.kaggle.com/datasets/dev0914sharma/customer-clustering?resource=download)
 
 <a href="https://github.com/lizongzhang/mvs25/raw/main/supermarket.csv" 
-   target="_blank" 
+   download="supermarket.csv"
    style="text-decoration: none; display: inline-flex; align-items: center;">
   <img src="img/download.png" 
        alt="Download icon" 
