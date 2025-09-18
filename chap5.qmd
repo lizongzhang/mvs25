@@ -1,0 +1,31 @@
+---
+title: "第5章"
+---
+
+# 第5章 判别分析
+
+## 第5章 判别分析
+
+<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Chap 5 讲义](https://lizongzhang.github.io/mvs/chap5.html)
+
+<img src="img/link.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Chap 5 R代码](https://lizongzhang.github.io/mvs/5DA.html)
+
+<img src="img/link.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Chap 5 案例R代码](https://lizongzhang.github.io/mvs/5DAcase.html)
+
+##  R视频  
+  
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——第1步判别函数的估计 MASS::lda()](https://www.bilibili.com/video/BV1Ad4y1B7Qj/)
+      
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——第2步 预测 MASS::predict()](https://www.bilibili.com/video/BV1Ee411j7k7/)
+      
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——第3步 评估预测效果](https://www.bilibili.com/video/BV1ae4y1z7wB/)
+
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——第4步 可视化呈现](https://www.bilibili.com/video/BV1YN4y1A7pA/)
+      
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——教材案例5.1讲评](https://www.bilibili.com/video/BV1Sd4y1v728/)
+      
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——教材习题5.3讲评](https://www.bilibili.com/video/BV1R14y187xf/)      
+      
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——教材习题5.5讲评](https://www.bilibili.com/video/BV1PG411E7FZ/)
+
+  
