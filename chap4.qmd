@@ -6,9 +6,9 @@ title: "第4章"
 
 <img src="img/teacher.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap4 讲义](https://lizongzhang.github.io/mvs25/chap4slide.html)
 
-<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap4 R代码](https://lizongzhang.github.io/mvs/4CA.html)
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap4 R代码](https://lizongzhang.github.io/mvs25/4R.html)
   
-<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap4 习题代码](https://lizongzhang.github.io/mvs/4CAsolution.html)
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap4 习题代码](https://lizongzhang.github.io/mvs25/4solutions.html)
   
 # R软件操作 
     
