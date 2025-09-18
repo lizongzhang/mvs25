@@ -1,0 +1,233 @@
+[
+  {
+    "objectID": "chap4.html",
+    "href": "chap4.html",
+    "title": "第4章",
+    "section": "",
+    "text": "Chap4 讲义\nChap4 R代码\nChap4 习题代码"
+  },
+  {
+    "objectID": "chap4.html#题目1",
+    "href": "chap4.html#题目1",
+    "title": "第4章",
+    "section": "题目1",
+    "text": "题目1"
+  },
+  {
+    "objectID": "chap4.html#拓展资源",
+    "href": "chap4.html#拓展资源",
+    "title": "第4章",
+    "section": "拓展资源",
+    "text": "拓展资源\n如何从中国知网下载统计数据？\n八爪鱼客户端抓取网页数据？\n如何用Excel整理提取的网页数据？"
+  },
+  {
+    "objectID": "chap5.html",
+    "href": "chap5.html",
+    "title": "第5章",
+    "section": "",
+    "text": "Chap 5 讲义\nChap 5 R代码\nChap 5 案例R代码\n\n\n\n判别分析在R中的实现——第1步判别函数的估计 MASS::lda()\n判别分析在R中的实现——第2步 预测 MASS::predict()\n判别分析在R中的实现——第3步 评估预测效果\n判别分析在R中的实现——第4步 可视化呈现\n判别分析在R中的实现——教材案例5.1讲评\n判别分析在R中的实现——教材习题5.3讲评\n判别分析在R中的实现——教材习题5.5讲评"
+  },
+  {
+    "objectID": "chap5.html#第5章-判别分析-1",
+    "href": "chap5.html#第5章-判别分析-1",
+    "title": "第5章",
+    "section": "",
+    "text": "Chap 5 讲义\nChap 5 R代码\nChap 5 案例R代码"
+  },
+  {
+    "objectID": "chap5.html#r视频",
+    "href": "chap5.html#r视频",
+    "title": "第5章",
+    "section": "",
+    "text": "判别分析在R中的实现——第1步判别函数的估计 MASS::lda()\n判别分析在R中的实现——第2步 预测 MASS::predict()\n判别分析在R中的实现——第3步 评估预测效果\n判别分析在R中的实现——第4步 可视化呈现\n判别分析在R中的实现——教材案例5.1讲评\n判别分析在R中的实现——教材习题5.3讲评\n判别分析在R中的实现——教材习题5.5讲评"
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "课程安排和考核",
+    "section": "",
+    "text": "Table 1: 课程时间表\n\n\n\n\n\n周\n日期\n安排\n\n\n\n\n第1周\n20250904\n第1章 课程介绍和R操作回顾\n\n\n第2周\n20250911\n第4章 聚类分析 I\n\n\n第3周\n20250918\n第4章 聚类分析 II\n\n\n第4周\n20250925\n第5章 判别分析 案例讨论I\n\n\n第5周\n20251002\n国庆放假\n\n\n第6周\n20251009\n第6章 主成分分析\n\n\n第7周\n20251015\n第4-6章 习题讲评 测验及讲评 (上机开卷)\n\n\n第8周\n20251023\n第7章 因子分析I 案例讨论II\n\n\n第9周\n20251030\n第8章 对应分析\n\n\n第10周\n20251106\n第9章 典型相关分析 案例讨论III\n\n\n第11周\n20251113\n复习答疑\n\n\n第12周\n20251120\n小组作业汇报\n\n\n\n\n\n\nSee Table 1."
+  },
+  {
+    "objectID": "schedule.html#封面",
+    "href": "schedule.html#封面",
+    "title": "课程安排和考核",
+    "section": "封面",
+    "text": "封面\n题目 班级 学号 姓名"
+  },
+  {
+    "objectID": "schedule.html#前言",
+    "href": "schedule.html#前言",
+    "title": "课程安排和考核",
+    "section": "1 前言",
+    "text": "1 前言\n研究背景、选题动机、研究目标、要研究的问题\n\n研究背景：简述研究对象的现实背景\n选题动机：结合个人经验、兴趣或课程要求说明为什么选择这个主题\n研究目标：具体化（识别群体、寻找主要因素、建立判别规则）\n研究问题：本研究要回答什么问题"
+  },
+  {
+    "objectID": "schedule.html#数据概况",
+    "href": "schedule.html#数据概况",
+    "title": "课程安排和考核",
+    "section": "2 数据概况",
+    "text": "2 数据概况\n介绍数据来源、数据收集过程、解释变量的含义\n\n数据来源：说明数据的出处\n数据收集：解释数据是如何收集的，异常值、缺失值的处理等\n变量解释：变量的名称，含义，类型、单位、描述性统计量的报告。\n\n数据要求参见“小组作业”, 不可使用虚拟数据\n运用聚类/判别/主成分/因子/对应/典型相关分析方法，至少运用4中方法"
+  },
+  {
+    "objectID": "schedule.html#聚类分析",
+    "href": "schedule.html#聚类分析",
+    "title": "课程安排和考核",
+    "section": "3 聚类分析",
+    "text": "3 聚类分析\n3.1 分析目的\n\n明确聚类的意图：划分群体、发现模式\n\n3.2 方法选择\n\n层次聚类或K-means聚类\n说明选择理由（样本量、可解释性）\n\n3.3 分析过程\n\n变量标准化方法\n聚类方法和距离度量（欧氏距离、最短距离法）\n聚类数目确定依据（树状图、拐点法）\n\n3.4 结果与解释\n\n用树状图或散点图展示结果\n描述每类的特征（平均值、分布差异）"
+  },
+  {
+    "objectID": "schedule.html#判别分析",
+    "href": "schedule.html#判别分析",
+    "title": "课程安排和考核",
+    "section": "4 判别分析",
+    "text": "4 判别分析\n4.1 分析目的\n\n根据已知分组建立判别函数，用于分类\n\n4.2 方法选择\n\nFisher判别或逐步判别法\n判别变量选择标准（Wilks’ Lambda）\n\n4.3 分析过程\n\n建立判别函数，给出系数\n交叉验证或留一法评价判别正确率\n\n4.4 结果与解释\n\n判别准确率表格\n分析误判情况和原因"
+  },
+  {
+    "objectID": "schedule.html#主成分分析",
+    "href": "schedule.html#主成分分析",
+    "title": "课程安排和考核",
+    "section": "5 主成分分析",
+    "text": "5 主成分分析\n5.1 分析目的\n\n降维、提取主要信息\n\n5.2 分析过程\n\n相关矩阵/协方差矩阵\n特征值&gt;1原则、累计贡献率≥85%\n碎石图展示拐点\n\n5.3 结果解释\n\n主成分载荷矩阵解释变量含义\n给出主成分得分函数"
+  },
+  {
+    "objectID": "schedule.html#因子分析",
+    "href": "schedule.html#因子分析",
+    "title": "课程安排和考核",
+    "section": "6 因子分析",
+    "text": "6 因子分析\n6.1 分析目的\n\n探索潜在因子，简化变量结构\n\n6.2 分析过程\n\nKMO和Bartlett检验结果\n因子提取方法：主成分法、最大似然法\n因子旋转\n\n6.3 结果解释\n\n因子载荷表\n命名各因子"
+  },
+  {
+    "objectID": "schedule.html#对应分析",
+    "href": "schedule.html#对应分析",
+    "title": "课程安排和考核",
+    "section": "7 对应分析",
+    "text": "7 对应分析\n7.1 分析目的\n\n探索两个类别变量的关联关系，将列联表降维至二维空间，用图形直观展示类别间的亲疏关系。\n\n7.2 分析过程\n\n构建行×列列联表，进行卡方独立性检验；\n若显著，进行对应分析，提取前两维；\n绘制对应图展示行、列类别的位置关系。\n\n7.3 结果解释\n\n对应图中点距离越近，说明该类别组合越常出现；\n可识别相似类别的聚集和差异"
+  },
+  {
+    "objectID": "schedule.html#典型相关分析",
+    "href": "schedule.html#典型相关分析",
+    "title": "课程安排和考核",
+    "section": "8 典型相关分析",
+    "text": "8 典型相关分析\n8.1 分析目的\n\n研究两组连续变量之间的整体相关性，提取相关性最强的线性组合。\n\n8.2 分析过程\n\n将变量划分为两组，计算协方差矩阵；\n进行典型相关分析，得到典型相关系数及显著性检验（如Wilks’ Lambda）；\n保留显著的前1–2对典型变量。\n\n8.3 结果解释\n\n报告第一对典型变量的系数和载荷；\n解读两组变量的关系"
+  },
+  {
+    "objectID": "schedule.html#结论和展望",
+    "href": "schedule.html#结论和展望",
+    "title": "课程安排和考核",
+    "section": "9 结论和展望",
+    "text": "9 结论和展望\n\n总结主要发现\n研究不足\n展望未来研究方向\n课程感想"
+  },
+  {
+    "objectID": "chap7.html",
+    "href": "chap7.html",
+    "title": "第7章",
+    "section": "",
+    "text": "chap 7 讲义\n Chap 7 R代码\n Chap 7 习题代码"
+  },
+  {
+    "objectID": "chap7.html#第7章-因子分析",
+    "href": "chap7.html#第7章-因子分析",
+    "title": "第7章",
+    "section": "",
+    "text": "chap 7 讲义\n Chap 7 R代码\n Chap 7 习题代码"
+  },
+  {
+    "objectID": "chap1.html",
+    "href": "chap1.html",
+    "title": "第1章",
+    "section": "",
+    "text": "Chap 1 讲义\nR Introduction\nR中的常用统计分析工具\n\nUseful links\n\nggplot2 Aesthetic specifications https://ggplot2.tidyverse.org/articles/ggplot2-specs.html\nHTML COLOR CODES https://htmlcolorcodes.com\nColors in R http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf"
+  },
+  {
+    "objectID": "chap1.html#讨论题1",
+    "href": "chap1.html#讨论题1",
+    "title": "第1章",
+    "section": "讨论题1",
+    "text": "讨论题1\n阅读下述推文\n微信公众号狗熊会&gt;案例图书&gt;精品案例&gt;No.1探索性数据分析: 谁在看直播——基于RFM的粉丝聚类\n微信公众号狗熊会&gt;案例图书&gt;精品案例&gt;No4.机器学习:基于KNN的B站“哈尔滨旅游”视频热度分析\n1.1 数据来源？\n1.2 样本容量？\n1.3 研究中使用了哪些变量？\n1.4 使用了哪些统计方法？\n1.5 得出哪些有价值的结论？"
+  },
+  {
+    "objectID": "chap1.html#学习素材",
+    "href": "chap1.html#学习素材",
+    "title": "第1章",
+    "section": "学习素材",
+    "text": "学习素材\n狗熊会(微信公众号) https://www.xiong99.com.cn/\nUCLA Data Analysis Examples https://stats.oarc.ucla.edu/other/dae/\nThe Data And Story Library https://dasl.datadescription.com/"
+  },
+  {
+    "objectID": "chap1.html#数据库",
+    "href": "chap1.html#数据库",
+    "title": "第1章",
+    "section": "数据库",
+    "text": "数据库\nCSMAR 国泰安经济金融数据库 http://www.gtarsc.com/Home\n中国家庭追踪调查 CFPS http://www.isss.pku.edu.cn/cfps/\n中国家庭金融调查数据 CHFS https://chfs.swufe.edu.cn\n中国健康与养老数据追踪调查数据CHARLS http://charls.pku.edu.cn\n暨南大学社会调查中心 https://sdc-iesr.jnu.edu.cn\n Kaggle https://www.kaggle.com/"
+  },
+  {
+    "objectID": "chap1.html#r相关",
+    "href": "chap1.html#r相关",
+    "title": "第1章",
+    "section": "R相关",
+    "text": "R相关\nCRAN Task Views https://cran.r-project.org/web/views/\nMost Downloaded R Packages https://www.r-pkg.org/\nRStudio Cloud https://rstudio.cloud/"
+  },
+  {
+    "objectID": "4solutions.html",
+    "href": "4solutions.html",
+    "title": "4 聚类分析习题答案",
+    "section": "",
+    "text": "P75, textbook ex4.1\n将ex4.1.csv另存为ex4.1.xlsx，再导入。\n  点击下载数据文件: ex4.1.xlsx \n\n#安装包\n#install.packages(\"tidyverse\")\n#install.packages(\"dendextend\")\n#install.packages(\"cluster\")\n#install.packages(\"purrr\")\n#install.packages(\"readr\")\n#install.packages(\"readxl\")\n\n\n#导入数据\nlibrary(readxl)\nlibrary(tidyverse)\nex4_1 &lt;- read_excel(\"ex4.1.xlsx\") %&gt;% as.data.frame()\n\n#给数据框添加行名\nrownames(ex4_1) &lt;- ex4_1$brand\n\n# Agglomerative Nesting (Hierarchical Clustering)\n# 加载包cluster\nlibrary(cluster)\nex4_1.hc &lt;- agnes(ex4_1, # 数据框\n                     stand = TRUE, # 对变量进行标准化变换\n                     metric = \"euclidean\", # 个案之间的距离测度\n                     method = \"ward\" # 类间距离定义\n)\n\n#查看聚类模型\nex4_1.hc\n\nCall:    agnes(x = ex4_1, metric = \"euclidean\", stand = TRUE, method = \"ward\") \nAgglomerative coefficient:  0.8360097 \nOrder of objects:\n [1] Budweiser     Coors         Hamms         Heilemans-old Coorslicht   \n [6] Ionenbrau     Michelos-lich Aucsberger    Schlitz       Strchs-bohemi\n[11] Old-milnaukee Kronensourc   Heineken      Kkirin        Secrs        \n[16] Miller-lite   Schlite-light Sudeiser-lich Pabst-extral  Olympia-gold \nHeight (summary):\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n 0.6316  1.4611  2.1845  3.1149  3.6032 10.7767 \n\nAvailable components:\n[1] \"order\"     \"height\"    \"ac\"        \"merge\"     \"diss\"      \"call\"     \n[7] \"method\"    \"order.lab\" \"data\"     \n\n#查看agglomerative coefficient聚合系数，越接近于1，代表聚类结构越强\nex4_1.hc$ac\n\n[1] 0.8360097\n\n#保存聚类结果\nex4_1$cluster &lt;- cutree(ex4_1.hc, k=3)\n\n\n#绘制树状图dendrogram\n# install.package(\"factoextra\")\nlibrary(factoextra)\n\nfviz_dend(ex4_1.hc)\n\n\n\n\n\n\n\nfviz_dend(ex4_1.hc, k= 3, cex = 0.6)\n\n\n\n\n\n\n\n\n\n# 自定义树状图分支及标签颜色、字体、添加矩形框\nfviz_dend(ex4_1.hc, \n          k = 3, # 分三类\n          cex = 0.7, # 标签字体\n          k_colors = c(4,5,6),#分支颜色\n          color_labels_by_k = TRUE, # 标签上色\n          rect = TRUE, # 添加矩形框 \n          rect_fill = TRUE, #矩形框底色\n          lower_rect = -6, #矩形框下沿\n          lwd = 1.2, #线条宽度\n          ggtheme = theme_minimal() #主题色\n)\n\n\n\n\n\n\n\n# 圆形树状图\nfviz_dend(ex4_1.hc, \n          k = 3, # 分三类\n          cex = 0.5, # 标签字体\n          k_colors = c(4,5,6),#分支颜色\n          color_labels_by_k = TRUE, # 标签上色\n          lwd = 1.2, #线条宽度\n          type = \"circular\", #圆形\n          ggtheme = theme_gray() #主题\n)\n\n\n\n\n\n\n\n# 支流树状图\nfviz_dend(ex4_1.hc, \n          k = 3, # 分三类\n          cex = 0.7, # 标签字体\n          k_colors = c(4,5,6),#分支颜色\n          color_labels_by_k = TRUE, # 标签上色\n          type = \"phylogenic\", # 支流\n          ggtheme = theme_bw() #主题\n)\n\n\n\n\n\n\n\n\n\ndend.ward &lt;- ex4_1 %&gt;% \n  select(热量:价格) %&gt;% \n  scale() %&gt;% \n  dist() %&gt;% \n  hclust(\"ward.D\")%&gt;% \n  as.dendrogram()\n\n\ndend.average &lt;- ex4_1 %&gt;% \n  select(热量:价格) %&gt;% \n  scale() %&gt;% \n  dist() %&gt;% \n  hclust(\"average\") %&gt;% \n  as.dendrogram() \n\n\nlibrary(dendextend)\ntanglegram(dend.ward,dend.average,\n           k_labels = 3,\n           k_branches = 3,\n           main_left = \"ward.D linkage\",\n           main_right = \"average linkage\",\n           sort = T,\n           margin_inner = 6,\n           type = \"t\",\n           highlight_distinct_edges = F,\n           highlight_branches_lwd = F,\n           main = paste(\"entanglement =\", \n                        round(entanglement(\n                          dend.ward,dend.average), 2)),\n           cex_main = 1.2\n)\n\n\n\n\n\n\n\n\n\n#完全一致的分类结果，缠绕系数等于0\ndend.ward2 &lt;- ex4_1 %&gt;% \n  select(热量:价格) %&gt;% \n  scale() %&gt;% \n  dist() %&gt;% \n  hclust(\"ward.D2\") %&gt;% \n  as.dendrogram() \n\ntanglegram(dend.ward,dend.ward2,\n           k_labels = 3,\n           k_branches = 3,\n           main_left = \"Ward.D Linkage\",\n           main_right = \"Ward.D2 Linkage\",\n           margin_inner = 6,\n           highlight_distinct_edges = F,\n           highlight_branches_lwd = F,\n           main = paste(\"entanglement =\", \n                        round(entanglement(\n                          dend.ward,dend.ward2,), 2)),\n           cex_main = 1.2\n)\n\n\n\n\n\n\n\n\n\n\nP75, textbook ex4.3\n  点击下载数据文件: ex4.3.xlsx \n\n#避免ex4.3.csv导入时汉字会变乱码的问题\n#在Excel中将教材配套的ex4.3.csv另存为ex4.3.xlsx\n#导入\"ex4.3.xlsx\"文件\nlibrary(readxl)\nlibrary(tidyverse)\n\nex4_3 &lt;- read_excel(\"ex4.3.xlsx\") %&gt;% \n  as.data.frame() %&gt;% #保存为数据框\n  rename(city = ...1, so2 = x1, no2 = x2, pm10 = x3,\n         co = x4, o3 = x5, pm2.5 = x6, good = x7)\n\nNew names:\n• `` -&gt; `...1`\n\n#创建数据框elbow, 9行2列，列名分别为k和tot_withinss\n#用于存放分类数k，分2-10类\n#以及within-group sum of squares（tot_withinss），组内平方和\n#用于绘制elbow plot, tot_withinss下降最快处，即K值\n\nelbow &lt;- data.frame(matrix(ncol = 2, nrow = 9))\ncolnames(elbow) &lt;- c('k', 'tot_withinss')\n\n#K均值聚类,k= 2,3,4,5,6,..10\nfor (i in (2:10)) {\n  ex4_3_kmeans &lt;- \n    ex4_3 %&gt;%\n    select(so2:good) %&gt;% \n    scale() %&gt;% \n    kmeans(centers = i)\n  ex4_3[, paste0(\"cluster\",i)] &lt;- ex4_3_kmeans$cluster\n  print(paste(\"Number of Clusters:\", i))\n  print(ex4_3_kmeans$tot.withinss)\n  print(table(ex4_3_kmeans$cluster))\n  elbow[i-1,1] &lt;- i\n  elbow[i-1,2] &lt;- ex4_3_kmeans$tot.withinss\n}\n\n[1] \"Number of Clusters: 2\"\n[1] 425.6854\n\n 1  2 \n65 48 \n[1] \"Number of Clusters: 3\"\n[1] 307.9599\n\n 1  2  3 \n56 22 35 \n[1] \"Number of Clusters: 4\"\n[1] 258.7375\n\n 1  2  3  4 \n44 27 17 25 \n[1] \"Number of Clusters: 5\"\n[1] 222.7558\n\n 1  2  3  4  5 \n26 22 32 16 17 \n[1] \"Number of Clusters: 6\"\n[1] 195.3154\n\n 1  2  3  4  5  6 \n26 15 18 26 11 17 \n[1] \"Number of Clusters: 7\"\n[1] 182.1412\n\n 1  2  3  4  5  6  7 \n20 28  7  7 25 10 16 \n[1] \"Number of Clusters: 8\"\n[1] 171.5312\n\n 1  2  3  4  5  6  7  8 \n11 20 16 16 18  9 12 11 \n[1] \"Number of Clusters: 9\"\n[1] 157.6378\n\n 1  2  3  4  5  6  7  8  9 \n16 17 10  5 20  6 16  5 18 \n[1] \"Number of Clusters: 10\"\n[1] 148.2836\n\n 1  2  3  4  5  6  7  8  9 10 \n10 10  7 17 13  8 15  6  6 21 \n\n\n\n# Plot the elbow plot\nggplot(elbow, aes(k, tot_withinss)) +\n  geom_line() +\n  scale_x_continuous(breaks = 1:10)\n\n\n\n\n\n\n\n#分3类\ntable(ex4_3$cluster3)\n\n\n 1  2  3 \n56 22 35 \n\n#列出每组有哪些城市\nfor (i in 1:3) {\n  print(ex4_3$city[ex4_3$cluster3 == i]) \n}\n\n [1] \"北京\"     \"秦皇岛\"   \"大同\"     \"呼和浩特\" \"包头\"     \"沈阳\"    \n [7] \"鞍山\"     \"抚顺\"     \"锦州\"     \"长春\"     \"吉林\"     \"哈尔滨\"  \n[13] \"上海\"     \"南京\"     \"无锡\"     \"常州\"     \"苏州\"     \"南通\"    \n[19] \"连云港\"   \"扬州\"     \"镇江\"     \"杭州\"     \"湖州\"     \"绍兴\"    \n[25] \"合肥\"     \"芜湖\"     \"马鞍山\"   \"南昌\"     \"青岛\"     \"枣庄\"    \n[31] \"潍坊\"     \"济宁\"     \"日照\"     \"开封\"     \"三门峡\"   \"武汉\"    \n[37] \"宜昌\"     \"荆州\"     \"长沙\"     \"株洲\"     \"湘潭\"     \"广州\"    \n[43] \"重庆\"     \"成都\"     \"自贡\"     \"泸州\"     \"德阳\"     \"南充\"    \n[49] \"宜宾\"     \"铜川\"     \"宝鸡\"     \"延安\"     \"兰州\"     \"西宁\"    \n[55] \"石嘴山\"   \"乌鲁木齐\"\n [1] \"天津\"   \"石家庄\" \"唐山\"   \"邯郸\"   \"保定\"   \"太原\"   \"阳泉\"   \"长治\"  \n [9] \"临汾\"   \"徐州\"   \"济南\"   \"淄博\"   \"泰安\"   \"郑州\"   \"洛阳\"   \"平顶山\"\n[17] \"安阳\"   \"焦作\"   \"西安\"   \"咸阳\"   \"渭南\"   \"银川\"  \n [1] \"赤峰\"     \"大连\"     \"本溪\"     \"齐齐哈尔\" \"牡丹江\"   \"宁波\"    \n [7] \"温州\"     \"福州\"     \"厦门\"     \"泉州\"     \"九江\"     \"烟台\"    \n[13] \"岳阳\"     \"常德\"     \"张家界\"   \"韶关\"     \"深圳\"     \"珠海\"    \n[19] \"汕头\"     \"湛江\"     \"南宁\"     \"柳州\"     \"桂林\"     \"北海\"    \n[25] \"海口\"     \"攀枝花\"   \"绵阳\"     \"贵阳\"     \"遵义\"     \"昆明\"    \n[31] \"曲靖\"     \"玉溪\"     \"拉萨\"     \"金昌\"     \"克拉玛依\"\n\nclusterdf &lt;- data.frame(matrix(ncol = 2, nrow = 3))\ncolnames(clusterdf) &lt;- c('cluster', 'area')\n\nfor(i in 1:3){\n  clusterdf[i,1] = i\n  clusterdf[i,2] = \n    paste(ex4_3$city[ex4_3$cluster3 == i],collapse = \",\")\n}\n\nclusterdf %&gt;% \n  as_tibble() %&gt;% \n  view()\n\n\n#计算各组污染指标的均值\nex4_3 %&gt;% \n  select(so2:good, cluster3) %&gt;% \n  group_by(cluster3) %&gt;% \n  summarise_all(list(mean)) %&gt;% \n  arrange(desc(good)) #descending\n\n# A tibble: 3 × 8\n  cluster3   so2   no2  pm10    co    o3 pm2.5  good\n     &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1        3  14.2  26.5  58.7  1.37  135.  34.2  329.\n2        1  19.8  40.6  83.9  1.80  163.  49.4  257.\n3        2  32.9  48.3 122.   2.81  196.  69.2  176.\n\n#绘制各组污染指标的箱线图\nfor(i in 2:8){\n  print(\n    ggplot(ex4_3, aes(ex4_3[,i], col = 1,\n                      fill = factor(cluster3)))+\n      geom_boxplot()+\n      facet_wrap(~cluster3,ncol = 1)+\n      labs(x = colnames(ex4_3)[i]))\n  Sys.sleep(1) #图片切换的时长\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npar(mfrow = c(2,4),mai = c(0.6,0.6,0.2,0.1),cex = 0.7)\nfor (i in 2:8) {\n  y &lt;- ex4_3[[i]]\n  boxplot(y ~ ex4_3$cluster3, col = c(3,4,5),\n          main = colnames(ex4_3)[i])\n}\n\n\n\n\n\n\n\n\n\n#绘制各组污染指标的直方图\n\nfor(i in 2:8){\n  print(\n    ggplot(ex4_3, aes(ex4_3[,i], col = 1,\n                      fill = factor(cluster3)))+\n      geom_histogram()+\n      facet_wrap(~cluster3,ncol = 1)+\n      labs(x = colnames(ex4_3)[i]))\n  Sys.sleep(1)\n}\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+  },
+  {
+    "objectID": "chap6.html",
+    "href": "chap6.html",
+    "title": "第6章",
+    "section": "",
+    "text": "Chap 6 讲义\nChap 6 R代码\nPCA explained visually\n\nB站视频\n\n主成分分析在R中的实现——prcomp函数的运用 例题6.1\n主成分分析的应用——31省区居民消费分析 习题6.7讲评\n主成分分析的可视化工具——相关圈和散点图的绘制 例题6.1"
+  },
+  {
+    "objectID": "chap6.html#第6章-主成分分析",
+    "href": "chap6.html#第6章-主成分分析",
+    "title": "第6章",
+    "section": "",
+    "text": "Chap 6 讲义\nChap 6 R代码\nPCA explained visually\n\nB站视频\n\n主成分分析在R中的实现——prcomp函数的运用 例题6.1\n主成分分析的应用——31省区居民消费分析 习题6.7讲评\n主成分分析的可视化工具——相关圈和散点图的绘制 例题6.1"
+  },
+  {
+    "objectID": "Rintro.html#大纲",
+    "href": "Rintro.html#大纲",
+    "title": "R快速入门",
+    "section": "大纲",
+    "text": "大纲\n\n1.1 R主界面\n1.2 安装包\n1.3 项目的创建与管理\n1.4 R代码学习方法建议\n1.5 常用R代码"
+  },
+  {
+    "objectID": "Rintro.html#rstudio的界面",
+    "href": "Rintro.html#rstudio的界面",
+    "title": "R快速入门",
+    "section": "1.1 RStudio的界面",
+    "text": "1.1 RStudio的界面"
+  },
+  {
+    "objectID": "Rintro.html#安装包",
+    "href": "Rintro.html#安装包",
+    "title": "R快速入门",
+    "section": "1.2 安装包",
+    "text": "1.2 安装包\n\ntidyverse\n\n一系列用于数据导入、清洗、转换、可视化与建模的 R 包\n\n\n\n\nR代码: 安装包\n\n# 安装单个包\ninstall.packages(\"tidyverse\")\n\ninstall.packages(\"psych\")\n\n# 安装多个包\ninstall.packages(c(\"tidyverse\", \"psych\"))\n\n\n\n\nR代码: 查看包是否需要更新\n\noptions(repos = c(CRAN = \"https://cloud.r-project.org\")) #使用主镜像\navailable.packages()[\"survminer\", \"Version\"]\n\n[1] \"0.5.1\"\n\n\n\n\n\n安装包的常见问题\n\n安装包的速度太慢，切换到国内镜像\n安装了包后，还需要加载包，方可调用包中的函数\ncould not find function “XXX”"
+  },
+  {
+    "objectID": "Rintro.html#项目的创建与管理",
+    "href": "Rintro.html#项目的创建与管理",
+    "title": "R快速入门",
+    "section": "1.3 项目的创建与管理",
+    "text": "1.3 项目的创建与管理\n\n创建项目的好处\n\n项目创建后，所有相对路径都以项目文件夹为根目录\n不再需要使用 setwd() 指定工作目录，减少路径错误\n便于协作与再现\n团队成员只需克隆项目文件夹，即可重现整个分析过程\n\n\n\n\n项目文件的管理\n\n数据文件及其导入\n代码\n导出的文件：图片, Word, PDF等"
+  },
+  {
+    "objectID": "Rintro.html#r代码学习方法建议",
+    "href": "Rintro.html#r代码学习方法建议",
+    "title": "R快速入门",
+    "section": "1.4 R代码学习方法建议",
+    "text": "1.4 R代码学习方法建议\n学习代码: 参数项(需要修改的/不需要改动的)\n录入代码\n查看函数帮助\nAI工具的使用"
+  },
+  {
+    "objectID": "Rintro.html#r常用代码",
+    "href": "Rintro.html#r常用代码",
+    "title": "R快速入门",
+    "section": "1.5 R常用代码",
+    "text": "1.5 R常用代码\n\n\n1.5.1 管道符\n\n安装和加载包tidyverse\n\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n# %&gt;% 快捷键\n# Windows: Ctrl + Shift + M\n# Mac OS : Cmd + Shift + M\n\n\n\n\nCode\nx &lt;- runif(10,0,1)\nx\n\n\n [1] 0.8759192 0.7197084 0.6042939 0.8650551 0.1491360 0.3570960 0.6095346\n [8] 0.6629744 0.8413687 0.2888475\n\n\nCode\nround(sqrt(abs(log(x))),2)\n\n\n [1] 0.36 0.57 0.71 0.38 1.38 1.01 0.70 0.64 0.42 1.11\n\n\nCode\ny &lt;- log(x)\nz &lt;- abs(y)\nw &lt;- sqrt(z)\nv &lt;- round(w,2)\nsort(v)\n\n\n [1] 0.36 0.38 0.42 0.57 0.64 0.70 0.71 1.01 1.11 1.38\n\n\nCode\nx %&gt;% \n  log() %&gt;% \n  abs() %&gt;% \n  sqrt() %&gt;% \n  round(2) %&gt;% \n  sort()\n\n\n [1] 0.36 0.38 0.42 0.57 0.64 0.70 0.71 1.01 1.11 1.38\n\n\n\n\npi %&gt;% \n  round(2)\n\n[1] 3.14\n\n2 %&gt;% \n  round(pi,.)\n\n[1] 3.14\n\n6 %&gt;% \n  round(pi,.)\n\n[1] 3.141593\n\n6 %&gt;% \n  round()\n\n[1] 6\n\n\n\n\n#占位符\npaste(1:3, letters[1:3])\n\n[1] \"1 a\" \"2 b\" \"3 c\"\n\n1:3 %&gt;% \n  paste(.,letters[.])\n\n[1] \"1 a\" \"2 b\" \"3 c\"\n\n\n\n\n\n1.5.2 数据管理\n\n筛选个案：filter()\n选择变量：select()\n追加变量：mutate()\n重命名：rename(新名 = 旧名)\n条件转换：二值转换if_else()\n条件转换：多值转换case_when()\n\n\n\nfilter(), select(), mutate()\n\n\nCode\ndata(mpg)\n\n#1 miles per gallon = 0.425 kilometers per liter\n\nmpg %&gt;% \n  filter(year == 1999) %&gt;% \n  select(displ,cty, hwy,trans) %&gt;% \n  arrange(displ) %&gt;% \n  mutate(cty.kpl = 0.425*cty, \n               hwy.kpl = 0.425*hwy) %&gt;% \n  mutate(transmission = \n           if_else(substring(trans, 1,4) == \"auto\", \n                   \"auto\",\"manual\"))\n\n\n# A tibble: 117 × 7\n   displ   cty   hwy trans      cty.kpl hwy.kpl transmission\n   &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;       \n 1   1.6    28    33 manual(m5)   11.9     14.0 manual      \n 2   1.6    24    32 auto(l4)     10.2     13.6 auto        \n 3   1.6    25    32 manual(m5)   10.6     13.6 manual      \n 4   1.6    23    29 manual(m5)    9.78    12.3 manual      \n 5   1.6    24    32 auto(l4)     10.2     13.6 auto        \n 6   1.8    18    29 auto(l5)      7.65    12.3 auto        \n 7   1.8    21    29 manual(m5)    8.92    12.3 manual      \n 8   1.8    18    26 manual(m5)    7.65    11.0 manual      \n 9   1.8    16    25 auto(l5)      6.8     10.6 auto        \n10   1.8    24    30 auto(l3)     10.2     12.8 auto        \n# ℹ 107 more rows\n\n\n\n\nmpgnew &lt;- mpg %&gt;% \n  filter(year == 1999) %&gt;% \n  select(displ,cty, hwy,trans) %&gt;% \n  arrange(displ) %&gt;% \n  mutate(cty.kpl = 0.425*cty, \n               hwy.kpl = 0.425*hwy) %&gt;% \n  mutate(transmission = \n           if_else(substring(trans, 1,4) == \"auto\", \n                   \"auto\",\"manual\"))\n\n\n\n\n二值转换 if_else()\n\n#二值转换 if_else\n\nmpg$transmission &lt;- if_else(\n  substring(mpg$trans, 1,4) == \"auto\", \n  \"auto\",\"manual\") \n\n\n\n\n多值转换 case_when()\n\n#多值转换 case_when\nmpg$drive &lt;- case_when(\n  mpg$drv == \"f\" ~ \"front-wheel\",\n  mpg$drv == \"r\" ~ \"rear-wheel\",\n  mpg$drv == \"4\" ~ \"four-wheel\")\n\n\n\n\nggplot2——散点图\n\n\nCode\ndata(mpg)\n\nmpg %&gt;% \n  ggplot(aes(displ, cty))+\n  geom_point()+\n  geom_smooth(method = lm,\n              se = F)\n\n\n\n\n\n\n\n\n\n\n\nmpg %&gt;% \n  ggplot(aes(displ, cty,\n             color = drv,\n             shape = drv))+\n  geom_point()+\n  geom_smooth(method = lm,\n              se = F)\n\n\n\n\n\n\n\n\n\n\nmpg %&gt;% \n  ggplot(aes(displ, cty,\n             size = cyl,\n             shape = drv))+\n  geom_point()+\n  geom_smooth(method = lm,\n              se = F)\n\n\n\n\n\n\n\n\n\n\nmpg %&gt;% \n  ggplot(aes(displ, cty,\n             color = drv))+\n  geom_point()+\n  geom_smooth(method = lm,\n              se = F)\n\n\n\n\n\n\n\n\n\n\nmpg %&gt;% \n  ggplot(aes(displ, cty))+\n  geom_point(aes(color = drv))+\n  geom_smooth(method = lm,\n              se = F)\n\n\n\n\n\n\n\n\n\n\nmpg %&gt;% \n  ggplot(aes(displ, cty))+\n  geom_point()+\n  geom_smooth(aes(color = drv),\n              method = lm,\n              se = F)\n\n\n\n\n\n\n\n\n\n\n\nCode\nmpg %&gt;% \n  ggplot(aes(displ, cty,\n             color = drv))+\n  geom_point()+\n  geom_smooth(method = lm,\n              se = F)+\n  labs(x = \"Engine Size\",\n       y = \"MPG on the Cityway\",\n       title = \"Fuel Efficiency\")+\n  theme_light()+\n  theme(text = element_text(face = \"bold\",\n                            colour = \"blue\"),\n        plot.title = element_text(hjust = 0.5))\n\n\n\n\n\n\n\n\n\n\n\n\n描述性统计量的报告\n\nsummary(mpg)\n\n manufacturer          model               displ            year     \n Length:234         Length:234         Min.   :1.600   Min.   :1999  \n Class :character   Class :character   1st Qu.:2.400   1st Qu.:1999  \n Mode  :character   Mode  :character   Median :3.300   Median :2004  \n                                       Mean   :3.472   Mean   :2004  \n                                       3rd Qu.:4.600   3rd Qu.:2008  \n                                       Max.   :7.000   Max.   :2008  \n      cyl           trans               drv                 cty       \n Min.   :4.000   Length:234         Length:234         Min.   : 9.00  \n 1st Qu.:4.000   Class :character   Class :character   1st Qu.:14.00  \n Median :6.000   Mode  :character   Mode  :character   Median :17.00  \n Mean   :5.889                                         Mean   :16.86  \n 3rd Qu.:8.000                                         3rd Qu.:19.00  \n Max.   :8.000                                         Max.   :35.00  \n      hwy             fl               class          \n Min.   :12.00   Length:234         Length:234        \n 1st Qu.:18.00   Class :character   Class :character  \n Median :24.00   Mode  :character   Mode  :character  \n Mean   :23.44                                        \n 3rd Qu.:27.00                                        \n Max.   :44.00                                        \n\n\n\n\nlibrary(psych)\ndescribe(mpg)\n\n              vars   n    mean    sd median trimmed   mad    min  max range\nmanufacturer*    1 234    7.76  5.13    6.0    7.68  5.93    1.0   15  14.0\nmodel*           2 234   19.09 11.15   18.5   18.98 14.08    1.0   38  37.0\ndispl            3 234    3.47  1.29    3.3    3.39  1.33    1.6    7   5.4\nyear             4 234 2003.50  4.51 2003.5 2003.50  6.67 1999.0 2008   9.0\ncyl              5 234    5.89  1.61    6.0    5.86  2.97    4.0    8   4.0\ntrans*           6 234    5.65  2.88    4.0    5.53  1.48    1.0   10   9.0\ndrv*             7 234    1.67  0.66    2.0    1.59  1.48    1.0    3   2.0\ncty              8 234   16.86  4.26   17.0   16.61  4.45    9.0   35  26.0\nhwy              9 234   23.44  5.95   24.0   23.23  7.41   12.0   44  32.0\nfl*             10 234    4.63  0.70    5.0    4.77  0.00    1.0    5   4.0\nclass*          11 234    4.59  1.99    5.0    4.64  2.97    1.0    7   6.0\n               skew kurtosis   se\nmanufacturer*  0.21    -1.63 0.34\nmodel*         0.11    -1.23 0.73\ndispl          0.44    -0.91 0.08\nyear           0.00    -2.01 0.29\ncyl            0.11    -1.46 0.11\ntrans*         0.29    -1.65 0.19\ndrv*           0.48    -0.76 0.04\ncty            0.79     1.43 0.28\nhwy            0.36     0.14 0.39\nfl*           -2.25     5.76 0.05\nclass*        -0.14    -1.52 0.13\n\n\n\n\n\n绘制学术论文中的表1\n\nlibrary(psych)\nlibrary(gt)\nmpg %&gt;% \n  select_if(is.numeric) %&gt;% \n  describe() %&gt;% \n  select(n,mean,sd, median, min,max) %&gt;% \n  round(3) %&gt;% \n  format(nsmall =3) %&gt;% \n  cbind(variable = c(\"displ\",\"year\",\"cyl\",\"cty\",\"hwy\"),.) %&gt;% \n  gt() %&gt;% \n  gtsave(filename = \"table1.docx\")\n\n\n\n\n相关系数及其可视化\n\n\nCode\nlibrary(tidyverse)\nlibrary(corrplot)\n\ndata(mtcars)\n\nmtcars %&gt;% \n  select(mpg:qsec) %&gt;% \n  cor() %&gt;% \n  round(3) %&gt;% \n  corrplot(addCoef.col = \"white\",\n           number.cex = 0.8,\n           number.digits = 3,\n           tl.cex = 0.8,\n           tl.col = 1,\n           cl.length = 11,\n           mar = c(1,1,1,1))\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nmtcars %&gt;% \n  select(mpg:qsec) %&gt;% \n  cor() %&gt;% \n  round(3) %&gt;% \n  corrplot(addCoef.col = \"white\",\n           number.cex = 0.8,\n           number.digits = 3,\n           tl.cex = 0.8,\n           tl.col = 1,\n           cl.length = 11,\n           type = \"upper\",\n           method = \"square\")\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nlibrary(psych)\n\ngr &lt;- colorRampPalette(c(\"#B52127\", \"white\", \"#2171B5\"))\n\ngr &lt;- colorRampPalette(c(\"purple\", \"white\", \"cyan\"))\n\nmtcars %&gt;% \n  select(mpg:qsec) %&gt;% \n  cor.plot(cex = 0.6,\n           stars = TRUE,\n           gr = gr,\n           cex.axis = 0.8)"
+  }
+]
