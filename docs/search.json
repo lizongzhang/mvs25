@@ -404,5 +404,47 @@
     "title": "L4 K-modes聚类分析",
     "section": "聚类步骤",
     "text": "聚类步骤\n\n初始化：随机选择K个原型（簇中心），数值部分取均值，分类部分取众数。\n分配簇：将每个样本分配给距离最近的簇（使用上面的混合距离度量）。\n更新簇中心：\n\n数值变量 → 取簇内均值\n分类变量 → 取簇内众数\n\n迭代，直到簇分配不再变化或达到最大迭代次数。"
+  },
+  {
+    "objectID": "L4kmodes.html#k-modes算法",
+    "href": "L4kmodes.html#k-modes算法",
+    "title": "L4 K-modes聚类分析",
+    "section": "K-modes算法",
+    "text": "K-modes算法\n\n初始化：随机选择K个个案作为初始簇中心\n分配步骤：计算每个样本与K个簇中心的距离（匹配差异系数），将样本分配到距离最近的簇\n更新步骤：对于每个簇，重新计算簇中心（众数）\n重复分配和更新步骤，直到簇中心不再变化或达到最大迭代次数"
+  },
+  {
+    "objectID": "L4kmodes.html#第1轮聚类结果",
+    "href": "L4kmodes.html#第1轮聚类结果",
+    "title": "L4 K-modes聚类分析",
+    "section": "第1轮聚类结果",
+    "text": "第1轮聚类结果"
+  },
+  {
+    "objectID": "L4kmodes.html#变量含义",
+    "href": "L4kmodes.html#变量含义",
+    "title": "L4 K-modes聚类分析",
+    "section": "变量含义",
+    "text": "变量含义"
+  },
+  {
+    "objectID": "L4kmodes.html#r包klar",
+    "href": "L4kmodes.html#r包klar",
+    "title": "L4 K-modes聚类分析",
+    "section": "R包：klaR",
+    "text": "R包：klaR\nklaR package"
+  },
+  {
+    "objectID": "L4kmodes.html#k-prototypes算法",
+    "href": "L4kmodes.html#k-prototypes算法",
+    "title": "L4 K-modes聚类分析",
+    "section": "k-prototypes算法",
+    "text": "k-prototypes算法\n距离度量\n\\[\nd(x_i, z_j) = \\sum_{k \\in \\text{numerical}}(x_{ik} - z_{jk})^2 +\n\\gamma \\sum_{l \\in \\text{categorical}} \\delta(x_{il}, z_{jl})\n\\]\n\n数值变量使用平方欧氏距离\n分类变量使用匹配/不匹配距离（相同=0，不同=1）\nγ 为权重系数，用于平衡数值和分类变量"
+  },
+  {
+    "objectID": "L4kmodes.html#r包clustmixtype",
+    "href": "L4kmodes.html#r包clustmixtype",
+    "title": "L4 K-modes聚类分析",
+    "section": "R包：clustMixType",
+    "text": "R包：clustMixType\nclustMixType package"
   }
 ]
