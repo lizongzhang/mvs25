@@ -4,11 +4,11 @@ title: "第4章"
 
 # 第4章 聚类分析
 
-<img src="img/teacher.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap4 系统聚类和Kmeans聚类 讲义](https://lizongzhang.github.io/mvs25/chap4slide.html)
+<img src="img/teacher.png" style="width: 24px; height: 24px;margin-right: 10px">[系统聚类和Kmeans聚类 讲义](https://lizongzhang.github.io/mvs25/chap4slide.html)
 
-<img src="img/code.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap4 系统聚类和K-means聚类 R代码](https://lizongzhang.github.io/mvs25/4R.html)
+<img src="img/code.png" style="width: 24px; height: 24px;margin-right: 10px">[系统聚类和K-means聚类 R代码](https://lizongzhang.github.io/mvs25/4R.html)
   
-<img src="img/teacher.png" style="width: 24px; height: 24px;margin-right: 10px">[Chap4 K-modes & K-prototypes 聚类分析讲义](https://lizongzhang.github.io/mvs25/L4kmodes.html)
+<img src="img/teacher.png" style="width: 24px; height: 24px;margin-right: 10px">[K-modes & K-prototypes 聚类讲义](https://lizongzhang.github.io/mvs25/L4kmodes.html)
 
 <img src="img/code.png" style="width: 24px; height: 24px;margin-right: 10px">[K-modes & K-prototypes R代码](https://lizongzhang.github.io/mvs25/kmodesR.html)
 
