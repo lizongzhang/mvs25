@@ -16,6 +16,18 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE,comment="")
 ```
 
+
+<a href="https://github.com/lizongzhang/mvs25/raw/main/supermarket.csv" 
+   target="_blank" 
+   style="text-decoration: none; display: inline-flex; align-items: center;">
+  <img src="img/download.png" 
+       alt="Download icon" 
+       style="width: 24px; height: 24px; margin-right: 8px;">
+  点击下载数据文件: supermarket.csv
+</a>
+
+
+
 # 加载必要的包
 
 ```{r message=FALSE}
