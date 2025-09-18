@@ -230,7 +230,7 @@ See @tbl-letters.
 
 # 往年测验
 
-<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[测验试卷](https://lizongzhang.github.io/mvs/2022-Multivariate-Stat-Quiz.html)
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[测验试卷](https://lizongzhang.github.io/mvs25/2022-Multivariate-Stat-Quiz.html)
 
 
 <details>
