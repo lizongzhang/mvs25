@@ -9,6 +9,9 @@ output:
 editor_options:
   markdown:
     wrap: 72
+execute:
+  warning: false
+  message: false
 ---
 
 
