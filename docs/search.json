@@ -4,7 +4,7 @@
     "href": "chap5.html",
     "title": "第5章",
     "section": "",
-    "text": "Chap 5 LDA讲义\nLDA R代码\n十项全能 案例R代码"
+    "text": "Chap 5 LDA讲义\nLDA R代码\n十项全能运动员LDA R代码"
   },
   {
     "objectID": "chap5.html#第5章-判别分析-1",
@@ -684,5 +684,12 @@
     "title": "5 LDA在R中的实现",
     "section": "1.2 检验LDA分析的假设是否成立",
     "text": "1.2 检验LDA分析的假设是否成立\n\n1.2.1 多元正态性检验\nMardia检验\n原假设:数据服从多元正态分布\n备择假设:数据不服从多元正态分布\n\n# 多元正态性检验（Mardia测试）\nMVN::mardia(iris[1:50, 1:4])\n\n             Test Statistic   p.value     Method\n1 Mardia Skewness 25.664345 0.1771859 asymptotic\n2 Mardia Kurtosis  1.294992 0.1953229 asymptotic\n\nMVN::mardia(iris[51:100, 1:4])\n\n             Test  Statistic   p.value     Method\n1 Mardia Skewness 25.1850115 0.1944445 asymptotic\n2 Mardia Kurtosis -0.5718664 0.5674125 asymptotic\n\nMVN::mardia(iris[101:150, 1:4])\n\n             Test  Statistic   p.value     Method\n1 Mardia Skewness 26.2705982 0.1570597 asymptotic\n2 Mardia Kurtosis  0.1526142 0.8787025 asymptotic\n\n\n\n\n1.2.2 检验不同类别的协方差矩阵是否相等\nBox’s M检验：检验多个类别的协方差矩阵是否相等\n\n原假设：所有类别的协方差矩阵相等\n备择假设：至少有一个类别的协方差矩阵与其他类别不同\n\n\nlibrary(biotools)\nboxM(iris[1:4], iris$Species)\n\n\n    Box's M-test for Homogeneity of Covariance Matrices\n\ndata:  iris[1:4]\nChi-Sq (approx.) = 140.94, df = 20, p-value &lt; 2.2e-16"
+  },
+  {
+    "objectID": "ldaR.html#分类边界的可视化-partition-plot",
+    "href": "ldaR.html#分类边界的可视化-partition-plot",
+    "title": "5 LDA在R中的实现",
+    "section": "3.3 分类边界的可视化 Partition plot",
+    "text": "3.3 分类边界的可视化 Partition plot\n\nLDA边界\n\nlibrary(klaR)\npartimat(Species ~., data = iris, method = \"lda\")\n\n\n\n\n\n\n\n\n\niris %&gt;% \n  group_by(Species) %&gt;%\n  summarise(across(everything(), mean))\n\n# A tibble: 3 × 5\n  Species    Sepal.Length Sepal.Width Petal.Length Petal.Width\n  &lt;fct&gt;             &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;\n1 setosa             5.01        3.43         1.46       0.246\n2 versicolor         5.94        2.77         4.26       1.33 \n3 virginica          6.59        2.97         5.55       2.03 \n\n\n\n\nQDA边界\n\npartimat(Species ~., data = iris, method = \"qda\")\n\n\n\n\n\n\n\n\n\n\nQDA边界,标记判别错误的个案\n\npartimat(Species ~ ., data = iris, method = \"qda\", \n         col.correct = \"green3\", col.wrong = \"red\")\n\n\n\n\n\n\n\n\n\npartimat() 创建分类边界的可视化图，展示每个特征对（如 Sepal.Length vs. Sepal.Width）的分类区域。\n每个子图显示 QDA 的决策边界，颜色或填充表示不同类别（Species: setosa, versicolor, virginica）。\n典型子图结构\n\nX轴和Y轴：两个特征（例如 Sepal.Length vs. Petal.Length）。\n颜色/填充区域：每个类别（setosa, versicolor, virginica）用不同颜色填充，代表 QDA 预测的分类区域。\n决策边界：曲线或非线性边界，分离不同类别区域。\n数据点：散点表示实际观测值，颜色对应其真实类别，用于验证边界准确性。\n表观错误率（apparent error rate，training error），即在训练集上模型的错误分类比例\n\n类别分离：setosa 与 versicolor/virginica 的分离较好，versicolor 和 virginica 边界较模糊，QDA 的非线性边界比 LDA 更贴合数据。\n协方差影响：QDA 允许每个类别的协方差矩阵不同，边界形状反映了数据分布的真实复杂性（例如 virginica 的 petall 特征方差较大）。\n误分类区域：重叠区域（versicolor/virginica）可能显示混合颜色，提示分类不确定性。"
   }
 ]

@@ -205,7 +205,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#椭圆" id="toc-椭圆" class="nav-link" data-scroll-target="#椭圆">椭圆</a></li>
   <li><a href="#箭头" id="toc-箭头" class="nav-link" data-scroll-target="#箭头">箭头</a></li>
   </ul></li>
-  <li><a href="#评估观测变量的贡献-partition-plot" id="toc-评估观测变量的贡献-partition-plot" class="nav-link" data-scroll-target="#评估观测变量的贡献-partition-plot">3.3 评估观测变量的贡献 Partition plot</a></li>
+  <li><a href="#分类边界的可视化-partition-plot" id="toc-分类边界的可视化-partition-plot" class="nav-link" data-scroll-target="#分类边界的可视化-partition-plot">3.3 分类边界的可视化 Partition plot</a>
+  <ul class="collapse">
+  <li><a href="#lda边界" id="toc-lda边界" class="nav-link" data-scroll-target="#lda边界">LDA边界</a></li>
+  <li><a href="#qda边界" id="toc-qda边界" class="nav-link" data-scroll-target="#qda边界">QDA边界</a></li>
+  <li><a href="#qda边界标记判别错误的个案" id="toc-qda边界标记判别错误的个案" class="nav-link" data-scroll-target="#qda边界标记判别错误的个案">QDA边界,标记判别错误的个案</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -621,13 +626,13 @@ Petal.Width  -2.8104603 -2.83918785</code></pre>
 </ul>
 </section>
 </section>
-<section id="评估观测变量的贡献-partition-plot" class="level2">
-<h2 class="anchored" data-anchor-id="评估观测变量的贡献-partition-plot">3.3 评估观测变量的贡献 Partition plot</h2>
+<section id="分类边界的可视化-partition-plot" class="level2">
+<h2 class="anchored" data-anchor-id="分类边界的可视化-partition-plot">3.3 分类边界的可视化 Partition plot</h2>
+<section id="lda边界" class="level3">
+<h3 class="anchored" data-anchor-id="lda边界">LDA边界</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partition plot</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(klaR)</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co">#线性判别</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">partimat</span>(Species <span class="sc">~</span>., <span class="at">data =</span> iris, <span class="at">method =</span> <span class="st">"lda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(klaR)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">partimat</span>(Species <span class="sc">~</span>., <span class="at">data =</span> iris, <span class="at">method =</span> <span class="st">"lda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -635,18 +640,65 @@ Petal.Width  -2.8104603 -2.83918785</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#二次判别</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">partimat</span>(Species <span class="sc">~</span>., <span class="at">data =</span> iris, <span class="at">method =</span> <span class="st">"qda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 5
+  Species    Sepal.Length Sepal.Width Petal.Length Petal.Width
+  &lt;fct&gt;             &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+1 setosa             5.01        3.43         1.46       0.246
+2 versicolor         5.94        2.77         4.26       1.33 
+3 virginica          6.59        2.97         5.55       2.03 </code></pre>
+</div>
+</div>
+</section>
+<section id="qda边界" class="level3">
+<h3 class="anchored" data-anchor-id="qda边界">QDA边界</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">partimat</span>(Species <span class="sc">~</span>., <span class="at">data =</span> iris, <span class="at">method =</span> <span class="st">"qda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ldaR_files/figure-html/unnamed-chunk-12-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ldaR_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="qda边界标记判别错误的个案" class="level3">
+<h3 class="anchored" data-anchor-id="qda边界标记判别错误的个案">QDA边界,标记判别错误的个案</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">partimat</span>(Species <span class="sc">~</span> ., <span class="at">data =</span> iris, <span class="at">method =</span> <span class="st">"qda"</span>, </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">col.correct =</span> <span class="st">"green3"</span>, <span class="at">col.wrong =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ldaR_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>partimat() 创建分类边界的可视化图，展示每个特征对（如 Sepal.Length vs.&nbsp;Sepal.Width）的分类区域。</p></li>
+<li><p>每个子图显示 QDA 的决策边界，颜色或填充表示不同类别（Species: setosa, versicolor, virginica）。</p></li>
+<li><p>典型子图结构</p>
+<ul>
+<li><p>X轴和Y轴：两个特征（例如 Sepal.Length vs.&nbsp;Petal.Length）。</p></li>
+<li><p>颜色/填充区域：每个类别（setosa, versicolor, virginica）用不同颜色填充，代表 QDA 预测的分类区域。</p></li>
+<li><p>决策边界：曲线或非线性边界，分离不同类别区域。</p></li>
+<li><p>数据点：散点表示实际观测值，颜色对应其真实类别，用于验证边界准确性。</p></li>
+<li><p>表观错误率（apparent error rate，training error），即在训练集上模型的错误分类比例</p></li>
+</ul></li>
+<li><p>类别分离：setosa 与 versicolor/virginica 的分离较好，versicolor 和 virginica 边界较模糊，QDA 的非线性边界比 LDA 更贴合数据。</p></li>
+<li><p>协方差影响：QDA 允许每个类别的协方差矩阵不同，边界形状反映了数据分布的真实复杂性（例如 virginica 的 petall 特征方差较大）。</p></li>
+<li><p>误分类区域：重叠区域（versicolor/virginica）可能显示混合颜色，提示分类不确定性。</p></li>
+</ul>
 
 
+</section>
 </section>
 </section>
 
