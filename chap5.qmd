@@ -10,6 +10,10 @@ title: "第5章"
 
 <img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[十项全能运动员LDA R代码](https://lizongzhang.github.io/mvs25/decathlon.html){target="_blank"}
 
+<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[L5 SVM讲义](https://lizongzhang.github.io/mvs25/L5svm.html){target="_blank"}
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[SVM在R中的实现](https://lizongzhang.github.io/mvs25/svmR.html){target="_blank"}
+
 #  R软件操作 
   
 <img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——第1步判别函数的估计 MASS::lda()](https://www.bilibili.com/video/BV1Ad4y1B7Qj/){target="_blank"}
@@ -73,3 +77,7 @@ title: "第5章"
 
 
 <img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[二元正态分布的可视化](https://englishessential-pmf-pdfmultivariate-normal-interactiv-q1rxuf.streamlit.app/){target="_blank"}
+
+
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[Github Copilot](https://github.com/features/copilot){target="_blank"}

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Li Zongzhang">
-<meta name="dcterms.date" content="2025-09-24">
+<meta name="dcterms.date" content="2025-09-25">
 
 <title>5 LDA在R中的实现 – 多元统计25秋</title>
 <style>
@@ -208,7 +208,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#分类边界的可视化-partition-plot" id="toc-分类边界的可视化-partition-plot" class="nav-link" data-scroll-target="#分类边界的可视化-partition-plot">3.3 分类边界的可视化 Partition plot</a>
   <ul class="collapse">
   <li><a href="#lda边界" id="toc-lda边界" class="nav-link" data-scroll-target="#lda边界">LDA边界</a></li>
-  <li><a href="#qda边界" id="toc-qda边界" class="nav-link" data-scroll-target="#qda边界">QDA边界</a></li>
   <li><a href="#qda边界标记判别错误的个案" id="toc-qda边界标记判别错误的个案" class="nav-link" data-scroll-target="#qda边界标记判别错误的个案">QDA边界,标记判别错误的个案</a></li>
   </ul></li>
   </ul></li>
@@ -237,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 24, 2025</p>
+      <p class="date">September 25, 2025</p>
     </div>
   </div>
   
@@ -655,28 +654,15 @@ Petal.Width  -2.8104603 -2.83918785</code></pre>
 </div>
 </div>
 </section>
-<section id="qda边界" class="level3">
-<h3 class="anchored" data-anchor-id="qda边界">QDA边界</h3>
+<section id="qda边界标记判别错误的个案" class="level3">
+<h3 class="anchored" data-anchor-id="qda边界标记判别错误的个案">QDA边界,标记判别错误的个案</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">partimat</span>(Species <span class="sc">~</span>., <span class="at">data =</span> iris, <span class="at">method =</span> <span class="st">"qda"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">partimat</span>(Species <span class="sc">~</span> ., <span class="at">data =</span> iris, <span class="at">method =</span> <span class="st">"qda"</span>, </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">col.correct =</span> <span class="st">"green3"</span>, <span class="at">col.wrong =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="ldaR_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="qda边界标记判别错误的个案" class="level3">
-<h3 class="anchored" data-anchor-id="qda边界标记判别错误的个案">QDA边界,标记判别错误的个案</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">partimat</span>(Species <span class="sc">~</span> ., <span class="at">data =</span> iris, <span class="at">method =</span> <span class="st">"qda"</span>, </span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">col.correct =</span> <span class="st">"green3"</span>, <span class="at">col.wrong =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="ldaR_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

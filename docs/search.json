@@ -4,7 +4,7 @@
     "href": "chap5.html",
     "title": "第5章",
     "section": "",
-    "text": "Chap 5 LDA讲义\nLDA R代码\n十项全能运动员LDA R代码"
+    "text": "Chap 5 LDA讲义\nLDA R代码\n十项全能运动员LDA R代码\nL5 SVM讲义\nSVM在R中的实现"
   },
   {
     "objectID": "chap5.html#第5章-判别分析-1",
@@ -690,6 +690,118 @@
     "href": "ldaR.html#分类边界的可视化-partition-plot",
     "title": "5 LDA在R中的实现",
     "section": "3.3 分类边界的可视化 Partition plot",
-    "text": "3.3 分类边界的可视化 Partition plot\n\nLDA边界\n\nlibrary(klaR)\npartimat(Species ~., data = iris, method = \"lda\")\n\n\n\n\n\n\n\n\n\niris %&gt;% \n  group_by(Species) %&gt;%\n  summarise(across(everything(), mean))\n\n# A tibble: 3 × 5\n  Species    Sepal.Length Sepal.Width Petal.Length Petal.Width\n  &lt;fct&gt;             &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;\n1 setosa             5.01        3.43         1.46       0.246\n2 versicolor         5.94        2.77         4.26       1.33 \n3 virginica          6.59        2.97         5.55       2.03 \n\n\n\n\nQDA边界\n\npartimat(Species ~., data = iris, method = \"qda\")\n\n\n\n\n\n\n\n\n\n\nQDA边界,标记判别错误的个案\n\npartimat(Species ~ ., data = iris, method = \"qda\", \n         col.correct = \"green3\", col.wrong = \"red\")\n\n\n\n\n\n\n\n\n\npartimat() 创建分类边界的可视化图，展示每个特征对（如 Sepal.Length vs. Sepal.Width）的分类区域。\n每个子图显示 QDA 的决策边界，颜色或填充表示不同类别（Species: setosa, versicolor, virginica）。\n典型子图结构\n\nX轴和Y轴：两个特征（例如 Sepal.Length vs. Petal.Length）。\n颜色/填充区域：每个类别（setosa, versicolor, virginica）用不同颜色填充，代表 QDA 预测的分类区域。\n决策边界：曲线或非线性边界，分离不同类别区域。\n数据点：散点表示实际观测值，颜色对应其真实类别，用于验证边界准确性。\n表观错误率（apparent error rate，training error），即在训练集上模型的错误分类比例\n\n类别分离：setosa 与 versicolor/virginica 的分离较好，versicolor 和 virginica 边界较模糊，QDA 的非线性边界比 LDA 更贴合数据。\n协方差影响：QDA 允许每个类别的协方差矩阵不同，边界形状反映了数据分布的真实复杂性（例如 virginica 的 petall 特征方差较大）。\n误分类区域：重叠区域（versicolor/virginica）可能显示混合颜色，提示分类不确定性。"
+    "text": "3.3 分类边界的可视化 Partition plot\n\nLDA边界\n\nlibrary(klaR)\npartimat(Species ~., data = iris, method = \"lda\")\n\n\n\n\n\n\n\n\n\niris %&gt;% \n  group_by(Species) %&gt;%\n  summarise(across(everything(), mean))\n\n# A tibble: 3 × 5\n  Species    Sepal.Length Sepal.Width Petal.Length Petal.Width\n  &lt;fct&gt;             &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;\n1 setosa             5.01        3.43         1.46       0.246\n2 versicolor         5.94        2.77         4.26       1.33 \n3 virginica          6.59        2.97         5.55       2.03 \n\n\n\n\nQDA边界,标记判别错误的个案\n\npartimat(Species ~ ., data = iris, method = \"qda\", \n         col.correct = \"green3\", col.wrong = \"red\")\n\n\n\n\n\n\n\n\n\npartimat() 创建分类边界的可视化图，展示每个特征对（如 Sepal.Length vs. Sepal.Width）的分类区域。\n每个子图显示 QDA 的决策边界，颜色或填充表示不同类别（Species: setosa, versicolor, virginica）。\n典型子图结构\n\nX轴和Y轴：两个特征（例如 Sepal.Length vs. Petal.Length）。\n颜色/填充区域：每个类别（setosa, versicolor, virginica）用不同颜色填充，代表 QDA 预测的分类区域。\n决策边界：曲线或非线性边界，分离不同类别区域。\n数据点：散点表示实际观测值，颜色对应其真实类别，用于验证边界准确性。\n表观错误率（apparent error rate，training error），即在训练集上模型的错误分类比例\n\n类别分离：setosa 与 versicolor/virginica 的分离较好，versicolor 和 virginica 边界较模糊，QDA 的非线性边界比 LDA 更贴合数据。\n协方差影响：QDA 允许每个类别的协方差矩阵不同，边界形状反映了数据分布的真实复杂性（例如 virginica 的 petall 特征方差较大）。\n误分类区域：重叠区域（versicolor/virginica）可能显示混合颜色，提示分类不确定性。"
+  },
+  {
+    "objectID": "L5svm.html#非线性情况核技巧-the-kernel-trick",
+    "href": "L5svm.html#非线性情况核技巧-the-kernel-trick",
+    "title": "L5 SVM",
+    "section": "非线性情况：核技巧 (The Kernel Trick)",
+    "text": "非线性情况：核技巧 (The Kernel Trick)\n\n现实中的数据常常无法用一条直线分开。\nSVM 对此提供了一个非常巧妙的解决方案，称为核技巧。\n\n桌面上混杂着两种豆子，你无法用一把尺子将它们分开（二维空间）。\n但如果你猛地一抖桌布，让一部分豆子飞起来，这时你就可以轻松地用一个水平的纸板（一个平面）将空中的豆子和桌面上的豆子分开（三维空间）。\n\n核技巧：通过数学变换，将数据从低维空间映射到高维空间，使得原本线性不可分的数据在高维空间中变得线性可分。而这个过程非常高效，我们甚至不需要知道数据在高维空间中的具体坐标。\n\n:::"
+  },
+  {
+    "objectID": "L5svm.html#核函数",
+    "href": "L5svm.html#核函数",
+    "title": "L5 SVM",
+    "section": "5.1 核函数",
+    "text": "5.1 核函数\n\nkernel（核函数）：决定SVM如何将数据映射到高维空间。常用选项（R中写法）：\n“linear”：线性核，适合线性可分或特征很多的数据。\n“radial”：径向基核（RBF），适合大多数情况，能处理非线性关系。\n“polynomial”：多项式核，适合有多项式边界的数据。\n“sigmoid”：S型核，较少用。\n\n核函数选取建议\n\n优先尝试”radial”（RBF）核，适应性强，大多数数据都适用。\n特征非常多时可先试”linear”核。"
+  },
+  {
+    "objectID": "L5svm.html#cost参数",
+    "href": "L5svm.html#cost参数",
+    "title": "L5 SVM",
+    "section": "5.2 Cost参数",
+    "text": "5.2 Cost参数\n\ncost：惩罚参数C，控制训练误差和模型复杂度的权衡，其取值理论上可以是任意正数。\n\ncost: 一般从1开始，常用[0.1, 1, 10, 100]等。\nC大：对误分类容忍度低，间隔小，易过拟合。\nC小：对误分类容忍度高，间隔大，易欠拟合。"
+  },
+  {
+    "objectID": "L5svm.html#gamma参数",
+    "href": "L5svm.html#gamma参数",
+    "title": "L5 SVM",
+    "section": "5.3 Gamma参数",
+    "text": "5.3 Gamma参数\n\ngamma：RBF和多项式核的参数，控制单个样本的影响范围。\n\ngamma大：影响范围小，模型复杂，易过拟合。\ngamma小：影响范围大，模型简单，易欠拟合。\ngamma: RBF核时，默认 1/特征数；可以尝试[0.001, 0.01, 0.1, 1]等。"
+  },
+  {
+    "objectID": "L5svm.html#调参方法",
+    "href": "L5svm.html#调参方法",
+    "title": "L5 SVM",
+    "section": "5.4 调参方法",
+    "text": "5.4 调参方法\n\n网格搜索（Grid Search）+ 交叉验证（Cross Validation）\n自动搜索最优参数\n\ncaret::train()\ne1071::tune()"
+  },
+  {
+    "objectID": "L5svm.html#调参经验",
+    "href": "L5svm.html#调参经验",
+    "title": "L5 SVM",
+    "section": "5.5 调参经验",
+    "text": "5.5 调参经验\n\n数据标准化：SVM对特征尺度敏感，建议先做标准化。\ngamma与cost的平衡：一般先fix一个参数，调另一个，再联合微调。\n经验区间：实际中cost/gamma变化1-2个数量级后模型表现变化会很明显，通常不用范围太宽。\n可视化决策边界：低维数据可画分类边界观察调参效果。\n初学者推荐\n\nkernel=“radial”\ncost=1\ngamma=1/特征数\n遇到过拟合/欠拟合时，分别降低/增大cost和gamma。"
+  },
+  {
+    "objectID": "L5svm.html",
+    "href": "L5svm.html",
+    "title": "L5 SVM",
+    "section": "",
+    "text": "Loading required package: sysfonts\n\n\nLoading required package: showtextdb\n\n\nLoading required package: ggplot2\n\n\nLoading required package: ggpubr\n\n\n\nAttaching package: 'survminer'\n\n\nThe following object is masked from 'package:survival':\n\n    myeloma\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ lubridate 1.9.4     ✔ tibble    3.3.0\n✔ purrr     1.1.0     ✔ tidyr     1.3.1\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
+  },
+  {
+    "objectID": "svmR.html",
+    "href": "svmR.html",
+    "title": "5 SVM在R中的实现",
+    "section": "",
+    "text": "本章介绍R中的SVM\n\n安装包\n\ninstall.packages(\"tidyverse\")\ninstall.packages(\"MASS\")\ninstall.packages(\"klaR\")\ninstall.packages(\"devtools\")\ninstall.packages(\"psych\")\ninstall.packages(\"MVN\")\ninstall.packages(\"e1071\")\n\n\n\n加载包\n\nlibrary(tidyverse)\nlibrary(psych)\nlibrary(biotools)\nlibrary(MVN)\nlibrary(e1071)\n\n\n\n1 SVM模型的建立\n\n# 取两个变量做演示\niris_sub &lt;- iris[, c(\"Sepal.Length\", \"Sepal.Width\", \"Species\")]\n\n# 建立 SVM 模型（径向基核函数 RBF）\nsvm_model &lt;- svm(Species ~ ., data = iris_sub, \n                 kernel = \"radial\", \n                 cost = 1, \n                 gamma = 0.5)\n\n\n\n2 SVM模型的可视化\n\n# 生成网格点用于预测\nxrange &lt;- seq(min(iris_sub$Sepal.Length) - 0.5, \n              max(iris_sub$Sepal.Length) + 0.5, \n              by = 0.02)\n\nyrange &lt;- seq(min(iris_sub$Sepal.Width) - 0.5, \n              max(iris_sub$Sepal.Width) + 0.5, \n              by = 0.02)\n\ngrid &lt;- expand.grid(Sepal.Length = xrange, \n                    Sepal.Width = yrange)\n\n# 对网格点分类预测\ngrid$Species &lt;- predict(svm_model, grid)\n\n\n# 画出分类区域和样本点\nggplot() +\n  geom_tile(data = grid, \n            aes(x = Sepal.Length, \n                y = Sepal.Width, \n                fill = Species), \n            alpha = 0.3) +\n  geom_point(data = iris_sub, \n             aes(x = Sepal.Length, \n                 y = Sepal.Width, \n                 color = Species), \n             size = 2) +\n  labs(title = \"SVM on Iris Dataset (3-class)\",\n       x = \"Sepal Length\", \n       y = \"Sepal Width\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n3 计算预测准确率\n\npred &lt;- predict(svm_model, iris_sub)\n\naccuracy &lt;- mean(pred == iris_sub$Species)\n\nprint(paste(\"Accuracy:\", round(accuracy * 100, 2), \"%\"))\n\n[1] \"Accuracy: 82 %\"\n\n\n\n\n4 改进SVM模型\n\n\n4.1 调整参数\n\nsvm_model_tuned &lt;- svm(Species ~ ., \n                       data = iris_sub,\n                       kernel = \"radial\", \n                       cost = 10, \n                       gamma = 0.8)\n\npred_tuned &lt;- predict(svm_model_tuned, iris_sub)\n\naccuracy_tuned &lt;- mean(pred_tuned == iris_sub$Species)\n\nprint(paste(\"Tuned Accuracy:\", round(accuracy_tuned * 100, 2), \"%\"))\n\n[1] \"Tuned Accuracy: 82 %\"\n\n\n\n\n4.2 使用不同核函数（线性核）\n\nsvm_model_linear &lt;- svm(Species ~ ., \n                        data = iris_sub,\n                        kernel = \"linear\", \n                        cost = 10)\n\npred_linear &lt;- predict(svm_model_linear, \n                       iris_sub)\n\naccuracy_linear &lt;- mean(pred_linear == iris_sub$Species)\n\nprint(paste(\"Linear Kernel Accuracy:\", round(accuracy_linear * 100, 2),\n            \"%\"))\n\n[1] \"Linear Kernel Accuracy: 82 %\"\n\n\n\n\n4.3 数据预处理（标准化）\n\niris_sub_scaled &lt;- iris_sub\n\niris_sub_scaled[, 1:2] &lt;- scale(iris_sub_scaled[, 1:2])\n\nsvm_model_scaled &lt;- svm(Species ~ ., \n                        data = iris_sub_scaled,\n                        kernel = \"radial\", \n                        cost = 1, \n                        gamma = 0.5)\n\npred_scaled &lt;- predict(svm_model_scaled, iris_sub_scaled)\n\naccuracy_scaled &lt;- mean(pred_scaled == iris_sub_scaled$Species)\n\nprint(paste(\"Scaled Data Accuracy:\", round(accuracy_scaled * 100, 2),\n            \"%\"))\n\n[1] \"Scaled Data Accuracy: 82 %\"\n\n\n\n\n4.4 交叉验证选择最佳参数\n\ntune_result &lt;- tune(svm, Species ~ ., \n                    data = iris_sub,\n                    ranges = list(cost = 10^(-1:2), \n                                  gamma = c(0.1, 0.5, 1)))\n\nbest_model &lt;- tune_result$best.model\n\npred_best &lt;- predict(best_model, iris_sub)\n\naccuracy_best &lt;- mean(pred_best == iris_sub$Species)\n\nprint(paste(\"Best Model Accuracy:\", round(accuracy_best * 100, 2),\n            \"%\"))\n\n[1] \"Best Model Accuracy: 80 %\"\n\n# 输出最佳参数\nprint(tune_result$best.parameters)\n\n  cost gamma\n2    1   0.1\n\n# 输出调参结果\nprint(tune_result)\n\n\nParameter tuning of 'svm':\n\n- sampling method: 10-fold cross validation \n\n- best parameters:\n cost gamma\n    1   0.1\n\n- best performance: 0.2133333 \n\n# 画出最佳模型的分类区域和样本点\ngrid$Species &lt;- predict(best_model, grid)\nggplot() +\n  geom_tile(data = grid, \n            aes(x = Sepal.Length, \n                y = Sepal.Width, \n                fill = Species), \n            alpha = 0.3) +\n  geom_point(data = iris_sub, \n             aes(x = Sepal.Length, \n                 y = Sepal.Width, \n                 color = Species), \n             size = 2) +\n  labs(title = \"Tuned SVM on Iris Dataset (3-class)\",\n       x = \"Sepal Length\", y = \"Sepal Width\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n4.5. 使用更多特征\n\n# 前文仅用两个特征做可视化，实际可用全部特征\n# 由于可视化限制，无法直接展示多维特征空间的分类边界，但可以通过准确率来评估模型性能\n\nsvm_model_full &lt;- svm(Species ~ ., \n                      data = iris,\n                      kernel = \"radial\", \n                      cost = 1, \n                      gamma = 0.5)\n\npred_full &lt;- predict(svm_model_full, iris)\n\naccuracy_full &lt;- mean(pred_full == iris$Species)\n\nprint(paste(\"Full Feature Set Accuracy:\", \n            round(accuracy_full * 100, 2), \"%\"))\n\n[1] \"Full Feature Set Accuracy: 97.33 %\""
+  },
+  {
+    "objectID": "svmR.html#考察数据分布",
+    "href": "svmR.html#考察数据分布",
+    "title": "5 LDA在R中的实现",
+    "section": "1.1 考察数据分布",
+    "text": "1.1 考察数据分布\n\nlibrary(psych)\n\n#调用数据iris\ndata(iris)\n\n#Correlation ellipses \n#The narrower the ellipse\n#the greater the correlation between the variables\n\npairs.panels(iris[1:4],\n            gap = 0,\n            bg = c(\"red\", \"green\", \"blue\")[iris$Species],\n            pch = 21)"
+  },
+  {
+    "objectID": "svmR.html#检验lda分析的假设是否成立",
+    "href": "svmR.html#检验lda分析的假设是否成立",
+    "title": "5 LDA在R中的实现",
+    "section": "1.2 检验LDA分析的假设是否成立",
+    "text": "1.2 检验LDA分析的假设是否成立\n\n1.2.1 多元正态性检验\nMardia检验\n原假设:数据服从多元正态分布\n备择假设:数据不服从多元正态分布\n\n# 多元正态性检验（Mardia测试）\nMVN::mardia(iris[1:50, 1:4])\n\n             Test Statistic   p.value     Method\n1 Mardia Skewness 25.664345 0.1771859 asymptotic\n2 Mardia Kurtosis  1.294992 0.1953229 asymptotic\n\nMVN::mardia(iris[51:100, 1:4])\n\n             Test  Statistic   p.value     Method\n1 Mardia Skewness 25.1850115 0.1944445 asymptotic\n2 Mardia Kurtosis -0.5718664 0.5674125 asymptotic\n\nMVN::mardia(iris[101:150, 1:4])\n\n             Test  Statistic   p.value     Method\n1 Mardia Skewness 26.2705982 0.1570597 asymptotic\n2 Mardia Kurtosis  0.1526142 0.8787025 asymptotic\n\n\n\n\n1.2.2 检验不同类别的协方差矩阵是否相等\nBox’s M检验：检验多个类别的协方差矩阵是否相等\n\n原假设：所有类别的协方差矩阵相等\n备择假设：至少有一个类别的协方差矩阵与其他类别不同\n\n\nlibrary(biotools)\nboxM(iris[1:4], iris$Species)\n\n\n    Box's M-test for Homogeneity of Covariance Matrices\n\ndata:  iris[1:4]\nChi-Sq (approx.) = 140.94, df = 20, p-value &lt; 2.2e-16"
+  },
+  {
+    "objectID": "svmR.html#估计",
+    "href": "svmR.html#估计",
+    "title": "5 LDA在R中的实现",
+    "section": "2.1 估计",
+    "text": "2.1 估计\n\n#加载包MASS(Modern Applied Statistics with S) \n#https://www.stats.ox.ac.uk/pub/MASS4/\n\nlibrary(MASS)\n\n#估计linear discriminant model \n\n# 写法一：\nlinear &lt;- lda(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width, iris)\nlinear\n\nCall:\nlda(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width, \n    data = iris)\n\nPrior probabilities of groups:\n    setosa versicolor  virginica \n 0.3333333  0.3333333  0.3333333 \n\nGroup means:\n           Sepal.Length Sepal.Width Petal.Length Petal.Width\nsetosa            5.006       3.428        1.462       0.246\nversicolor        5.936       2.770        4.260       1.326\nvirginica         6.588       2.974        5.552       2.026\n\nCoefficients of linear discriminants:\n                    LD1         LD2\nSepal.Length  0.8293776 -0.02410215\nSepal.Width   1.5344731 -2.16452123\nPetal.Length -2.2012117  0.93192121\nPetal.Width  -2.8104603 -2.83918785\n\nProportion of trace:\n   LD1    LD2 \n0.9912 0.0088 \n\n# 写法二：\nlinear &lt;- lda(Species ~., iris)\n\n\n#查看ld的属性\nattributes(linear)\n\n$names\n [1] \"prior\"   \"counts\"  \"means\"   \"scaling\" \"lev\"     \"svd\"     \"N\"      \n [8] \"call\"    \"terms\"   \"xlevels\"\n\n$class\n[1] \"lda\"\n\nlinear$prior\n\n    setosa versicolor  virginica \n 0.3333333  0.3333333  0.3333333 \n\nlinear$counts\n\n    setosa versicolor  virginica \n        50         50         50 \n\nlinear$means\n\n           Sepal.Length Sepal.Width Petal.Length Petal.Width\nsetosa            5.006       3.428        1.462       0.246\nversicolor        5.936       2.770        4.260       1.326\nvirginica         6.588       2.974        5.552       2.026\n\nlinear$scaling\n\n                    LD1         LD2\nSepal.Length  0.8293776 -0.02410215\nSepal.Width   1.5344731 -2.16452123\nPetal.Length -2.2012117  0.93192121\nPetal.Width  -2.8104603 -2.83918785"
+  },
+  {
+    "objectID": "svmR.html#预测",
+    "href": "svmR.html#预测",
+    "title": "5 LDA在R中的实现",
+    "section": "2.2 预测",
+    "text": "2.2 预测\n\n#保存判别函数的预测结果\np &lt;- predict(linear, iris)\n\npredict_class &lt;- p$class\npredict_class\n\n  [1] setosa     setosa     setosa     setosa     setosa     setosa    \n  [7] setosa     setosa     setosa     setosa     setosa     setosa    \n [13] setosa     setosa     setosa     setosa     setosa     setosa    \n [19] setosa     setosa     setosa     setosa     setosa     setosa    \n [25] setosa     setosa     setosa     setosa     setosa     setosa    \n [31] setosa     setosa     setosa     setosa     setosa     setosa    \n [37] setosa     setosa     setosa     setosa     setosa     setosa    \n [43] setosa     setosa     setosa     setosa     setosa     setosa    \n [49] setosa     setosa     versicolor versicolor versicolor versicolor\n [55] versicolor versicolor versicolor versicolor versicolor versicolor\n [61] versicolor versicolor versicolor versicolor versicolor versicolor\n [67] versicolor versicolor versicolor versicolor virginica  versicolor\n [73] versicolor versicolor versicolor versicolor versicolor versicolor\n [79] versicolor versicolor versicolor versicolor versicolor virginica \n [85] versicolor versicolor versicolor versicolor versicolor versicolor\n [91] versicolor versicolor versicolor versicolor versicolor versicolor\n [97] versicolor versicolor versicolor versicolor virginica  virginica \n[103] virginica  virginica  virginica  virginica  virginica  virginica \n[109] virginica  virginica  virginica  virginica  virginica  virginica \n[115] virginica  virginica  virginica  virginica  virginica  virginica \n[121] virginica  virginica  virginica  virginica  virginica  virginica \n[127] virginica  virginica  virginica  virginica  virginica  virginica \n[133] virginica  versicolor virginica  virginica  virginica  virginica \n[139] virginica  virginica  virginica  virginica  virginica  virginica \n[145] virginica  virginica  virginica  virginica  virginica  virginica \nLevels: setosa versicolor virginica\n\n#预测新个案\nnew_case &lt;- data.frame(Sepal.Length = c(5.1,5.9,6.6),\n                       Sepal.Width = c(3.5,2.8,2.9),\n                       Petal.Length = c(1.5,4.3,5.6),\n                       Petal.Width = c(0.25,1.3,2.1))\n\nnew_class &lt;- predict(linear, new_case)\nnew_class\n\n$class\n[1] setosa     versicolor virginica \nLevels: setosa versicolor virginica\n\n$posterior\n        setosa   versicolor    virginica\n1 1.000000e+00 1.117074e-20 3.314219e-40\n2 2.963609e-20 9.998273e-01 1.727265e-04\n3 4.169387e-42 3.505610e-05 9.999649e-01\n\n$x\n        LD1        LD2\n1  7.701156 -0.3491879\n2 -1.823849  0.7749274\n3 -6.199781 -0.5182489"
+  },
+  {
+    "objectID": "svmR.html#评估预测效果",
+    "href": "svmR.html#评估预测效果",
+    "title": "5 LDA在R中的实现",
+    "section": "2.3 评估预测效果",
+    "text": "2.3 评估预测效果\n\n#绘制观测组别和预测组别的列联表\ntab &lt;- table(Actual = iris$Species, Predicted = predict_class)\ntab\n\n            Predicted\nActual       setosa versicolor virginica\n  setosa         50          0         0\n  versicolor      0         48         2\n  virginica       0          1        49\n\n#计算预测正确率\nsum(diag(tab))/sum(tab)\n\n[1] 0.98"
+  },
+  {
+    "objectID": "svmR.html#单个判别函数得分的直方图",
+    "href": "svmR.html#单个判别函数得分的直方图",
+    "title": "5 LDA在R中的实现",
+    "section": "3.1 单个判别函数得分的直方图",
+    "text": "3.1 单个判别函数得分的直方图\n\n#判别函数得分的histogram\nlibrary(MASS)\n\n#保存预测结果\np &lt;- predict(linear, iris)\n\n\n#提取预测结果中存储的判别得分\nldahist(p$x[,1], iris$Species)\n\n\n\n\n\n\n\nldahist(p$x[,2], iris$Species)"
+  },
+  {
+    "objectID": "svmR.html#两个判别函数得分的二维图",
+    "href": "svmR.html#两个判别函数得分的二维图",
+    "title": "5 LDA在R中的实现",
+    "section": "3.2 两个判别函数得分的二维图",
+    "text": "3.2 两个判别函数得分的二维图\n\n# Enable the r-universe repo\noptions(repos = c(\n    fawda123 = 'https://fawda123.r-universe.dev',\n    CRAN = 'https://cloud.r-project.org'))\n\n# Install ggord\ninstall.packages('ggord')\n\n\n#Bi-plot\nlibrary(devtools)\nlibrary(ggord)\n\nlinear &lt;- lda(Species ~., iris)\nggord(linear, iris$Species)\n\n\n\n\n\n\n\nlinear$scaling\n\n                    LD1         LD2\nSepal.Length  0.8293776 -0.02410215\nSepal.Width   1.5344731 -2.16452123\nPetal.Length -2.2012117  0.93192121\nPetal.Width  -2.8104603 -2.83918785\n\n\n\n椭圆\n\n统计意义：\n\n椭圆基于类别样本在LD1和LD2上的协方差矩阵绘制，反映该类别数据的分散程度和形状。\n每个椭圆围住该类别的大部分数据点（通常95%），中心点是类别的均值（质心）。\n\n中心：椭圆的中心是该类别在LD1和LD2上的平均得分，反映类别在判别空间的“位置”。\n大小：椭圆越大，说明该类别样本在LD1和LD2上的分散程度越高（方差大）；椭圆越小，样本越集中。\n形状：椭圆的形状由协方差矩阵决定：\n\n接近圆形：LD1和LD2的方差相似，特征间相关性低。\n拉长：某个方向（LD1或LD2）方差较大，或特征间相关性高。\n\n方向：椭圆的倾斜方向反映LD1和LD2的协方差，倾斜说明两轴得分有相关性。\n分类效果：\n\n椭圆分离：如果椭圆分得很开（如“金牌”和“银牌”不重叠），说明LDA有效区分了类别。\n椭圆重叠：如果椭圆重叠，说明类别在LD1和LD2上难以区分，可能因为数据不满足LDA假设（正态分布或同协方差矩阵）。\nggord图中的三个椭圆表示每个类别在LD1和LD2判别函数空间中的数据分布范围（通常是95%置信椭圆）。\n椭圆的形状和大小反映类别的协方差和分散程度，位置反映类别均值，重叠情况反映LDA的分类效果。\n圆形椭圆：LD1和LD2的方差相似，且两者相关性低（协方差接近0）。\n拉长椭圆：LD1和LD2的方差差异大，或两者有较强相关性（协方差较大）。\n\n\n\n\n箭头\n\n帮助理解哪些原始变量（特征）对LDA的分类最重要\n方向解读：\n\n如果箭头指向LD1正方向（如右方），说明该变量值增加会使样本的LD1得分增加。\n如果箭头接近垂直于LD1，说明该变量主要影响LD2。\n如果箭头与某类别椭圆的方向一致，说明该变量对该类别的区分作用强。\n\n长度解读：\n\n长箭头表示该变量对分类贡献大，可能是区分三个梯度的关键特征。\n短箭头表示变量影响小，可能对分类帮助有限"
+  },
+  {
+    "objectID": "svmR.html#分类边界的可视化-partition-plot",
+    "href": "svmR.html#分类边界的可视化-partition-plot",
+    "title": "5 LDA在R中的实现",
+    "section": "3.3 分类边界的可视化 Partition plot",
+    "text": "3.3 分类边界的可视化 Partition plot\n\nLDA边界\n\nlibrary(klaR)\npartimat(Species ~., data = iris, method = \"lda\")\n\n\n\n\n\n\n\n\n\niris %&gt;% \n  group_by(Species) %&gt;%\n  summarise(across(everything(), mean))\n\n# A tibble: 3 × 5\n  Species    Sepal.Length Sepal.Width Petal.Length Petal.Width\n  &lt;fct&gt;             &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;\n1 setosa             5.01        3.43         1.46       0.246\n2 versicolor         5.94        2.77         4.26       1.33 \n3 virginica          6.59        2.97         5.55       2.03 \n\n\n\n\nQDA边界,标记判别错误的个案\n\npartimat(Species ~ ., data = iris, method = \"qda\", \n         col.correct = \"green3\", col.wrong = \"red\")\n\n\n\n\n\n\n\n\n\npartimat() 创建分类边界的可视化图，展示每个特征对（如 Sepal.Length vs. Sepal.Width）的分类区域。\n每个子图显示 QDA 的决策边界，颜色或填充表示不同类别（Species: setosa, versicolor, virginica）。\n典型子图结构\n\nX轴和Y轴：两个特征（例如 Sepal.Length vs. Petal.Length）。\n颜色/填充区域：每个类别（setosa, versicolor, virginica）用不同颜色填充，代表 QDA 预测的分类区域。\n决策边界：曲线或非线性边界，分离不同类别区域。\n数据点：散点表示实际观测值，颜色对应其真实类别，用于验证边界准确性。\n表观错误率（apparent error rate，training error），即在训练集上模型的错误分类比例\n\n类别分离：setosa 与 versicolor/virginica 的分离较好，versicolor 和 virginica 边界较模糊，QDA 的非线性边界比 LDA 更贴合数据。\n协方差影响：QDA 允许每个类别的协方差矩阵不同，边界形状反映了数据分布的真实复杂性（例如 virginica 的 petall 特征方差较大）。\n误分类区域：重叠区域（versicolor/virginica）可能显示混合颜色，提示分类不确定性。"
   }
 ]
