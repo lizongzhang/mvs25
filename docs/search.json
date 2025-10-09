@@ -803,5 +803,40 @@
     "title": "5 LDA在R中的实现",
     "section": "3.3 分类边界的可视化 Partition plot",
     "text": "3.3 分类边界的可视化 Partition plot\n\nLDA边界\n\nlibrary(klaR)\npartimat(Species ~., data = iris, method = \"lda\")\n\n\n\n\n\n\n\n\n\niris %&gt;% \n  group_by(Species) %&gt;%\n  summarise(across(everything(), mean))\n\n# A tibble: 3 × 5\n  Species    Sepal.Length Sepal.Width Petal.Length Petal.Width\n  &lt;fct&gt;             &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;\n1 setosa             5.01        3.43         1.46       0.246\n2 versicolor         5.94        2.77         4.26       1.33 \n3 virginica          6.59        2.97         5.55       2.03 \n\n\n\n\nQDA边界,标记判别错误的个案\n\npartimat(Species ~ ., data = iris, method = \"qda\", \n         col.correct = \"green3\", col.wrong = \"red\")\n\n\n\n\n\n\n\n\n\npartimat() 创建分类边界的可视化图，展示每个特征对（如 Sepal.Length vs. Sepal.Width）的分类区域。\n每个子图显示 QDA 的决策边界，颜色或填充表示不同类别（Species: setosa, versicolor, virginica）。\n典型子图结构\n\nX轴和Y轴：两个特征（例如 Sepal.Length vs. Petal.Length）。\n颜色/填充区域：每个类别（setosa, versicolor, virginica）用不同颜色填充，代表 QDA 预测的分类区域。\n决策边界：曲线或非线性边界，分离不同类别区域。\n数据点：散点表示实际观测值，颜色对应其真实类别，用于验证边界准确性。\n表观错误率（apparent error rate，training error），即在训练集上模型的错误分类比例\n\n类别分离：setosa 与 versicolor/virginica 的分离较好，versicolor 和 virginica 边界较模糊，QDA 的非线性边界比 LDA 更贴合数据。\n协方差影响：QDA 允许每个类别的协方差矩阵不同，边界形状反映了数据分布的真实复杂性（例如 virginica 的 petall 特征方差较大）。\n误分类区域：重叠区域（versicolor/virginica）可能显示混合颜色，提示分类不确定性。"
+  },
+  {
+    "objectID": "chap6slide.html",
+    "href": "chap6slide.html",
+    "title": "Chapter 6 主成分分析",
+    "section": "",
+    "text": "注意：本讲义供学习交流使用，请勿用于商业用途"
+  },
+  {
+    "objectID": "pcadraft.html#主成分分析概述",
+    "href": "pcadraft.html#主成分分析概述",
+    "title": "主成分分析（PCA）",
+    "section": "1. 主成分分析概述",
+    "text": "1. 主成分分析概述\n主成分分析（Principal Component Analysis, PCA）是一种降维（dimension reduction）方法， 通过线性变换将原始变量组合为若干个新的、不相关的综合变量（主成分）， 以保留数据中最主要的变异信息。\n数学思想简要\n设原始数据矩阵为 ( X_{n p} )，包含 ( n ) 个样本、( p ) 个变量。\nPCA 的核心思想是：\n\n对中心化后的数据 ( X ) 求协方差矩阵 ( S )；\n求解特征值分解： [ S = V V’ ] 其中 ( ) 为特征值对角矩阵，( V ) 为特征向量矩阵；\n将原始变量线性组合得到主成分： [ Z = X V ] 每个主成分都是原始变量的线性组合，并按方差大小排序（第一主成分方差最大）。\n\n换言之，PCA寻找一个新的坐标系，使得数据在前几个坐标方向上的方差最大， 从而实现信息压缩。"
+  },
+  {
+    "objectID": "pcadraft.html#应用场景",
+    "href": "pcadraft.html#应用场景",
+    "title": "主成分分析（PCA）",
+    "section": "2. 应用场景",
+    "text": "2. 应用场景\n主成分分析常用于：\n\n数据降维：减少变量数量，降低模型复杂度；\n多指标综合评价：将多个指标合成为少数几个综合得分；\n可视化探索：用前两个主成分展示高维数据结构；\n去除多重共线性：在回归分析中改善解释变量间相关性。\n\n典型应用包括： - 经济指标综合评价； - 基因表达数据分析； - 图像识别与特征提取； - 环境与社会调查数据分析。"
+  },
+  {
+    "objectID": "pcadraft.html#对数据的要求",
+    "href": "pcadraft.html#对数据的要求",
+    "title": "主成分分析（PCA）",
+    "section": "3. 对数据的要求",
+    "text": "3. 对数据的要求\nPCA 的前提假设与数据要求包括：\n\n变量量纲一致性：通常需要对数据进行标准化处理；\n线性关系假设：PCA 基于变量的线性组合；\n连续型变量：PCA 主要适用于定量数据；\n变量间存在一定相关性：若变量间完全独立，则PCA意义有限。"
+  },
+  {
+    "objectID": "pcadraft.html#实例iris-数据集的主成分分析",
+    "href": "pcadraft.html#实例iris-数据集的主成分分析",
+    "title": "主成分分析（PCA）",
+    "section": "4. 实例：iris 数据集的主成分分析",
+    "text": "4. 实例：iris 数据集的主成分分析\n4.1 数据准备"
   }
 ]
