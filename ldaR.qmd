@@ -196,7 +196,7 @@ options(repos = c(
     CRAN = 'https://cloud.r-project.org'))
 
 # Install ggord
-install.packages('ggord')
+install.packages('ggord', repos = c('https://fawda123.r-universe.dev', 'https://cloud.r-project.org'))
 ```
 
 

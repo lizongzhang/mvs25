@@ -1,5 +1,670 @@
 [
   {
+    "objectID": "chap6slide.html",
+    "href": "chap6slide.html",
+    "title": "Chapter 6 主成分分析",
+    "section": "",
+    "text": "注意：本讲义供学习交流使用，请勿用于商业用途"
+  },
+  {
+    "objectID": "Rintro.html#大纲",
+    "href": "Rintro.html#大纲",
+    "title": "R快速入门",
+    "section": "大纲",
+    "text": "大纲\n\n1.1 R主界面\n1.2 安装包\n1.3 项目的创建与管理\n1.4 R代码学习方法建议\n1.5 常用R代码"
+  },
+  {
+    "objectID": "Rintro.html#rstudio的界面",
+    "href": "Rintro.html#rstudio的界面",
+    "title": "R快速入门",
+    "section": "1.1 RStudio的界面",
+    "text": "1.1 RStudio的界面"
+  },
+  {
+    "objectID": "Rintro.html#安装包",
+    "href": "Rintro.html#安装包",
+    "title": "R快速入门",
+    "section": "1.2 安装包",
+    "text": "1.2 安装包\n\ntidyverse\n\n一系列用于数据导入、清洗、转换、可视化与建模的 R 包"
+  },
+  {
+    "objectID": "Rintro.html#项目的创建与管理",
+    "href": "Rintro.html#项目的创建与管理",
+    "title": "R快速入门",
+    "section": "1.3 项目的创建与管理",
+    "text": "1.3 项目的创建与管理\n\n创建项目的好处\n\n项目创建后，所有相对路径都以项目文件夹为根目录\n不再需要使用 setwd() 指定工作目录，减少路径错误\n便于协作与再现\n团队成员只需克隆项目文件夹，即可重现整个分析过程"
+  },
+  {
+    "objectID": "Rintro.html#r代码学习方法建议",
+    "href": "Rintro.html#r代码学习方法建议",
+    "title": "R快速入门",
+    "section": "1.4 R代码学习方法建议",
+    "text": "1.4 R代码学习方法建议\n学习代码: 参数项(需要修改的/不需要改动的)\n录入代码\n查看函数帮助\nAI工具的使用"
+  },
+  {
+    "objectID": "Rintro.html#r常用代码",
+    "href": "Rintro.html#r常用代码",
+    "title": "R快速入门",
+    "section": "1.5 R常用代码",
+    "text": "1.5 R常用代码"
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "课程安排和考核",
+    "section": "",
+    "text": "Table 1: 课程时间表\n\n\n\n\n\n周\n日期\n安排\n\n\n\n\n第1周\n20250904\n第1章 课程介绍和R操作回顾\n\n\n第2周\n20250911\n第4章 聚类分析 I\n\n\n第3周\n20250918\n第4章 聚类分析 II\n\n\n第4周\n20250925\n第5章 判别分析 案例讨论I\n\n\n第5周\n20251002\n国庆放假\n\n\n第6周\n20251009\n第6章 主成分分析\n\n\n第7周\n20251015\n第4-6章 习题讲评 测验及讲评 (上机开卷)\n\n\n第8周\n20251023\n第7章 因子分析I 案例讨论II\n\n\n第9周\n20251030\n第8章 对应分析\n\n\n第10周\n20251106\n第9章 典型相关分析 案例讨论III\n\n\n第11周\n20251113\n复习答疑\n\n\n第12周\n20251120\n小组作业汇报\n\n\n\n\n\n\nSee Table 1."
+  },
+  {
+    "objectID": "schedule.html#封面",
+    "href": "schedule.html#封面",
+    "title": "课程安排和考核",
+    "section": "封面",
+    "text": "封面\n题目 班级 学号 姓名"
+  },
+  {
+    "objectID": "schedule.html#前言",
+    "href": "schedule.html#前言",
+    "title": "课程安排和考核",
+    "section": "1 前言",
+    "text": "1 前言\n研究背景、选题动机、研究目标、要研究的问题\n\n研究背景：简述研究对象的现实背景\n选题动机：结合个人经验、兴趣或课程要求说明为什么选择这个主题\n研究目标：具体化（识别群体、寻找主要因素、建立判别规则）\n研究问题：本研究要回答什么问题"
+  },
+  {
+    "objectID": "schedule.html#数据概况",
+    "href": "schedule.html#数据概况",
+    "title": "课程安排和考核",
+    "section": "2 数据概况",
+    "text": "2 数据概况\n介绍数据来源、数据收集过程、解释变量的含义\n\n数据来源：说明数据的出处\n数据收集：解释数据是如何收集的，异常值、缺失值的处理等\n变量解释：变量的名称，含义，类型、单位、描述性统计量的报告。\n\n数据要求参见“小组作业”, 不可使用虚拟数据\n运用聚类/判别/主成分/因子/对应/典型相关分析方法，至少运用4中方法"
+  },
+  {
+    "objectID": "schedule.html#聚类分析",
+    "href": "schedule.html#聚类分析",
+    "title": "课程安排和考核",
+    "section": "3 聚类分析",
+    "text": "3 聚类分析\n3.1 分析目的\n\n明确聚类的意图：划分群体、发现模式\n\n3.2 方法选择\n\n层次聚类或K-means聚类\n说明选择理由（样本量、可解释性）\n\n3.3 分析过程\n\n变量标准化方法\n聚类方法和距离度量（欧氏距离、最短距离法）\n聚类数目确定依据（树状图、拐点法）\n\n3.4 结果与解释\n\n用树状图或散点图展示结果\n描述每类的特征（平均值、分布差异）"
+  },
+  {
+    "objectID": "schedule.html#判别分析",
+    "href": "schedule.html#判别分析",
+    "title": "课程安排和考核",
+    "section": "4 判别分析",
+    "text": "4 判别分析\n4.1 分析目的\n\n根据已知分组建立判别函数，用于分类\n\n4.2 方法选择\n\nFisher判别或逐步判别法\n判别变量选择标准（Wilks’ Lambda）\n\n4.3 分析过程\n\n建立判别函数，给出系数\n交叉验证或留一法评价判别正确率\n\n4.4 结果与解释\n\n判别准确率表格\n分析误判情况和原因"
+  },
+  {
+    "objectID": "schedule.html#主成分分析",
+    "href": "schedule.html#主成分分析",
+    "title": "课程安排和考核",
+    "section": "5 主成分分析",
+    "text": "5 主成分分析\n5.1 分析目的\n\n降维、提取主要信息\n\n5.2 分析过程\n\n相关矩阵/协方差矩阵\n特征值&gt;1原则、累计贡献率≥85%\n碎石图展示拐点\n\n5.3 结果解释\n\n主成分载荷矩阵解释变量含义\n给出主成分得分函数"
+  },
+  {
+    "objectID": "schedule.html#因子分析",
+    "href": "schedule.html#因子分析",
+    "title": "课程安排和考核",
+    "section": "6 因子分析",
+    "text": "6 因子分析\n6.1 分析目的\n\n探索潜在因子，简化变量结构\n\n6.2 分析过程\n\nKMO和Bartlett检验结果\n因子提取方法：主成分法、最大似然法\n因子旋转\n\n6.3 结果解释\n\n因子载荷表\n命名各因子"
+  },
+  {
+    "objectID": "schedule.html#对应分析",
+    "href": "schedule.html#对应分析",
+    "title": "课程安排和考核",
+    "section": "7 对应分析",
+    "text": "7 对应分析\n7.1 分析目的\n\n探索两个类别变量的关联关系，将列联表降维至二维空间，用图形直观展示类别间的亲疏关系。\n\n7.2 分析过程\n\n构建行×列列联表，进行卡方独立性检验；\n若显著，进行对应分析，提取前两维；\n绘制对应图展示行、列类别的位置关系。\n\n7.3 结果解释\n\n对应图中点距离越近，说明该类别组合越常出现；\n可识别相似类别的聚集和差异"
+  },
+  {
+    "objectID": "schedule.html#典型相关分析",
+    "href": "schedule.html#典型相关分析",
+    "title": "课程安排和考核",
+    "section": "8 典型相关分析",
+    "text": "8 典型相关分析\n8.1 分析目的\n\n研究两组连续变量之间的整体相关性，提取相关性最强的线性组合。\n\n8.2 分析过程\n\n将变量划分为两组，计算协方差矩阵；\n进行典型相关分析，得到典型相关系数及显著性检验（如Wilks’ Lambda）；\n保留显著的前1–2对典型变量。\n\n8.3 结果解释\n\n报告第一对典型变量的系数和载荷；\n解读两组变量的关系"
+  },
+  {
+    "objectID": "schedule.html#结论和展望",
+    "href": "schedule.html#结论和展望",
+    "title": "课程安排和考核",
+    "section": "9 结论和展望",
+    "text": "9 结论和展望\n\n总结主要发现\n研究不足\n展望未来研究方向\n课程感想"
+  },
+  {
+    "objectID": "schedule.html#答题要求",
+    "href": "schedule.html#答题要求",
+    "title": "课程安排和考核",
+    "section": "答题要求",
+    "text": "答题要求\n\n项目命名: 文件夹及压缩包统一命名为：学号姓名（无空格），例如：20210008张三；提交压缩包为 20210008张三.zip。\nR代码文件，按题号分节。每题先写实现该小题的R代码，每小题代码下方用文字简要回答题目要求。\n提交说明: 将整个项目文件夹压缩为 学号姓名.zip。 通过电子邮件发送压缩包到指定提交邮箱lizongzhang9@qq.com。 邮件主题：多元统计测验 学号姓名\n\n\n\n第1题\n\n\n\n  点击下载数据文件: 第1题: metro16.xlsx \n\n\n第2题\n\n\n\n  点击下载数据文件: 第2题: bankloan.xlsx \n\n\n第3题"
+  },
+  {
+    "objectID": "chap6.html",
+    "href": "chap6.html",
+    "title": "第6章",
+    "section": "",
+    "text": "Chap 6 讲义\n主成分分析 R代码\nPCA实例: NFL球员R代码\nPCA explained visually"
+  },
+  {
+    "objectID": "chap6.html#第6章-主成分分析",
+    "href": "chap6.html#第6章-主成分分析",
+    "title": "第6章",
+    "section": "",
+    "text": "Chap 6 讲义\n主成分分析 R代码\nPCA实例: NFL球员R代码\nPCA explained visually"
+  },
+  {
+    "objectID": "chap6.html#b站视频",
+    "href": "chap6.html#b站视频",
+    "title": "第6章",
+    "section": "B站视频",
+    "text": "B站视频\n主成分分析在R中的实现——prcomp函数的运用 例题6.1\n主成分分析的应用——31省区居民消费分析 习题6.7讲评\n主成分分析的可视化工具——相关圈和散点图的绘制 例题6.1 {target=“_blank”}"
+  },
+  {
+    "objectID": "chap7.html",
+    "href": "chap7.html",
+    "title": "第7章",
+    "section": "",
+    "text": "chap 7 讲义\n 因子分析 R代码\n Chap 7 习题代码"
+  },
+  {
+    "objectID": "chap7.html#第7章-因子分析",
+    "href": "chap7.html#第7章-因子分析",
+    "title": "第7章",
+    "section": "",
+    "text": "chap 7 讲义\n 因子分析 R代码\n Chap 7 习题代码"
+  },
+  {
+    "objectID": "L5svm.html#非线性情况核技巧-the-kernel-trick",
+    "href": "L5svm.html#非线性情况核技巧-the-kernel-trick",
+    "title": "L5 SVM",
+    "section": "非线性情况：核技巧 (The Kernel Trick)",
+    "text": "非线性情况：核技巧 (The Kernel Trick)\n\n现实中的数据常常无法用一条直线分开。\nSVM 对此提供了一个非常巧妙的解决方案，称为核技巧。\n\n桌面上混杂着两种豆子，你无法用一把尺子将它们分开（二维空间）。\n但如果你猛地一抖桌布，让一部分豆子飞起来，这时你就可以轻松地用一个水平的纸板（一个平面）将空中的豆子和桌面上的豆子分开（三维空间）。\n\n核技巧：通过数学变换，将数据从低维空间映射到高维空间，使得原本线性不可分的数据在高维空间中变得线性可分。而这个过程非常高效，我们甚至不需要知道数据在高维空间中的具体坐标。\n\n:::"
+  },
+  {
+    "objectID": "L5svm.html#核函数",
+    "href": "L5svm.html#核函数",
+    "title": "L5 SVM",
+    "section": "5.1 核函数",
+    "text": "5.1 核函数\n\nkernel（核函数）：决定SVM如何将数据映射到高维空间。常用选项（R中写法）：\n“linear”：线性核，适合线性可分或特征很多的数据。\n“radial”：径向基核（RBF），适合大多数情况，能处理非线性关系。\n“polynomial”：多项式核，适合有多项式边界的数据。\n“sigmoid”：S型核，较少用。\n\n核函数选取建议\n\n优先尝试”radial”（RBF）核，适应性强，大多数数据都适用。\n特征非常多时可先试”linear”核。"
+  },
+  {
+    "objectID": "L5svm.html#cost参数",
+    "href": "L5svm.html#cost参数",
+    "title": "L5 SVM",
+    "section": "5.2 Cost参数",
+    "text": "5.2 Cost参数\n\ncost：惩罚参数C，控制训练误差和模型复杂度的权衡，其取值理论上可以是任意正数。\n\ncost: 一般从1开始，常用[0.1, 1, 10, 100]等。\nC大：对误分类容忍度低，间隔小，易过拟合。\nC小：对误分类容忍度高，间隔大，易欠拟合。"
+  },
+  {
+    "objectID": "L5svm.html#gamma参数",
+    "href": "L5svm.html#gamma参数",
+    "title": "L5 SVM",
+    "section": "5.3 Gamma参数",
+    "text": "5.3 Gamma参数\n\ngamma：RBF和多项式核的参数，控制单个样本的影响范围。\n\ngamma大：影响范围小，模型复杂，易过拟合。\ngamma小：影响范围大，模型简单，易欠拟合。\ngamma: RBF核时，默认 1/特征数；可以尝试[0.001, 0.01, 0.1, 1]等。"
+  },
+  {
+    "objectID": "L5svm.html#调参方法",
+    "href": "L5svm.html#调参方法",
+    "title": "L5 SVM",
+    "section": "5.4 调参方法",
+    "text": "5.4 调参方法\n\n网格搜索（Grid Search）+ 交叉验证（Cross Validation）\n自动搜索最优参数\n\ncaret::train()\ne1071::tune()"
+  },
+  {
+    "objectID": "L5svm.html#调参经验",
+    "href": "L5svm.html#调参经验",
+    "title": "L5 SVM",
+    "section": "5.5 调参经验",
+    "text": "5.5 调参经验\n\n数据标准化：SVM对特征尺度敏感，建议先做标准化。\ngamma与cost的平衡：一般先fix一个参数，调另一个，再联合微调。\n经验区间：实际中cost/gamma变化1-2个数量级后模型表现变化会很明显，通常不用范围太宽。\n可视化决策边界：低维数据可画分类边界观察调参效果。\n初学者推荐\n\nkernel=“radial”\ncost=1\ngamma=1/特征数\n遇到过拟合/欠拟合时，分别降低/增大cost和gamma。"
+  },
+  {
+    "objectID": "ldaR.html",
+    "href": "ldaR.html",
+    "title": "5 LDA在R中的实现",
+    "section": "",
+    "text": "本章介绍R中的判别分析工具。"
+  },
+  {
+    "objectID": "ldaR.html#考察数据分布",
+    "href": "ldaR.html#考察数据分布",
+    "title": "5 LDA在R中的实现",
+    "section": "1.1 考察数据分布",
+    "text": "1.1 考察数据分布\n\nlibrary(psych)\n\n#调用数据iris\ndata(iris)\n\n#Correlation ellipses \n#The narrower the ellipse\n#the greater the correlation between the variables\n\npairs.panels(iris[1:4],\n            gap = 0,\n            bg = c(\"red\", \"green\", \"blue\")[iris$Species],\n            pch = 21)"
+  },
+  {
+    "objectID": "ldaR.html#检验lda分析的假设是否成立",
+    "href": "ldaR.html#检验lda分析的假设是否成立",
+    "title": "5 LDA在R中的实现",
+    "section": "1.2 检验LDA分析的假设是否成立",
+    "text": "1.2 检验LDA分析的假设是否成立\n\n1.2.1 多元正态性检验\nMardia检验\n原假设:数据服从多元正态分布\n备择假设:数据不服从多元正态分布\n\n# 多元正态性检验（Mardia测试）\nMVN::mardia(iris[1:50, 1:4])\n\n             Test Statistic   p.value     Method\n1 Mardia Skewness 25.664345 0.1771859 asymptotic\n2 Mardia Kurtosis  1.294992 0.1953229 asymptotic\n\nMVN::mardia(iris[51:100, 1:4])\n\n             Test  Statistic   p.value     Method\n1 Mardia Skewness 25.1850115 0.1944445 asymptotic\n2 Mardia Kurtosis -0.5718664 0.5674125 asymptotic\n\nMVN::mardia(iris[101:150, 1:4])\n\n             Test  Statistic   p.value     Method\n1 Mardia Skewness 26.2705982 0.1570597 asymptotic\n2 Mardia Kurtosis  0.1526142 0.8787025 asymptotic\n\n\n\n\n1.2.2 检验不同类别的协方差矩阵是否相等\nBox’s M检验：检验多个类别的协方差矩阵是否相等\n\n原假设：所有类别的协方差矩阵相等\n备择假设：至少有一个类别的协方差矩阵与其他类别不同\n\n\nlibrary(biotools)\nboxM(iris[1:4], iris$Species)\n\n\n    Box's M-test for Homogeneity of Covariance Matrices\n\ndata:  iris[1:4]\nChi-Sq (approx.) = 140.94, df = 20, p-value &lt; 2.2e-16"
+  },
+  {
+    "objectID": "ldaR.html#估计",
+    "href": "ldaR.html#估计",
+    "title": "5 LDA在R中的实现",
+    "section": "2.1 估计",
+    "text": "2.1 估计\n\n#加载包MASS(Modern Applied Statistics with S) \n#https://www.stats.ox.ac.uk/pub/MASS4/\n\nlibrary(MASS)\n\n#估计linear discriminant model \n\n# 写法一：\nlinear &lt;- lda(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width, iris)\nlinear\n\nCall:\nlda(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width, \n    data = iris)\n\nPrior probabilities of groups:\n    setosa versicolor  virginica \n 0.3333333  0.3333333  0.3333333 \n\nGroup means:\n           Sepal.Length Sepal.Width Petal.Length Petal.Width\nsetosa            5.006       3.428        1.462       0.246\nversicolor        5.936       2.770        4.260       1.326\nvirginica         6.588       2.974        5.552       2.026\n\nCoefficients of linear discriminants:\n                    LD1         LD2\nSepal.Length  0.8293776 -0.02410215\nSepal.Width   1.5344731 -2.16452123\nPetal.Length -2.2012117  0.93192121\nPetal.Width  -2.8104603 -2.83918785\n\nProportion of trace:\n   LD1    LD2 \n0.9912 0.0088 \n\n# 写法二：\nlinear &lt;- lda(Species ~., iris)\n\n\n#查看ld的属性\nattributes(linear)\n\n$names\n [1] \"prior\"   \"counts\"  \"means\"   \"scaling\" \"lev\"     \"svd\"     \"N\"      \n [8] \"call\"    \"terms\"   \"xlevels\"\n\n$class\n[1] \"lda\"\n\nlinear$prior\n\n    setosa versicolor  virginica \n 0.3333333  0.3333333  0.3333333 \n\nlinear$counts\n\n    setosa versicolor  virginica \n        50         50         50 \n\nlinear$means\n\n           Sepal.Length Sepal.Width Petal.Length Petal.Width\nsetosa            5.006       3.428        1.462       0.246\nversicolor        5.936       2.770        4.260       1.326\nvirginica         6.588       2.974        5.552       2.026\n\nlinear$scaling\n\n                    LD1         LD2\nSepal.Length  0.8293776 -0.02410215\nSepal.Width   1.5344731 -2.16452123\nPetal.Length -2.2012117  0.93192121\nPetal.Width  -2.8104603 -2.83918785"
+  },
+  {
+    "objectID": "ldaR.html#预测",
+    "href": "ldaR.html#预测",
+    "title": "5 LDA在R中的实现",
+    "section": "2.2 预测",
+    "text": "2.2 预测\n\n#保存判别函数的预测结果\np &lt;- predict(linear, iris)\n\npredict_class &lt;- p$class\npredict_class\n\n  [1] setosa     setosa     setosa     setosa     setosa     setosa    \n  [7] setosa     setosa     setosa     setosa     setosa     setosa    \n [13] setosa     setosa     setosa     setosa     setosa     setosa    \n [19] setosa     setosa     setosa     setosa     setosa     setosa    \n [25] setosa     setosa     setosa     setosa     setosa     setosa    \n [31] setosa     setosa     setosa     setosa     setosa     setosa    \n [37] setosa     setosa     setosa     setosa     setosa     setosa    \n [43] setosa     setosa     setosa     setosa     setosa     setosa    \n [49] setosa     setosa     versicolor versicolor versicolor versicolor\n [55] versicolor versicolor versicolor versicolor versicolor versicolor\n [61] versicolor versicolor versicolor versicolor versicolor versicolor\n [67] versicolor versicolor versicolor versicolor virginica  versicolor\n [73] versicolor versicolor versicolor versicolor versicolor versicolor\n [79] versicolor versicolor versicolor versicolor versicolor virginica \n [85] versicolor versicolor versicolor versicolor versicolor versicolor\n [91] versicolor versicolor versicolor versicolor versicolor versicolor\n [97] versicolor versicolor versicolor versicolor virginica  virginica \n[103] virginica  virginica  virginica  virginica  virginica  virginica \n[109] virginica  virginica  virginica  virginica  virginica  virginica \n[115] virginica  virginica  virginica  virginica  virginica  virginica \n[121] virginica  virginica  virginica  virginica  virginica  virginica \n[127] virginica  virginica  virginica  virginica  virginica  virginica \n[133] virginica  versicolor virginica  virginica  virginica  virginica \n[139] virginica  virginica  virginica  virginica  virginica  virginica \n[145] virginica  virginica  virginica  virginica  virginica  virginica \nLevels: setosa versicolor virginica\n\n#预测新个案\nnew_case &lt;- data.frame(Sepal.Length = c(5.1,5.9,6.6),\n                       Sepal.Width = c(3.5,2.8,2.9),\n                       Petal.Length = c(1.5,4.3,5.6),\n                       Petal.Width = c(0.25,1.3,2.1))\n\nnew_class &lt;- predict(linear, new_case)\nnew_class\n\n$class\n[1] setosa     versicolor virginica \nLevels: setosa versicolor virginica\n\n$posterior\n        setosa   versicolor    virginica\n1 1.000000e+00 1.117074e-20 3.314219e-40\n2 2.963609e-20 9.998273e-01 1.727265e-04\n3 4.169387e-42 3.505610e-05 9.999649e-01\n\n$x\n        LD1        LD2\n1  7.701156 -0.3491879\n2 -1.823849  0.7749274\n3 -6.199781 -0.5182489"
+  },
+  {
+    "objectID": "ldaR.html#评估预测效果",
+    "href": "ldaR.html#评估预测效果",
+    "title": "5 LDA在R中的实现",
+    "section": "2.3 评估预测效果",
+    "text": "2.3 评估预测效果\n\n#绘制观测组别和预测组别的列联表\ntab &lt;- table(Actual = iris$Species, Predicted = predict_class)\ntab\n\n            Predicted\nActual       setosa versicolor virginica\n  setosa         50          0         0\n  versicolor      0         48         2\n  virginica       0          1        49\n\n#计算预测正确率\nsum(diag(tab))/sum(tab)\n\n[1] 0.98"
+  },
+  {
+    "objectID": "ldaR.html#单个判别函数得分的直方图",
+    "href": "ldaR.html#单个判别函数得分的直方图",
+    "title": "5 LDA在R中的实现",
+    "section": "3.1 单个判别函数得分的直方图",
+    "text": "3.1 单个判别函数得分的直方图\n\n#判别函数得分的histogram\nlibrary(MASS)\n\n#保存预测结果\np &lt;- predict(linear, iris)\n\n\n#提取预测结果中存储的判别得分\nldahist(p$x[,1], iris$Species)\n\n\n\n\n\n\n\nldahist(p$x[,2], iris$Species)"
+  },
+  {
+    "objectID": "ldaR.html#两个判别函数得分的二维图",
+    "href": "ldaR.html#两个判别函数得分的二维图",
+    "title": "5 LDA在R中的实现",
+    "section": "3.2 两个判别函数得分的二维图",
+    "text": "3.2 两个判别函数得分的二维图\n\n# Enable the r-universe repo\noptions(repos = c(\n    fawda123 = 'https://fawda123.r-universe.dev',\n    CRAN = 'https://cloud.r-project.org'))\n\n# Install ggord\ninstall.packages('ggord', repos = c('https://fawda123.r-universe.dev', 'https://cloud.r-project.org'))\n\n\n#Bi-plot\nlibrary(devtools)\nlibrary(ggord)\n\nlinear &lt;- lda(Species ~., iris)\nggord(linear, iris$Species)\n\n\n\n\n\n\n\nlinear$scaling\n\n                    LD1         LD2\nSepal.Length  0.8293776 -0.02410215\nSepal.Width   1.5344731 -2.16452123\nPetal.Length -2.2012117  0.93192121\nPetal.Width  -2.8104603 -2.83918785\n\n\n\n椭圆\n\n统计意义：\n\n椭圆基于类别样本在LD1和LD2上的协方差矩阵绘制，反映该类别数据的分散程度和形状。\n每个椭圆围住该类别的大部分数据点（通常95%），中心点是类别的均值（质心）。\n\n中心：椭圆的中心是该类别在LD1和LD2上的平均得分，反映类别在判别空间的“位置”。\n大小：椭圆越大，说明该类别样本在LD1和LD2上的分散程度越高（方差大）；椭圆越小，样本越集中。\n形状：椭圆的形状由协方差矩阵决定：\n\n接近圆形：LD1和LD2的方差相似，特征间相关性低。\n拉长：某个方向（LD1或LD2）方差较大，或特征间相关性高。\n\n方向：椭圆的倾斜方向反映LD1和LD2的协方差，倾斜说明两轴得分有相关性。\n分类效果：\n\n椭圆分离：如果椭圆分得很开（如“金牌”和“银牌”不重叠），说明LDA有效区分了类别。\n椭圆重叠：如果椭圆重叠，说明类别在LD1和LD2上难以区分，可能因为数据不满足LDA假设（正态分布或同协方差矩阵）。\nggord图中的三个椭圆表示每个类别在LD1和LD2判别函数空间中的数据分布范围（通常是95%置信椭圆）。\n椭圆的形状和大小反映类别的协方差和分散程度，位置反映类别均值，重叠情况反映LDA的分类效果。\n圆形椭圆：LD1和LD2的方差相似，且两者相关性低（协方差接近0）。\n拉长椭圆：LD1和LD2的方差差异大，或两者有较强相关性（协方差较大）。\n\n\n\n\n箭头\n\n帮助理解哪些原始变量（特征）对LDA的分类最重要\n方向解读：\n\n如果箭头指向LD1正方向（如右方），说明该变量值增加会使样本的LD1得分增加。\n如果箭头接近垂直于LD1，说明该变量主要影响LD2。\n如果箭头与某类别椭圆的方向一致，说明该变量对该类别的区分作用强。\n\n长度解读：\n\n长箭头表示该变量对分类贡献大，可能是区分三个梯度的关键特征。\n短箭头表示变量影响小，可能对分类帮助有限"
+  },
+  {
+    "objectID": "ldaR.html#分类边界的可视化-partition-plot",
+    "href": "ldaR.html#分类边界的可视化-partition-plot",
+    "title": "5 LDA在R中的实现",
+    "section": "3.3 分类边界的可视化 Partition plot",
+    "text": "3.3 分类边界的可视化 Partition plot\n\nLDA边界\n\nlibrary(klaR)\npartimat(Species ~., data = iris, method = \"lda\")\n\n\n\n\n\n\n\n\n\niris %&gt;% \n  group_by(Species) %&gt;%\n  summarise(across(everything(), mean))\n\n# A tibble: 3 × 5\n  Species    Sepal.Length Sepal.Width Petal.Length Petal.Width\n  &lt;fct&gt;             &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;\n1 setosa             5.01        3.43         1.46       0.246\n2 versicolor         5.94        2.77         4.26       1.33 \n3 virginica          6.59        2.97         5.55       2.03 \n\n\n\n\nQDA边界,标记判别错误的个案\n\npartimat(Species ~ ., data = iris, method = \"qda\", \n         col.correct = \"green3\", col.wrong = \"red\")\n\n\n\n\n\n\n\n\n\npartimat() 创建分类边界的可视化图，展示每个特征对（如 Sepal.Length vs. Sepal.Width）的分类区域。\n每个子图显示 QDA 的决策边界，颜色或填充表示不同类别（Species: setosa, versicolor, virginica）。\n典型子图结构\n\nX轴和Y轴：两个特征（例如 Sepal.Length vs. Petal.Length）。\n颜色/填充区域：每个类别（setosa, versicolor, virginica）用不同颜色填充，代表 QDA 预测的分类区域。\n决策边界：曲线或非线性边界，分离不同类别区域。\n数据点：散点表示实际观测值，颜色对应其真实类别，用于验证边界准确性。\n表观错误率（apparent error rate，training error），即在训练集上模型的错误分类比例\n\n类别分离：setosa 与 versicolor/virginica 的分离较好，versicolor 和 virginica 边界较模糊，QDA 的非线性边界比 LDA 更贴合数据。\n协方差影响：QDA 允许每个类别的协方差矩阵不同，边界形状反映了数据分布的真实复杂性（例如 virginica 的 petall 特征方差较大）。\n误分类区域：重叠区域（versicolor/virginica）可能显示混合颜色，提示分类不确定性。"
+  },
+  {
+    "objectID": "4R.html",
+    "href": "4R.html",
+    "title": "4 聚类分析在R中的实现",
+    "section": "",
+    "text": "本章介绍R中的聚类分析工具。\n#安装和加载包\n#install.packages(\"ggplot2\")\n#install.packages(\"tidyverse\")\n#install.packages(\"dendextend\")\n#install.packages(\"purrr\")\n#install.packages(\"readr\")\n#install.packages(\"readxl\")\n\nlibrary(ggplot2)\nlibrary(tidyverse)\nlibrary(dendextend)\nlibrary(purrr)"
+  },
+  {
+    "objectID": "4R.html#逐步运行",
+    "href": "4R.html#逐步运行",
+    "title": "4 聚类分析在R中的实现",
+    "section": "逐步运行",
+    "text": "逐步运行\n\nStep 1: 计算两点之间的距离 dist()\n\n#请查看dist帮助\ndist_match &lt;- dist(match)\ndist_match\n\n           1         2         3         4         5         6         7\n2   4.242641                                                            \n3  10.488088 13.490738                                                  \n4  12.409674 10.488088 14.071247                                        \n5  13.638182 15.165751 20.199010 24.859606                              \n6  14.899664 13.928388 23.958297 23.494680  8.602325                    \n7  17.349352 13.964240 26.702060 20.322401 18.138357 10.246951          \n8  23.021729 26.191602 13.190906 25.612497 28.319605 34.058773 38.223030\n9  23.430749 24.556058 14.866069 17.916473 33.778692 36.180105 36.110940\n10 22.494444 20.099751 22.494444 10.488088 33.615473 31.144823 25.670995\n11 26.000000 25.019992 34.322005 33.970576 15.937377 11.224972 16.763055\n12 29.171904 29.883106 21.000000 22.113344 39.458839 41.436699 40.570926\n           8         9        10        11\n2                                         \n3                                         \n4                                         \n5                                         \n6                                         \n7                                         \n8                                         \n9  15.264338                              \n10 31.208973 19.261360                    \n11 42.825226 46.054316 40.323690          \n12 19.824228  6.164414 20.615528 51.019604\n\n\n\n\nStep 2 : 系统聚类 hclust()\n\n#请查看hclust帮助\n\nhc_match &lt;- hclust(dist_match, \"complete\")\n\n\n\nStep 3 : 指定类数 cutree()\n\ncluster_assignments &lt;- cutree(hc_match, k = 2)\ncluster_assignments\n\n [1] 1 1 2 2 1 1 1 2 2 2 1 2\n\n#将分类结果追加到数据集中\nmatch_cluster &lt;- mutate(match, cluster = cluster_assignments )\nmatch_cluster\n\n# A tibble: 12 × 4\n      ID     x     y cluster\n   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;int&gt;\n 1     1    -1     1       1\n 2     2    -2    -3       1\n 3     3     8     6       2\n 4     4     7    -8       2\n 5     5   -12     8       1\n 6     6   -15     0       1\n 7     7   -13   -10       1\n 8     8    15    16       2\n 9     9    21     2       2\n10    10    12   -15       2\n11    11   -25     1       1\n12    12    26     0       2\n\n#聚类结果可视化\nmatch_cluster %&gt;% \n  ggplot(aes(x, y, col = factor(cluster)))+\n  geom_point(size = 6)+\n  geom_text(aes(label = ID, hjust = - 1, size = 4))\n\n\n\n\n\n\n\n\n\n\nStep 4 : 统计每一类的个案个数count()\n\ncount(match_cluster, cluster)\n\n# A tibble: 2 × 2\n  cluster     n\n    &lt;int&gt; &lt;int&gt;\n1       1     6\n2       2     6\n\n\n\n\nStep 5 : 绘制树状图Dendrogram\n\n#绘制树状图\nplot(hc_match)\n\n\n\n\n\n\n\n#所有个案从水平线出发\nplot(hc_match, hang = -1)\n#给分支添加矩形框\nrect.hclust(hc_match, k = 2, border = 2)\n\n\n\n\n\n\n\n#给分支添加不同的颜色,指定切开的高度h= 或者指定组数k=\n\n#加载包\nlibrary(dendextend)\ndend_match &lt;- as.dendrogram(hc_match)\ndend_match_40 &lt;- color_branches(dend_match, h = 40)\n\nLoading required namespace: colorspace\n\nplot(dend_match_40)\n\n\n\n\n\n\n\n\n\n\nStep 6 : 计算各组均值\n\nlibrary(psych)\n\n\nAttaching package: 'psych'\n\n\nThe following objects are masked from 'package:ggplot2':\n\n    %+%, alpha\n\nmatch_cluster %&gt;% \n  group_by(cluster) %&gt;% \n  summarise_all(list(mean))\n\n# A tibble: 2 × 4\n  cluster    ID     x      y\n    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n1       1  5.33 -11.3 -0.5  \n2       2  7.67  14.8  0.167"
+  },
+  {
+    "objectID": "4R.html#管道符",
+    "href": "4R.html#管道符",
+    "title": "4 聚类分析在R中的实现",
+    "section": "管道符 %>%",
+    "text": "管道符 %&gt;%\n\nStep 1-6\n\nlibrary(tidyverse)\n\n#将聚类结果保存到cluster_assignments\ncluster_assignments &lt;-match %&gt;%\n  dist() %&gt;% \n  hclust(\"complete\") %&gt;% \n  cutree(2)\n\n#将聚类结果cluster_assignments追加到数据集match_cluster\nmatch_cluster &lt;- match %&gt;% mutate(cluster =\n                                    cluster_assignments)\n#聚类结果可视化\nmatch_cluster%&gt;% \n  ggplot(aes(x,y,col = factor(cluster)))+\n  geom_point(size = 6) \n\n\n\n\n\n\n\n#统计每个组别有多少个案\ncount(match_cluster, cluster) \n\n# A tibble: 2 × 2\n  cluster     n\n    &lt;int&gt; &lt;int&gt;\n1       1     6\n2       2     6\n\n#绘制树状图\nmatch %&gt;%\n  dist() %&gt;% \n  hclust(\"complete\") %&gt;%\n  plot()\n\n\n\n\n\n\n\n#树状图的分支上色\nlibrary(dendextend)\nmatch %&gt;%\n  dist() %&gt;% \n  hclust(\"complete\") %&gt;%\n  as.dendrogram() %&gt;% \n  color_branches(h = 40) %&gt;% \n  plot()\n\n\n\n\n\n\n\nmatch %&gt;%\n  dist() %&gt;% \n  hclust(\"complete\") %&gt;%\n  as.dendrogram() %&gt;% \n  color_branches(k = 3) %&gt;% \n  plot()\n\n\n\n\n\n\n\n\n\n\n不同聚类方案下的树状图\n\n#绘制三种连接法linkage method下的树状图\nmatch %&gt;%\n  dist() %&gt;% \n  hclust(\"complete\") %&gt;%\n  as.dendrogram() %&gt;% \n  color_branches(k = 2) %&gt;% \n  plot(main = \"Complete Linkage\")\n\n\n\n\n\n\n\nmatch %&gt;%\n  dist() %&gt;% \n  hclust(\"single\") %&gt;%\n  as.dendrogram() %&gt;% \n  color_branches(k = 2) %&gt;% \n  plot(main = \"Single Linkage\")\n\n\n\n\n\n\n\nmatch %&gt;%\n  dist() %&gt;% \n  hclust(\"average\") %&gt;%\n  as.dendrogram() %&gt;% \n  color_branches(k = 2) %&gt;% \n  plot(main = \"Average Linkage\")"
+  },
+  {
+    "objectID": "4R.html#kmeans",
+    "href": "4R.html#kmeans",
+    "title": "4 聚类分析在R中的实现",
+    "section": "kmeans()",
+    "text": "kmeans()\n\n#k-means估计\nmodel &lt;- kmeans(match, centers = 3)\n\n#查看model中保存的对象\nattributes(model)\n\n$names\n[1] \"cluster\"      \"centers\"      \"totss\"        \"withinss\"     \"tot.withinss\"\n[6] \"betweenss\"    \"size\"         \"iter\"         \"ifault\"      \n\n$class\n[1] \"kmeans\"\n\n#查看model中保存的聚类结果\nmodel$cluster\n\n [1] 1 1 2 2 1 1 1 2 2 2 3 2\n\n#将model中保存的聚类结果追加到数据框match_kmeans\nmatch_kmeans &lt;- mutate(match, cluster = model$cluster)"
+  },
+  {
+    "objectID": "4R.html#确定k-elbow-plot",
+    "href": "4R.html#确定k-elbow-plot",
+    "title": "4 聚类分析在R中的实现",
+    "section": "确定k: elbow plot",
+    "text": "确定k: elbow plot\n\n#加载包purrr\nlibrary(purrr)\n\n#查看within-cluster sum of squares\nmodel$tot.withinss\n\n[1] 1295.8\n\n# Use map_dbl to run many models with varying value of k (centers)\ntot_withinss &lt;- map_dbl(1:10,  function(k){\n  model &lt;- kmeans(match, k)\n  model$tot.withinss\n})\n\n# map_dbl(1:10, function(k) {...}): 这一部分使用 map_dbl() 函数，对 1 到 10 的整数进行循环迭代，其中 k 是循环变量，对应不同的聚类数。对于每个 k 值，它会执行以下操作：\n# \n# model &lt;- kmeans(match, k): 使用 kmeans() 函数进行 K 均值聚类，其中 match 是输入的数据集，k 是聚类数。这一步创建了一个 K 均值聚类模型 model。\n# \n# model$tot.withinss: 从聚类模型 model 中获取总内部平方和 tot.withinss 的值，它表示每个点到其所属簇的距离的平方和。\n\n\n\n# Generate a data frame containing both k and tot_withinss\nelbow_df &lt;- data.frame(\n  k = 1:10,\n  tot_withinss = tot_withinss\n)\nelbow_df\n\n    k tot_withinss\n1   1    3632.9167\n2   2    1561.1667\n3   3     973.1833\n4   4     797.1667\n5   5     462.2500\n6   6     321.3333\n7   7     252.3333\n8   8     198.6667\n9   9     133.0000\n10 10      28.0000\n\n# Plot the elbow plot\nggplot(elbow_df, aes(k, tot_withinss)) +\n  geom_line() +\n  scale_x_continuous(breaks = 1:10)"
+  },
+  {
+    "objectID": "4R.html#逐步运行-1",
+    "href": "4R.html#逐步运行-1",
+    "title": "4 聚类分析在R中的实现",
+    "section": "逐步运行",
+    "text": "逐步运行\n\ndist_customers &lt;- dist(customers)\nhc_customers &lt;- hclust(dist_customers)\nclust_customers &lt;- cutree(hc_customers, h = 15000)\nsegment_customers &lt;- mutate(customers, cluster = clust_customers)\n\n# Count the number of customers that fall into each cluster\ncount(segment_customers, cluster)\n\n# A tibble: 4 × 2\n  cluster     n\n    &lt;int&gt; &lt;int&gt;\n1       1     5\n2       2    29\n3       3     5\n4       4     6\n\n# Color the dendrogram based on the height cutoff\nlibrary(dendextend)\ndend_customers &lt;- as.dendrogram(hc_customers)\ndend_colored &lt;- color_branches(dend_customers, h = 15000)\n\n# Plot the colored dendrogram\nplot(dend_colored)\n\n\n\n\n\n\n\n# Calculate the mean for each category\nsegment_customers %&gt;% \n  group_by(cluster) %&gt;% \n  summarise_all(list(mean))\n\n# A tibble: 4 × 5\n  cluster    ID   Milk Grocery Frozen\n    &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n1       1  16.2 16950   12891.   991.\n2       2  21.9  2513.   5229.  1796.\n3       3  18.6 10452.  22551.  1355.\n4       4  37.5  1250.   3917. 10889."
+  },
+  {
+    "objectID": "4R.html#管道符-1",
+    "href": "4R.html#管道符-1",
+    "title": "4 聚类分析在R中的实现",
+    "section": "管道符 %>%",
+    "text": "管道符 %&gt;%\n\nsegment_customers &lt;- customers %&gt;% \n  dist() %&gt;% \n  hclust() %&gt;% \n  cutree(h = 15000) %&gt;% \n  mutate(customers, cluster = .)\n\ncustomers %&gt;% \n  dist() %&gt;% \n  hclust() %&gt;%  \n  as.dendrogram() %&gt;% \n  color_branches(h = 15000) %&gt;% \n  plot()\n\n\n\n\n\n\n\ncount(segment_customers, cluster)\n\n# A tibble: 4 × 2\n  cluster     n\n    &lt;int&gt; &lt;int&gt;\n1       1     5\n2       2    29\n3       3     5\n4       4     6\n\n#报告各类均值\nsegment_customers %&gt;% \n  select(2:5) %&gt;% \n  group_by(cluster) %&gt;% \n  summarise_all(list(mean))\n\n# A tibble: 4 × 4\n  cluster   Milk Grocery Frozen\n    &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n1       1 16950   12891.   991.\n2       2  2513.   5229.  1796.\n3       3 10452.  22551.  1355.\n4       4  1250.   3917. 10889.\n\n#分组直方图\nsegment_customers %&gt;% \n  ggplot(aes(Milk, fill = factor(cluster)))+\n  geom_histogram()+\n  facet_wrap(~cluster, ncol = 1)\n\n`stat_bin()` using `bins = 30`. Pick better value `binwidth`.\n\n\n\n\n\n\n\n\n#分组箱线图\nsegment_customers %&gt;% \n  ggplot(aes(Milk, fill = factor(cluster)))+\n  geom_boxplot()+\n  facet_wrap(~cluster, ncol = 1)\n\n\n\n\n\n\n\nboxplot(segment_customers$Frozen ~ segment_customers$cluster,\n        horizontal = T,\n        col = 5,\n        las = 1)"
+  },
+  {
+    "objectID": "svmR.html",
+    "href": "svmR.html",
+    "title": "5 SVM在R中的实现",
+    "section": "",
+    "text": "本章介绍R中的SVM\n\n安装包\n\ninstall.packages(\"tidyverse\")\ninstall.packages(\"MASS\")\ninstall.packages(\"klaR\")\ninstall.packages(\"devtools\")\ninstall.packages(\"psych\")\ninstall.packages(\"MVN\")\ninstall.packages(\"e1071\")\n\n\n\n加载包\n\nlibrary(tidyverse)\nlibrary(psych)\nlibrary(biotools)\nlibrary(MVN)\nlibrary(e1071)\n\n\n\n1 SVM模型的建立\n\n# 取两个变量做演示\niris_sub &lt;- iris[, c(\"Sepal.Length\", \"Sepal.Width\", \"Species\")]\n\n# 建立 SVM 模型（径向基核函数 RBF）\nsvm_model &lt;- svm(Species ~ ., data = iris_sub, \n                 kernel = \"radial\", \n                 cost = 1, \n                 gamma = 0.5)\n\n\n\n2 SVM模型的可视化\n\n# 生成网格点用于预测\nxrange &lt;- seq(min(iris_sub$Sepal.Length) - 0.5, \n              max(iris_sub$Sepal.Length) + 0.5, \n              by = 0.02)\n\nyrange &lt;- seq(min(iris_sub$Sepal.Width) - 0.5, \n              max(iris_sub$Sepal.Width) + 0.5, \n              by = 0.02)\n\ngrid &lt;- expand.grid(Sepal.Length = xrange, \n                    Sepal.Width = yrange)\n\n# 对网格点分类预测\ngrid$Species &lt;- predict(svm_model, grid)\n\n\n# 画出分类区域和样本点\nggplot() +\n  geom_tile(data = grid, \n            aes(x = Sepal.Length, \n                y = Sepal.Width, \n                fill = Species), \n            alpha = 0.3) +\n  geom_point(data = iris_sub, \n             aes(x = Sepal.Length, \n                 y = Sepal.Width, \n                 color = Species), \n             size = 2) +\n  labs(title = \"SVM on Iris Dataset (3-class)\",\n       x = \"Sepal Length\", \n       y = \"Sepal Width\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n3 计算预测准确率\n\npred &lt;- predict(svm_model, iris_sub)\n\naccuracy &lt;- mean(pred == iris_sub$Species)\n\nprint(paste(\"Accuracy:\", round(accuracy * 100, 2), \"%\"))\n\n[1] \"Accuracy: 82 %\"\n\n\n\n\n4 改进SVM模型\n\n\n4.1 调整参数\n\nsvm_model_tuned &lt;- svm(Species ~ ., \n                       data = iris_sub,\n                       kernel = \"radial\", \n                       cost = 10, \n                       gamma = 0.8)\n\npred_tuned &lt;- predict(svm_model_tuned, iris_sub)\n\naccuracy_tuned &lt;- mean(pred_tuned == iris_sub$Species)\n\nprint(paste(\"Tuned Accuracy:\", round(accuracy_tuned * 100, 2), \"%\"))\n\n[1] \"Tuned Accuracy: 82 %\"\n\n\n\n\n4.2 使用不同核函数（线性核）\n\nsvm_model_linear &lt;- svm(Species ~ ., \n                        data = iris_sub,\n                        kernel = \"linear\", \n                        cost = 10)\n\npred_linear &lt;- predict(svm_model_linear, \n                       iris_sub)\n\naccuracy_linear &lt;- mean(pred_linear == iris_sub$Species)\n\nprint(paste(\"Linear Kernel Accuracy:\", round(accuracy_linear * 100, 2),\n            \"%\"))\n\n[1] \"Linear Kernel Accuracy: 82 %\"\n\n\n\n\n4.3 数据预处理（标准化）\n\niris_sub_scaled &lt;- iris_sub\n\niris_sub_scaled[, 1:2] &lt;- scale(iris_sub_scaled[, 1:2])\n\nsvm_model_scaled &lt;- svm(Species ~ ., \n                        data = iris_sub_scaled,\n                        kernel = \"radial\", \n                        cost = 1, \n                        gamma = 0.5)\n\npred_scaled &lt;- predict(svm_model_scaled, iris_sub_scaled)\n\naccuracy_scaled &lt;- mean(pred_scaled == iris_sub_scaled$Species)\n\nprint(paste(\"Scaled Data Accuracy:\", round(accuracy_scaled * 100, 2),\n            \"%\"))\n\n[1] \"Scaled Data Accuracy: 82 %\"\n\n\n\n\n4.4 交叉验证选择最佳参数\n\ntune_result &lt;- tune(svm, Species ~ ., \n                    data = iris_sub,\n                    ranges = list(cost = 10^(-1:2), \n                                  gamma = c(0.1, 0.5, 1)))\n\nbest_model &lt;- tune_result$best.model\n\npred_best &lt;- predict(best_model, iris_sub)\n\naccuracy_best &lt;- mean(pred_best == iris_sub$Species)\n\nprint(paste(\"Best Model Accuracy:\", round(accuracy_best * 100, 2),\n            \"%\"))\n\n[1] \"Best Model Accuracy: 80 %\"\n\n# 输出最佳参数\nprint(tune_result$best.parameters)\n\n  cost gamma\n5  0.1   0.5\n\n# 输出调参结果\nprint(tune_result)\n\n\nParameter tuning of 'svm':\n\n- sampling method: 10-fold cross validation \n\n- best parameters:\n cost gamma\n  0.1   0.5\n\n- best performance: 0.2133333 \n\n# 画出最佳模型的分类区域和样本点\ngrid$Species &lt;- predict(best_model, grid)\nggplot() +\n  geom_tile(data = grid, \n            aes(x = Sepal.Length, \n                y = Sepal.Width, \n                fill = Species), \n            alpha = 0.3) +\n  geom_point(data = iris_sub, \n             aes(x = Sepal.Length, \n                 y = Sepal.Width, \n                 color = Species), \n             size = 2) +\n  labs(title = \"Tuned SVM on Iris Dataset (3-class)\",\n       x = \"Sepal Length\", y = \"Sepal Width\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\n4.5. 使用更多特征\n\n# 前文仅用两个特征做可视化，实际可用全部特征\n# 由于可视化限制，无法直接展示多维特征空间的分类边界，但可以通过准确率来评估模型性能\n\nsvm_model_full &lt;- svm(Species ~ ., \n                      data = iris,\n                      kernel = \"radial\", \n                      cost = 1, \n                      gamma = 0.5)\n\npred_full &lt;- predict(svm_model_full, iris)\n\naccuracy_full &lt;- mean(pred_full == iris$Species)\n\nprint(paste(\"Full Feature Set Accuracy:\", \n            round(accuracy_full * 100, 2), \"%\"))\n\n[1] \"Full Feature Set Accuracy: 97.33 %\""
+  },
+  {
+    "objectID": "projects.html#project-2",
+    "href": "projects.html#project-2",
+    "title": "Projects",
+    "section": "Project 2",
+    "text": "Project 2"
+  },
+  {
+    "objectID": "projects.html#project-3",
+    "href": "projects.html#project-3",
+    "title": "Projects",
+    "section": "Project 3",
+    "text": "Project 3"
+  },
+  {
+    "objectID": "pcadraft.html#主成分分析概述",
+    "href": "pcadraft.html#主成分分析概述",
+    "title": "主成分分析（PCA）",
+    "section": "1. 主成分分析概述",
+    "text": "1. 主成分分析概述\n主成分分析（Principal Component Analysis, PCA）是一种降维（dimension reduction）方法， 通过线性变换将原始变量组合为若干个新的、不相关的综合变量（主成分）， 以保留数据中最主要的变异信息。\n数学思想简要\n设原始数据矩阵为 ( X_{n p} )，包含 ( n ) 个样本、( p ) 个变量。\nPCA 的核心思想是：\n\n对中心化后的数据 ( X ) 求协方差矩阵 ( S )；\n求解特征值分解： [ S = V V’ ] 其中 ( ) 为特征值对角矩阵，( V ) 为特征向量矩阵；\n将原始变量线性组合得到主成分： [ Z = X V ] 每个主成分都是原始变量的线性组合，并按方差大小排序（第一主成分方差最大）。\n\n换言之，PCA寻找一个新的坐标系，使得数据在前几个坐标方向上的方差最大， 从而实现信息压缩。"
+  },
+  {
+    "objectID": "pcadraft.html#应用场景",
+    "href": "pcadraft.html#应用场景",
+    "title": "主成分分析（PCA）",
+    "section": "2. 应用场景",
+    "text": "2. 应用场景\n主成分分析常用于：\n\n数据降维：减少变量数量，降低模型复杂度；\n多指标综合评价：将多个指标合成为少数几个综合得分；\n可视化探索：用前两个主成分展示高维数据结构；\n去除多重共线性：在回归分析中改善解释变量间相关性。\n\n典型应用包括： - 经济指标综合评价； - 基因表达数据分析； - 图像识别与特征提取； - 环境与社会调查数据分析。"
+  },
+  {
+    "objectID": "pcadraft.html#对数据的要求",
+    "href": "pcadraft.html#对数据的要求",
+    "title": "主成分分析（PCA）",
+    "section": "3. 对数据的要求",
+    "text": "3. 对数据的要求\nPCA 的前提假设与数据要求包括：\n\n变量量纲一致性：通常需要对数据进行标准化处理；\n线性关系假设：PCA 基于变量的线性组合；\n连续型变量：PCA 主要适用于定量数据；\n变量间存在一定相关性：若变量间完全独立，则PCA意义有限。"
+  },
+  {
+    "objectID": "pcadraft.html#实例iris-数据集的主成分分析",
+    "href": "pcadraft.html#实例iris-数据集的主成分分析",
+    "title": "主成分分析（PCA）",
+    "section": "4. 实例：iris 数据集的主成分分析",
+    "text": "4. 实例：iris 数据集的主成分分析\n4.1 数据准备"
+  },
+  {
+    "objectID": "chap5slide.html",
+    "href": "chap5slide.html",
+    "title": "Chapter 5 判别分析",
+    "section": "",
+    "text": "注意：本讲义供学习交流使用，请勿用于商业用途"
+  },
+  {
+    "objectID": "teamwork.html",
+    "href": "teamwork.html",
+    "title": "小组作业",
+    "section": "",
+    "text": "分组\n每组3人，由组长填写在线问卷，提交分组信息：https://www.wjx.top/vm/m1mykgE.aspx# \n每组 2–3 人，自由组合，每组需确定一名组长，负责统筹、协调、整合报告。\n\n\n小组作业目标\n\n掌握多元统计方法在现实中的综合应用\n提升数据收集、清理、分析和解释能力\n培养团队合作、PPT制作、口头汇报能力\n\n\n\n选题要求\n基于兴趣选题，来源于现实生活，选择身边真实可获得的数据\n\n\n数据要求\n\n截面数据\n样本容量建议 ≥ 60, 最好超过100\n至少8个以上定量变量\n至少3个以上定性变量\n不可使用虚拟数据\n\n\n\n方法运用\n至少使用 4 种不同的多元统计方法，可选：聚类分析、判别分析、主成分分析、因子分析、对应分析、典型相关分析\n\n\n讨论课安排\n\n讨论小组作业中遇到的问题、答疑、改进\n\n选题和数据 (第4周)\n聚类分析、判别分析 (第7周)\n主成分分析、因子分析 (第10周)\n对应分析、典型相关分析 (第11周)\n\n\n\n\n第1次讨论课主题:选题和数据\n\n选题: 简要介绍选题，并解释为什么选择这个主题？它如何源于现实生活或个人兴趣？\n数据来源渠道：从哪里获取数据？（如问卷调查，Kaggle, 知网统计数据, 中国家庭追踪调查CFPS, 中国家庭金融调查CHFS, 中国教育追踪调查CEPS, 爬虫等）\n变量类型：列出准备收集的变量（至少8个定量变量，3个定性变量）\n样本容量规划：如何确保样本容量≥60（最好&gt;100）\n遇到的困难, 需要老师提供什么帮助？\n\n\n\n小组作业汇报\n\n课堂汇报时间：第12周周四2025-11-20, 汇报时长7分钟\nPPT页数：20-25 页\n重点展示：研究问题、数据概况、分析方法和核心结论\n\n\n\nQ&A\nQ：如何选题？\nA：从兴趣出发，考虑数据的可获得性。\n\n乐高玩具——微信小程序：积木箱\nAPP：JUMP，航旅纵横、携程，大众点评，贝壳等\n网站：boss直聘，易车\n必应/google搜索 关键词 + 数据/dataset\n参考选题\n\n微信公众号狗熊会&gt;案例图书&gt;精品案例&gt;No.1探索性数据分析: 谁在看直播——基于RFM的粉丝聚类\n微信公众号狗熊会&gt;案例图书&gt;精品案例&gt;No4.机器学习:基于KNN的B站“哈尔滨旅游”视频热度分析\n\n\nQ：问卷调查如何收集定量变量？\nA：填空题。需要考虑被访者能否容易回答，数据质量是否可靠。\n\n每月消费，生活费，每周学习时长，运动时长等，数据波动较大，精确度较差\n手机：购置价格、型号、内存、何时购买、内存使用、下一部手机购买的预期等\nAPP使用情况"
+  },
+  {
+    "objectID": "chap8.html",
+    "href": "chap8.html",
+    "title": "第8章",
+    "section": "",
+    "text": "chap 8 讲义\n对应分析 R代码\nChap 8 习题代码"
+  },
+  {
+    "objectID": "chap9.html",
+    "href": "chap9.html",
+    "title": "第9章",
+    "section": "",
+    "text": "chap 9 讲义\n典型相关分析 R代码"
+  },
+  {
+    "objectID": "chap4slide.html",
+    "href": "chap4slide.html",
+    "title": "Chapter 4 聚类分析",
+    "section": "",
+    "text": "注意：本讲义供学习交流使用，请勿用于商业用途"
+  },
+  {
+    "objectID": "L4kmodes.html#k-modes算法",
+    "href": "L4kmodes.html#k-modes算法",
+    "title": "L4 K-modes聚类分析",
+    "section": "K-modes算法",
+    "text": "K-modes算法\n\n初始化：随机选择K个个案作为初始簇中心\n分配步骤：计算每个样本与K个簇中心的距离（匹配差异系数），将样本分配到距离最近的簇\n更新步骤：对于每个簇，重新计算簇中心（众数）\n重复分配和更新步骤，直到簇中心不再变化或达到最大迭代次数"
+  },
+  {
+    "objectID": "L4kmodes.html#k-modes优缺点",
+    "href": "L4kmodes.html#k-modes优缺点",
+    "title": "L4 K-modes聚类分析",
+    "section": "K-modes优缺点",
+    "text": "K-modes优缺点\n\n优点\n\n适用于定性数据\n计算效率高，易于实现\n能处理大规模数据集\n\n缺点\n\n需要预先指定K值\n对初始类中心敏感，可能陷入局部最优\n仅适用于定性变量，无法处理混合数据类型\n结果解释性较差，难以理解簇的含义"
+  },
+  {
+    "objectID": "L4kmodes.html#数据",
+    "href": "L4kmodes.html#数据",
+    "title": "L4 K-modes聚类分析",
+    "section": "数据",
+    "text": "数据"
+  },
+  {
+    "objectID": "L4kmodes.html#第1步-随机选择3个个案作为初始聚类中心",
+    "href": "L4kmodes.html#第1步-随机选择3个个案作为初始聚类中心",
+    "title": "L4 K-modes聚类分析",
+    "section": "第1步: 随机选择3个个案作为初始聚类中心",
+    "text": "第1步: 随机选择3个个案作为初始聚类中心"
+  },
+  {
+    "objectID": "L4kmodes.html#第2步-计算个案1与cluster1的匹配差异系数",
+    "href": "L4kmodes.html#第2步-计算个案1与cluster1的匹配差异系数",
+    "title": "L4 K-modes聚类分析",
+    "section": "第2步: 计算个案1与cluster1的匹配差异系数",
+    "text": "第2步: 计算个案1与cluster1的匹配差异系数"
+  },
+  {
+    "objectID": "L4kmodes.html#第2步-计算个案1与cluster2的匹配差异系数",
+    "href": "L4kmodes.html#第2步-计算个案1与cluster2的匹配差异系数",
+    "title": "L4 K-modes聚类分析",
+    "section": "第2步: 计算个案1与cluster2的匹配差异系数",
+    "text": "第2步: 计算个案1与cluster2的匹配差异系数"
+  },
+  {
+    "objectID": "L4kmodes.html#第2步-计算每个个案与每个聚类中性的匹配差异系数",
+    "href": "L4kmodes.html#第2步-计算每个个案与每个聚类中性的匹配差异系数",
+    "title": "L4 K-modes聚类分析",
+    "section": "第2步: 计算每个个案与每个聚类中性的匹配差异系数",
+    "text": "第2步: 计算每个个案与每个聚类中性的匹配差异系数"
+  },
+  {
+    "objectID": "L4kmodes.html#第3步-将个案分配到最近的簇",
+    "href": "L4kmodes.html#第3步-将个案分配到最近的簇",
+    "title": "L4 K-modes聚类分析",
+    "section": "第3步: 将个案分配到最近的簇",
+    "text": "第3步: 将个案分配到最近的簇"
+  },
+  {
+    "objectID": "L4kmodes.html#第3步-将个案分配到最近的簇-1",
+    "href": "L4kmodes.html#第3步-将个案分配到最近的簇-1",
+    "title": "L4 K-modes聚类分析",
+    "section": "第3步: 将个案分配到最近的簇",
+    "text": "第3步: 将个案分配到最近的簇"
+  },
+  {
+    "objectID": "L4kmodes.html#第4步-对于每个簇重新计算簇中心众数",
+    "href": "L4kmodes.html#第4步-对于每个簇重新计算簇中心众数",
+    "title": "L4 K-modes聚类分析",
+    "section": "第4步: 对于每个簇，重新计算簇中心（众数）",
+    "text": "第4步: 对于每个簇，重新计算簇中心（众数）"
+  },
+  {
+    "objectID": "L4kmodes.html#第1轮聚类结果",
+    "href": "L4kmodes.html#第1轮聚类结果",
+    "title": "L4 K-modes聚类分析",
+    "section": "第1轮聚类结果",
+    "text": "第1轮聚类结果"
+  },
+  {
+    "objectID": "L4kmodes.html#重新计算簇中心",
+    "href": "L4kmodes.html#重新计算簇中心",
+    "title": "L4 K-modes聚类分析",
+    "section": "重新计算簇中心",
+    "text": "重新计算簇中心"
+  },
+  {
+    "objectID": "L4kmodes.html#重新计算个案与簇中心的匹配差异系数",
+    "href": "L4kmodes.html#重新计算个案与簇中心的匹配差异系数",
+    "title": "L4 K-modes聚类分析",
+    "section": "重新计算个案与簇中心的匹配差异系数",
+    "text": "重新计算个案与簇中心的匹配差异系数"
+  },
+  {
+    "objectID": "L4kmodes.html#重新确定个案归属于哪个簇",
+    "href": "L4kmodes.html#重新确定个案归属于哪个簇",
+    "title": "L4 K-modes聚类分析",
+    "section": "重新确定个案归属于哪个簇",
+    "text": "重新确定个案归属于哪个簇\n直到簇中心不再变化或达到最大迭代次数"
+  },
+  {
+    "objectID": "L4kmodes.html#r包klar",
+    "href": "L4kmodes.html#r包klar",
+    "title": "L4 K-modes聚类分析",
+    "section": "R包：klaR",
+    "text": "R包：klaR\nklaR package"
+  },
+  {
+    "objectID": "L4kmodes.html#变量含义",
+    "href": "L4kmodes.html#变量含义",
+    "title": "L4 K-modes聚类分析",
+    "section": "变量含义",
+    "text": "变量含义"
+  },
+  {
+    "objectID": "L4kmodes.html#k-prototypes算法",
+    "href": "L4kmodes.html#k-prototypes算法",
+    "title": "L4 K-modes聚类分析",
+    "section": "k-prototypes算法",
+    "text": "k-prototypes算法\n距离度量\n\\[\nd(x_i, z_j) = \\sum_{k \\in \\text{numerical}}(x_{ik} - z_{jk})^2 +\n\\gamma \\sum_{l \\in \\text{categorical}} \\delta(x_{il}, z_{jl})\n\\]\n\n数值变量使用平方欧氏距离\n分类变量使用匹配/不匹配距离（相同=0，不同=1）\nγ 为权重系数，用于平衡数值和分类变量"
+  },
+  {
+    "objectID": "L4kmodes.html#聚类步骤",
+    "href": "L4kmodes.html#聚类步骤",
+    "title": "L4 K-modes聚类分析",
+    "section": "聚类步骤",
+    "text": "聚类步骤\n\n初始化：随机选择K个原型（簇中心），数值部分取均值，分类部分取众数。\n分配簇：将每个样本分配给距离最近的簇（使用上面的混合距离度量）。\n更新簇中心：\n\n数值变量 → 取簇内均值\n分类变量 → 取簇内众数\n\n迭代，直到簇分配不再变化或达到最大迭代次数。"
+  },
+  {
+    "objectID": "L4kmodes.html#r包clustmixtype",
+    "href": "L4kmodes.html#r包clustmixtype",
+    "title": "L4 K-modes聚类分析",
+    "section": "R包：clustMixType",
+    "text": "R包：clustMixType\nclustMixType package"
+  },
+  {
+    "objectID": "case.html",
+    "href": "case.html",
+    "title": "小组作业",
+    "section": "",
+    "text": "每组3人，由组长填写在线问卷，提交分组信息：https://www.wjx.top/vm/e3AyWsR.aspx#"
+  },
+  {
+    "objectID": "case.html#小组作业",
+    "href": "case.html#小组作业",
+    "title": "小组作业",
+    "section": "小组作业",
+    "text": "小组作业\n\n选取自己感兴趣的问题，收集数据，运用第4-9章的方法分析数据，提炼研究结论。\n第12周汇报，每组不超过10分钟。\n提交文件：汇报PDF文档，R项目文件(含代码，数据文件等)"
+  },
+  {
+    "objectID": "case.html#第6周讨论课安排",
+    "href": "case.html#第6周讨论课安排",
+    "title": "小组作业",
+    "section": "第6周讨论课安排",
+    "text": "第6周讨论课安排\n\n讨论课前准备\n\n数据要求：将数据导入R。\n运用第4-6章方法。\n遇到的问题和困难。\n请带笔记本电脑。\n\n\n\n发言时间表和讨论时间表(见QQ群文件)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "多元统计25秋",
+    "section": "",
+    "text": "欢迎访问《多元统计》课程网站！"
+  },
+  {
+    "objectID": "index.html#教材",
+    "href": "index.html#教材",
+    "title": "多元统计25秋",
+    "section": "教材",
+    "text": "教材\n\n多元统计分析——基于R（第2版，费宇，中国人民大学出版社）.\n下载教材配套数据文件(QQ课程群)"
+  },
+  {
+    "objectID": "index.html#软件准备",
+    "href": "index.html#软件准备",
+    "title": "多元统计25秋",
+    "section": "软件准备",
+    "text": "软件准备\nR和R Studio的下载\nR和RStudio的安装\n若无法安装R和R Studio, 请观看：\n不用安装就能用的RStudio——RStudio Cloud"
+  },
+  {
+    "objectID": "index.html#r基础",
+    "href": "index.html#r基础",
+    "title": "多元统计25秋",
+    "section": "R基础",
+    "text": "R基础\nR语言与统计应用课程网站"
+  },
+  {
+    "objectID": "index.html#参考书",
+    "href": "index.html#参考书",
+    "title": "多元统计25秋",
+    "section": "参考书",
+    "text": "参考书\n下载"
+  },
+  {
+    "objectID": "index.html#教学视频",
+    "href": "index.html#教学视频",
+    "title": "多元统计25秋",
+    "section": "教学视频",
+    "text": "教学视频\nR数据分析实战"
+  },
+  {
+    "objectID": "index.html#教学平台",
+    "href": "index.html#教学平台",
+    "title": "多元统计25秋",
+    "section": "教学平台",
+    "text": "教学平台\n\nQQ群：提交作业，提问答疑\n\n91速课(https://www.91suke.com)：发布作业，提交作业，测验，考勤等\n在91速课中设置姓名和学号的方法"
+  },
+  {
+    "objectID": "index.html#课程考核",
+    "href": "index.html#课程考核",
+    "title": "多元统计25秋",
+    "section": "课程考核",
+    "text": "课程考核\n\n平时成绩：50%\n\n个人作业：15%\n小组作业(案例分析)：20%\n测验：10%\n考勤： 5%\n\n期末考查：课程论文 50%\n\n\n\n\n\nclick here"
+  },
+  {
+    "objectID": "kmodesR.html",
+    "href": "kmodesR.html",
+    "title": "K-modes & K-prototypes R代码",
+    "section": "",
+    "text": "点击下载数据文件: supermarket.xlsx \n\n加载必要的包\n\n#install.packages(\"klaR\")\nlibrary(klaR)\nlibrary(tidyverse)\nlibrary(readr)\n\n\n\n导入数据并预处理\n\n重命名\n将定量变量转成factor\n剔除含有缺失值的个案\n将tibble转成data.frame\n\n\n# 读取数据\nlibrary(readxl)\nsupermarket &lt;- read_excel(\"supermarket.xlsx\")\n\n# 数据预处理\nsupermarket &lt;- supermarket %&gt;%\n  rename(Marital = `Marital status`, Settlement = `Settlement size`) %&gt;%\n  mutate(\n    Age_group = cut(Age, breaks = c(0,20,30,40,50,60,70,80), right = FALSE, \n                    labels = c(\"[0,20)\",\"[20,30)\", \"[30,40)\", \"[40,50)\", \"[50,60)\", \"[60,70)\", \"[70,80)\")),\n    Income_group = cut(Income, breaks = c(0, 50000, 100000, 150000, 200000, 250000, 300000, 350000), \n                       right = FALSE, labels = c(\"[0,50k)\", \"[50k,100k)\", \"[100k,150k)\", \"[150k,200k)\", \n                                                 \"[200k,250k)\", \"[250k,300k)\", \"[300k,350k+)\"))\n  ) %&gt;%\n  select(Sex, Marital, Age_group, Education, Income_group, Occupation, Settlement) %&gt;%\n  mutate(across(.cols = everything(), .fns = as.factor)) %&gt;%\n  na.omit() %&gt;% \n  as.data.frame()\n\n\n\n重新命名因子水平\n\nsupermarket$Sex &lt;- factor(supermarket$Sex, levels = c(0, 1), labels = c(\"Male\", \"Female\"))\nsupermarket$Marital &lt;- factor(supermarket$Marital, levels = c(0, 1), labels = c(\"Single\", \"Non-single\"))\nsupermarket$Education &lt;- factor(supermarket$Education, levels = c(0, 1, 2, 3), \n                                labels = c(\"Other/Unknown\", \"High School\", \"University\", \"Graduate School\"))\nsupermarket$Occupation &lt;- factor(supermarket$Occupation, levels = c(0, 1, 2), \n                                 labels = c(\"Unemployed/Unskilled\", \"Skilled Employee/Official\", \n                                            \"Management/Self-employed/Highly Qualified\"))\nsupermarket$Settlement &lt;- factor(supermarket$Settlement, levels = c(0, 1, 2), \n                                 labels = c(\"Small City\", \"Mid-sized City\", \"Big City\"))\n\n\n\n使用kmodes函数进行聚类分析\nkmodes() 是一种 基于随机初始化簇中心的聚类算法。\n每次运行时，初始簇中心是随机选择的，所以可能得到不同的聚类结果。\n使用 set.seed(123) 可以固定随机数生成器的状态，保证每次运行结果一致（可重复）。\n\nset.seed(123)\nkmodes_result &lt;- kmodes(supermarket, modes = 4, iter.max = 10)\n\n# 保存聚类结果\nsupermarket$Cluster &lt;- as.factor(kmodes_result$cluster)\n\n\n\n查看聚类结果\n\n# 查看每个聚类的众数\nkmodes_result$modes\n\n     Sex    Marital Age_group   Education Income_group\n1   Male     Single   [30,40) High School   [50k,100k)\n2 Female Non-single   [20,30) High School  [100k,150k)\n3 Female Non-single   [50,60)  University  [150k,200k)\n4   Male     Single   [30,40) High School  [100k,150k)\n                 Occupation     Settlement\n1      Unemployed/Unskilled     Small City\n2 Skilled Employee/Official     Small City\n3 Skilled Employee/Official Mid-sized City\n4 Skilled Employee/Official Mid-sized City\n\n# 查看每个观测值的聚类分配\n# kmodes_result$cluster\n# 查看每个聚类的大小\nkmodes_result$size\n\ncluster\n  1   2   3   4 \n434 719 172 675 \n\n# 查看每个聚类的分布\ntable(supermarket$Cluster)\n\n\n  1   2   3   4 \n434 719 172 675 \n\n\n\n\n概括每个类别的特征\n\ncluster_summary &lt;- supermarket %&gt;%\n  group_by(Cluster) %&gt;%\n  summarise(\n    Sex = names(which.max(table(Sex))),\n    Marital = names(which.max(table(Marital))),\n    Age_group = names(which.max(table(Age_group))),\n    Education = names(which.max(table(Education))),\n    Income_group = names(which.max(table(Income_group))),\n    Occupation = names(which.max(table(Occupation))),\n    Settlement = names(which.max(table(Settlement))),\n    Size = n()\n  )\n\n# 输出簇特征\ncluster_summary\n\n# A tibble: 4 × 9\n  Cluster Sex    Marital  Age_group Education Income_group Occupation Settlement\n  &lt;fct&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     \n1 1       Male   Single   [30,40)   High Sch… [50k,100k)   Unemploye… Small City\n2 2       Female Non-sin… [20,30)   High Sch… [100k,150k)  Skilled E… Small City\n3 3       Female Non-sin… [50,60)   Universi… [150k,200k)  Skilled E… Mid-sized…\n4 4       Male   Single   [30,40)   High Sch… [100k,150k)  Skilled E… Mid-sized…\n# ℹ 1 more variable: Size &lt;int&gt;\n\n\n\n\n可视化聚类结果\n\n# 可视化：年龄组和收入组的簇分布\nggplot(supermarket, aes(x = Age_group, fill = Cluster)) +\n  geom_bar(position = \"dodge\") +\n  labs(title = \"Age Group Distribution by Cluster\", x = \"Age Group\", y = \"Count\") +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))\n\n\n\n\n\n\n\nggplot(supermarket, aes(x = Income_group, fill = Cluster)) +\n  geom_bar(position = \"dodge\") +\n  labs(title = \"Income Group Distribution by Cluster\", x = \"Income Group\", y = \"Count\") +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))\n\n\n\n\n\n\n\n\n\n\n解释聚类结果\n\n簇1：主要为年轻（[20,30)）、单身男性，高中教育，低收入（[0,50k)），失业/无技能，居住在小城市。\n簇2：主要为中年（[30,40)）、已婚女性，大学教育，中等收入（[100k,150k)），熟练雇员，居住在中型城市。\n簇3：主要为老年（[50,60)）、已婚混合性别，大学/研究生教育，高收入（[150k,200k)），高素质职业，居住在大城市。\n簇4：可能为过渡群体，例如中年单身，高中/大学教育，中等收入，混合职业和居住地。\n\n\n\nk-prototypes 聚类分析\n\n# 指定图形的中文字体\npar(family  = 'STKaiti')\n#install.packages(\"showtext\")\nlibrary(showtext)\nshowtext_auto()\n\nlibrary(clustMixType)\n\n# 读取数据\nsupermarket &lt;- read_csv(\"supermarket.csv\")\n\n# 数据预处理\n# 读取数据\nsupermarket &lt;- read_csv(\"supermarket.csv\")\n\n# 数据预处理\nsupermarket &lt;- supermarket %&gt;%\n  rename(Marital = `Marital status`, Settlement = `Settlement size`) %&gt;%\n  select(Sex, Marital, Education, Occupation, Settlement, Income, Age) %&gt;%\n  mutate(across(c(Sex, Marital, Education, Occupation, Settlement), \n                as.factor)) %&gt;%\n  na.omit() %&gt;% \n  as.data.frame()\n\n# 设置随机种子\nset.seed(123)\n\n# 选择混合类型变量\nmix_data &lt;- supermarket %&gt;%\n  select(Age, Income, Sex, Marital, Education, Occupation, Settlement)\n\n# 运行 k-prototypes 聚类，设定 4 个簇\nkproto_result &lt;- kproto(mix_data, k = 4, verbose = TRUE)\n\n# NAs in variables:\n       Age     Income        Sex    Marital  Education Occupation Settlement \n         0          0          0          0          0          0          0 \n0 observation(s) with NAs.\n\nEstimated lambda: 1357318162 \n\n# 查看聚类中心\nkproto_result$centers\n\n       Age   Income Sex Marital Education Occupation Settlement\n1 31.69527 101157.4   1       1         1          1          0\n2 43.93720 197277.5   0       1         1          2          1\n3 36.19811 104039.5   0       0         1          1          0\n4 39.33551 140742.7   0       0         1          1          2\n\n# 每个样本的簇标签\nhead(kproto_result$cluster)\n\n1 2 3 4 5 6 \n4 4 3 4 4 4 \n\n# 各簇样本数量\ntable(kproto_result$cluster)\n\n\n  1   2   3   4 \n804 207 530 459 \n\n# 将簇标签添加到原始数据\nsupermarket$Cluster &lt;- as.factor(kproto_result$cluster)\n\n\n# 1️⃣ 数值变量在各簇的均值\nnum_summary &lt;- supermarket %&gt;%\n  group_by(Cluster) %&gt;%\n  summarise(\n    Mean_Age = mean(Age),\n    Mean_Income = mean(Income),\n    .groups = \"drop\"\n  )\nprint(num_summary)\n\n# A tibble: 4 × 3\n  Cluster Mean_Age Mean_Income\n  &lt;fct&gt;      &lt;dbl&gt;       &lt;dbl&gt;\n1 1           31.7     101157.\n2 2           43.9     197277.\n3 3           36.2     104039.\n4 4           39.3     140743.\n\n# 2️⃣ 分类变量在各簇的分布\ncat_vars &lt;- c(\"Sex\",\"Marital\",\"Education\",\"Occupation\",\"Settlement\")\n\ncat_summary &lt;- supermarket %&gt;%\n  group_by(Cluster) %&gt;%\n  summarise(across(all_of(cat_vars), ~paste(names(sort(table(.), decreasing = TRUE))[1])), \n            .groups = \"drop\")\nprint(cat_summary)\n\n# A tibble: 4 × 6\n  Cluster Sex   Marital Education Occupation Settlement\n  &lt;fct&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;     \n1 1       1     1       1         1          0         \n2 2       0     1       1         2          1         \n3 3       0     0       1         1          0         \n4 4       0     0       1         1          2         \n\n# 3️⃣ 可视化各簇样本数量\ncluster_count &lt;- supermarket %&gt;%\n  count(Cluster)\n\nggplot(cluster_count, aes(x = Cluster, y = n, fill = Cluster)) +\n  geom_bar(stat = \"identity\") +\n  labs(title = \"各簇样本数量\", x = \"簇编号\", y = \"样本数量\") +\n  theme_minimal() +\n  scale_fill_brewer(palette = \"Set2\")\n\n\n\n\n\n\n\n# 4️⃣ 可视化分类变量在各簇的分布（气泡图示例）\n# 将分类变量展开\nsupermarket_long &lt;- supermarket %&gt;%\n  pivot_longer(cols = all_of(cat_vars), names_to = \"Variable\", values_to = \"Category\")\n\nggplot(supermarket_long, aes(x = Variable, fill = Category)) +\n  geom_bar(position = \"fill\") +\n  facet_wrap(~Cluster) +\n  labs(title = \"各簇分类变量分布\", y = \"比例\", x = \"分类变量\") +\n  theme_minimal() +\n  scale_fill_brewer(palette = \"Pastel1\")"
+  },
+  {
+    "objectID": "chap1.html",
+    "href": "chap1.html",
+    "title": "第1章",
+    "section": "",
+    "text": "Chap 1 讲义\nR Introduction\nR中的常用统计分析工具\n\nUseful links\n\nggplot2 Aesthetic specifications https://ggplot2.tidyverse.org/articles/ggplot2-specs.html\nHTML COLOR CODES https://htmlcolorcodes.com\nColors in R http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf"
+  },
+  {
+    "objectID": "chap1.html#讨论题1",
+    "href": "chap1.html#讨论题1",
+    "title": "第1章",
+    "section": "讨论题1",
+    "text": "讨论题1\n阅读下述推文\n微信公众号狗熊会&gt;案例图书&gt;精品案例&gt;No.1探索性数据分析: 谁在看直播——基于RFM的粉丝聚类\n微信公众号狗熊会&gt;案例图书&gt;精品案例&gt;No4.机器学习:基于KNN的B站“哈尔滨旅游”视频热度分析\n1.1 数据来源？\n1.2 样本容量？\n1.3 研究中使用了哪些变量？\n1.4 使用了哪些统计方法？\n1.5 得出哪些有价值的结论？"
+  },
+  {
+    "objectID": "chap1.html#学习素材",
+    "href": "chap1.html#学习素材",
+    "title": "第1章",
+    "section": "学习素材",
+    "text": "学习素材\n狗熊会(微信公众号) https://www.xiong99.com.cn/\nUCLA Data Analysis Examples https://stats.oarc.ucla.edu/other/dae/\nThe Data And Story Library https://dasl.datadescription.com/"
+  },
+  {
+    "objectID": "chap1.html#数据库",
+    "href": "chap1.html#数据库",
+    "title": "第1章",
+    "section": "数据库",
+    "text": "数据库\nCSMAR 国泰安经济金融数据库 http://www.gtarsc.com/Home\n中国家庭追踪调查 CFPS http://www.isss.pku.edu.cn/cfps/\n中国家庭金融调查数据 CHFS https://chfs.swufe.edu.cn\n中国健康与养老数据追踪调查数据CHARLS http://charls.pku.edu.cn\n暨南大学社会调查中心 https://sdc-iesr.jnu.edu.cn\n Kaggle https://www.kaggle.com/"
+  },
+  {
+    "objectID": "chap1.html#r相关",
+    "href": "chap1.html#r相关",
+    "title": "第1章",
+    "section": "R相关",
+    "text": "R相关\nCRAN Task Views https://cran.r-project.org/web/views/\nMost Downloaded R Packages https://www.r-pkg.org/\nRStudio Cloud https://rstudio.cloud/"
+  },
+  {
+    "objectID": "4solutions.html",
+    "href": "4solutions.html",
+    "title": "4 聚类分析习题答案",
+    "section": "",
+    "text": "P75, textbook ex4.1\n将ex4.1.csv另存为ex4.1.xlsx，再导入。\n  点击下载数据文件: ex4.1.xlsx \n\n#安装包\n#install.packages(\"tidyverse\")\n#install.packages(\"dendextend\")\n#install.packages(\"cluster\")\n#install.packages(\"purrr\")\n#install.packages(\"readr\")\n#install.packages(\"readxl\")\n\n\n#导入数据\nlibrary(readxl)\nlibrary(tidyverse)\nex4_1 &lt;- read_excel(\"ex4.1.xlsx\") %&gt;% as.data.frame()\n\n#给数据框添加行名\nrownames(ex4_1) &lt;- ex4_1$brand\n\n# Agglomerative Nesting (Hierarchical Clustering)\n# 加载包cluster\nlibrary(cluster)\nex4_1.hc &lt;- agnes(ex4_1, # 数据框\n                     stand = TRUE, # 对变量进行标准化变换\n                     metric = \"euclidean\", # 个案之间的距离测度\n                     method = \"ward\" # 类间距离定义\n)\n\n#查看聚类模型\nex4_1.hc\n\nCall:    agnes(x = ex4_1, metric = \"euclidean\", stand = TRUE, method = \"ward\") \nAgglomerative coefficient:  0.8360097 \nOrder of objects:\n [1] Budweiser     Coors         Hamms         Heilemans-old Coorslicht   \n [6] Ionenbrau     Michelos-lich Aucsberger    Schlitz       Strchs-bohemi\n[11] Old-milnaukee Kronensourc   Heineken      Kkirin        Secrs        \n[16] Miller-lite   Schlite-light Sudeiser-lich Pabst-extral  Olympia-gold \nHeight (summary):\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n 0.6316  1.4611  2.1845  3.1149  3.6032 10.7767 \n\nAvailable components:\n[1] \"order\"     \"height\"    \"ac\"        \"merge\"     \"diss\"      \"call\"     \n[7] \"method\"    \"order.lab\" \"data\"     \n\n#查看agglomerative coefficient聚合系数，越接近于1，代表聚类结构越强\nex4_1.hc$ac\n\n[1] 0.8360097\n\n#保存聚类结果\nex4_1$cluster &lt;- cutree(ex4_1.hc, k=3)\n\n\n#绘制树状图dendrogram\n# install.package(\"factoextra\")\nlibrary(factoextra)\n\nfviz_dend(ex4_1.hc)\n\n\n\n\n\n\n\nfviz_dend(ex4_1.hc, k= 3, cex = 0.6)\n\n\n\n\n\n\n\n\n\n# 自定义树状图分支及标签颜色、字体、添加矩形框\nfviz_dend(ex4_1.hc, \n          k = 3, # 分三类\n          cex = 0.7, # 标签字体\n          k_colors = c(4,5,6),#分支颜色\n          color_labels_by_k = TRUE, # 标签上色\n          rect = TRUE, # 添加矩形框 \n          rect_fill = TRUE, #矩形框底色\n          lower_rect = -6, #矩形框下沿\n          lwd = 1.2, #线条宽度\n          ggtheme = theme_minimal() #主题色\n)\n\n\n\n\n\n\n\n# 圆形树状图\nfviz_dend(ex4_1.hc, \n          k = 3, # 分三类\n          cex = 0.5, # 标签字体\n          k_colors = c(4,5,6),#分支颜色\n          color_labels_by_k = TRUE, # 标签上色\n          lwd = 1.2, #线条宽度\n          type = \"circular\", #圆形\n          ggtheme = theme_gray() #主题\n)\n\n\n\n\n\n\n\n# 支流树状图\nfviz_dend(ex4_1.hc, \n          k = 3, # 分三类\n          cex = 0.7, # 标签字体\n          k_colors = c(4,5,6),#分支颜色\n          color_labels_by_k = TRUE, # 标签上色\n          type = \"phylogenic\", # 支流\n          ggtheme = theme_bw() #主题\n)\n\n\n\n\n\n\n\n\n\ndend.ward &lt;- ex4_1 %&gt;% \n  select(热量:价格) %&gt;% \n  scale() %&gt;% \n  dist() %&gt;% \n  hclust(\"ward.D\")%&gt;% \n  as.dendrogram()\n\n\ndend.average &lt;- ex4_1 %&gt;% \n  select(热量:价格) %&gt;% \n  scale() %&gt;% \n  dist() %&gt;% \n  hclust(\"average\") %&gt;% \n  as.dendrogram() \n\n\nlibrary(dendextend)\ntanglegram(dend.ward,dend.average,\n           k_labels = 3,\n           k_branches = 3,\n           main_left = \"ward.D linkage\",\n           main_right = \"average linkage\",\n           sort = T,\n           margin_inner = 6,\n           type = \"t\",\n           highlight_distinct_edges = F,\n           highlight_branches_lwd = F,\n           main = paste(\"entanglement =\", \n                        round(entanglement(\n                          dend.ward,dend.average), 2)),\n           cex_main = 1.2\n)\n\n\n\n\n\n\n\n\n\n#完全一致的分类结果，缠绕系数等于0\ndend.ward2 &lt;- ex4_1 %&gt;% \n  select(热量:价格) %&gt;% \n  scale() %&gt;% \n  dist() %&gt;% \n  hclust(\"ward.D2\") %&gt;% \n  as.dendrogram() \n\ntanglegram(dend.ward,dend.ward2,\n           k_labels = 3,\n           k_branches = 3,\n           main_left = \"Ward.D Linkage\",\n           main_right = \"Ward.D2 Linkage\",\n           margin_inner = 6,\n           highlight_distinct_edges = F,\n           highlight_branches_lwd = F,\n           main = paste(\"entanglement =\", \n                        round(entanglement(\n                          dend.ward,dend.ward2,), 2)),\n           cex_main = 1.2\n)\n\n\n\n\n\n\n\n\n\n\nP75, textbook ex4.3\n  点击下载数据文件: ex4.3.xlsx \n\n#避免ex4.3.csv导入时汉字会变乱码的问题\n#在Excel中将教材配套的ex4.3.csv另存为ex4.3.xlsx\n#导入\"ex4.3.xlsx\"文件\nlibrary(readxl)\nlibrary(tidyverse)\n\nex4_3 &lt;- read_excel(\"ex4.3.xlsx\") %&gt;% \n  as.data.frame() %&gt;% #保存为数据框\n  rename(city = ...1, so2 = x1, no2 = x2, pm10 = x3,\n         co = x4, o3 = x5, pm2.5 = x6, good = x7)\n\nNew names:\n• `` -&gt; `...1`\n\n#创建数据框elbow, 9行2列，列名分别为k和tot_withinss\n#用于存放分类数k，分2-10类\n#以及within-group sum of squares（tot_withinss），组内平方和\n#用于绘制elbow plot, tot_withinss下降最快处，即K值\n\nelbow &lt;- data.frame(matrix(ncol = 2, nrow = 9))\ncolnames(elbow) &lt;- c('k', 'tot_withinss')\n\n#K均值聚类,k= 2,3,4,5,6,..10\nfor (i in (2:10)) {\n  ex4_3_kmeans &lt;- \n    ex4_3 %&gt;%\n    select(so2:good) %&gt;% \n    scale() %&gt;% \n    kmeans(centers = i)\n  ex4_3[, paste0(\"cluster\",i)] &lt;- ex4_3_kmeans$cluster\n  print(paste(\"Number of Clusters:\", i))\n  print(ex4_3_kmeans$tot.withinss)\n  print(table(ex4_3_kmeans$cluster))\n  elbow[i-1,1] &lt;- i\n  elbow[i-1,2] &lt;- ex4_3_kmeans$tot.withinss\n}\n\n[1] \"Number of Clusters: 2\"\n[1] 425.6854\n\n 1  2 \n65 48 \n[1] \"Number of Clusters: 3\"\n[1] 307.9599\n\n 1  2  3 \n56 22 35 \n[1] \"Number of Clusters: 4\"\n[1] 258.7375\n\n 1  2  3  4 \n44 27 17 25 \n[1] \"Number of Clusters: 5\"\n[1] 222.7558\n\n 1  2  3  4  5 \n26 22 32 16 17 \n[1] \"Number of Clusters: 6\"\n[1] 195.3154\n\n 1  2  3  4  5  6 \n26 15 18 26 11 17 \n[1] \"Number of Clusters: 7\"\n[1] 182.1412\n\n 1  2  3  4  5  6  7 \n20 28  7  7 25 10 16 \n[1] \"Number of Clusters: 8\"\n[1] 171.5312\n\n 1  2  3  4  5  6  7  8 \n11 20 16 16 18  9 12 11 \n[1] \"Number of Clusters: 9\"\n[1] 157.6378\n\n 1  2  3  4  5  6  7  8  9 \n16 17 10  5 20  6 16  5 18 \n[1] \"Number of Clusters: 10\"\n[1] 148.2836\n\n 1  2  3  4  5  6  7  8  9 10 \n10 10  7 17 13  8 15  6  6 21 \n\n\n\n# Plot the elbow plot\nggplot(elbow, aes(k, tot_withinss)) +\n  geom_line() +\n  scale_x_continuous(breaks = 1:10)\n\n\n\n\n\n\n\n#分3类\ntable(ex4_3$cluster3)\n\n\n 1  2  3 \n56 22 35 \n\n#列出每组有哪些城市\nfor (i in 1:3) {\n  print(ex4_3$city[ex4_3$cluster3 == i]) \n}\n\n [1] \"北京\"     \"秦皇岛\"   \"大同\"     \"呼和浩特\" \"包头\"     \"沈阳\"    \n [7] \"鞍山\"     \"抚顺\"     \"锦州\"     \"长春\"     \"吉林\"     \"哈尔滨\"  \n[13] \"上海\"     \"南京\"     \"无锡\"     \"常州\"     \"苏州\"     \"南通\"    \n[19] \"连云港\"   \"扬州\"     \"镇江\"     \"杭州\"     \"湖州\"     \"绍兴\"    \n[25] \"合肥\"     \"芜湖\"     \"马鞍山\"   \"南昌\"     \"青岛\"     \"枣庄\"    \n[31] \"潍坊\"     \"济宁\"     \"日照\"     \"开封\"     \"三门峡\"   \"武汉\"    \n[37] \"宜昌\"     \"荆州\"     \"长沙\"     \"株洲\"     \"湘潭\"     \"广州\"    \n[43] \"重庆\"     \"成都\"     \"自贡\"     \"泸州\"     \"德阳\"     \"南充\"    \n[49] \"宜宾\"     \"铜川\"     \"宝鸡\"     \"延安\"     \"兰州\"     \"西宁\"    \n[55] \"石嘴山\"   \"乌鲁木齐\"\n [1] \"天津\"   \"石家庄\" \"唐山\"   \"邯郸\"   \"保定\"   \"太原\"   \"阳泉\"   \"长治\"  \n [9] \"临汾\"   \"徐州\"   \"济南\"   \"淄博\"   \"泰安\"   \"郑州\"   \"洛阳\"   \"平顶山\"\n[17] \"安阳\"   \"焦作\"   \"西安\"   \"咸阳\"   \"渭南\"   \"银川\"  \n [1] \"赤峰\"     \"大连\"     \"本溪\"     \"齐齐哈尔\" \"牡丹江\"   \"宁波\"    \n [7] \"温州\"     \"福州\"     \"厦门\"     \"泉州\"     \"九江\"     \"烟台\"    \n[13] \"岳阳\"     \"常德\"     \"张家界\"   \"韶关\"     \"深圳\"     \"珠海\"    \n[19] \"汕头\"     \"湛江\"     \"南宁\"     \"柳州\"     \"桂林\"     \"北海\"    \n[25] \"海口\"     \"攀枝花\"   \"绵阳\"     \"贵阳\"     \"遵义\"     \"昆明\"    \n[31] \"曲靖\"     \"玉溪\"     \"拉萨\"     \"金昌\"     \"克拉玛依\"\n\nclusterdf &lt;- data.frame(matrix(ncol = 2, nrow = 3))\ncolnames(clusterdf) &lt;- c('cluster', 'area')\n\nfor(i in 1:3){\n  clusterdf[i,1] = i\n  clusterdf[i,2] = \n    paste(ex4_3$city[ex4_3$cluster3 == i],collapse = \",\")\n}\n\nclusterdf %&gt;% \n  as_tibble() %&gt;% \n  view()\n\n\n#计算各组污染指标的均值\nex4_3 %&gt;% \n  select(so2:good, cluster3) %&gt;% \n  group_by(cluster3) %&gt;% \n  summarise_all(list(mean)) %&gt;% \n  arrange(desc(good)) #descending\n\n# A tibble: 3 × 8\n  cluster3   so2   no2  pm10    co    o3 pm2.5  good\n     &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1        3  14.2  26.5  58.7  1.37  135.  34.2  329.\n2        1  19.8  40.6  83.9  1.80  163.  49.4  257.\n3        2  32.9  48.3 122.   2.81  196.  69.2  176.\n\n#绘制各组污染指标的箱线图\nfor(i in 2:8){\n  print(\n    ggplot(ex4_3, aes(ex4_3[,i], col = 1,\n                      fill = factor(cluster3)))+\n      geom_boxplot()+\n      facet_wrap(~cluster3,ncol = 1)+\n      labs(x = colnames(ex4_3)[i]))\n  Sys.sleep(1) #图片切换的时长\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\npar(mfrow = c(2,4),mai = c(0.6,0.6,0.2,0.1),cex = 0.7)\nfor (i in 2:8) {\n  y &lt;- ex4_3[[i]]\n  boxplot(y ~ ex4_3$cluster3, col = c(3,4,5),\n          main = colnames(ex4_3)[i])\n}\n\n\n\n\n\n\n\n\n\n#绘制各组污染指标的直方图\n\nfor(i in 2:8){\n  print(\n    ggplot(ex4_3, aes(ex4_3[,i], col = 1,\n                      fill = factor(cluster3)))+\n      geom_histogram()+\n      facet_wrap(~cluster3,ncol = 1)+\n      labs(x = colnames(ex4_3)[i]))\n  Sys.sleep(1)\n}\n\n`stat_bin()` using `bins = 30`. Pick better value `binwidth`.\n\n\n\n\n\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value `binwidth`.\n\n\n\n\n\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value `binwidth`.\n\n\n\n\n\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value `binwidth`.\n\n\n\n\n\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value `binwidth`.\n\n\n\n\n\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value `binwidth`.\n\n\n\n\n\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value `binwidth`."
+  },
+  {
     "objectID": "pcaR.html",
     "href": "pcaR.html",
     "title": "6 PCA在R中的实现",
@@ -33,5 +698,117 @@
     "title": "6 PCA在R中的实现",
     "section": "5.2 主成分得分",
     "text": "5.2 主成分得分\n\nlibrary(factoextra)\n\nfviz_pca_ind(eg6_1.pr)\n\n\n\n\n\n\n\n#不要遮挡标签\nfviz_pca_ind(eg6_1.pr, repel = TRUE)\n\n\n\n\n\n\n\n\n\n#给点加上颜色，第1主成分得分映射颜色\n#查看第1主成分得分低或者得分高的个案，理解第一主成分的含义\nfviz_pca_ind(eg6_1.pr, \n             repel = TRUE,\n             col.ind = eg6_1.pr$x[,1])\n\n\n\n\n\n\n\n#给点加上颜色，第2主成分得分映射颜色\nfviz_pca_ind(eg6_1.pr, repel = TRUE,\n             col.ind = eg6_1.pr$x[,2])"
+  },
+  {
+    "objectID": "nfl.html",
+    "href": "nfl.html",
+    "title": "NFL球员PCA分析",
+    "section": "",
+    "text": "install.packages(\"tidyverse\")\ninstall.packages(\"factoextra\")\ninstall.packages(\"MASS\")\ninstall.packages(\"psych\")"
+  },
+  {
+    "objectID": "nfl.html#不同位置球员的主成分得分比较",
+    "href": "nfl.html#不同位置球员的主成分得分比较",
+    "title": "NFL球员PCA分析",
+    "section": "不同位置球员的主成分得分比较",
+    "text": "不同位置球员的主成分得分比较\n\n# 绘制PC1主成分得分按位置分组的箱线图\ncombine.pcscore %&gt;%\n  ggplot(aes(x = fct_reorder(position, PC1, .fun = median, .desc = TRUE), \n             y = PC1, fill = position)) +\n  scale_fill_brewer(palette = \"Set3\") +\n  geom_boxplot() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +\n  labs(title = \"不同位置球员PC1主成分得分分布\", x = \"position\", y = \"PC1得分\")\n\n\n\n\n\n\n\n# 绘制PC2主成分得分按位置分组的箱线图\ncombine.pcscore %&gt;%\n  ggplot(aes(x = fct_reorder(position, PC2, .fun = median, .desc = TRUE), \n             y = PC2, fill = position)) +\n  scale_fill_brewer(palette = \"Pastel1\") +\n  geom_boxplot() +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +\n  labs(title = \"不同位置球员PC2主成分得分分布\", y = \"PC2得分\")\n\n\n\n\n\n\n\n\n\n# 方差分析：不同位置的PC1得分是否有显著差异\nanova_pc1 &lt;- aov(PC1 ~ position, data = combine.pcscore)\nsummary(anova_pc1)\n\n              Df Sum Sq Mean Sq F value Pr(&gt;F)    \nposition      19  14133   743.9    1046 &lt;2e-16 ***\nResiduals   2865   2037     0.7                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n# 方差分析：不同位置的PC2得分是否有显著差异\nanova_pc2 &lt;- aov(PC2 ~ position, data = combine.pcscore)\nsummary(anova_pc2)\n\n              Df Sum Sq Mean Sq F value Pr(&gt;F)    \nposition      19  497.8  26.198   38.33 &lt;2e-16 ***\nResiduals   2865 1958.1   0.683                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
+  },
+  {
+    "objectID": "nfl.html#基于主成分得分的聚类分析",
+    "href": "nfl.html#基于主成分得分的聚类分析",
+    "title": "NFL球员PCA分析",
+    "section": "基于主成分得分的聚类分析",
+    "text": "基于主成分得分的聚类分析\n\n# k-means聚类（以2类为例）\nset.seed(123)\nkm &lt;- kmeans(combine.pcscore[, c(\"PC1\", \"PC2\")], centers = 3)\ncombine.pcscore$cluster &lt;- as.factor(km$cluster)\n\n# 可视化聚类结果\nggplot(combine.pcscore, aes(PC1, PC2, color = cluster)) +\n  geom_point() +\n  labs(title = \"基于主成分得分的球员聚类\")"
+  },
+  {
+    "objectID": "nfl.html#聚类与位置的对应关系",
+    "href": "nfl.html#聚类与位置的对应关系",
+    "title": "NFL球员PCA分析",
+    "section": "聚类与位置的对应关系",
+    "text": "聚类与位置的对应关系\n\nprop.table(table(combine.pcscore$position, combine.pcscore$cluster), 1)\n\n      \n                 1           2           3\n  C    0.930434783 0.000000000 0.069565217\n  CB   0.000000000 0.996784566 0.003215434\n  DE   0.132616487 0.021505376 0.845878136\n  DT   0.790513834 0.000000000 0.209486166\n  EDGE 0.000000000 0.000000000 1.000000000\n  FB   0.051948052 0.116883117 0.831168831\n  FS   0.000000000 0.991869919 0.008130081\n  ILB  0.007692308 0.153846154 0.838461538\n  LB   0.000000000 1.000000000 0.000000000\n  LS   0.000000000 0.000000000 1.000000000\n  OG   0.969827586 0.000000000 0.030172414\n  OL   1.000000000 0.000000000 0.000000000\n  OLB  0.004166667 0.262500000 0.733333333\n  OT   0.945054945 0.000000000 0.054945055\n  QB   0.083333333 0.250000000 0.666666667\n  RB   0.000000000 0.881632653 0.118367347\n  S    0.000000000 1.000000000 0.000000000\n  SS   0.000000000 0.962616822 0.037383178\n  TE   0.051546392 0.061855670 0.886597938\n  WR   0.000000000 0.956363636 0.043636364\n\n\n\n1号聚类（Cluster 1）\n\n主要特征： 高度集中于内线和进攻线球员： OL（进攻线）: 100% OG（进攻护锋）: 97% OT（进攻截锋）: 95% C（中锋）: 93% DT（防守截锋）: 79%\n这些位置典型特征是体型大、力量强，符合PCA能力分型的“体型/力量主导”类别。\n\n2号聚类（Cluster 2）\n\n主要特征： 集中于速度型和二线防守球员： CB（角卫）: 99.7% FS（游动安全卫）: 99% LB（线卫）: 100% S（安全卫）: 100% SS（强侧安全卫）: 96% WR（外接手）: 96% RB（跑卫）: 88%\n这些位置通常身材相对较小，速度、灵活性、爆发力强，对应“敏捷/速度主导”能力分型。\n\n3号聚类（Cluster 3）\n\n主要特征： 集中于力量+爆发型或多面手球员： EDGE（冲传手）: 100% LS（长传手）: 100% DE（防守端锋）: 85% FB（近卫跑卫）: 83% ILB（内线卫）: 84% OLB（外线卫）: 73% TE（近端锋）: 89% QB（四分卫）: 67% DE、FB、TE、QB、OLB、ILB等为多功能或力量/爆发型球员，显示这些球员的身体素质在主成分空间中更接近第三类。\n这些位置球员兼具力量、体型和一定灵活性，属于“力量/多面手型”分型。"
+  },
+  {
+    "objectID": "chap4.html",
+    "href": "chap4.html",
+    "title": "第4章",
+    "section": "",
+    "text": "系统聚类和Kmeans聚类 讲义\n系统聚类和K-means聚类 R代码\nK-modes & K-prototypes 聚类讲义\nK-modes & K-prototypes R代码"
+  },
+  {
+    "objectID": "chap4.html#题目1",
+    "href": "chap4.html#题目1",
+    "title": "第4章",
+    "section": "题目1",
+    "text": "题目1"
+  },
+  {
+    "objectID": "chap4.html#拓展资源",
+    "href": "chap4.html#拓展资源",
+    "title": "第4章",
+    "section": "拓展资源",
+    "text": "拓展资源\n如何从中国知网下载统计数据？\n八爪鱼客户端抓取网页数据？\n如何用Excel整理提取的网页数据？"
+  },
+  {
+    "objectID": "decathlon.html",
+    "href": "decathlon.html",
+    "title": "十项全能运动员判别分析",
+    "section": "",
+    "text": "install.packages(\"ggplot2\")\ninstall.packages(\"tidyverse\")\ninstall.packages(\"MASS\")\ninstall.packages(\"klaR\")\ninstall.packages(\"devtools\")\ninstall.packages(\"psych\")\ninstall.packages(\"MVN\")\ninstall.packages(\"biotools\")"
+  },
+  {
+    "objectID": "decathlon.html#判别函数得分直方图",
+    "href": "decathlon.html#判别函数得分直方图",
+    "title": "十项全能运动员判别分析",
+    "section": "判别函数得分直方图",
+    "text": "判别函数得分直方图\n\nldahist(model.predict$x[,1], model.predict$class)\n\n\n\n\n\n\n\nldahist(model.predict$x[,2], model.predict$class)"
+  },
+  {
+    "objectID": "decathlon.html#标记错误的个案",
+    "href": "decathlon.html#标记错误的个案",
+    "title": "十项全能运动员判别分析",
+    "section": "标记错误的个案",
+    "text": "标记错误的个案\n\ndecathlon$right &lt;- decathlon$tier == decathlon$predict\n\n\nwrong_cases &lt;- decathlon %&gt;% \n  filter(decathlon$right == FALSE)\n\nwrong_cases\n\n# A tibble: 10 × 27\n    rank COMPETITOR         `year of birth`   Age Nationality country  Continent\n   &lt;dbl&gt; &lt;chr&gt;                        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;    \n 1    32 Martin ROE                    1992    27 NOR         Norway   Europe   \n 2    54 Akihiko NAKAMURA              1990    29 JPN         Japan    Asia     \n 3    60 Ludovic BESSON                1998    21 FRA         France   Europe   \n 4    65 Makenson GLETTY               1999    20 FRA         France   Europe   \n 5    70 John LANE                     1989    30 GBR         United … Europe   \n 6    71 Rik TAAM                      1997    22 NED         netherl… Europe   \n 7    72 Nick GUERRANT                 1999    20 USA         United … North am…\n 8    82 Kazuya KAWASAKI               1992    27 JPN         Japan    Asia     \n 9    85 Elmo SAVOLA                   1995    24 FIN         Finland  Europe   \n10    92 Aleksandar GRNOVIC            1996    23 SRB         Serbia   Europe   \n# ℹ 20 more variables: Continent_code &lt;dbl&gt;, continent_G3 &lt;dbl&gt;,\n#   continent_G4 &lt;dbl&gt;, VENUE &lt;chr&gt;, MARK &lt;dbl&gt;, M100 &lt;dbl&gt;,\n#   Hurdles_M100 &lt;dbl&gt;, M400 &lt;dbl&gt;, M1500 &lt;dbl&gt;, long_jump &lt;dbl&gt;,\n#   high_jump &lt;dbl&gt;, pole_vault &lt;dbl&gt;, shot_put &lt;dbl&gt;, discus_thow &lt;dbl&gt;,\n#   javelin_throw &lt;dbl&gt;, tier &lt;chr&gt;, predict &lt;fct&gt;, ld1 &lt;dbl&gt;, ld2 &lt;dbl&gt;,\n#   right &lt;lgl&gt;\n\ndecathlon %&gt;% ggplot(aes(ld1, ld2, col = tier))+\n  geom_point()+\n  geom_point(data = wrong_cases,\n             aes(ld1, ld2),\n             col = \"red\", alpha = 0.6)+\n  ylim(-5,5)+\n  xlim(-5,5)"
+  },
+  {
+    "objectID": "decathlon.html#判别函数得分散点图按类别着色",
+    "href": "decathlon.html#判别函数得分散点图按类别着色",
+    "title": "十项全能运动员判别分析",
+    "section": "判别函数得分散点图，按类别着色",
+    "text": "判别函数得分散点图，按类别着色\n\nlibrary(ggord)\nggord(model, decathlon$tier)"
+  },
+  {
+    "objectID": "chap5.html",
+    "href": "chap5.html",
+    "title": "第5章",
+    "section": "",
+    "text": "Chap 5 LDA讲义\nLDA R代码\n十项全能运动员LDA R代码\nL5 SVM讲义\nSVM在R中的实现"
+  },
+  {
+    "objectID": "chap5.html#教材p88例题5.2",
+    "href": "chap5.html#教材p88例题5.2",
+    "title": "第5章",
+    "section": "教材P88,例题5.2",
+    "text": "教材P88,例题5.2\n要求：\n\n报告教材P88-101的所有输出结果。"
+  },
+  {
+    "objectID": "chap5.html#教材p98例题5.5",
+    "href": "chap5.html#教材p98例题5.5",
+    "title": "第5章",
+    "section": "教材P98,例题5.5",
+    "text": "教材P98,例题5.5\n要求：只运用Fisher判别分析方法，不需要用距离判别和贝叶斯判别。报告教材P100-101的所有输出结果。"
+  },
+  {
+    "objectID": "chap5.html#教材p104习题5.3",
+    "href": "chap5.html#教材p104习题5.3",
+    "title": "第5章",
+    "section": "教材P104,习题5.3",
+    "text": "教材P104,习题5.3\n注意：本题只需要运用Fisher判别分析\n要求：\n\n报告判别分析模型的输出结果。\n报告预测级别和实际级别的列联表。计算预测正确率。\n绘制单个判别函数得分的直方图。\n绘制判别函数得分两两之间的二维图形。"
+  },
+  {
+    "objectID": "chap5.html#教材p105习题5.5",
+    "href": "chap5.html#教材p105习题5.5",
+    "title": "第5章",
+    "section": "教材P105,习题5.5",
+    "text": "教材P105,习题5.5\n要求：\n\n报告判别分析模型的输出结果，一共建立了几个判别函数，各个判别函数的贡献率是多大？\n判别函数预测的正确率是多少？报告预测信用等级和实际信用等级的列联表。\n绘制单个判别函数得分的直方图。\n绘制判别函数得分两两之间的二维图形。"
   }
 ]
