@@ -1,0 +1,91 @@
+---
+title: ""
+id: ppc
+about:
+  template: marquee
+  #image: img/cover_3d.jpg
+  links:
+    - text: B站主页
+      icon: globe2
+      href: https://space.bilibili.com/590872906
+    - text: Email   
+      icon: envelope
+      href: mailto:lizongzhang9@qq.com
+---
+
+:::{#ppc style="color:#044875"}
+欢迎访问《多元统计》课程网站！
+
+:::
+
+## 教材
+
+- 多元统计分析——基于R（第2版，费宇，中国人民大学出版社）.
+
+- 下载教材配套数据文件(QQ课程群)
+
+
+## 软件准备
+
+<img src="img/video.png"  style="width: 24px; height: 24px;margin-right: 10px">[R和R Studio的下载](https://www.bilibili.com/video/BV1334y1y7U5/)
+
+<img src="img/video.png"  style="width: 24px; height: 24px;margin-right: 10px">[R和RStudio的安装](https://www.bilibili.com/video/BV1eR4y1V7uW/)
+
+
+若无法安装R和R Studio, 请观看：
+
+<img src="img/video.png"  style="width: 24px; height: 24px;margin-right: 10px">[不用安装就能用的RStudio------RStudio
+                Cloud](https://www.bilibili.com/video/BV1zY4y1M7HX/)
+
+
+## R基础
+
+[R语言与统计应用课程网站](https://lizongzhang.github.io/r25/){target="_blank"}
+
+
+## 参考书
+
+<img src="img/download.png" style="width: 24px; height: 24px;margin-right: 10px"/>[下载](https://pan.baidu.com/s/1ds9xhHBnz64aj7VeKfLsVw?pwd=6789)
+
+
+## 教学视频
+
+<img src="img/video.png"  style="width: 24px; height: 24px;margin-right: 10px">[R数据分析实战](https://space.bilibili.com/590872906/channel/collectiondetail?sid=758271)
+
+## 教学平台
+
+- QQ群：提交作业，提问答疑
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">91速课(<https://www.91suke.com>)：发布作业，提交作业，测验，考勤等
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[在91速课中设置姓名和学号的方法](https://lizongzhang.github.io/stat/91.html)
+
+## 课程考核
+
+-   平时成绩：50%
+
+    -   个人作业：15%
+    
+    -   小组作业(案例分析)：20%    
+
+    -   测验：10%    
+
+    -   考勤： 5%
+
+-   期末考查：课程论文 50%
+
+::: {style="text-align: center;"}
+![](img/bili_up.jpg){width="10%"}
+:::
+
+::: {style="position: fixed; bottom: 10px; right: 70px; z-index: 1000;"}
+<a href='http://www.freevisitorcounters.com'>click here</a>
+
+```{=html}
+<script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=a1b2bcf47de785ab152ba2b2353aa09bd4f80670'></script>
+```
+```{=html}
+<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1174168/t/5"></script>
+```
+:::
+

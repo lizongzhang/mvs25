@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "pcaR.html",
+    "href": "pcaR.html",
+    "title": "6 PCA在R中的实现",
+    "section": "",
+    "text": "本章介绍R中的主成分分析。"
+  },
+  {
+    "objectID": "pcaR.html#kmo",
+    "href": "pcaR.html#kmo",
+    "title": "6 PCA在R中的实现",
+    "section": "1.1 KMO",
+    "text": "1.1 KMO\n\nlibrary(psych)\nKMO(eg6_1)\n\nKaiser-Meyer-Olkin factor adequacy\nCall: KMO(r = eg6_1)\nOverall MSA =  0.8\nMSA for each item = \n数学 物理 化学 语文 历史 英语 \n0.80 0.83 0.76 0.84 0.81 0.78"
+  },
+  {
+    "objectID": "pcaR.html#bartletts-test",
+    "href": "pcaR.html#bartletts-test",
+    "title": "6 PCA在R中的实现",
+    "section": "1.2 Bartlett’s Test",
+    "text": "1.2 Bartlett’s Test\n\nbartlett.test(eg6_1)\n\n\n    Bartlett test of homogeneity of variances\n\ndata:  eg6_1\nBartlett's K-squared = 13.025, df = 5, p-value = 0.02315"
+  },
+  {
+    "objectID": "pcaR.html#相关图-variable-correlation-circle",
+    "href": "pcaR.html#相关图-variable-correlation-circle",
+    "title": "6 PCA在R中的实现",
+    "section": "5.1 相关图 variable correlation circle",
+    "text": "5.1 相关图 variable correlation circle\n\n用于理解主成分与原始变量的关系、概括主成分的含义\n正相关的变量指向一个方向\n负相关的变量指向相反的方向\n原始变量的箭头长度(cos2)越长（越接近圆圈），代表该变量对主成分的贡献越大。\n原始变量的箭头长度越短（越接近圆心），代表该变量对主成分的贡献越小。\n\n\nlibrary(factoextra)\n\neg6_1.pr &lt;- prcomp(eg6_1, scale = TRUE)\n\neg6_1.pr$rotation[,1:2] #查看前两个主成分的载荷\n\n            PC1       PC2\n数学  0.4120520 0.3759773\n物理  0.3811779 0.3567060\n化学  0.3321347 0.5626165\n语文 -0.4611846 0.2785231\n历史 -0.4205876 0.4147836\n英语 -0.4301372 0.4065022\n\n\ncos2越高，代表主成分对该原始变量的代表性越好\n\nfviz_pca_var(eg6_1.pr, \n             col.var = \"cos2\",\n             gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\") , \n             repel = TRUE # Avoid text overlapping\n)"
+  },
+  {
+    "objectID": "pcaR.html#主成分得分",
+    "href": "pcaR.html#主成分得分",
+    "title": "6 PCA在R中的实现",
+    "section": "5.2 主成分得分",
+    "text": "5.2 主成分得分\n\nlibrary(factoextra)\n\nfviz_pca_ind(eg6_1.pr)\n\n\n\n\n\n\n\n#不要遮挡标签\nfviz_pca_ind(eg6_1.pr, repel = TRUE)\n\n\n\n\n\n\n\n\n\n#给点加上颜色，第1主成分得分映射颜色\n#查看第1主成分得分低或者得分高的个案，理解第一主成分的含义\nfviz_pca_ind(eg6_1.pr, \n             repel = TRUE,\n             col.ind = eg6_1.pr$x[,1])\n\n\n\n\n\n\n\n#给点加上颜色，第2主成分得分映射颜色\nfviz_pca_ind(eg6_1.pr, repel = TRUE,\n             col.ind = eg6_1.pr$x[,2])"
+  }
+]

@@ -1,0 +1,301 @@
+---
+title: "4 聚类分析习题答案"
+author: "Li Zongzhang"
+date: today
+output:
+    highlight: github
+    toc: yes
+    number_sections: yes
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+
+
+
+# **P75, textbook ex4.1**
+
+将ex4.1.csv另存为ex4.1.xlsx，再导入。
+
+<a href="https://github.com/lizongzhang/mvs25/raw/main/ex4.1.xlsx" 
+   target="_blank" 
+   style="text-decoration: none; display: inline-flex; align-items: center;">
+  <img src="img/download.png" 
+       alt="Download icon" 
+       style="width: 24px; height: 24px; margin-right: 8px;">
+  点击下载数据文件: ex4.1.xlsx
+</a>
+
+
+
+
+```{r eval=FALSE, message=FALSE, include=TRUE}
+#安装包
+#install.packages("tidyverse")
+#install.packages("dendextend")
+#install.packages("cluster")
+#install.packages("purrr")
+#install.packages("readr")
+#install.packages("readxl")
+
+```
+
+```{r message=FALSE, warning=FALSE}
+#导入数据
+library(readxl)
+library(tidyverse)
+ex4_1 <- read_excel("ex4.1.xlsx") %>% as.data.frame()
+
+#给数据框添加行名
+rownames(ex4_1) <- ex4_1$brand
+
+# Agglomerative Nesting (Hierarchical Clustering)
+# 加载包cluster
+library(cluster)
+ex4_1.hc <- agnes(ex4_1, # 数据框
+                     stand = TRUE, # 对变量进行标准化变换
+                     metric = "euclidean", # 个案之间的距离测度
+                     method = "ward" # 类间距离定义
+)
+
+#查看聚类模型
+ex4_1.hc
+
+#查看agglomerative coefficient聚合系数，越接近于1，代表聚类结构越强
+ex4_1.hc$ac
+
+#保存聚类结果
+ex4_1$cluster <- cutree(ex4_1.hc, k=3)
+```
+
+```{r message=FALSE, warning=FALSE}
+#绘制树状图dendrogram
+# install.package("factoextra")
+library(factoextra)
+
+fviz_dend(ex4_1.hc)
+
+fviz_dend(ex4_1.hc, k= 3, cex = 0.6)
+```
+
+```{r}
+# 自定义树状图分支及标签颜色、字体、添加矩形框
+fviz_dend(ex4_1.hc, 
+          k = 3, # 分三类
+          cex = 0.7, # 标签字体
+          k_colors = c(4,5,6),#分支颜色
+          color_labels_by_k = TRUE, # 标签上色
+          rect = TRUE, # 添加矩形框 
+          rect_fill = TRUE, #矩形框底色
+          lower_rect = -6, #矩形框下沿
+          lwd = 1.2, #线条宽度
+          ggtheme = theme_minimal() #主题色
+)
+
+# 圆形树状图
+fviz_dend(ex4_1.hc, 
+          k = 3, # 分三类
+          cex = 0.5, # 标签字体
+          k_colors = c(4,5,6),#分支颜色
+          color_labels_by_k = TRUE, # 标签上色
+          lwd = 1.2, #线条宽度
+          type = "circular", #圆形
+          ggtheme = theme_gray() #主题
+)
+
+
+# 支流树状图
+fviz_dend(ex4_1.hc, 
+          k = 3, # 分三类
+          cex = 0.7, # 标签字体
+          k_colors = c(4,5,6),#分支颜色
+          color_labels_by_k = TRUE, # 标签上色
+          type = "phylogenic", # 支流
+          ggtheme = theme_bw() #主题
+)
+```
+
+```{r}
+dend.ward <- ex4_1 %>% 
+  select(热量:价格) %>% 
+  scale() %>% 
+  dist() %>% 
+  hclust("ward.D")%>% 
+  as.dendrogram()
+
+
+dend.average <- ex4_1 %>% 
+  select(热量:价格) %>% 
+  scale() %>% 
+  dist() %>% 
+  hclust("average") %>% 
+  as.dendrogram() 
+```
+
+```{r message=FALSE, warning=FALSE}
+library(dendextend)
+tanglegram(dend.ward,dend.average,
+           k_labels = 3,
+           k_branches = 3,
+           main_left = "ward.D linkage",
+           main_right = "average linkage",
+           sort = T,
+           margin_inner = 6,
+           type = "t",
+           highlight_distinct_edges	= F,
+           highlight_branches_lwd = F,
+           main = paste("entanglement =", 
+                        round(entanglement(
+                          dend.ward,dend.average), 2)),
+           cex_main = 1.2
+)
+```
+
+```{r}
+#完全一致的分类结果，缠绕系数等于0
+dend.ward2 <- ex4_1 %>% 
+  select(热量:价格) %>% 
+  scale() %>% 
+  dist() %>% 
+  hclust("ward.D2") %>% 
+  as.dendrogram() 
+
+tanglegram(dend.ward,dend.ward2,
+           k_labels = 3,
+           k_branches = 3,
+           main_left = "Ward.D Linkage",
+           main_right = "Ward.D2 Linkage",
+           margin_inner = 6,
+           highlight_distinct_edges	= F,
+           highlight_branches_lwd = F,
+           main = paste("entanglement =", 
+                        round(entanglement(
+                          dend.ward,dend.ward2,), 2)),
+           cex_main = 1.2
+)
+```
+
+
+
+# **P75, textbook ex4.3**
+
+<a href="https://github.com/lizongzhang/mvs25/raw/main/ex4.3.xlsx" 
+   target="_blank" 
+   style="text-decoration: none; display: inline-flex; align-items: center;">
+  <img src="img/download.png" 
+       alt="Download icon" 
+       style="width: 24px; height: 24px; margin-right: 8px;">
+  点击下载数据文件: ex4.3.xlsx
+</a>
+
+
+
+```{r}
+#避免ex4.3.csv导入时汉字会变乱码的问题
+#在Excel中将教材配套的ex4.3.csv另存为ex4.3.xlsx
+#导入"ex4.3.xlsx"文件
+library(readxl)
+library(tidyverse)
+
+ex4_3 <- read_excel("ex4.3.xlsx") %>% 
+  as.data.frame() %>% #保存为数据框
+  rename(city = ...1, so2 = x1, no2 = x2, pm10 = x3,
+         co = x4, o3 = x5, pm2.5 = x6, good = x7)
+
+#创建数据框elbow, 9行2列，列名分别为k和tot_withinss
+#用于存放分类数k，分2-10类
+#以及within-group sum of squares（tot_withinss），组内平方和
+#用于绘制elbow plot, tot_withinss下降最快处，即K值
+
+elbow <- data.frame(matrix(ncol = 2, nrow = 9))
+colnames(elbow) <- c('k', 'tot_withinss')
+
+#K均值聚类,k= 2,3,4,5,6,..10
+for (i in (2:10)) {
+  ex4_3_kmeans <- 
+    ex4_3 %>%
+    select(so2:good) %>% 
+    scale() %>% 
+    kmeans(centers = i)
+  ex4_3[, paste0("cluster",i)] <- ex4_3_kmeans$cluster
+  print(paste("Number of Clusters:", i))
+  print(ex4_3_kmeans$tot.withinss)
+  print(table(ex4_3_kmeans$cluster))
+  elbow[i-1,1] <- i
+  elbow[i-1,2] <- ex4_3_kmeans$tot.withinss
+}
+```
+
+```{r}
+# Plot the elbow plot
+ggplot(elbow, aes(k, tot_withinss)) +
+  geom_line() +
+  scale_x_continuous(breaks = 1:10)
+
+#分3类
+table(ex4_3$cluster3)
+
+#列出每组有哪些城市
+for (i in 1:3) {
+  print(ex4_3$city[ex4_3$cluster3 == i]) 
+}
+
+clusterdf <- data.frame(matrix(ncol = 2, nrow = 3))
+colnames(clusterdf) <- c('cluster', 'area')
+
+for(i in 1:3){
+  clusterdf[i,1] = i
+  clusterdf[i,2] = 
+    paste(ex4_3$city[ex4_3$cluster3 == i],collapse = ",")
+}
+
+clusterdf %>% 
+  as_tibble() %>% 
+  view()
+```
+
+```{r}
+#计算各组污染指标的均值
+ex4_3 %>% 
+  select(so2:good, cluster3) %>% 
+  group_by(cluster3) %>% 
+  summarise_all(list(mean)) %>% 
+  arrange(desc(good)) #descending
+
+#绘制各组污染指标的箱线图
+for(i in 2:8){
+  print(
+    ggplot(ex4_3, aes(ex4_3[,i], col = 1,
+                      fill = factor(cluster3)))+
+      geom_boxplot()+
+      facet_wrap(~cluster3,ncol = 1)+
+      labs(x = colnames(ex4_3)[i]))
+  Sys.sleep(1) #图片切换的时长
+}
+```
+
+```{r}
+par(mfrow = c(2,4),mai = c(0.6,0.6,0.2,0.1),cex = 0.7)
+for (i in 2:8) {
+  y <- ex4_3[[i]]
+  boxplot(y ~ ex4_3$cluster3, col = c(3,4,5),
+          main = colnames(ex4_3)[i])
+}
+
+```
+
+```{r}
+#绘制各组污染指标的直方图
+
+for(i in 2:8){
+  print(
+    ggplot(ex4_3, aes(ex4_3[,i], col = 1,
+                      fill = factor(cluster3)))+
+      geom_histogram()+
+      facet_wrap(~cluster3,ncol = 1)+
+      labs(x = colnames(ex4_3)[i]))
+  Sys.sleep(1)
+}
+```
+

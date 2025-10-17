@@ -1,0 +1,83 @@
+---
+title: "第5章"
+---
+
+# 第5章 判别分析
+
+<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[Chap 5  LDA讲义](https://lizongzhang.github.io/mvs25/chap5slide.html){target="_blank"}
+
+<img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[LDA R代码](https://lizongzhang.github.io/mvs25/ldaR.html){target="_blank"}
+
+<img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[十项全能运动员LDA R代码](https://lizongzhang.github.io/mvs25/decathlon.html){target="_blank"}
+
+<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[L5 SVM讲义](https://lizongzhang.github.io/mvs25/L5svm.html){target="_blank"}
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[SVM在R中的实现](https://lizongzhang.github.io/mvs25/svmR.html){target="_blank"}
+
+#  R软件操作 
+  
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——第1步判别函数的估计 MASS::lda()](https://www.bilibili.com/video/BV1Ad4y1B7Qj/){target="_blank"}
+      
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——第2步 预测 MASS::predict()](https://www.bilibili.com/video/BV1Ee411j7k7/){target="_blank"}
+      
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——第3步 评估预测效果](https://www.bilibili.com/video/BV1ae4y1z7wB/){target="_blank"}
+
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——第4步 可视化呈现](https://www.bilibili.com/video/BV1YN4y1A7pA/){target="_blank"}
+
+# 本章习题
+
+**作答要求：将R的命令和输出结果转成图片，上传至QQ推送的作业窗口。**
+
+## 教材P88,例题5.2
+
+要求：
+
+  - 报告教材P88-101的所有输出结果。
+
+## 教材P98,例题5.5
+
+要求：只运用Fisher判别分析方法，不需要用距离判别和贝叶斯判别。报告教材P100-101的所有输出结果。
+
+## 教材P104,习题5.3
+
+注意：本题只需要运用Fisher判别分析
+
+要求：
+
+  - 报告判别分析模型的输出结果。
+
+  - 报告预测级别和实际级别的列联表。计算预测正确率。
+
+  - 绘制单个判别函数得分的直方图。
+
+  - 绘制判别函数得分两两之间的二维图形。
+
+
+## 教材P105,习题5.5
+
+要求：
+
+  - 报告判别分析模型的输出结果，一共建立了几个判别函数，各个判别函数的贡献率是多大？
+
+  - 判别函数预测的正确率是多少？报告预测信用等级和实际信用等级的列联表。
+
+  - 绘制单个判别函数得分的直方图。
+
+  - 绘制判别函数得分两两之间的二维图形。
+
+# 习题讲评
+      
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——教材例题5.1讲评](https://www.bilibili.com/video/BV1Sd4y1v728/){target="_blank"}
+      
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——教材习题5.3讲评](https://www.bilibili.com/video/BV1R14y187xf/){target="_blank"}      
+      
+<img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[判别分析在R中的实现——教材习题5.5讲评](https://www.bilibili.com/video/BV1PG411E7FZ/){target="_blank"}
+
+# 拓展资源
+
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[二元正态分布的可视化](https://englishessential-pmf-pdfmultivariate-normal-interactiv-q1rxuf.streamlit.app/){target="_blank"}
+
+
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[Github Copilot](https://github.com/features/copilot){target="_blank"}

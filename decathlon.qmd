@@ -1,0 +1,228 @@
+---
+title: "十项全能运动员判别分析"
+author: "Li Zongzhang"
+date: today
+output:
+    highlight: github
+    toc: yes
+    number_sections: yes
+editor_options:
+  markdown:
+    wrap: 72
+execute:
+  warning: false
+  message: false
+---
+
+
+# 安装包
+
+```{r eval = FALSE, echo = TRUE}
+
+install.packages("ggplot2")
+install.packages("tidyverse")
+install.packages("MASS")
+install.packages("klaR")
+install.packages("devtools")
+install.packages("psych")
+install.packages("MVN")
+install.packages("biotools")
+```
+
+# 加载包
+
+```{r}
+
+library(ggplot2)
+library(tidyverse)
+library(psych)
+library(biotools)
+library(MVN)
+
+```
+
+
+# 数据文件
+
+<img src="img/link.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[数据来源世界田联IAAF](https://www.iaaf.org/records/toplists/combined-events/decathlon/){target="_blank"}
+
+
+<a href="https://github.com/lizongzhang/mvs25/raw/main/decathlon.xlsx" 
+   target="_blank" 
+   style="text-decoration: none; display: inline-flex; align-items: center;">
+  <img src="img/download.png" 
+       alt="Download icon" 
+       style="width: 24px; height: 24px; margin-right: 8px;">
+  点击下载数据文件: decathlon.xlsx
+</a>
+
+# 导入数据
+
+```{r message=FALSE, warning=FALSE}
+library(readxl)
+
+decathlon <- read_excel("decathlon.xlsx", 
+                        col_types = c("numeric", "text", "numeric", 
+                                      "numeric", rep("text", 3), rep("numeric", 3), "text", 
+                                      rep("numeric", 11)))
+```
+
+# 创建分类变量
+
+```{r}
+library(tidyverse)
+library(DescTools)
+decathlon <- decathlon %>% mutate(tier = case_when(
+  rank %[]% c(1,33) ~ "first",
+  rank %[]% c(34,66) ~ "second",
+  rank %[]% c(67,100) ~ "third",
+  ))
+```
+
+# 多元正态检验
+
+```{r}
+decathlon %>% 
+  filter(tier == "first") %>%
+  dplyr::select(M100:javelin_throw) %>%
+  MVN::mardia()
+
+decathlon %>% 
+  filter(tier == "second") %>%
+  dplyr::select(M100:javelin_throw) %>%
+  MVN::mardia()
+
+decathlon %>% 
+  filter(tier == "third") %>%
+  dplyr::select(M100:javelin_throw) %>%
+  MVN::mardia()
+
+```
+
+# 检验协方差矩阵是否相等
+
+```{r}
+df <- decathlon %>% 
+  dplyr::select(M100:tier) %>% 
+  mutate(tier = as.factor(tier)) %>% 
+  as.data.frame()
+
+boxM(df[, -11], df[, 11])
+```
+
+# 建立判别函数
+
+```{r message=FALSE, warning=FALSE}
+library(MASS)
+model <- lda(tier ~ M100 + Hurdles_M100 + M400 + M1500 +
+             long_jump + high_jump + pole_vault +
+             shot_put + discus_thow + javelin_throw, decathlon)
+model
+
+```
+
+# 预测样本中个案的类别
+
+```{r}
+model.predict <- predict(model, decathlon)
+
+decathlon$predict <- model.predict$class
+
+```
+
+# 评估预测效果
+
+```{r}
+decathlon$ld1 <- model.predict$x[,1]
+decathlon$ld2 <- model.predict$x[,2]
+
+# 对比个案的观测类别的预测类别
+table(decathlon$tier, decathlon$predict)
+
+# 计算预测正确率
+mean(decathlon$tier == decathlon$predict)
+
+```
+
+
+
+
+# 可视化
+
+## 判别函数得分直方图
+
+```{r}
+
+ldahist(model.predict$x[,1], model.predict$class)
+
+ldahist(model.predict$x[,2], model.predict$class)
+
+```
+
+
+## 标记错误的个案
+
+```{r}
+decathlon$right <- decathlon$tier == decathlon$predict
+
+
+wrong_cases <- decathlon %>% 
+  filter(decathlon$right == FALSE)
+
+wrong_cases
+
+decathlon %>% ggplot(aes(ld1, ld2, col = tier))+
+  geom_point()+
+  geom_point(data = wrong_cases,
+             aes(ld1, ld2),
+             col = "red", alpha = 0.6)+
+  ylim(-5,5)+
+  xlim(-5,5)
+```
+
+## 判别函数得分散点图，按类别着色
+
+```{r}
+library(ggord)
+ggord(model, decathlon$tier)
+
+```
+
+# 预测新个案
+
+```{r}
+new_case <- data.frame(
+  M100 = 10.73,
+  Hurdles_M100 = 15.34,
+  M400 = 47.93,
+  M1500 = 288.58, 
+  long_jump = 7.58, 
+  high_jump = 2.06,
+  pole_vault = 5.10,
+  shot_put = 14.28,
+  discus_thow = 36.93,
+  javelin_throw = 61.43
+  )
+
+predict(model, new_case)
+
+new_pred <- predict(model, new_case)
+new_scores <- new_pred$x # 提取LD1和LD2得分
+new_class <- new_pred$class # 提取预测类别
+
+
+```
+
+# 在判别函数得分散点图中标记新个案
+
+```{r}
+# 绘制基本ggord图
+ggord(model, decathlon$tier) + 
+  geom_point(data = data.frame(LD1 = new_scores[,1], 
+                               LD2 = new_scores[,2], 
+                               tier = new_class),
+              aes(x = LD1, y = LD2),
+              size = 5, shape = 17, color = "cyan") # 用大三角形标记新点
+```
+
+

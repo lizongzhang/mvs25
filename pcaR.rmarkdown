@@ -1,0 +1,327 @@
+---
+title: "6 PCA在R中的实现"
+author: "Li Zongzhang"
+date: today
+output:
+    highlight: github
+    toc: yes
+    number_sections: yes
+editor_options:
+  markdown:
+    wrap: 72
+execute:
+  warning: false
+  message: false
+---
+
+
+
+
+
+本章介绍R中的主成分分析。
+
+# 数据文件
+
+
+<a href="https://github.com/lizongzhang/mvs25/raw/main/eg6.1.csv" 
+   target="_blank" 
+   style="text-decoration: none; display: inline-flex; align-items: center;">
+  <img src="img/download.png" 
+       alt="Download icon" 
+       style="width: 24px; height: 24px; margin-right: 8px;">
+  点击下载数据文件: eg6.1.csv
+</a>
+
+# 安装包
+
+
+
+
+
+```{r eval = FALSE, echo = TRUE}
+
+install.packages("tidyverse")
+install.packages("factoextra")
+install.packages("MASS")
+install.packages("psych")
+
+```
+
+
+
+
+
+# 加载包
+
+
+
+
+
+```{r}
+
+library(tidyverse)
+library(factoextra)
+library(psych)
+
+
+```
+
+```{r}
+#| include: false
+
+library(showtext)
+par(family  = 'STKaiti')
+showtext_auto()
+```
+
+
+
+
+
+
+# 读取数据
+
+
+
+
+
+
+```{r}
+library(readr)
+eg6_1 <- read_csv("eg6.1.csv")
+eg6_1 <- eg6_1 %>% rename(数学 = x1,
+                 物理 = x2,
+                 化学 = x3,
+                 语文 = x4,
+                 历史 = x5,
+                 英语 = x6)
+```
+
+
+
+
+
+# 1 评估变量相关性
+
+## 1.1 KMO
+
+
+
+
+
+```{r}
+library(psych)
+KMO(eg6_1)
+```
+
+
+
+
+
+## 1.2 Bartlett's Test
+
+
+
+
+
+```{r}
+bartlett.test(eg6_1)
+```
+
+
+
+
+
+
+# 2 估计主成分
+
+
+
+
+
+```{r}
+eg6_1.pr <- prcomp(eg6_1, scale = TRUE)
+eg6_1.pr
+```
+
+
+
+
+
+# 3 计算方差累计贡献率
+
+
+
+
+
+```{r}
+summary(eg6_1.pr)
+
+```
+
+
+
+
+
+# 4 碎石图
+
+
+
+
+
+```{r}
+library(factoextra)
+fviz_eig(eg6_1.pr) + theme_classic()
+```
+
+
+
+
+
+
+纵轴代表特征值，也就是主成分的方差
+
+
+
+
+
+```{r}
+fviz_eig(eg6_1.pr, choice = c("eigenvalue"))
+```
+
+
+
+
+
+纵轴代表方差贡献百分比
+
+
+
+
+
+```{r}
+fviz_eig(eg6_1.pr, choice = c("variance"))
+```
+
+
+
+
+
+
+只显示柱体
+
+
+
+
+```{r}
+fviz_eig(eg6_1.pr, 
+         choice = c("eigenvalue"),
+         geom = c("bar"))
+```
+
+
+
+
+
+只画折线
+
+
+
+
+
+```{r}
+fviz_eig(eg6_1.pr, choice = c("eigenvalue"),
+         geom = c("line"))
+```
+
+```{r}
+#标注方差贡献率
+fviz_eig(eg6_1.pr, 
+         addlabels = TRUE, 
+         ylim = c(0, 70))
+```
+
+
+
+
+
+
+# 5 PCA分析的可视化
+
+## 5.1 相关图 variable correlation circle
+
+  - 用于理解主成分与原始变量的关系、概括主成分的含义
+  
+  - 正相关的变量指向一个方向
+  
+  - 负相关的变量指向相反的方向
+  
+  - 原始变量的箭头长度(cos2)越长（越接近圆圈），代表该变量对主成分的贡献越大。
+  
+  - 原始变量的箭头长度越短（越接近圆心），代表该变量对主成分的贡献越小。
+
+
+
+
+
+```{r}
+library(factoextra)
+
+eg6_1.pr <- prcomp(eg6_1, scale = TRUE)
+
+eg6_1.pr$rotation[,1:2] #查看前两个主成分的载荷
+```
+
+
+
+
+
+cos2越高，代表主成分对该原始变量的代表性越好
+
+
+
+
+
+```{r}
+
+fviz_pca_var(eg6_1.pr, 
+             col.var = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07") , 
+             repel = TRUE # Avoid text overlapping
+)
+
+```
+
+
+
+
+
+## 5.2 主成分得分
+
+
+
+
+
+```{r}
+library(factoextra)
+
+fviz_pca_ind(eg6_1.pr)
+
+#不要遮挡标签
+fviz_pca_ind(eg6_1.pr, repel = TRUE)
+
+```
+
+```{r}
+#给点加上颜色，第1主成分得分映射颜色
+#查看第1主成分得分低或者得分高的个案，理解第一主成分的含义
+fviz_pca_ind(eg6_1.pr, 
+             repel = TRUE,
+             col.ind = eg6_1.pr$x[,1])
+
+#给点加上颜色，第2主成分得分映射颜色
+fviz_pca_ind(eg6_1.pr, repel = TRUE,
+             col.ind = eg6_1.pr$x[,2])
+
+```
+

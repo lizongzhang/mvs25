@@ -1,0 +1,343 @@
+---
+title: "NFL球员PCA分析"
+author: "Li Zongzhang"
+date: today
+output:
+    highlight: github
+    toc: yes
+    number_sections: yes
+editor_options:
+  markdown:
+    wrap: 72
+execute:
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+
+library(showtext)
+par(family  = 'STKaiti')
+showtext_auto()
+```
+
+
+
+
+
+# 安装包
+
+
+
+```{r eval = FALSE, echo = TRUE}
+
+install.packages("tidyverse")
+install.packages("factoextra")
+install.packages("MASS")
+install.packages("psych")
+
+```
+
+
+
+# 加载包
+
+
+
+```{r}
+library(tidyverse)
+library(factoextra)
+library(psych)
+```
+
+
+
+# 数据文件
+
+<img src="img/link.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"/>[NFL
+Play Statistics
+dataset](https://www.kaggle.com/datasets/toddsteussie/nfl-play-statistics-dataset-2004-to-present){target="_blank"}
+
+<a href="https://github.com/lizongzhang/mvs25/raw/main/NFL.xlsx" 
+   target="_blank" 
+   style="text-decoration: none; display: inline-flex; align-items: center;">
+<img src="img/download.png" alt="Download icon" style="width: 24px; height: 24px; margin-right: 8px;"/>
+点击下载数据文件: NFL.xlsx </a>
+
+# 第1步 评估数据是否适合做PCA
+
+
+
+```{r message=FALSE}
+library(readxl)
+data <- read_excel("NFL.xlsx")
+
+#提取data中的第5至12列，保存为combine
+combine <- data[, 5:12]
+
+library(psych)
+
+KMO(combine)
+
+bartlett.test(combine)
+```
+
+
+
+# 第2步 估计PCA
+
+
+
+```{r}
+#方法一：调用prcomp函数
+combine.pr <- prcomp(combine, scale = TRUE)
+combine.pr
+
+#方法二：计算combine的相关系数矩阵的特征值和特征向量
+combine %>% cor() %>% eigen()
+combine.pr$sdev^2
+
+#查看主成分的方差贡献率、累计方差贡献率
+summary(combine.pr)
+```
+
+```{r}
+#查看第1主成分载荷
+combine.pr$rotation[,1:2]
+```
+
+
+
+-   PC1含义解释
+
+    -   PC1对所有变量的系数（载荷）多数为正，主要由**体重（weight）和速度/敏捷相关（forty、three_cone、shuttle）**指标主导。
+
+    -   broad_jump和vertical为负系数，表明跳跃能力好的个体PC1得分低。
+
+    -   PC1可以理解为“体型+速度/敏捷主成分”，与跳跃能力呈负相关。
+
+-   PC2含义解释
+
+    -   PC2主要由卧推（bench），其次是vertical、height、broad_jump，且系数均为负，说明这些能力高的人在PC2得分低。
+
+    -   PC2可以理解为“力量+弹跳能力逆向主成分”。
+
+# 第3步 确定保留的主成分的个数
+
+
+
+```{r}
+# 计算各个主成分的方差
+pr.var <- combine.pr$sdev^2
+pr.var
+#  计算各个主成分的方差贡献率
+pve <- pr.var/sum(pr.var)
+pve
+
+#绘制各个主成分的方差贡献率
+plot(pve, xlab = "Principal Component", 
+     ylab = "Proportion of Variance Explained", 
+     ylim = c(0, 1), type = "b")
+
+# 绘制累计方差贡献率
+plot(cumsum(pve), xlab = "Principal Component", 
+     ylab = "Cumulative Proportion of Variance Explained", 
+     ylim = c(0, 1), type = "b")
+
+#  绘制碎石图
+library(factoextra)
+fviz_eig(combine.pr)
+```
+
+
+
+# 第4步 可视化
+
+
+
+```{r}
+# 绘制主成分1和主成分2的分组散点图
+combine.pcscore <- cbind(data,combine.pr$x)
+
+combine.pcscore %>% ggplot(aes(PC1,PC2, col= position))+
+  geom_point()
+
+combine.pcscore %>% ggplot(aes(PC2,PC3, col= position))+
+  geom_point()
+```
+
+```{r}
+#Graph of individuals. 
+#Individuals with a similar profile are grouped together.
+fviz_pca_ind(combine.pr,
+             col.ind = "cos2", # Color by the quality of representation
+             geom = c("point"),
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE     # Avoid text overlapping
+)
+
+# Graph of variables. 
+# Positive correlated variables point to the same side of the plot. 
+# Negative correlated variables point to opposite sides of the graph.
+fviz_pca_var(combine.pr,
+             col.var = "contrib", # Color by contributions to the PC
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE     # Avoid text overlapping
+)
+
+#Biplot of individuals and variables
+fviz_pca_biplot(combine.pr, repel = TRUE,
+                geom = c("point"),
+                col.var = "#2E9FDF", # Variables color
+                col.ind = "#696969"  # Individuals color
+)
+```
+
+```{r}
+table(data$position)
+```
+
+
+
+| 缩写 | 英文全称             | 中文解释                             |
+|------|----------------------|--------------------------------------|
+| C    | Center               | 中锋，进攻线中央负责开球给四分卫     |
+| CB   | Cornerback           | 角卫，防守组主要负责盯防外接手       |
+| DE   | Defensive End        | 防守端锋，防守线两侧，冲传和防跑     |
+| DT   | Defensive Tackle     | 防守截锋，防守线中间，堵截跑动       |
+| EDGE | Edge Rusher (OLB/DE) | 边锋冲传手，专注于冲击四分卫         |
+| FB   | Fullback             | 近卫跑卫，主要负责掩护和短码冲球     |
+| FS   | Free Safety          | 游动安全卫，防守后场，负责深区       |
+| ILB  | Inside Linebacker    | 内线卫，防守中路，兼顾跑动和传球     |
+| LB   | Linebacker           | 线卫，防守二线，分内外线卫           |
+| LS   | Long Snapper         | 长传手，专门负责长开球（开球、射门） |
+| OG   | Offensive Guard      | 进攻护锋，中锋两侧，保护四分卫       |
+| OL   | Offensive Lineman    | 进攻线球员总称，包括C、OG、OT等      |
+| OLB  | Outside Linebacker   | 外线卫，负责边路防守和冲传           |
+| OT   | Offensive Tackle     | 进攻截锋，进攻线两侧，保护四分卫     |
+| QB   | Quarterback          | 四分卫，进攻组织核心，传球主力       |
+| RB   | Running Back         | 跑卫，负责持球冲跑或接球             |
+| S    | Safety               | 安全卫，泛指FS和SS                   |
+| SS   | Strong Safety        | 强侧安全卫，靠近防跑，兼顾传球       |
+| TE   | Tight End            | 近端锋，既能接球也参与阻挡           |
+| WR   | Wide Receiver        | 外接手，主要负责接球推进             |
+
+
+
+```{r}
+table(data$position) %>% 
+  as.data.frame() %>%
+  arrange(desc(Freq))
+```
+
+```{r}
+combine.pcscore %>%
+  filter(position %in% c("CB","DE","WR")) %>%
+  ggplot(aes(PC1, fill= position))+
+  geom_histogram() +
+  facet_wrap(~position, ncol = 1)
+```
+
+
+
+PC1: “体型+速度/敏捷主成分”
+
+DE Defensive End 防守端锋，防守线两侧，冲传和防跑
+
+CB Cornerback 角卫，防守组主要负责盯防外接手
+
+WR Wide Receiver 外接手，主要负责接球推进
+
+# 第5步 针对主成分得分的进一步分析
+
+## 不同位置球员的主成分得分比较
+
+
+
+```{r}
+# 绘制PC1主成分得分按位置分组的箱线图
+combine.pcscore %>%
+  ggplot(aes(x = fct_reorder(position, PC1, .fun = median, .desc = TRUE), 
+             y = PC1, fill = position)) +
+  scale_fill_brewer(palette = "Set3") +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "不同位置球员PC1主成分得分分布", x = "position", y = "PC1得分")
+
+# 绘制PC2主成分得分按位置分组的箱线图
+combine.pcscore %>%
+  ggplot(aes(x = fct_reorder(position, PC2, .fun = median, .desc = TRUE), 
+             y = PC2, fill = position)) +
+  scale_fill_brewer(palette = "Pastel1") +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "不同位置球员PC2主成分得分分布", y = "PC2得分")
+```
+
+```{r}
+# 方差分析：不同位置的PC1得分是否有显著差异
+anova_pc1 <- aov(PC1 ~ position, data = combine.pcscore)
+summary(anova_pc1)
+
+# 方差分析：不同位置的PC2得分是否有显著差异
+anova_pc2 <- aov(PC2 ~ position, data = combine.pcscore)
+summary(anova_pc2)
+```
+
+
+
+## 基于主成分得分的聚类分析
+
+
+
+```{r}
+# k-means聚类（以2类为例）
+set.seed(123)
+km <- kmeans(combine.pcscore[, c("PC1", "PC2")], centers = 3)
+combine.pcscore$cluster <- as.factor(km$cluster)
+
+# 可视化聚类结果
+ggplot(combine.pcscore, aes(PC1, PC2, color = cluster)) +
+  geom_point() +
+  labs(title = "基于主成分得分的球员聚类")
+```
+
+
+
+## 聚类与位置的对应关系
+
+
+
+```{r}
+prop.table(table(combine.pcscore$position, combine.pcscore$cluster), 1)
+```
+
+
+
+-   1号聚类（Cluster 1）
+
+    -   主要特征： 高度集中于内线和进攻线球员： OL（进攻线）: 100%
+        OG（进攻护锋）: 97% OT（进攻截锋）: 95% C（中锋）: 93%
+        DT（防守截锋）: 79%
+
+    -   这些位置典型特征是体型大、力量强，符合PCA能力分型的“体型/力量主导”类别。
+
+-   2号聚类（Cluster 2）
+
+    -   主要特征： 集中于速度型和二线防守球员： CB（角卫）: 99.7%
+        FS（游动安全卫）: 99% LB（线卫）: 100% S（安全卫）: 100%
+        SS（强侧安全卫）: 96% WR（外接手）: 96% RB（跑卫）: 88%
+
+    -   这些位置通常身材相对较小，速度、灵活性、爆发力强，对应“敏捷/速度主导”能力分型。
+
+-   3号聚类（Cluster 3）
+
+    -   主要特征： 集中于力量+爆发型或多面手球员： EDGE（冲传手）: 100%
+        LS（长传手）: 100% DE（防守端锋）: 85% FB（近卫跑卫）: 83%
+        ILB（内线卫）: 84% OLB（外线卫）: 73% TE（近端锋）: 89%
+        QB（四分卫）: 67%
+        DE、FB、TE、QB、OLB、ILB等为多功能或力量/爆发型球员，显示这些球员的身体素质在主成分空间中更接近第三类。
+
+    -   这些位置球员兼具力量、体型和一定灵活性，属于“力量/多面手型”分型。
+
