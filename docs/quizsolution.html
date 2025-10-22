@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Li Zongzhang">
+<meta name="dcterms.date" content="2025-10-22">
+
+<title>Solutions to Quiz – 多元统计25秋</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c73e22a146e553504ccbb400724ccee0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">多元统计25秋</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap1.html"> 
+<span class="menu-text">第1章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap4.html"> 
+<span class="menu-text">第4章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap5.html"> 
+<span class="menu-text">第5章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap6.html"> 
+<span class="menu-text">第6章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap7.html"> 
+<span class="menu-text">第7章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap8.html"> 
+<span class="menu-text">第8章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap9.html"> 
+<span class="menu-text">第9章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./teamwork.html"> 
+<span class="menu-text">小组作业</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./schedule.html"> 
+<span class="menu-text">课程安排和考核</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="./lizongzhang9@qq.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#第一题-聚类分析" id="toc-第一题-聚类分析" class="nav-link active" data-scroll-target="#第一题-聚类分析">第一题 聚类分析</a>
+  <ul class="collapse">
+  <li><a href="#导入数据" id="toc-导入数据" class="nav-link" data-scroll-target="#导入数据">导入数据</a></li>
+  <li><a href="#报告描述性统计量" id="toc-报告描述性统计量" class="nav-link" data-scroll-target="#报告描述性统计量">报告描述性统计量</a></li>
+  <li><a href="#聚类分析" id="toc-聚类分析" class="nav-link" data-scroll-target="#聚类分析">聚类分析</a>
+  <ul class="collapse">
+  <li><a href="#hclust" id="toc-hclust" class="nav-link" data-scroll-target="#hclust">hclust</a></li>
+  <li><a href="#agnes" id="toc-agnes" class="nav-link" data-scroll-target="#agnes">agnes</a></li>
+  </ul></li>
+  <li><a href="#报告各类构成" id="toc-报告各类构成" class="nav-link" data-scroll-target="#报告各类构成">报告各类构成</a></li>
+  <li><a href="#报告各组描述性统计量" id="toc-报告各组描述性统计量" class="nav-link" data-scroll-target="#报告各组描述性统计量">报告各组描述性统计量</a></li>
+  <li><a href="#概括各类特征" id="toc-概括各类特征" class="nav-link" data-scroll-target="#概括各类特征">概括各类特征</a></li>
+  </ul></li>
+  <li><a href="#第二题-判别分析" id="toc-第二题-判别分析" class="nav-link" data-scroll-target="#第二题-判别分析">第二题 判别分析</a>
+  <ul class="collapse">
+  <li><a href="#导入数据-1" id="toc-导入数据-1" class="nav-link" data-scroll-target="#导入数据-1">导入数据</a></li>
+  <li><a href="#判别函数的估计" id="toc-判别函数的估计" class="nav-link" data-scroll-target="#判别函数的估计">判别函数的估计</a></li>
+  <li><a href="#判别函数的预测正确率" id="toc-判别函数的预测正确率" class="nav-link" data-scroll-target="#判别函数的预测正确率">判别函数的预测正确率</a></li>
+  <li><a href="#判别函数得分的分组直方图" id="toc-判别函数得分的分组直方图" class="nav-link" data-scroll-target="#判别函数得分的分组直方图">判别函数得分的分组直方图</a></li>
+  <li><a href="#对比两个组别的差异" id="toc-对比两个组别的差异" class="nav-link" data-scroll-target="#对比两个组别的差异">对比两个组别的差异</a></li>
+  <li><a href="#预测新个案" id="toc-预测新个案" class="nav-link" data-scroll-target="#预测新个案">预测新个案</a></li>
+  </ul></li>
+  <li><a href="#第三题-主成分分析" id="toc-第三题-主成分分析" class="nav-link" data-scroll-target="#第三题-主成分分析">第三题 主成分分析</a>
+  <ul class="collapse">
+  <li><a href="#评估数据的相关性" id="toc-评估数据的相关性" class="nav-link" data-scroll-target="#评估数据的相关性">评估数据的相关性</a></li>
+  <li><a href="#估计主成分模型" id="toc-估计主成分模型" class="nav-link" data-scroll-target="#估计主成分模型">估计主成分模型</a></li>
+  <li><a href="#确定提取的主成分的个数" id="toc-确定提取的主成分的个数" class="nav-link" data-scroll-target="#确定提取的主成分的个数">确定提取的主成分的个数</a></li>
+  <li><a href="#概括主成分的含义" id="toc-概括主成分的含义" class="nav-link" data-scroll-target="#概括主成分的含义">概括主成分的含义</a></li>
+  <li><a href="#第一主成分和第二主成分得分散点图" id="toc-第一主成分和第二主成分得分散点图" class="nav-link" data-scroll-target="#第一主成分和第二主成分得分散点图">第一主成分和第二主成分得分散点图</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Solutions to Quiz</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Li Zongzhang </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 22, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="第一题-聚类分析" class="level1">
+<h1>第一题 聚类分析</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="img/quiz1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="导入数据" class="level2">
+<h2 class="anchored" data-anchor-id="导入数据">导入数据</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>metro16 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"metro16.xlsx"</span>) <span class="sc">%&gt;%</span> <span class="fu">data.frame</span>()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#给metro16增加行名</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(metro16) <span class="ot">&lt;-</span> metro16<span class="sc">$</span>城市</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>metro16</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     城市 线路数量 总里程公里 站点数 运营年数 日均客运量万人次
+广州 广州       14        513    271       23           905.75
+上海 上海       17        705    416       27          1065.03
+北京 北京       23        699    405       49          1241.10
+天津 天津        6        233    143       35           143.85
+杭州 杭州        5        206    120        7           190.00
+南京 南京       10        378    174       15           353.00
+成都 成都        8        358    215        9           382.99
+武汉 武汉        9        339    228       15           305.00
+深圳 深圳       10        284    134       15           486.00
+苏州 苏州        4        166    135        8            99.10
+郑州 郑州        5        146     96        6            79.85
+合肥 合肥        3         90     77        3            49.26
+青岛 青岛        4        176     86        4            51.50
+厦门 厦门        2         72     56        2            38.30
+南宁 南宁        3         81     66        4            58.52
+重庆 重庆       10        329    190       15           300.00</code></pre>
+</div>
+</div>
+</section>
+<section id="报告描述性统计量" class="level2">
+<h2 class="anchored" data-anchor-id="报告描述性统计量">报告描述性统计量</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>metro16 <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">describe</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mean, sd, median, min, max) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                   mean     sd median  min    max
+线路数量           8.31   5.74    7.0  2.0   23.0
+总里程公里       298.44 199.17  258.5 72.0  705.0
+站点数           175.75 110.14  139.0 56.0  416.0
+运营年数          14.81  13.03   12.0  2.0   49.0
+日均客运量万人次 359.33 383.20  245.0 38.3 1241.1</code></pre>
+</div>
+</div>
+</section>
+<section id="聚类分析" class="level2">
+<h2 class="anchored" data-anchor-id="聚类分析">聚类分析</h2>
+<section id="hclust" class="level3">
+<h3 class="anchored" data-anchor-id="hclust">hclust</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#设置图形排版，2行2列</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#定义聚类方法</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>method <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"complete"</span>,<span class="st">"single"</span>,<span class="st">"average"</span>,<span class="st">"ward.D"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#对比四种聚类方法的树状图</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dendextend)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  metro16 <span class="sc">%&gt;%</span> </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dist</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hclust</span>(<span class="at">method =</span> method[i]) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.dendrogram</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">color_branches</span>(<span class="at">k =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="at">main =</span> method[i])  </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="quizsolution_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#保存聚类模型</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>metro16.ward <span class="ot">&lt;-</span> metro16 <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dist</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hclust</span>(<span class="at">method =</span> method[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>选择Ward.D方法，该方法下分为三类，个案数量分别为3，6，7，个案数量分布合理。</p>
+</section>
+<section id="agnes" class="level3">
+<h3 class="anchored" data-anchor-id="agnes">agnes</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cluster)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>metro16 <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">agnes</span>(<span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">method =</span> <span class="st">"ward"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fviz_dend</span>(<span class="at">k =</span> <span class="dv">3</span>,  <span class="co">#分三类</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">cex =</span> <span class="fl">0.6</span>,  <span class="co"># 标签字体</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">k_colors =</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>), <span class="co">#分支颜色</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">color_labels_by_k =</span> <span class="cn">TRUE</span>, <span class="co">#标签上色</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">rect =</span> <span class="cn">TRUE</span>,  <span class="co">#添加矩形框</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">lower_rect =</span> <span class="sc">-</span><span class="dv">2</span>, </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">main =</span> <span class="st">"Linkage Method: Ward"</span>)  <span class="co">#矩形框下沿</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="quizsolution_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>metro16.agnes <span class="ot">&lt;-</span> metro16 <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">agnes</span>(<span class="at">stand =</span> <span class="cn">TRUE</span>, <span class="at">method =</span> <span class="st">"ward"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>选择了线路数量、总里程、站点数、运营年数和日均客运量五个变量进行聚类分析。采用了系统聚类方法，个案之间的距离用欧氏距离测度，类与类之间的距离用Ward法（离差平方和法）测度。对变量进行了标准化变换。</p>
+</section>
+</section>
+<section id="报告各类构成" class="level2">
+<h2 class="anchored" data-anchor-id="报告各类构成">报告各类构成</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#在metro16中追加变量cluster, 保存聚类结果</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>metro16<span class="sc">$</span>cluster <span class="ot">&lt;-</span> <span class="fu">cutree</span>(metro16.ward, <span class="at">k =</span> <span class="dv">3</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 罗列各个类别包含的个案数量</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(metro16<span class="sc">$</span>cluster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+1 2 3 
+3 6 7 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#第一类</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>metro16<span class="sc">$</span>城市[metro16<span class="sc">$</span>cluster <span class="sc">==</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "广州" "上海" "北京"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#第二类</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>metro16<span class="sc">$</span>城市[metro16<span class="sc">$</span>cluster <span class="sc">==</span> <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "天津" "南京" "成都" "武汉" "深圳" "重庆"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#第三类</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>metro16<span class="sc">$</span>城市[metro16<span class="sc">$</span>cluster <span class="sc">==</span> <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "杭州" "苏州" "郑州" "合肥" "青岛" "厦门" "南宁"</code></pre>
+</div>
+</div>
+</section>
+<section id="报告各组描述性统计量" class="level2">
+<h2 class="anchored" data-anchor-id="报告各组描述性统计量">报告各组描述性统计量</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>metro16 <span class="sc">%&gt;%</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">split</span>(.<span class="sc">$</span>cluster) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$`1`
+     城市              线路数量      总里程公里      站点数         运营年数 
+ Length:3           Min.   :14.0   Min.   :513   Min.   :271.0   Min.   :23  
+ Class :character   1st Qu.:15.5   1st Qu.:606   1st Qu.:338.0   1st Qu.:25  
+ Mode  :character   Median :17.0   Median :699   Median :405.0   Median :27  
+                    Mean   :18.0   Mean   :639   Mean   :364.0   Mean   :33  
+                    3rd Qu.:20.0   3rd Qu.:702   3rd Qu.:410.5   3rd Qu.:38  
+                    Max.   :23.0   Max.   :705   Max.   :416.0   Max.   :49  
+ 日均客运量万人次    cluster 
+ Min.   : 905.8   Min.   :1  
+ 1st Qu.: 985.4   1st Qu.:1  
+ Median :1065.0   Median :1  
+ Mean   :1070.6   Mean   :1  
+ 3rd Qu.:1153.1   3rd Qu.:1  
+ Max.   :1241.1   Max.   :1  
+
+$`2`
+     城市              线路数量        总里程公里        站点数     
+ Length:6           Min.   : 6.000   Min.   :233.0   Min.   :134.0  
+ Class :character   1st Qu.: 8.250   1st Qu.:295.2   1st Qu.:150.8  
+ Mode  :character   Median : 9.500   Median :334.0   Median :182.0  
+                    Mean   : 8.833   Mean   :320.2   Mean   :180.7  
+                    3rd Qu.:10.000   3rd Qu.:353.2   3rd Qu.:208.8  
+                    Max.   :10.000   Max.   :378.0   Max.   :228.0  
+    运营年数     日均客运量万人次    cluster 
+ Min.   : 9.00   Min.   :143.8    Min.   :2  
+ 1st Qu.:15.00   1st Qu.:301.2    1st Qu.:2  
+ Median :15.00   Median :329.0    Median :2  
+ Mean   :17.33   Mean   :328.5    Mean   :2  
+ 3rd Qu.:15.00   3rd Qu.:375.5    3rd Qu.:2  
+ Max.   :35.00   Max.   :486.0    Max.   :2  
+
+$`3`
+     城市              线路数量       总里程公里        站点数      
+ Length:7           Min.   :2.000   Min.   : 72.0   Min.   : 56.00  
+ Class :character   1st Qu.:3.000   1st Qu.: 85.5   1st Qu.: 71.50  
+ Mode  :character   Median :4.000   Median :146.0   Median : 86.00  
+                    Mean   :3.714   Mean   :133.9   Mean   : 90.86  
+                    3rd Qu.:4.500   3rd Qu.:171.0   3rd Qu.:108.00  
+                    Max.   :5.000   Max.   :206.0   Max.   :135.00  
+    运营年数     日均客运量万人次    cluster 
+ Min.   :2.000   Min.   : 38.30   Min.   :3  
+ 1st Qu.:3.500   1st Qu.: 50.38   1st Qu.:3  
+ Median :4.000   Median : 58.52   Median :3  
+ Mean   :4.857   Mean   : 80.93   Mean   :3  
+ 3rd Qu.:6.500   3rd Qu.: 89.47   3rd Qu.:3  
+ Max.   :8.000   Max.   :190.00   Max.   :3  </code></pre>
+</div>
+</div>
+</section>
+<section id="概括各类特征" class="level2">
+<h2 class="anchored" data-anchor-id="概括各类特征">概括各类特征</h2>
+<p>第1类：北京、上海、广州，地铁运营规模最大，线路数量、总里程、站点数、运营年数大约是第2类城市的两倍，日均客运量越是第2类城市的3倍。</p>
+<p>第2类：“天津” “南京” “成都” “武汉” “深圳” “重庆”。第2类城市，线路数量介于6-10条，总里程介于233至378公里，站点数介于134至228个。日均客运量的中位数是329万人。地铁运营规模，在国内处于中等水平。</p>
+<p>第3类：“杭州” “苏州” “郑州” “合肥” “青岛” “厦门” “南宁”。第3类城市，线路数量介于2-5条，总里程介于71至206公里，站点数介于56至135个。运营年数介于2至8年，日均客运量的中位数是59万人。第3类城市的地铁运营规模较小，大约是第2类城市的1/5， 第1类城市1/15。</p>
+</section>
+</section>
+<section id="第二题-判别分析" class="level1">
+<h1>第二题 判别分析</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="img/quiz2.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="导入数据-1" class="level2">
+<h2 class="anchored" data-anchor-id="导入数据-1">导入数据</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>bankloan <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"bankloan.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="判别函数的估计" class="level2">
+<h2 class="anchored" data-anchor-id="判别函数的估计">判别函数的估计</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>model1.da <span class="ot">&lt;-</span> <span class="fu">lda</span>(default <span class="sc">~</span> ., bankloan)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>model1.da</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+lda(default ~ ., data = bankloan)
+
+Prior probabilities of groups:
+        0         1 
+0.7385714 0.2614286 
+
+Group means:
+       age       ed   employ  address   income   debtinc creddebt  othdebt
+0 35.51451 1.659574 9.508704 8.945841 47.15474  8.679304 1.245493 2.773409
+1 33.01093 1.901639 5.224044 6.393443 41.21311 14.727869 2.423865 3.862807
+
+Coefficients of linear discriminants:
+                  LD1
+age       0.015331213
+ed        0.078357754
+employ   -0.124220534
+address  -0.046452296
+income    0.004865162
+debtinc   0.096027989
+creddebt  0.276338074
+othdebt  -0.057146598</code></pre>
+</div>
+</div>
+</section>
+<section id="判别函数的预测正确率" class="level2">
+<h2 class="anchored" data-anchor-id="判别函数的预测正确率">判别函数的预测正确率</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#预测</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>model1.predict <span class="ot">&lt;-</span> <span class="fu">predict</span>(model1.da, bankloan)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#预测组别与实际组别的列联表</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>tab1 <span class="ot">&lt;-</span> <span class="fu">table</span>(bankloan<span class="sc">$</span>default, model1.predict<span class="sc">$</span>class)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>tab1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   
+      0   1
+  0 485  32
+  1  99  84</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#预测正确率</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bankloan<span class="sc">$</span>default <span class="sc">==</span> model1.predict<span class="sc">$</span>class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8128571</code></pre>
+</div>
+</div>
+</section>
+<section id="判别函数得分的分组直方图" class="level2">
+<h2 class="anchored" data-anchor-id="判别函数得分的分组直方图">判别函数得分的分组直方图</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ldahist</span>(model1.predict<span class="sc">$</span>x,bankloan<span class="sc">$</span>default)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="quizsolution_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="对比两个组别的差异" class="level2">
+<h2 class="anchored" data-anchor-id="对比两个组别的差异">对比两个组别的差异</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#两个组别的解释变量的均值的差异</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>model1.da<span class="sc">$</span>means</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       age       ed   employ  address   income   debtinc creddebt  othdebt
+0 35.51451 1.659574 9.508704 8.945841 47.15474  8.679304 1.245493 2.773409
+1 33.01093 1.901639 5.224044 6.393443 41.21311 14.727869 2.423865 3.862807</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#两个组别的解释变量的箱线图</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>),<span class="at">mai =</span> <span class="fu">c</span>(<span class="fl">0.6</span>,<span class="fl">0.6</span>,<span class="fl">0.2</span>,<span class="fl">0.1</span>),<span class="at">cex =</span> <span class="fl">0.7</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>) {</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> bankloan[[i]]</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">boxplot</span>(y <span class="sc">~</span> bankloan<span class="sc">$</span>default, <span class="at">col =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">main =</span> <span class="fu">colnames</span>(bankloan)[i])</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="quizsolution_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>两个组别的差异： 未逾期(default = 0)和有逾期(default = 1)相比，整体而言，未逾期(default = 0)的组别年龄更大，在当前雇主的服务时长更长、在当前居住地居住时间更长、收入更高、债务与收入比更低、信用卡债务和其他债务更低。</p>
+</section>
+<section id="预测新个案" class="level2">
+<h2 class="anchored" data-anchor-id="预测新个案">预测新个案</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#录入新个案数据</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>new.case <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">age =</span> <span class="dv">34</span>, </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">ed =</span> <span class="dv">4</span>, </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">employ =</span> <span class="dv">6</span>,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">address =</span> <span class="dv">3</span>, </span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">income =</span> <span class="dv">27</span>, </span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>                       <span class="at">debtinc =</span> <span class="fl">35.3</span>, </span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">creddebt =</span> <span class="fl">1.98</span>, </span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>                       <span class="at">othdebt =</span> <span class="fl">7.55</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model1.da, new.case)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$class
+[1] 1
+Levels: 0 1
+
+$posterior
+           0         1
+1 0.06711165 0.9328884
+
+$x
+       LD1
+1 2.882298</code></pre>
+</div>
+</div>
+<p>根据判别函数预测Lily会发生逾期还款。</p>
+</section>
+</section>
+<section id="第三题-主成分分析" class="level1">
+<h1>第三题 主成分分析</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="img/quiz3.png" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="评估数据的相关性" class="level2">
+<h2 class="anchored" data-anchor-id="评估数据的相关性">评估数据的相关性</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(mpg, qsec, wt, cyl, disp, hp) <span class="sc">%&gt;%</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">KMO</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Kaiser-Meyer-Olkin factor adequacy
+Call: KMO(r = .)
+Overall MSA =  0.81
+MSA for each item = 
+ mpg qsec   wt  cyl disp   hp 
+0.86 0.64 0.73 0.88 0.82 0.88 </code></pre>
+</div>
+</div>
+<p>KMO等于0.814，适于降维处理。</p>
+</section>
+<section id="估计主成分模型" class="level2">
+<h2 class="anchored" data-anchor-id="估计主成分模型">估计主成分模型</h2>
+<p><em>注意题目3.2需要更正为：你提取了几个主成分，<strong>是相关系数矩阵还是协方差矩阵？</strong>你为何做出上述选择？</em></p>
+<p>提取两个主成分，使用的是相关系数矩阵，因为原始变量的数量级别差距较大，采用相关系数矩阵，可以避免观测值较大的原始变量对提取结果的影响。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>car.pr <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(mpg, qsec, wt, cyl,disp,hp) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prcomp</span>(<span class="at">scale =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>car.pr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Standard deviations (1, .., p=6):
+[1] 2.1416696 0.9809970 0.4086451 0.3801105 0.2999090 0.2224322
+
+Rotation (n x k) = (6 x 6):
+            PC1         PC2         PC3         PC4        PC5         PC6
+mpg  -0.4319266  0.19022095 -0.61557102  0.52590879 -0.0718869  0.34143803
+qsec -0.2804946 -0.79584714  0.06560722  0.26481108  0.4496718 -0.10637755
+wt    0.4024295 -0.47383679  0.03018494  0.08057191 -0.4978411  0.59856530
+cyl   0.4458939  0.03443083 -0.43940446 -0.28406318  0.6477319  0.32660126
+disp  0.4411470 -0.18033201 -0.51963422  0.20072945 -0.2371697 -0.63742311
+hp    0.4235335  0.26873203  0.39084636  0.72513379  0.2626324  0.02910102</code></pre>
+</div>
+</div>
+</section>
+<section id="确定提取的主成分的个数" class="level2">
+<h2 class="anchored" data-anchor-id="确定提取的主成分的个数">确定提取的主成分的个数</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#查看方差累计贡献率</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(car.pr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Importance of components:
+                          PC1    PC2     PC3     PC4     PC5     PC6
+Standard deviation     2.1417 0.9810 0.40865 0.38011 0.29991 0.22243
+Proportion of Variance 0.7645 0.1604 0.02783 0.02408 0.01499 0.00825
+Cumulative Proportion  0.7645 0.9248 0.95268 0.97676 0.99175 1.00000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#绘制scree plot</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co">#标注方差贡献率, 在图中标注方差贡献率</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(car.pr, </span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">addlabels =</span> <span class="cn">TRUE</span>, <span class="at">geom =</span> <span class="fu">c</span>(<span class="st">"line"</span>),</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">80</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="quizsolution_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>第一主成分的方差贡献率是76%，第二主成分的方差贡献率是16%，前两个主成分的累计方差贡献率达到92%，因此保留前两个主成分即可代表原始变量绝大部分信息。</p>
+</section>
+<section id="概括主成分的含义" class="level2">
+<h2 class="anchored" data-anchor-id="概括主成分的含义">概括主成分的含义</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 绘制correlation circle,反映主成分与原始变量的关系</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_var</span>(car.pr, </span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.var =</span> <span class="st">"cos2"</span>,</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">gradient.cols =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span>) , </span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span> <span class="co"># Avoid text overlapping</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="quizsolution_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>car.pr<span class="sc">$</span>rotation[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            PC1         PC2
+mpg  -0.4319266  0.19022095
+qsec -0.2804946 -0.79584714
+wt    0.4024295 -0.47383679
+cyl   0.4458939  0.03443083
+disp  0.4411470 -0.18033201
+hp    0.4235335  0.26873203</code></pre>
+</div>
+</div>
+<p>第一主成分与wt、cyl、disp和hp正相关，与mpg, qsec负相关。其中qsec的系数为-0.28，绝对值最小，其对第一主成分得分的影响较弱 。 当wt、cyl、disp和hp的值越大，也就是汽车的重量、气缸数、排量和马力越大，PC1的值越大。 当mpg的值越小，也就是越耗油，PC1的值越大。 因此，PC1主要反映了汽车在动力、油耗方面的表现，在PC1上得分越高，意味者汽车的动力越强、耗油量大。</p>
+<p>第二主成分的mpg、cyl、hp的系数都为正，但是其数值都较小，其对第2主成分得分的影响较弱。 第二主成分的qsec、wt、disp的系数都为负，其中disp的绝对值较小，因此第二主成分主要代表了qsec、wt的信息。qsec的值越小，1/4英里的耗时越少，第二主成分得分的值越大。wt的值越小，车重越小，第二主成分得分的值越大。 因此，PC2主要反映了汽车在加速快、车重轻巧方面的表现，在PC2上得分越高，意味者汽车重量小、加速快。</p>
+</section>
+<section id="第一主成分和第二主成分得分散点图" class="level2">
+<h2 class="anchored" data-anchor-id="第一主成分和第二主成分得分散点图">第一主成分和第二主成分得分散点图</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># am = 0, 自动挡；am = 1, 手动档</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_pca_ind</span>(car.pr, </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">col.ind =</span> <span class="fu">as.factor</span>(mtcars<span class="sc">$</span>am),</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="quizsolution_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>自动挡汽车主要分布在第四象限，PC1得分较高表明其动力强、耗油大，PC2得分较低表明汽车重量大，加速慢。</p>
+<p>手动挡汽车主要分布在第二象限，PC1得分较低表明其动力弱、省油，PC2得分较高表明汽车重量轻，加速快。</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2025, Li Zongzhang</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Statistics: turning data into insights.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,329 @@
+---
+title: "Solutions to Quiz"
+author: "Li Zongzhang"
+date: today
+output:
+    highlight: github
+    toc: yes
+    number_sections: yes
+editor_options:
+  markdown:
+    wrap: 72
+execute:
+  warning: false
+  message: false
+---
+
+```{r echo=FALSE, message=FALSE, warning=TRUE}
+# 指定图形的中文字体
+par(family  = 'STKaiti')
+library(showtext)
+showtext_auto()
+```
+
+# 第一题 聚类分析
+
+```{r, echo = FALSE, out.width = "80%"}
+knitr::include_graphics("img/quiz1.png")
+```
+
+## 导入数据
+
+
+```{r message=FALSE, warning=FALSE}
+library(readxl)
+library(tidyverse)
+
+metro16 <- read_excel("metro16.xlsx") %>% data.frame()
+
+#给metro16增加行名
+rownames(metro16) <- metro16$城市
+
+metro16
+```
+
+## 报告描述性统计量 
+
+```{r message=FALSE, warning=FALSE}
+library(psych)
+
+metro16 %>% select(2:6) %>% 
+  describe() %>% 
+  select(mean, sd, median, min, max) 
+```
+
+## 聚类分析
+
+### hclust
+
+```{r}
+#设置图形排版，2行2列
+par(mfrow = c(2,2))
+
+#定义聚类方法
+method <- c("complete","single","average","ward.D")
+
+#对比四种聚类方法的树状图
+library(dendextend)
+for (i in 1:4) {
+  metro16 %>% 
+    select(2:6) %>% 
+    scale() %>% 
+    dist() %>% 
+    hclust(method = method[i]) %>% 
+    as.dendrogram() %>% 
+    color_branches(k = 3) %>% 
+    plot(main = method[i])  
+}
+
+
+#保存聚类模型
+metro16.ward <- metro16 %>% 
+    select(2:6) %>% 
+    scale() %>% 
+    dist() %>% 
+    hclust(method = method[i])
+```
+
+选择Ward.D方法，该方法下分为三类，个案数量分别为3，6，7，个案数量分布合理。
+
+### agnes
+
+```{r}
+library(cluster)
+library(factoextra)
+
+metro16 %>% select(2:6) %>% 
+    agnes(stand = TRUE, method = "ward") %>% 
+    fviz_dend(k = 3,  #分三类
+          cex = 0.6,  # 标签字体
+          k_colors = c(4,5,6), #分支颜色
+          color_labels_by_k = TRUE, #标签上色
+          rect = TRUE,  #添加矩形框
+          lower_rect = -2, 
+          main = "Linkage Method: Ward")  #矩形框下沿
+
+metro16.agnes <- metro16 %>% select(2:6) %>% 
+    agnes(stand = TRUE, method = "ward")
+ 
+```
+
+
+选择了线路数量、总里程、站点数、运营年数和日均客运量五个变量进行聚类分析。采用了系统聚类方法，个案之间的距离用欧氏距离测度，类与类之间的距离用Ward法（离差平方和法）测度。对变量进行了标准化变换。
+
+## 报告各类构成
+
+```{r}
+
+#在metro16中追加变量cluster, 保存聚类结果
+metro16$cluster <- cutree(metro16.ward, k = 3)
+
+# 罗列各个类别包含的个案数量
+table(metro16$cluster)
+
+#第一类
+metro16$城市[metro16$cluster == 1]
+#第二类
+metro16$城市[metro16$cluster == 2]
+#第三类
+metro16$城市[metro16$cluster == 3]
+
+
+```
+
+
+## 报告各组描述性统计量
+
+```{r}
+
+library(purrr)
+
+metro16 %>% 
+  split(.$cluster) %>% 
+  map(summary)
+
+
+```
+
+## 概括各类特征
+
+第1类：北京、上海、广州，地铁运营规模最大，线路数量、总里程、站点数、运营年数大约是第2类城市的两倍，日均客运量越是第2类城市的3倍。
+
+第2类："天津" "南京" "成都" "武汉" "深圳" "重庆"。第2类城市，线路数量介于6-10条，总里程介于233至378公里，站点数介于134至228个。日均客运量的中位数是329万人。地铁运营规模，在国内处于中等水平。 
+
+第3类："杭州" "苏州" "郑州" "合肥" "青岛" "厦门" "南宁"。第3类城市，线路数量介于2-5条，总里程介于71至206公里，站点数介于56至135个。运营年数介于2至8年，日均客运量的中位数是59万人。第3类城市的地铁运营规模较小，大约是第2类城市的1/5， 第1类城市1/15。
+
+
+# 第二题 判别分析
+
+```{r, echo = FALSE, out.width = "80%"}
+knitr::include_graphics("img/quiz2.png")
+```
+
+## 导入数据
+
+```{r}
+library(readxl)
+bankloan <- read_excel("bankloan.xlsx")
+```
+
+## 判别函数的估计
+
+```{r}
+library(MASS)
+
+model1.da <- lda(default ~ ., bankloan)
+model1.da
+```
+
+## 判别函数的预测正确率
+
+```{r}
+#预测
+model1.predict <- predict(model1.da, bankloan)
+
+#预测组别与实际组别的列联表
+tab1 <- table(bankloan$default, model1.predict$class)
+tab1
+
+#预测正确率
+mean(bankloan$default == model1.predict$class)
+```
+## 判别函数得分的分组直方图
+
+```{r}
+library(MASS)
+ldahist(model1.predict$x,bankloan$default)
+
+
+```
+
+## 对比两个组别的差异
+
+```{r}
+
+#两个组别的解释变量的均值的差异
+model1.da$means
+
+#两个组别的解释变量的箱线图
+par(mfrow = c(2,4),mai = c(0.6,0.6,0.2,0.1),cex = 0.7)
+
+for (i in 1:8) {
+  y <- bankloan[[i]]
+  boxplot(y ~ bankloan$default, col = c(3,4,5),
+          main = colnames(bankloan)[i])
+}
+
+
+
+```
+
+两个组别的差异：
+未逾期(default = 0)和有逾期(default = 1)相比，整体而言，未逾期(default = 0)的组别年龄更大，在当前雇主的服务时长更长、在当前居住地居住时间更长、收入更高、债务与收入比更低、信用卡债务和其他债务更低。
+
+## 预测新个案
+
+```{r}
+
+#录入新个案数据
+new.case <- data.frame(age = 34, 
+                       ed = 4, 
+                       employ = 6,
+                       address = 3, 
+                       income = 27, 
+                       debtinc = 35.3, 
+                       creddebt = 1.98, 
+                       othdebt = 7.55
+  )
+
+predict(model1.da, new.case)
+
+
+```
+ 根据判别函数预测Lily会发生逾期还款。
+
+# 第三题 主成分分析
+
+```{r, echo = FALSE, out.width = "80%"}
+knitr::include_graphics("img/quiz3.png")
+```
+
+## 评估数据的相关性
+
+```{r}
+library(factoextra)
+mtcars %>%
+  dplyr::select(mpg, qsec, wt, cyl, disp, hp) %>%
+  KMO()
+```
+
+KMO等于0.814，适于降维处理。
+
+## 估计主成分模型
+
+_注意题目3.2需要更正为：你提取了几个主成分，**是相关系数矩阵还是协方差矩阵？**你为何做出上述选择？_
+
+提取两个主成分，使用的是相关系数矩阵，因为原始变量的数量级别差距较大，采用相关系数矩阵，可以避免观测值较大的原始变量对提取结果的影响。
+
+```{r}
+car.pr <- mtcars %>% 
+  dplyr::select(mpg, qsec, wt, cyl,disp,hp) %>% 
+  prcomp(scale = TRUE)
+
+car.pr
+```
+
+## 确定提取的主成分的个数
+
+```{r}
+#查看方差累计贡献率
+summary(car.pr)
+
+#绘制scree plot
+
+#标注方差贡献率, 在图中标注方差贡献率
+library(factoextra)
+fviz_eig(car.pr, 
+         addlabels = TRUE, geom = c("line"),
+         ylim = c(0, 80))
+
+```
+
+第一主成分的方差贡献率是76%，第二主成分的方差贡献率是16%，前两个主成分的累计方差贡献率达到92%，因此保留前两个主成分即可代表原始变量绝大部分信息。
+
+## 概括主成分的含义
+
+```{r}
+
+# 绘制correlation circle,反映主成分与原始变量的关系
+library(factoextra)
+fviz_pca_var(car.pr, 
+             col.var = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07") , 
+             repel = TRUE # Avoid text overlapping
+)
+
+car.pr$rotation[,1:2]
+```
+
+第一主成分与wt、cyl、disp和hp正相关，与mpg, qsec负相关。其中qsec的系数为-0.28，绝对值最小，其对第一主成分得分的影响较弱 。 
+当wt、cyl、disp和hp的值越大，也就是汽车的重量、气缸数、排量和马力越大，PC1的值越大。
+当mpg的值越小，也就是越耗油，PC1的值越大。
+因此，PC1主要反映了汽车在动力、油耗方面的表现，在PC1上得分越高，意味者汽车的动力越强、耗油量大。 
+
+第二主成分的mpg、cyl、hp的系数都为正，但是其数值都较小，其对第2主成分得分的影响较弱。 第二主成分的qsec、wt、disp的系数都为负，其中disp的绝对值较小，因此第二主成分主要代表了qsec、wt的信息。qsec的值越小，1/4英里的耗时越少，第二主成分得分的值越大。wt的值越小，车重越小，第二主成分得分的值越大。 因此，PC2主要反映了汽车在加速快、车重轻巧方面的表现，在PC2上得分越高，意味者汽车重量小、加速快。
+
+## 第一主成分和第二主成分得分散点图
+
+```{r}
+# am = 0, 自动挡；am = 1, 手动档
+fviz_pca_ind(car.pr, 
+             col.ind = as.factor(mtcars$am),
+             repel = TRUE)
+```
+
+自动挡汽车主要分布在第四象限，PC1得分较高表明其动力强、耗油大，PC2得分较低表明汽车重量大，加速慢。
+
+手动挡汽车主要分布在第二象限，PC1得分较低表明其动力弱、省油，PC2得分较高表明汽车重量轻，加速快。
+
+

@@ -810,5 +810,131 @@
     "title": "第5章",
     "section": "教材P105,习题5.5",
     "text": "教材P105,习题5.5\n要求：\n\n报告判别分析模型的输出结果，一共建立了几个判别函数，各个判别函数的贡献率是多大？\n判别函数预测的正确率是多少？报告预测信用等级和实际信用等级的列联表。\n绘制单个判别函数得分的直方图。\n绘制判别函数得分两两之间的二维图形。"
+  },
+  {
+    "objectID": "quizsolution.html",
+    "href": "quizsolution.html",
+    "title": "Solutions to Quiz",
+    "section": "",
+    "text": "library(readxl)\nlibrary(tidyverse)\n\nmetro16 &lt;- read_excel(\"metro16.xlsx\") %&gt;% data.frame()\n\n#给metro16增加行名\nrownames(metro16) &lt;- metro16$城市\n\nmetro16\n\n     城市 线路数量 总里程公里 站点数 运营年数 日均客运量万人次\n广州 广州       14        513    271       23           905.75\n上海 上海       17        705    416       27          1065.03\n北京 北京       23        699    405       49          1241.10\n天津 天津        6        233    143       35           143.85\n杭州 杭州        5        206    120        7           190.00\n南京 南京       10        378    174       15           353.00\n成都 成都        8        358    215        9           382.99\n武汉 武汉        9        339    228       15           305.00\n深圳 深圳       10        284    134       15           486.00\n苏州 苏州        4        166    135        8            99.10\n郑州 郑州        5        146     96        6            79.85\n合肥 合肥        3         90     77        3            49.26\n青岛 青岛        4        176     86        4            51.50\n厦门 厦门        2         72     56        2            38.30\n南宁 南宁        3         81     66        4            58.52\n重庆 重庆       10        329    190       15           300.00\n\n\n\n\n\n\nlibrary(psych)\n\nmetro16 %&gt;% select(2:6) %&gt;% \n  describe() %&gt;% \n  select(mean, sd, median, min, max) \n\n                   mean     sd median  min    max\n线路数量           8.31   5.74    7.0  2.0   23.0\n总里程公里       298.44 199.17  258.5 72.0  705.0\n站点数           175.75 110.14  139.0 56.0  416.0\n运营年数          14.81  13.03   12.0  2.0   49.0\n日均客运量万人次 359.33 383.20  245.0 38.3 1241.1\n\n\n\n\n\n\n\n\n#设置图形排版，2行2列\npar(mfrow = c(2,2))\n\n#定义聚类方法\nmethod &lt;- c(\"complete\",\"single\",\"average\",\"ward.D\")\n\n#对比四种聚类方法的树状图\nlibrary(dendextend)\nfor (i in 1:4) {\n  metro16 %&gt;% \n    select(2:6) %&gt;% \n    scale() %&gt;% \n    dist() %&gt;% \n    hclust(method = method[i]) %&gt;% \n    as.dendrogram() %&gt;% \n    color_branches(k = 3) %&gt;% \n    plot(main = method[i])  \n}\n\n\n\n\n\n\n\n#保存聚类模型\nmetro16.ward &lt;- metro16 %&gt;% \n    select(2:6) %&gt;% \n    scale() %&gt;% \n    dist() %&gt;% \n    hclust(method = method[i])\n\n选择Ward.D方法，该方法下分为三类，个案数量分别为3，6，7，个案数量分布合理。\n\n\n\n\nlibrary(cluster)\nlibrary(factoextra)\n\nmetro16 %&gt;% select(2:6) %&gt;% \n    agnes(stand = TRUE, method = \"ward\") %&gt;% \n    fviz_dend(k = 3,  #分三类\n          cex = 0.6,  # 标签字体\n          k_colors = c(4,5,6), #分支颜色\n          color_labels_by_k = TRUE, #标签上色\n          rect = TRUE,  #添加矩形框\n          lower_rect = -2, \n          main = \"Linkage Method: Ward\")  #矩形框下沿\n\n\n\n\n\n\n\nmetro16.agnes &lt;- metro16 %&gt;% select(2:6) %&gt;% \n    agnes(stand = TRUE, method = \"ward\")\n\n选择了线路数量、总里程、站点数、运营年数和日均客运量五个变量进行聚类分析。采用了系统聚类方法，个案之间的距离用欧氏距离测度，类与类之间的距离用Ward法（离差平方和法）测度。对变量进行了标准化变换。\n\n\n\n\n\n#在metro16中追加变量cluster, 保存聚类结果\nmetro16$cluster &lt;- cutree(metro16.ward, k = 3)\n\n# 罗列各个类别包含的个案数量\ntable(metro16$cluster)\n\n\n1 2 3 \n3 6 7 \n\n#第一类\nmetro16$城市[metro16$cluster == 1]\n\n[1] \"广州\" \"上海\" \"北京\"\n\n#第二类\nmetro16$城市[metro16$cluster == 2]\n\n[1] \"天津\" \"南京\" \"成都\" \"武汉\" \"深圳\" \"重庆\"\n\n#第三类\nmetro16$城市[metro16$cluster == 3]\n\n[1] \"杭州\" \"苏州\" \"郑州\" \"合肥\" \"青岛\" \"厦门\" \"南宁\"\n\n\n\n\n\n\nlibrary(purrr)\n\nmetro16 %&gt;% \n  split(.$cluster) %&gt;% \n  map(summary)\n\n$`1`\n     城市              线路数量      总里程公里      站点数         运营年数 \n Length:3           Min.   :14.0   Min.   :513   Min.   :271.0   Min.   :23  \n Class :character   1st Qu.:15.5   1st Qu.:606   1st Qu.:338.0   1st Qu.:25  \n Mode  :character   Median :17.0   Median :699   Median :405.0   Median :27  \n                    Mean   :18.0   Mean   :639   Mean   :364.0   Mean   :33  \n                    3rd Qu.:20.0   3rd Qu.:702   3rd Qu.:410.5   3rd Qu.:38  \n                    Max.   :23.0   Max.   :705   Max.   :416.0   Max.   :49  \n 日均客运量万人次    cluster \n Min.   : 905.8   Min.   :1  \n 1st Qu.: 985.4   1st Qu.:1  \n Median :1065.0   Median :1  \n Mean   :1070.6   Mean   :1  \n 3rd Qu.:1153.1   3rd Qu.:1  \n Max.   :1241.1   Max.   :1  \n\n$`2`\n     城市              线路数量        总里程公里        站点数     \n Length:6           Min.   : 6.000   Min.   :233.0   Min.   :134.0  \n Class :character   1st Qu.: 8.250   1st Qu.:295.2   1st Qu.:150.8  \n Mode  :character   Median : 9.500   Median :334.0   Median :182.0  \n                    Mean   : 8.833   Mean   :320.2   Mean   :180.7  \n                    3rd Qu.:10.000   3rd Qu.:353.2   3rd Qu.:208.8  \n                    Max.   :10.000   Max.   :378.0   Max.   :228.0  \n    运营年数     日均客运量万人次    cluster \n Min.   : 9.00   Min.   :143.8    Min.   :2  \n 1st Qu.:15.00   1st Qu.:301.2    1st Qu.:2  \n Median :15.00   Median :329.0    Median :2  \n Mean   :17.33   Mean   :328.5    Mean   :2  \n 3rd Qu.:15.00   3rd Qu.:375.5    3rd Qu.:2  \n Max.   :35.00   Max.   :486.0    Max.   :2  \n\n$`3`\n     城市              线路数量       总里程公里        站点数      \n Length:7           Min.   :2.000   Min.   : 72.0   Min.   : 56.00  \n Class :character   1st Qu.:3.000   1st Qu.: 85.5   1st Qu.: 71.50  \n Mode  :character   Median :4.000   Median :146.0   Median : 86.00  \n                    Mean   :3.714   Mean   :133.9   Mean   : 90.86  \n                    3rd Qu.:4.500   3rd Qu.:171.0   3rd Qu.:108.00  \n                    Max.   :5.000   Max.   :206.0   Max.   :135.00  \n    运营年数     日均客运量万人次    cluster \n Min.   :2.000   Min.   : 38.30   Min.   :3  \n 1st Qu.:3.500   1st Qu.: 50.38   1st Qu.:3  \n Median :4.000   Median : 58.52   Median :3  \n Mean   :4.857   Mean   : 80.93   Mean   :3  \n 3rd Qu.:6.500   3rd Qu.: 89.47   3rd Qu.:3  \n Max.   :8.000   Max.   :190.00   Max.   :3  \n\n\n\n\n\n第1类：北京、上海、广州，地铁运营规模最大，线路数量、总里程、站点数、运营年数大约是第2类城市的两倍，日均客运量越是第2类城市的3倍。\n第2类：“天津” “南京” “成都” “武汉” “深圳” “重庆”。第2类城市，线路数量介于6-10条，总里程介于233至378公里，站点数介于134至228个。日均客运量的中位数是329万人。地铁运营规模，在国内处于中等水平。\n第3类：“杭州” “苏州” “郑州” “合肥” “青岛” “厦门” “南宁”。第3类城市，线路数量介于2-5条，总里程介于71至206公里，站点数介于56至135个。运营年数介于2至8年，日均客运量的中位数是59万人。第3类城市的地铁运营规模较小，大约是第2类城市的1/5， 第1类城市1/15。"
+  },
+  {
+    "objectID": "quizsolution.html#导入数据",
+    "href": "quizsolution.html#导入数据",
+    "title": "Solutions to Quiz",
+    "section": "",
+    "text": "library(readxl)\nlibrary(tidyverse)\n\nmetro16 &lt;- read_excel(\"metro16.xlsx\") %&gt;% data.frame()\n\n#给metro16增加行名\nrownames(metro16) &lt;- metro16$城市\n\nmetro16\n\n     城市 线路数量 总里程公里 站点数 运营年数 日均客运量万人次\n广州 广州       14        513    271       23           905.75\n上海 上海       17        705    416       27          1065.03\n北京 北京       23        699    405       49          1241.10\n天津 天津        6        233    143       35           143.85\n杭州 杭州        5        206    120        7           190.00\n南京 南京       10        378    174       15           353.00\n成都 成都        8        358    215        9           382.99\n武汉 武汉        9        339    228       15           305.00\n深圳 深圳       10        284    134       15           486.00\n苏州 苏州        4        166    135        8            99.10\n郑州 郑州        5        146     96        6            79.85\n合肥 合肥        3         90     77        3            49.26\n青岛 青岛        4        176     86        4            51.50\n厦门 厦门        2         72     56        2            38.30\n南宁 南宁        3         81     66        4            58.52\n重庆 重庆       10        329    190       15           300.00"
+  },
+  {
+    "objectID": "quizsolution.html#报告描述性统计量",
+    "href": "quizsolution.html#报告描述性统计量",
+    "title": "Solutions to Quiz",
+    "section": "",
+    "text": "library(psych)\n\nmetro16 %&gt;% select(2:6) %&gt;% \n  describe() %&gt;% \n  select(mean, sd, median, min, max) \n\n                   mean     sd median  min    max\n线路数量           8.31   5.74    7.0  2.0   23.0\n总里程公里       298.44 199.17  258.5 72.0  705.0\n站点数           175.75 110.14  139.0 56.0  416.0\n运营年数          14.81  13.03   12.0  2.0   49.0\n日均客运量万人次 359.33 383.20  245.0 38.3 1241.1"
+  },
+  {
+    "objectID": "quizsolution.html#聚类分析",
+    "href": "quizsolution.html#聚类分析",
+    "title": "Solutions to Quiz",
+    "section": "",
+    "text": "#设置图形排版，2行2列\npar(mfrow = c(2,2))\n\n#定义聚类方法\nmethod &lt;- c(\"complete\",\"single\",\"average\",\"ward.D\")\n\n#对比四种聚类方法的树状图\nlibrary(dendextend)\nfor (i in 1:4) {\n  metro16 %&gt;% \n    select(2:6) %&gt;% \n    scale() %&gt;% \n    dist() %&gt;% \n    hclust(method = method[i]) %&gt;% \n    as.dendrogram() %&gt;% \n    color_branches(k = 3) %&gt;% \n    plot(main = method[i])  \n}\n\n\n\n\n\n\n\n#保存聚类模型\nmetro16.ward &lt;- metro16 %&gt;% \n    select(2:6) %&gt;% \n    scale() %&gt;% \n    dist() %&gt;% \n    hclust(method = method[i])\n\n选择Ward.D方法，该方法下分为三类，个案数量分别为3，6，7，个案数量分布合理。\n\n\n\n\nlibrary(cluster)\nlibrary(factoextra)\n\nmetro16 %&gt;% select(2:6) %&gt;% \n    agnes(stand = TRUE, method = \"ward\") %&gt;% \n    fviz_dend(k = 3,  #分三类\n          cex = 0.6,  # 标签字体\n          k_colors = c(4,5,6), #分支颜色\n          color_labels_by_k = TRUE, #标签上色\n          rect = TRUE,  #添加矩形框\n          lower_rect = -2, \n          main = \"Linkage Method: Ward\")  #矩形框下沿\n\n\n\n\n\n\n\nmetro16.agnes &lt;- metro16 %&gt;% select(2:6) %&gt;% \n    agnes(stand = TRUE, method = \"ward\")\n\n选择了线路数量、总里程、站点数、运营年数和日均客运量五个变量进行聚类分析。采用了系统聚类方法，个案之间的距离用欧氏距离测度，类与类之间的距离用Ward法（离差平方和法）测度。对变量进行了标准化变换。"
+  },
+  {
+    "objectID": "quizsolution.html#报告各类构成",
+    "href": "quizsolution.html#报告各类构成",
+    "title": "Solutions to Quiz",
+    "section": "",
+    "text": "#在metro16中追加变量cluster, 保存聚类结果\nmetro16$cluster &lt;- cutree(metro16.ward, k = 3)\n\n# 罗列各个类别包含的个案数量\ntable(metro16$cluster)\n\n\n1 2 3 \n3 6 7 \n\n#第一类\nmetro16$城市[metro16$cluster == 1]\n\n[1] \"广州\" \"上海\" \"北京\"\n\n#第二类\nmetro16$城市[metro16$cluster == 2]\n\n[1] \"天津\" \"南京\" \"成都\" \"武汉\" \"深圳\" \"重庆\"\n\n#第三类\nmetro16$城市[metro16$cluster == 3]\n\n[1] \"杭州\" \"苏州\" \"郑州\" \"合肥\" \"青岛\" \"厦门\" \"南宁\""
+  },
+  {
+    "objectID": "quizsolution.html#报告各组描述性统计量",
+    "href": "quizsolution.html#报告各组描述性统计量",
+    "title": "Solutions to Quiz",
+    "section": "",
+    "text": "library(purrr)\n\nmetro16 %&gt;% \n  split(.$cluster) %&gt;% \n  map(summary)\n\n$`1`\n     城市              线路数量      总里程公里      站点数         运营年数 \n Length:3           Min.   :14.0   Min.   :513   Min.   :271.0   Min.   :23  \n Class :character   1st Qu.:15.5   1st Qu.:606   1st Qu.:338.0   1st Qu.:25  \n Mode  :character   Median :17.0   Median :699   Median :405.0   Median :27  \n                    Mean   :18.0   Mean   :639   Mean   :364.0   Mean   :33  \n                    3rd Qu.:20.0   3rd Qu.:702   3rd Qu.:410.5   3rd Qu.:38  \n                    Max.   :23.0   Max.   :705   Max.   :416.0   Max.   :49  \n 日均客运量万人次    cluster \n Min.   : 905.8   Min.   :1  \n 1st Qu.: 985.4   1st Qu.:1  \n Median :1065.0   Median :1  \n Mean   :1070.6   Mean   :1  \n 3rd Qu.:1153.1   3rd Qu.:1  \n Max.   :1241.1   Max.   :1  \n\n$`2`\n     城市              线路数量        总里程公里        站点数     \n Length:6           Min.   : 6.000   Min.   :233.0   Min.   :134.0  \n Class :character   1st Qu.: 8.250   1st Qu.:295.2   1st Qu.:150.8  \n Mode  :character   Median : 9.500   Median :334.0   Median :182.0  \n                    Mean   : 8.833   Mean   :320.2   Mean   :180.7  \n                    3rd Qu.:10.000   3rd Qu.:353.2   3rd Qu.:208.8  \n                    Max.   :10.000   Max.   :378.0   Max.   :228.0  \n    运营年数     日均客运量万人次    cluster \n Min.   : 9.00   Min.   :143.8    Min.   :2  \n 1st Qu.:15.00   1st Qu.:301.2    1st Qu.:2  \n Median :15.00   Median :329.0    Median :2  \n Mean   :17.33   Mean   :328.5    Mean   :2  \n 3rd Qu.:15.00   3rd Qu.:375.5    3rd Qu.:2  \n Max.   :35.00   Max.   :486.0    Max.   :2  \n\n$`3`\n     城市              线路数量       总里程公里        站点数      \n Length:7           Min.   :2.000   Min.   : 72.0   Min.   : 56.00  \n Class :character   1st Qu.:3.000   1st Qu.: 85.5   1st Qu.: 71.50  \n Mode  :character   Median :4.000   Median :146.0   Median : 86.00  \n                    Mean   :3.714   Mean   :133.9   Mean   : 90.86  \n                    3rd Qu.:4.500   3rd Qu.:171.0   3rd Qu.:108.00  \n                    Max.   :5.000   Max.   :206.0   Max.   :135.00  \n    运营年数     日均客运量万人次    cluster \n Min.   :2.000   Min.   : 38.30   Min.   :3  \n 1st Qu.:3.500   1st Qu.: 50.38   1st Qu.:3  \n Median :4.000   Median : 58.52   Median :3  \n Mean   :4.857   Mean   : 80.93   Mean   :3  \n 3rd Qu.:6.500   3rd Qu.: 89.47   3rd Qu.:3  \n Max.   :8.000   Max.   :190.00   Max.   :3"
+  },
+  {
+    "objectID": "quizsolution.html#概括各类特征",
+    "href": "quizsolution.html#概括各类特征",
+    "title": "Solutions to Quiz",
+    "section": "",
+    "text": "第1类：北京、上海、广州，地铁运营规模最大，线路数量、总里程、站点数、运营年数大约是第2类城市的两倍，日均客运量越是第2类城市的3倍。\n第2类：“天津” “南京” “成都” “武汉” “深圳” “重庆”。第2类城市，线路数量介于6-10条，总里程介于233至378公里，站点数介于134至228个。日均客运量的中位数是329万人。地铁运营规模，在国内处于中等水平。\n第3类：“杭州” “苏州” “郑州” “合肥” “青岛” “厦门” “南宁”。第3类城市，线路数量介于2-5条，总里程介于71至206公里，站点数介于56至135个。运营年数介于2至8年，日均客运量的中位数是59万人。第3类城市的地铁运营规模较小，大约是第2类城市的1/5， 第1类城市1/15。"
+  },
+  {
+    "objectID": "quizsolution.html#导入数据-1",
+    "href": "quizsolution.html#导入数据-1",
+    "title": "Solutions to Quiz",
+    "section": "导入数据",
+    "text": "导入数据\n\nlibrary(readxl)\nbankloan &lt;- read_excel(\"bankloan.xlsx\")"
+  },
+  {
+    "objectID": "quizsolution.html#判别函数的估计",
+    "href": "quizsolution.html#判别函数的估计",
+    "title": "Solutions to Quiz",
+    "section": "判别函数的估计",
+    "text": "判别函数的估计\n\nlibrary(MASS)\n\nmodel1.da &lt;- lda(default ~ ., bankloan)\nmodel1.da\n\nCall:\nlda(default ~ ., data = bankloan)\n\nPrior probabilities of groups:\n        0         1 \n0.7385714 0.2614286 \n\nGroup means:\n       age       ed   employ  address   income   debtinc creddebt  othdebt\n0 35.51451 1.659574 9.508704 8.945841 47.15474  8.679304 1.245493 2.773409\n1 33.01093 1.901639 5.224044 6.393443 41.21311 14.727869 2.423865 3.862807\n\nCoefficients of linear discriminants:\n                  LD1\nage       0.015331213\ned        0.078357754\nemploy   -0.124220534\naddress  -0.046452296\nincome    0.004865162\ndebtinc   0.096027989\ncreddebt  0.276338074\nothdebt  -0.057146598"
+  },
+  {
+    "objectID": "quizsolution.html#判别函数的预测正确率",
+    "href": "quizsolution.html#判别函数的预测正确率",
+    "title": "Solutions to Quiz",
+    "section": "判别函数的预测正确率",
+    "text": "判别函数的预测正确率\n\n#预测\nmodel1.predict &lt;- predict(model1.da, bankloan)\n\n#预测组别与实际组别的列联表\ntab1 &lt;- table(bankloan$default, model1.predict$class)\ntab1\n\n   \n      0   1\n  0 485  32\n  1  99  84\n\n#预测正确率\nmean(bankloan$default == model1.predict$class)\n\n[1] 0.8128571"
+  },
+  {
+    "objectID": "quizsolution.html#判别函数得分的分组直方图",
+    "href": "quizsolution.html#判别函数得分的分组直方图",
+    "title": "Solutions to Quiz",
+    "section": "判别函数得分的分组直方图",
+    "text": "判别函数得分的分组直方图\n\nlibrary(MASS)\nldahist(model1.predict$x,bankloan$default)"
+  },
+  {
+    "objectID": "quizsolution.html#对比两个组别的差异",
+    "href": "quizsolution.html#对比两个组别的差异",
+    "title": "Solutions to Quiz",
+    "section": "对比两个组别的差异",
+    "text": "对比两个组别的差异\n\n#两个组别的解释变量的均值的差异\nmodel1.da$means\n\n       age       ed   employ  address   income   debtinc creddebt  othdebt\n0 35.51451 1.659574 9.508704 8.945841 47.15474  8.679304 1.245493 2.773409\n1 33.01093 1.901639 5.224044 6.393443 41.21311 14.727869 2.423865 3.862807\n\n#两个组别的解释变量的箱线图\npar(mfrow = c(2,4),mai = c(0.6,0.6,0.2,0.1),cex = 0.7)\n\nfor (i in 1:8) {\n  y &lt;- bankloan[[i]]\n  boxplot(y ~ bankloan$default, col = c(3,4,5),\n          main = colnames(bankloan)[i])\n}\n\n\n\n\n\n\n\n\n两个组别的差异： 未逾期(default = 0)和有逾期(default = 1)相比，整体而言，未逾期(default = 0)的组别年龄更大，在当前雇主的服务时长更长、在当前居住地居住时间更长、收入更高、债务与收入比更低、信用卡债务和其他债务更低。"
+  },
+  {
+    "objectID": "quizsolution.html#预测新个案",
+    "href": "quizsolution.html#预测新个案",
+    "title": "Solutions to Quiz",
+    "section": "预测新个案",
+    "text": "预测新个案\n\n#录入新个案数据\nnew.case &lt;- data.frame(age = 34, \n                       ed = 4, \n                       employ = 6,\n                       address = 3, \n                       income = 27, \n                       debtinc = 35.3, \n                       creddebt = 1.98, \n                       othdebt = 7.55\n  )\n\npredict(model1.da, new.case)\n\n$class\n[1] 1\nLevels: 0 1\n\n$posterior\n           0         1\n1 0.06711165 0.9328884\n\n$x\n       LD1\n1 2.882298\n\n\n根据判别函数预测Lily会发生逾期还款。"
+  },
+  {
+    "objectID": "quizsolution.html#评估数据的相关性",
+    "href": "quizsolution.html#评估数据的相关性",
+    "title": "Solutions to Quiz",
+    "section": "评估数据的相关性",
+    "text": "评估数据的相关性\n\nlibrary(factoextra)\nmtcars %&gt;%\n  dplyr::select(mpg, qsec, wt, cyl, disp, hp) %&gt;%\n  KMO()\n\nKaiser-Meyer-Olkin factor adequacy\nCall: KMO(r = .)\nOverall MSA =  0.81\nMSA for each item = \n mpg qsec   wt  cyl disp   hp \n0.86 0.64 0.73 0.88 0.82 0.88 \n\n\nKMO等于0.814，适于降维处理。"
+  },
+  {
+    "objectID": "quizsolution.html#估计主成分模型",
+    "href": "quizsolution.html#估计主成分模型",
+    "title": "Solutions to Quiz",
+    "section": "估计主成分模型",
+    "text": "估计主成分模型\n注意题目3.2需要更正为：你提取了几个主成分，是相关系数矩阵还是协方差矩阵？你为何做出上述选择？\n提取两个主成分，使用的是相关系数矩阵，因为原始变量的数量级别差距较大，采用相关系数矩阵，可以避免观测值较大的原始变量对提取结果的影响。\n\ncar.pr &lt;- mtcars %&gt;% \n  dplyr::select(mpg, qsec, wt, cyl,disp,hp) %&gt;% \n  prcomp(scale = TRUE)\n\ncar.pr\n\nStandard deviations (1, .., p=6):\n[1] 2.1416696 0.9809970 0.4086451 0.3801105 0.2999090 0.2224322\n\nRotation (n x k) = (6 x 6):\n            PC1         PC2         PC3         PC4        PC5         PC6\nmpg  -0.4319266  0.19022095 -0.61557102  0.52590879 -0.0718869  0.34143803\nqsec -0.2804946 -0.79584714  0.06560722  0.26481108  0.4496718 -0.10637755\nwt    0.4024295 -0.47383679  0.03018494  0.08057191 -0.4978411  0.59856530\ncyl   0.4458939  0.03443083 -0.43940446 -0.28406318  0.6477319  0.32660126\ndisp  0.4411470 -0.18033201 -0.51963422  0.20072945 -0.2371697 -0.63742311\nhp    0.4235335  0.26873203  0.39084636  0.72513379  0.2626324  0.02910102"
+  },
+  {
+    "objectID": "quizsolution.html#确定提取的主成分的个数",
+    "href": "quizsolution.html#确定提取的主成分的个数",
+    "title": "Solutions to Quiz",
+    "section": "确定提取的主成分的个数",
+    "text": "确定提取的主成分的个数\n\n#查看方差累计贡献率\nsummary(car.pr)\n\nImportance of components:\n                          PC1    PC2     PC3     PC4     PC5     PC6\nStandard deviation     2.1417 0.9810 0.40865 0.38011 0.29991 0.22243\nProportion of Variance 0.7645 0.1604 0.02783 0.02408 0.01499 0.00825\nCumulative Proportion  0.7645 0.9248 0.95268 0.97676 0.99175 1.00000\n\n#绘制scree plot\n\n#标注方差贡献率, 在图中标注方差贡献率\nlibrary(factoextra)\nfviz_eig(car.pr, \n         addlabels = TRUE, geom = c(\"line\"),\n         ylim = c(0, 80))\n\n\n\n\n\n\n\n\n第一主成分的方差贡献率是76%，第二主成分的方差贡献率是16%，前两个主成分的累计方差贡献率达到92%，因此保留前两个主成分即可代表原始变量绝大部分信息。"
+  },
+  {
+    "objectID": "quizsolution.html#概括主成分的含义",
+    "href": "quizsolution.html#概括主成分的含义",
+    "title": "Solutions to Quiz",
+    "section": "概括主成分的含义",
+    "text": "概括主成分的含义\n\n# 绘制correlation circle,反映主成分与原始变量的关系\nlibrary(factoextra)\nfviz_pca_var(car.pr, \n             col.var = \"cos2\",\n             gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\") , \n             repel = TRUE # Avoid text overlapping\n)\n\n\n\n\n\n\n\ncar.pr$rotation[,1:2]\n\n            PC1         PC2\nmpg  -0.4319266  0.19022095\nqsec -0.2804946 -0.79584714\nwt    0.4024295 -0.47383679\ncyl   0.4458939  0.03443083\ndisp  0.4411470 -0.18033201\nhp    0.4235335  0.26873203\n\n\n第一主成分与wt、cyl、disp和hp正相关，与mpg, qsec负相关。其中qsec的系数为-0.28，绝对值最小，其对第一主成分得分的影响较弱 。 当wt、cyl、disp和hp的值越大，也就是汽车的重量、气缸数、排量和马力越大，PC1的值越大。 当mpg的值越小，也就是越耗油，PC1的值越大。 因此，PC1主要反映了汽车在动力、油耗方面的表现，在PC1上得分越高，意味者汽车的动力越强、耗油量大。\n第二主成分的mpg、cyl、hp的系数都为正，但是其数值都较小，其对第2主成分得分的影响较弱。 第二主成分的qsec、wt、disp的系数都为负，其中disp的绝对值较小，因此第二主成分主要代表了qsec、wt的信息。qsec的值越小，1/4英里的耗时越少，第二主成分得分的值越大。wt的值越小，车重越小，第二主成分得分的值越大。 因此，PC2主要反映了汽车在加速快、车重轻巧方面的表现，在PC2上得分越高，意味者汽车重量小、加速快。"
+  },
+  {
+    "objectID": "quizsolution.html#第一主成分和第二主成分得分散点图",
+    "href": "quizsolution.html#第一主成分和第二主成分得分散点图",
+    "title": "Solutions to Quiz",
+    "section": "第一主成分和第二主成分得分散点图",
+    "text": "第一主成分和第二主成分得分散点图\n\n# am = 0, 自动挡；am = 1, 手动档\nfviz_pca_ind(car.pr, \n             col.ind = as.factor(mtcars$am),\n             repel = TRUE)\n\n\n\n\n\n\n\n\n自动挡汽车主要分布在第四象限，PC1得分较高表明其动力强、耗油大，PC2得分较低表明汽车重量大，加速慢。\n手动挡汽车主要分布在第二象限，PC1得分较低表明其动力弱、省油，PC2得分较高表明汽车重量轻，加速快。"
   }
 ]
