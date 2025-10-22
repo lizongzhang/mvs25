@@ -130,7 +130,7 @@
     "href": "schedule.html#答题要求",
     "title": "课程安排和考核",
     "section": "答题要求",
-    "text": "答题要求\n\n项目命名: 文件夹及压缩包统一命名为：学号姓名（无空格），例如：20210008张三；提交压缩包为 20210008张三.zip。\nR代码文件，按题号分节。每题先写实现该小题的R代码，每小题代码下方用文字简要回答题目要求。\n提交说明: 将整个项目文件夹压缩为 学号姓名.zip。 通过电子邮件发送压缩包到指定提交邮箱lizongzhang9@qq.com。 邮件主题：多元统计测验 学号姓名\n\n\n\n第1题\n\n\n\n  点击下载数据文件: 第1题: metro16.xlsx \n\n\n第2题\n\n\n\n  点击下载数据文件: 第2题: bankloan.xlsx \n\n\n第3题"
+    "text": "答题要求\n\n项目命名: 文件夹及压缩包统一命名为：学号姓名（无空格），例如：20210008张三；提交压缩包为 20210008张三.zip。\nR代码文件，按题号分节。每题先写实现该小题的R代码，每小题代码下方用文字简要回答题目要求。\n提交说明: 将整个项目文件夹压缩为 学号姓名.zip。 通过电子邮件发送压缩包到指定提交邮箱lizongzhang9@qq.com。 邮件主题：多元统计测验 学号姓名\n\n\n\n第1题\n\n\n\n  点击下载数据文件: 第1题: metro16.xlsx \n\n\n第2题\n\n\n\n  点击下载数据文件: 第2题: bankloan.xlsx \n\n\n第3题\n\n\n\n\n\n答案\n\nSolutions"
   },
   {
     "objectID": "chap6.html",
@@ -936,5 +936,12 @@
     "title": "Solutions to Quiz",
     "section": "第一主成分和第二主成分得分散点图",
     "text": "第一主成分和第二主成分得分散点图\n\n# am = 0, 自动挡；am = 1, 手动档\nfviz_pca_ind(car.pr, \n             col.ind = as.factor(mtcars$am),\n             repel = TRUE)\n\n\n\n\n\n\n\n\n自动挡汽车主要分布在第四象限，PC1得分较高表明其动力强、耗油大，PC2得分较低表明汽车重量大，加速慢。\n手动挡汽车主要分布在第二象限，PC1得分较低表明其动力弱、省油，PC2得分较高表明汽车重量轻，加速快。"
+  },
+  {
+    "objectID": "schedule.html#测验答案",
+    "href": "schedule.html#测验答案",
+    "title": "课程安排和考核",
+    "section": "测验答案",
+    "text": "测验答案\nR Introduction"
   }
 ]

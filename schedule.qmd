@@ -246,6 +246,7 @@ See @tbl-letters.
 
 </details>
 
+
 <a href="https://github.com/lizongzhang/mvs25/raw/main/metro16.xlsx" 
    target="_blank" 
    style="text-decoration: none; display: inline-flex; align-items: center;">
@@ -276,6 +277,15 @@ See @tbl-letters.
 
 <summary>第3题</summary>
 <img src="img/quiz1.png" alt="第3题">
+
+</details>
+
+<details>
+
+<summary>答案</summary>
+
+
+<img src="img/link.png" style="width: 24px; height: 24px;margin-right: 10px">[Solutions](https://lizongzhang.github.io/mvs25/quizsolution.html){target="_blank"}
 
 </details>
 
