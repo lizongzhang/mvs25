@@ -1,0 +1,60 @@
+---
+title: "主观态度因子分析"
+author: "Li Zongzhang"
+date: today
+output:
+    highlight: github
+    toc: yes
+    number_sections: yes
+editor_options:
+  markdown:
+    wrap: 72
+execute:
+  warning: false
+  message: false
+---
+
+
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+#MAC OS系统上图形中无法显示汉字，请运行第3-6行。
+# 指定图形的中文字体
+#install.packages("showtext")
+library(showtext)
+par(family  = 'STKaiti')
+showtext_auto()
+```
+
+# 应用举例
+
+
+
+<a href="https://github.com/lizongzhang/mvs25/raw/main/attitude.xlsx" 
+   target="_blank" 
+   style="text-decoration: none; display: inline-flex; align-items: center;">
+  <img src="img/download.png" 
+       alt="Download icon" 
+       style="width: 24px; height: 24px; margin-right: 8px;">
+  点击下载数据文件: attitude.xlsx
+</a>
+
+数据文件变量含义：
+
+urban=1,城镇；urban=0, 乡村
+
+male=1, 男性；female=1, 女性
+
+EDU=1，文盲半文盲没上小学；EDU=2，小学；EDU=3，初中；EDU=4，高中/中专/高职；EDU=5，大专/本科/硕士
+
+年龄
+
+主要工作年收入
+
+
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(readxl)
+attitude <- read_excel("attitude.xlsx") 
+
+```
