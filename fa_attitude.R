@@ -7,6 +7,7 @@ fa_df <- attitude %>%
 
 # 因子分析
 
+library(psych)
 fa_result <- principal(fa_df, 
                       nfactors = 10, 
                       rotate = "promax")

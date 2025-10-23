@@ -1047,6 +1047,20 @@
     "href": "ch7case_attitude.html",
     "title": "主观态度因子分析",
     "section": "",
-    "text": "应用举例\n  点击下载数据文件: attitude.xlsx \n数据文件变量含义：\nurban=1,城镇；urban=0, 乡村\nmale=1, 男性；female=1, 女性\nEDU=1，文盲半文盲没上小学；EDU=2，小学；EDU=3，初中；EDU=4，高中/中专/高职；EDU=5，大专/本科/硕士\n年龄\n主要工作年收入\n\nlibrary(readxl)\nattitude &lt;- read_excel(\"attitude.xlsx\")"
+    "text": "点击下载数据文件: attitude.xlsx \n数据文件变量含义：\nurban=1,城镇；urban=0, 乡村\nmale=1, 男性；female=1, 女性\nEDU=1，文盲半文盲没上小学；EDU=2，小学；EDU=3，初中；EDU=4，高中/中专/高职；EDU=5，大专/本科/硕士\n年龄\n主要工作年收入"
+  },
+  {
+    "objectID": "ch7case_attitude.html#不同组别因子得分均值的比较",
+    "href": "ch7case_attitude.html#不同组别因子得分均值的比较",
+    "title": "主观态度因子分析",
+    "section": "不同组别因子得分均值的比较",
+    "text": "不同组别因子得分均值的比较\n\n# 分析男性和女性在各个因子上的得分差异\nfinal_data %&gt;%\n  group_by(male) %&gt;%\n  summarise(across(starts_with(\"RC\"), \n                   mean, na.rm = TRUE))\n\n# A tibble: 2 × 7\n   male     RC1     RC2     RC5     RC4     RC3      RC6\n  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;\n1     0  0.0186  0.0622  0.0116  0.0158 -0.0526  0.00344\n2     1 -0.0372 -0.124  -0.0233 -0.0316  0.105  -0.00689"
+  },
+  {
+    "objectID": "ch7case_attitude.html#不同组别因子得分分布的比较",
+    "href": "ch7case_attitude.html#不同组别因子得分分布的比较",
+    "title": "主观态度因子分析",
+    "section": "不同组别因子得分分布的比较",
+    "text": "不同组别因子得分分布的比较\n\n# 分析男性和女性在因子1上的得分的分布的直方图\nfinal_data %&gt;%\n  ggplot(aes(RC1, fill = as.factor(male))) +\n  geom_histogram(col = 1, position = \"identity\", alpha = 0.5) +\n  labs(fill = \"Male\") +\n  scale_fill_manual(values = c(\"blue\", \"pink\")) +\n  theme_minimal() +\n  ggtitle(\"Distribution of RC1 by Gender\")\n\n\n\n\n\n\n\n\n\n# 分析不同教育水平在各个因子上的得分差异因1的分布的直方图\n\nfinal_data %&gt;%\n  ggplot(aes(RC1, fill = as.factor(EDU))) +\n  geom_histogram(col = 1, position = \"identity\", alpha = 0.5) +\n  labs(fill = \"EDU\") +\n  theme_minimal() +\n  ggtitle(\"Distribution of RC1 by Education\")"
   }
 ]
