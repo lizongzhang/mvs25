@@ -8,6 +8,8 @@ title: "第7章"
 
 <img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"> [因子分析 R代码](https://lizongzhang.github.io/mvs25/faR.html)
 
+<img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"> [主观态度因子分析](https://lizongzhang.github.io/mvs25/ch7case_attitude.html)
+
 <img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"> [汽车性能因子分析](https://lizongzhang.github.io/mvs25/ch7case_car.html)
 
 #  R软件操作 

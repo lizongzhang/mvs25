@@ -1,3 +1,4 @@
+# explain results
 #P146，例题7.1 52名学生的6科目成绩
 library(psych)
 
