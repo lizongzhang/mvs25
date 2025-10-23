@@ -1,0 +1,120 @@
+---
+title: "7 FA习题讲评"
+author: "Li Zongzhang"
+date: today
+output:
+    highlight: github
+    toc: yes
+    number_sections: yes
+editor_options:
+  markdown:
+    wrap: 72
+execute:
+  warning: false
+  message: false
+---
+
+
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+#MAC OS系统上图形中无法显示汉字，请运行第3-6行。
+# 指定图形的中文字体
+#install.packages("showtext")
+library(showtext)
+par(family  = 'STKaiti')
+showtext_auto()
+```
+
+# 应用举例
+
+
+
+<a href="https://github.com/lizongzhang/mvs25/raw/main/car_sales.xlsx" 
+   target="_blank" 
+   style="text-decoration: none; display: inline-flex; align-items: center;">
+  <img src="img/download.png" 
+       alt="Download icon" 
+       style="width: 24px; height: 24px; margin-right: 8px;">
+  点击下载数据文件: car_sales.xlsx
+</a>
+
+
+
+
+```{r, echo = FALSE, out.width = "50%"}
+# edit the file path accordingly
+knitr::include_graphics("img/car_sales varible definition.png")
+```
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(readxl)
+car_sales <- read_excel("car_sales.xlsx") 
+
+```
+
+```{r}
+library(tidyverse)
+library(psych)
+
+fa.pc.varimax <- car_sales %>% select(engine_s:mpg) %>% 
+  principal(nfactors = 2, 
+            rotate = "varimax")
+
+fa.pc.varimax
+
+print(fa.pc.varimax$loadings, digits = 3, cutoff = 0.5,sort = T)
+
+fa.pc.varimax <- car_sales %>% select(engine_s:mpg) %>% 
+  principal(nfactors = 3, 
+            rotate = "varimax")
+
+fa.pc.varimax
+
+print(fa.pc.varimax$loadings, digits = 3, cutoff = 0.5,sort = T)
+```
+
+```{r warning=FALSE}
+library(tidyverse)
+data <- cbind(car_sales, fa.pc.varimax$scores)
+data <- data %>% mutate(suv = if_else(type == 1, 1,0)) 
+
+# RC1，其值越大，代表车重大、油箱容积大、耗油越高（SUV）
+data %>% ggplot(aes(RC1, fill = as.factor(suv)))+
+  geom_histogram(col = 1)+
+  facet_wrap(~ suv,ncol = 1)
+
+# RC2，其值越大，代表车子轮距、车宽、车长大
+
+data %>% ggplot(aes(RC2, fill = as.factor(suv)))+
+  geom_histogram(col = 1)+
+  facet_wrap(~ suv,ncol = 1)
+
+# RC3，动力性能
+
+data %>% ggplot(aes(RC3, fill = as.factor(suv)))+
+  geom_histogram(col = 1)+
+  facet_wrap(~ suv,ncol = 1)
+```
+
+
+
+```{r}
+
+
+eq1 <- lm(price ~ RC1 +RC2 +RC3, data)
+summary(eq1)
+
+eq2 <- lm(resale ~ RC1 +RC2 +RC3, data)
+summary(eq2)
+
+
+eq3 <- lm(sales ~ RC1 +RC2 +RC3, data)
+summary(eq3)
+
+biplot(fa.pc.varimax)
+
+
+```
+
+

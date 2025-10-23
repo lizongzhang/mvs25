@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Li Zongzhang">
+<meta name="dcterms.date" content="2025-10-23">
+
+<title>7 FA习题讲评 – 多元统计25秋</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c73e22a146e553504ccbb400724ccee0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">多元统计25秋</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap1.html"> 
+<span class="menu-text">第1章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap4.html"> 
+<span class="menu-text">第4章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap5.html"> 
+<span class="menu-text">第5章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap6.html"> 
+<span class="menu-text">第6章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap7.html"> 
+<span class="menu-text">第7章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap8.html"> 
+<span class="menu-text">第8章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./chap9.html"> 
+<span class="menu-text">第9章</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./teamwork.html"> 
+<span class="menu-text">小组作业</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./schedule.html"> 
+<span class="menu-text">课程安排和考核</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="./lizongzhang9@qq.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#教材p151-案例7.6" id="toc-教材p151-案例7.6" class="nav-link active" data-scroll-target="#教材p151-案例7.6">教材P151 案例7.6</a></li>
+  <li><a href="#教材p160-习题7.7" id="toc-教材p160-习题7.7" class="nav-link" data-scroll-target="#教材p160-习题7.7">教材P160 习题7.7</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">7 FA习题讲评</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Li Zongzhang </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 23, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="教材p151-案例7.6" class="level1">
+<h1>教材P151 案例7.6</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>case7_1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"case7.1.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(存货周转率 <span class="ot">=</span> x1, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>           总资产周转率 <span class="ot">=</span> x2, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>           流动资产周转率 <span class="ot">=</span> x3, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>           营业利润率 <span class="ot">=</span> x4, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>           毛利率 <span class="ot">=</span> x5, </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>           成本费用利润率 <span class="ot">=</span> x6, </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>           总资产报酬率 <span class="ot">=</span> x7, </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>           净资产收益率 <span class="ot">=</span> x8, </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>           每股收益率 <span class="ot">=</span> x9,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>         扣除非经常性损益的每股收益 <span class="ot">=</span> x10,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>         每股未分配利润 <span class="ot">=</span> x11,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>         每股净资产 <span class="ot">=</span> x12</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>         )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 1</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">KMO</span>(case7_1[<span class="sc">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Kaiser-Meyer-Olkin factor adequacy
+Call: KMO(r = case7_1[-1])
+Overall MSA =  0.79
+MSA for each item = 
+                存货周转率               总资产周转率 
+                      0.82                       0.65 
+            流动资产周转率                 营业利润率 
+                      0.61                       0.80 
+                    毛利率             成本费用利润率 
+                      0.89                       0.77 
+              总资产报酬率               净资产收益率 
+                      0.77                       0.78 
+                每股收益率 扣除非经常性损益的每股收益 
+                      0.79                       0.79 
+            每股未分配利润                 每股净资产 
+                      0.89                       0.88 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EFAtools)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">BARTLETT</span>(case7_1[<span class="sc">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+✔ The Bartlett's test of sphericity was significant at an alpha level of .05.
+  These data are probably suitable for factor analysis.
+
+  𝜒²(66) = 1010.1, p &lt; .001</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 2</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#计算特征值和特征向量</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>case7_1.ev <span class="ot">&lt;-</span> case7_1 <span class="sc">%&gt;%</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">cor</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">eigen</span>()</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>case7_1.ev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>eigen() decomposition
+$values
+ [1] 6.499533804 2.654940434 1.498015224 0.457112219 0.274204566 0.251019040
+ [7] 0.107527371 0.097961610 0.067989899 0.055824591 0.026693650 0.009177591
+
+$vectors
+            [,1]         [,2]        [,3]         [,4]        [,5]
+ [1,] 0.09244934 -0.477942255  0.05813051  0.841178011  0.03145094
+ [2,] 0.14156255 -0.510840674 -0.24058789 -0.292348983 -0.01653565
+ [3,] 0.11396951 -0.524423948 -0.24305043 -0.326001981 -0.23004977
+ [4,] 0.31943729  0.092092805 -0.32649716  0.186801205 -0.46156889
+ [5,] 0.26320084  0.359901186 -0.20646040  0.001269517 -0.12764452
+ [6,] 0.33013418  0.251211794 -0.18956461  0.184085750 -0.15605637
+ [7,] 0.34205073  0.132406992 -0.28087340 -0.013460429  0.30932073
+ [8,] 0.34921919 -0.077629433 -0.27080622 -0.045567816  0.31120190
+ [9,] 0.35203886 -0.016220410  0.33198939 -0.047641358  0.22911864
+[10,] 0.35587756 -0.005797506  0.29858780 -0.035372439  0.21626107
+[11,] 0.33113545 -0.098353749  0.32947303 -0.119334215  0.17254721
+[12,] 0.28095737 -0.030775036  0.48410100 -0.108955477 -0.60873581
+               [,6]        [,7]        [,8]        [,9]       [,10]       [,11]
+ [1,] -0.1768332629  0.04573485 -0.03270303 -0.09875414  0.07971144 -0.01808396
+ [2,] -0.2808558579 -0.14250773  0.07575002  0.57019837  0.29654994  0.23670175
+ [3,] -0.0250653760  0.33986884 -0.12436745 -0.36834886 -0.39212881 -0.26817548
+ [4,]  0.4907354140 -0.29243188 -0.17916257  0.25284266  0.04959833 -0.33165214
+ [5,] -0.6623872468 -0.02297448 -0.49285071 -0.16465110  0.16926101 -0.05967790
+ [6,]  0.0001332728  0.48738638  0.18625489  0.24484958 -0.39198754  0.49024948
+ [7,] -0.0177809801  0.26740169  0.53232291 -0.12200012  0.37530228 -0.37541743
+ [8,]  0.1836614909 -0.48270097  0.02303125 -0.46759327 -0.07678284  0.43511797
+ [9,] -0.0676631801 -0.03966850  0.03201316  0.16744682 -0.18867682 -0.34464400
+[10,] -0.1410113860 -0.24951050 -0.03736233  0.21446362 -0.43964946 -0.12369914
+[11,]  0.3727798520  0.39358992 -0.48947667 -0.01017771  0.38644169  0.18250240
+[12,] -0.1103111084 -0.12350439  0.37699725 -0.26605576  0.20542765  0.14203535
+            [,12]
+ [1,]  0.01452807
+ [2,] -0.03681929
+ [3,]  0.02732101
+ [4,]  0.01088018
+ [5,] -0.02772321
+ [6,] -0.08684279
+ [7,]  0.19712367
+ [8,] -0.13649776
+ [9,] -0.72196255
+[10,]  0.63088779
+[11,]  0.10907353
+[12,]  0.02494923</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#绘制碎石图</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nFactors)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>case7_1.ev<span class="sc">$</span>values <span class="sc">%&gt;%</span> <span class="fu">nScree</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plotnScree</span>(<span class="at">legend =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ch7ex_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#未旋转</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fa.pc.none <span class="ot">&lt;-</span> <span class="fu">principal</span>(case7_1[<span class="sc">-</span><span class="dv">1</span>], <span class="at">nfactors =</span> <span class="dv">3</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">rotate =</span> <span class="st">"none"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>fa.pc.none</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Principal Components Analysis
+Call: principal(r = case7_1[-1], nfactors = 3, rotate = "none")
+Standardized loadings (pattern matrix) based upon correlation matrix
+                            PC1   PC2   PC3   h2    u2 com
+存货周转率                 0.24  0.78 -0.07 0.67 0.333 1.2
+总资产周转率               0.36  0.83  0.29 0.91 0.090 1.6
+流动资产周转率             0.29  0.85  0.30 0.90 0.097 1.5
+营业利润率                 0.81 -0.15  0.40 0.85 0.155 1.5
+毛利率                     0.67 -0.59  0.25 0.86 0.142 2.3
+成本费用利润率             0.84 -0.41  0.23 0.93 0.070 1.6
+总资产报酬率               0.87 -0.22  0.34 0.93 0.075 1.4
+净资产收益率               0.89  0.13  0.33 0.92 0.081 1.3
+每股收益率                 0.90  0.03 -0.41 0.97 0.029 1.4
+扣除非经常性损益的每股收益 0.91  0.01 -0.37 0.96 0.043 1.3
+每股未分配利润             0.84  0.16 -0.40 0.90 0.099 1.5
+每股净资产                 0.72  0.05 -0.59 0.87 0.133 1.9
+
+                       PC1  PC2  PC3
+SS loadings           6.50 2.65 1.50
+Proportion Var        0.54 0.22 0.12
+Cumulative Var        0.54 0.76 0.89
+Proportion Explained  0.61 0.25 0.14
+Cumulative Proportion 0.61 0.86 1.00
+
+Mean item complexity =  1.6
+Test of the hypothesis that 3 components are sufficient.
+
+The root mean square of the residuals (RMSR) is  0.03 
+ with the empirical chi square  9.42  with prob &lt;  1 
+
+Fit based upon off diagonal values = 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fa.pc.varimax <span class="ot">&lt;-</span> <span class="fu">principal</span>(case7_1[<span class="sc">-</span><span class="dv">1</span>], <span class="at">nfactors =</span> <span class="dv">3</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">rotate =</span> <span class="st">"varimax"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>fa.pc.varimax</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Principal Components Analysis
+Call: principal(r = case7_1[-1], nfactors = 3, rotate = "varimax")
+Standardized loadings (pattern matrix) based upon correlation matrix
+                             RC1  RC3   RC2   h2    u2 com
+存货周转率                 -0.15 0.26  0.76 0.67 0.333 1.3
+总资产周转率                0.13 0.07  0.94 0.91 0.090 1.1
+流动资产周转率              0.08 0.02  0.95 0.90 0.097 1.0
+营业利润率                  0.88 0.22  0.16 0.85 0.155 1.2
+毛利率                      0.85 0.21 -0.32 0.86 0.142 1.4
+成本费用利润率              0.89 0.35 -0.12 0.93 0.070 1.3
+总资产报酬率                0.91 0.30  0.10 0.93 0.075 1.2
+净资产收益率                0.79 0.34  0.42 0.92 0.081 1.9
+每股收益率                  0.40 0.89  0.12 0.97 0.029 1.4
+扣除非经常性损益的每股收益  0.43 0.87  0.12 0.96 0.043 1.5
+每股未分配利润              0.31 0.87  0.23 0.90 0.099 1.4
+每股净资产                  0.15 0.92  0.04 0.87 0.133 1.1
+
+                       RC1  RC3  RC2
+SS loadings           4.25 3.64 2.77
+Proportion Var        0.35 0.30 0.23
+Cumulative Var        0.35 0.66 0.89
+Proportion Explained  0.40 0.34 0.26
+Cumulative Proportion 0.40 0.74 1.00
+
+Mean item complexity =  1.3
+Test of the hypothesis that 3 components are sufficient.
+
+The root mean square of the residuals (RMSR) is  0.03 
+ with the empirical chi square  9.42  with prob &lt;  1 
+
+Fit based upon off diagonal values = 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#按因子载荷系数降序排列</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fa.pc.varimax<span class="sc">$</span>loadings, <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">cutoff =</span> <span class="fl">0.5</span>,<span class="at">sort =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Loadings:
+                           RC1    RC3    RC2   
+营业利润率                  0.877              
+毛利率                      0.845              
+成本费用利润率              0.892              
+总资产报酬率                0.910              
+净资产收益率                0.792              
+每股收益率                         0.894       
+扣除非经常性损益的每股收益         0.869       
+每股未分配利润                     0.866       
+每股净资产                         0.918       
+存货周转率                                0.758
+总资产周转率                              0.942
+流动资产周转率                            0.947
+
+                 RC1   RC3   RC2
+SS loadings    4.246 3.638 2.769
+Proportion Var 0.354 0.303 0.231
+Cumulative Var 0.354 0.657 0.888</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#绘制因子载荷系数图</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fa.diagram</span>(fa.pc.varimax<span class="sc">$</span>loadings, <span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ch7ex_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fa.pc.varimax<span class="sc">$</span>loadings, <span class="at">type =</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ch7ex_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fa.ml.varimax <span class="ot">&lt;-</span> <span class="fu">fa</span>(case7_1[<span class="sc">-</span><span class="dv">1</span>], </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">nfactors =</span> <span class="dv">3</span>, </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">fm =</span> <span class="st">"ml"</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">rotate =</span> <span class="st">"varimax"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>fa.ml.varimax</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Factor Analysis using method =  ml
+Call: fa(r = case7_1[-1], nfactors = 3, rotate = "varimax", fm = "ml")
+Standardized loadings (pattern matrix) based upon correlation matrix
+                             ML3  ML1   ML2   h2     u2 com
+存货周转率                 -0.11 0.23  0.63 0.46 0.5381 1.3
+总资产周转率                0.11 0.09  0.95 0.92 0.0785 1.0
+流动资产周转率              0.06 0.02  0.96 0.92 0.0803 1.0
+营业利润率                  0.86 0.20  0.15 0.80 0.1957 1.2
+毛利率                      0.81 0.22 -0.28 0.79 0.2126 1.4
+成本费用利润率              0.89 0.34 -0.12 0.92 0.0768 1.3
+总资产报酬率                0.90 0.32  0.10 0.92 0.0769 1.3
+净资产收益率                0.77 0.36  0.41 0.90 0.1029 2.0
+每股收益率                  0.39 0.91  0.12 1.00 0.0048 1.4
+扣除非经常性损益的每股收益  0.42 0.88  0.12 0.98 0.0246 1.5
+每股未分配利润              0.31 0.85  0.23 0.87 0.1311 1.4
+每股净资产                  0.16 0.85  0.07 0.76 0.2448 1.1
+
+                       ML3  ML1  ML2
+SS loadings           4.09 3.55 2.59
+Proportion Var        0.34 0.30 0.22
+Cumulative Var        0.34 0.64 0.85
+Proportion Explained  0.40 0.35 0.25
+Cumulative Proportion 0.40 0.75 1.00
+
+Mean item complexity =  1.3
+Test of the hypothesis that 3 factors are sufficient.
+
+df null model =  66  with the objective function =  18.65 with Chi Square =  1010.1
+df of  the model are 33  and the objective function was  1.75 
+
+The root mean square of the residuals (RMSR) is  0.02 
+The df corrected root mean square of the residuals is  0.03 
+
+The harmonic n.obs is  60 with the empirical chi square  4.1  with prob &lt;  1 
+The total n.obs was  60  with Likelihood Chi Square =  91.42  with prob &lt;  2.2e-07 
+
+Tucker Lewis Index of factoring reliability =  0.871
+RMSEA index =  0.171  and the 90 % confidence intervals are  0.132 0.216
+BIC =  -43.7
+Fit based upon off diagonal values = 1
+Measures of factor score adequacy             
+                                                   ML3  ML1  ML2
+Correlation of (regression) scores with factors   0.98 0.99 0.98
+Multiple R square of scores with factors          0.96 0.99 0.96
+Minimum correlation of possible factor scores     0.92 0.97 0.92</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#按因子载荷系数降序排列</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fa.ml.varimax<span class="sc">$</span>loadings, <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">cutoff =</span> <span class="fl">0.5</span>,<span class="at">sort =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Loadings:
+                           ML3    ML1    ML2   
+营业利润率                  0.862              
+毛利率                      0.812              
+成本费用利润率              0.892              
+总资产报酬率                0.901              
+净资产收益率                0.771              
+每股收益率                         0.911       
+扣除非经常性损益的每股收益         0.884       
+每股未分配利润                     0.847       
+每股净资产                         0.851       
+存货周转率                                0.628
+总资产周转率                              0.949
+流动资产周转率                            0.957
+
+                 ML3   ML1   ML2
+SS loadings    4.090 3.549 2.594
+Proportion Var 0.341 0.296 0.216
+Cumulative Var 0.341 0.637 0.853</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#函数psych::fa，varimax旋转</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>fa.pa.varimax <span class="ot">&lt;-</span> <span class="fu">fa</span>(case7_1[<span class="sc">-</span><span class="dv">1</span>], </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">nfactors =</span> <span class="dv">3</span>, </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">fm =</span> <span class="st">"pa"</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">rotate =</span> <span class="st">"varimax"</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fa.pa.varimax<span class="sc">$</span>loadings, <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">cutoff =</span> <span class="fl">0.5</span>,<span class="at">sort =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Loadings:
+                           PA1    PA3    PA2   
+营业利润率                  0.839              
+毛利率                      0.816              
+成本费用利润率              0.896              
+总资产报酬率                0.906              
+净资产收益率                0.780              
+每股收益率                         0.913       
+扣除非经常性损益的每股收益         0.878       
+每股未分配利润                     0.848       
+每股净资产                         0.851       
+存货周转率                                0.640
+总资产周转率                              0.943
+流动资产周转率                            0.944
+
+                 PA1   PA3   PA2
+SS loadings    4.094 3.533 2.594
+Proportion Var 0.341 0.294 0.216
+Cumulative Var 0.341 0.636 0.852</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fa.pc.varimax<span class="sc">$</span>loadings[,<span class="dv">1</span>], </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>     fa.pc.varimax<span class="sc">$</span>loadings[,<span class="dv">2</span>])</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(fa.pc.varimax<span class="sc">$</span>loadings[,<span class="dv">1</span>], </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>     fa.pc.varimax<span class="sc">$</span>loadings[,<span class="dv">2</span>], </span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">rownames</span>(fa.pc.varimax<span class="sc">$</span>loadings),</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ch7ex_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(fa.pc.varimax<span class="sc">$</span>scores[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>],</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>       fa.pc.varimax<span class="sc">$</span>loadings[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ch7ex_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scatterplot3d)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scatterplot3d</span>(fa.pc.varimax<span class="sc">$</span>loadings, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">main=</span><span class="st">"3D factor loadings"</span>, </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">color=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">5</span>), <span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">4</span>)),</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">pch=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ch7ex_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scatterplot3d</span>(fa.pc.varimax<span class="sc">$</span>scores, </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">main=</span><span class="st">"3D factor scores"</span>,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">pch=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ch7ex_files/figure-html/unnamed-chunk-5-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>fa.pc.varimax<span class="sc">$</span>Call</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>principal(r = case7_1[-1], nfactors = 3, rotate = "varimax")</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>fa.pc.varimax <span class="ot">&lt;-</span> <span class="fu">principal</span>(case7_1[<span class="sc">-</span><span class="dv">1</span>], <span class="at">nfactors =</span> <span class="dv">3</span>,</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">rotate =</span> <span class="st">"varimax"</span>,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">method =</span> <span class="st">"wls"</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>fa.pc.varimax<span class="sc">$</span>scores <span class="sc">%&gt;%</span> </span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(case7_1<span class="sc">$</span>证券名称,.) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(RC1))<span class="sc">%&gt;%</span> </span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  case7_1$证券名称      RC1
+1           新坐标 3.200275
+2         浙江仙通 1.880036
+3         岱美股份 1.622674
+4         继峰股份 1.438485
+5         兆丰股份 1.240185
+6         中原内配 1.169983</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fa.pc.varimax<span class="sc">$</span>scores <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(case7_1<span class="sc">$</span>证券名称,.) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span>,<span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(RC3))<span class="sc">%&gt;%</span> </span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  case7_1$证券名称      RC3
+1         兆丰股份 4.239737
+2         苏威孚Ｂ 3.316791
+3         华域汽车 2.615909
+4         德尔股份 1.690839
+5         越博动力 1.594501
+6         宁波华翔 1.556167</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>fa.pc.varimax<span class="sc">$</span>scores <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(case7_1<span class="sc">$</span>证券名称,.) <span class="sc">%&gt;%</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span>,<span class="dv">4</span>) <span class="sc">%&gt;%</span>  </span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(RC2)) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  case7_1$证券名称      RC2
+1         东风科技 2.567504
+2         华域汽车 2.314485
+3         亚普股份 2.308875
+4         众泰汽车 1.693966
+5         交运股份 1.556585
+6         凌云股份 1.353060</code></pre>
+</div>
+</div>
+</section>
+<section id="教材p160-习题7.7" class="level1">
+<h1>教材P160 习题7.7</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>ex7_7 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"ex6.6.xls"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(工业废水排放量 <span class="ot">=</span> x1, </span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>         工业化学需氧量 <span class="ot">=</span> x2,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>         工业氨氮排放量 <span class="ot">=</span> x3, </span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>         城镇生活污水排放量 <span class="ot">=</span> x4, </span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>         生活化学需氧量排放量 <span class="ot">=</span> x5, </span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>         生活氨氮排放量 <span class="ot">=</span> x6</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(ex7_7) <span class="ot">&lt;-</span> ex7_7<span class="sc">$</span>城市  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>fa.pc.varimax <span class="ot">&lt;-</span> <span class="fu">principal</span>(ex7_7[<span class="sc">-</span><span class="dv">1</span>], <span class="at">nfactors =</span> <span class="dv">2</span>,</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">rotate =</span> <span class="st">"varimax"</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>fa.pc.varimax</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Principal Components Analysis
+Call: principal(r = ex7_7[-1], nfactors = 2, rotate = "varimax")
+Standardized loadings (pattern matrix) based upon correlation matrix
+                      RC1  RC2   h2    u2 com
+工业废水排放量       0.77 0.38 0.74 0.257 1.5
+工业化学需氧量       0.53 0.81 0.93 0.068 1.7
+工业氨氮排放量       0.10 0.96 0.93 0.069 1.0
+城镇生活污水排放量   0.94 0.01 0.89 0.114 1.0
+生活化学需氧量排放量 0.85 0.30 0.81 0.185 1.2
+生活氨氮排放量       0.88 0.35 0.91 0.092 1.3
+
+                       RC1  RC2
+SS loadings           3.28 1.93
+Proportion Var        0.55 0.32
+Cumulative Var        0.55 0.87
+Proportion Explained  0.63 0.37
+Cumulative Proportion 0.63 1.00
+
+Mean item complexity =  1.3
+Test of the hypothesis that 2 components are sufficient.
+
+The root mean square of the residuals (RMSR) is  0.06 
+ with the empirical chi square  1.82  with prob &lt;  0.77 
+
+Fit based upon off diagonal values = 0.99</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fa.pc.varimax<span class="sc">$</span>loadings, <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">cutoff =</span> <span class="fl">0.5</span>,<span class="at">sort =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Loadings:
+                     RC1   RC2  
+工业废水排放量       0.774      
+城镇生活污水排放量   0.941      
+生活化学需氧量排放量 0.851      
+生活氨氮排放量       0.884      
+工业化学需氧量       0.531 0.806
+工业氨氮排放量             0.960
+
+                 RC1   RC2
+SS loadings    3.283 1.931
+Proportion Var 0.547 0.322
+Cumulative Var 0.547 0.869</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>fa.pc.promax <span class="ot">&lt;-</span> <span class="fu">principal</span>(ex7_7[<span class="sc">-</span><span class="dv">1</span>], <span class="at">nfactors =</span> <span class="dv">2</span>,</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">rotate =</span> <span class="st">"promax"</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>fa.pc.promax</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Principal Components Analysis
+Call: principal(r = ex7_7[-1], nfactors = 2, rotate = "promax")
+Standardized loadings (pattern matrix) based upon correlation matrix
+                       RC1   RC2   h2    u2 com
+工业废水排放量        0.75  0.18 0.74 0.257 1.1
+工业化学需氧量        0.33  0.75 0.93 0.068 1.4
+工业氨氮排放量       -0.22  1.06 0.93 0.069 1.1
+城镇生活污水排放量    1.07 -0.29 0.89 0.114 1.2
+生活化学需氧量排放量  0.87  0.06 0.81 0.185 1.0
+生活氨氮排放量        0.89  0.11 0.91 0.092 1.0
+
+                       RC1  RC2
+SS loadings           3.40 1.82
+Proportion Var        0.57 0.30
+Cumulative Var        0.57 0.87
+Proportion Explained  0.65 0.35
+Cumulative Proportion 0.65 1.00
+
+ With component correlations of 
+     RC1  RC2
+RC1 1.00 0.54
+RC2 0.54 1.00
+
+Mean item complexity =  1.1
+Test of the hypothesis that 2 components are sufficient.
+
+The root mean square of the residuals (RMSR) is  0.06 
+ with the empirical chi square  1.82  with prob &lt;  0.77 
+
+Fit based upon off diagonal values = 0.99</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fa.pc.promax<span class="sc">$</span>loadings, <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">cutoff =</span> <span class="fl">0.5</span>,<span class="at">sort =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Loadings:
+                     RC1    RC2   
+工业废水排放量        0.753       
+城镇生活污水排放量    1.068       
+生活化学需氧量排放量  0.867       
+生活氨氮排放量        0.887       
+工业化学需氧量               0.745
+工业氨氮排放量               1.064
+
+                 RC1   RC2
+SS loadings    3.401 1.823
+Proportion Var 0.567 0.304
+Cumulative Var 0.567 0.871</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(fa.pc.promax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ch7ex_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(fa.pc.promax<span class="sc">$</span>scores[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>],</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>       fa.pc.promax<span class="sc">$</span>loadings[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>],</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="dv">3</span>),</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="dv">3</span>),</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlabs =</span> ex7_7<span class="sc">$</span>城市)</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">0</span>, <span class="at">h =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"grey25"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ch7ex_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>fa.pc.promax<span class="sc">$</span>scores <span class="sc">%&gt;%</span> </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(ex7_7<span class="sc">$</span>城市,.) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(RC1)) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    V1   RC1   RC2
+1 重庆 2.169 1.578
+2 上海 1.996 1.167
+3 广州 1.018 0.168
+4 成都 0.265 -0.65
+5 天津 0.195 0.515
+6 杭州 0.124 0.718</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>fa.pc.promax<span class="sc">$</span>scores <span class="sc">%&gt;%</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(ex7_7<span class="sc">$</span>城市,.) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(RC2)) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      V1    RC1   RC2
+1 石家庄 -0.622 2.264
+2   重庆  2.169 1.578
+3   上海  1.996 1.167
+4   杭州  0.124 0.718
+5   天津  0.195 0.515
+6   广州  1.018 0.168</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2025, Li Zongzhang</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Statistics: turning data into insights.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

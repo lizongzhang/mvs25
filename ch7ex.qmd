@@ -1,0 +1,242 @@
+---
+title: "7 FA习题讲评"
+author: "Li Zongzhang"
+date: today
+output:
+    highlight: github
+    toc: yes
+    number_sections: yes
+editor_options:
+  markdown:
+    wrap: 72
+execute:
+  warning: false
+  message: false
+---
+
+# 教材P151 案例7.6
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+#MAC OS系统上图形中无法显示汉字，请运行第3-6行。
+# 指定图形的中文字体
+#install.packages("showtext")
+library(showtext)
+par(family  = 'STKaiti')
+showtext_auto()
+```
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(readr)
+library(tidyverse)
+
+case7_1 <- read_csv("case7.1.csv") %>% 
+  rename(存货周转率 = x1, 
+           总资产周转率 = x2, 
+           流动资产周转率 = x3, 
+           营业利润率 = x4, 
+           毛利率 = x5, 
+           成本费用利润率 = x6, 
+           总资产报酬率 = x7, 
+           净资产收益率 = x8, 
+           每股收益率 = x9,
+         扣除非经常性损益的每股收益 = x10,
+         每股未分配利润 = x11,
+         每股净资产 = x12
+         )
+
+```
+
+```{r}
+# step 1
+library(psych)
+KMO(case7_1[-1])
+
+library(EFAtools)
+BARTLETT(case7_1[-1])
+
+# step 2
+
+#计算特征值和特征向量
+library(tidyverse)
+case7_1.ev <- case7_1 %>% 
+  select(-1) %>% cor() %>% 
+  eigen()
+case7_1.ev
+
+#绘制碎石图
+library(nFactors)
+
+case7_1.ev$values %>% nScree() %>% 
+  plotnScree(legend = F)
+
+```
+
+
+```{r}
+#未旋转
+fa.pc.none <- principal(case7_1[-1], nfactors = 3,
+                        rotate = "none")
+fa.pc.none
+
+fa.pc.varimax <- principal(case7_1[-1], nfactors = 3,
+                           rotate = "varimax")
+fa.pc.varimax
+
+#按因子载荷系数降序排列
+print(fa.pc.varimax$loadings, digits = 3, cutoff = 0.5,sort = T)
+
+
+#绘制因子载荷系数图
+fa.diagram(fa.pc.varimax$loadings, digits = 3)
+
+plot(fa.pc.varimax$loadings, type = "n")
+
+library(psych)
+fa.ml.varimax <- fa(case7_1[-1], 
+                  nfactors = 3, 
+                  fm = "ml",
+                  rotate = "varimax")
+
+fa.ml.varimax
+
+#按因子载荷系数降序排列
+print(fa.ml.varimax$loadings, digits = 3, cutoff = 0.5,sort = T)
+```
+
+
+```{r}
+#函数psych::fa，varimax旋转
+library(psych)
+fa.pa.varimax <- fa(case7_1[-1], 
+                    nfactors = 3, 
+                    fm = "pa",
+                    rotate = "varimax")
+
+print(fa.pa.varimax$loadings, digits = 3, cutoff = 0.5,sort = T)
+
+
+plot(fa.pc.varimax$loadings[,1], 
+     fa.pc.varimax$loadings[,2])
+
+text(fa.pc.varimax$loadings[,1], 
+     fa.pc.varimax$loadings[,2], 
+     rownames(fa.pc.varimax$loadings),
+     cex = 0.3)
+
+biplot(fa.pc.varimax$scores[,1:2],
+       fa.pc.varimax$loadings[,1:2])
+
+
+library(scatterplot3d)
+scatterplot3d(fa.pc.varimax$loadings, 
+              main="3D factor loadings", 
+              color=c(rep(1,3), rep(2,5), rep(3,4)),
+              pch=20)
+
+scatterplot3d(fa.pc.varimax$scores, 
+              main="3D factor scores",
+              pch=20)
+```
+
+```{r}
+fa.pc.varimax$Call
+
+
+fa.pc.varimax <- principal(case7_1[-1], nfactors = 3,
+                           rotate = "varimax",
+                           method = "wls")
+
+
+
+fa.pc.varimax$scores %>% 
+  data.frame() %>% 
+  cbind(case7_1$证券名称,.) %>% 
+  select(1:2) %>% 
+  arrange(desc(RC1))%>% 
+  head()
+
+
+
+
+fa.pc.varimax$scores %>% 
+  data.frame() %>% 
+  cbind(case7_1$证券名称,.) %>% 
+  select(1,3) %>% 
+  arrange(desc(RC3))%>% 
+  head()
+
+
+fa.pc.varimax$scores %>% 
+  data.frame() %>% 
+  cbind(case7_1$证券名称,.) %>%
+  select(1,4) %>%  
+  arrange(desc(RC2)) %>% 
+  head()
+
+
+
+```
+# 教材P160 习题7.7
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(readxl)
+library(tidyverse)
+ex7_7 <- read_excel("ex6.6.xls") %>% 
+  rename(工业废水排放量 = x1, 
+         工业化学需氧量 = x2,
+         工业氨氮排放量 = x3, 
+         城镇生活污水排放量 = x4, 
+         生活化学需氧量排放量 = x5, 
+         生活氨氮排放量 = x6
+         )
+
+rownames(ex7_7) <- ex7_7$城市  
+
+```
+
+
+```{r}
+fa.pc.varimax <- principal(ex7_7[-1], nfactors = 2,
+                          rotate = "varimax")
+fa.pc.varimax
+
+print(fa.pc.varimax$loadings, digits = 3, cutoff = 0.5,sort = T)
+
+
+
+fa.pc.promax <- principal(ex7_7[-1], nfactors = 2,
+                           rotate = "promax")
+fa.pc.promax
+
+print(fa.pc.promax$loadings, digits = 3, cutoff = 0.5,sort = T)
+
+biplot(fa.pc.promax)
+```
+
+```{r}
+biplot(fa.pc.promax$scores[,1:2],
+       fa.pc.promax$loadings[,1:2],
+       xlim = c(-3,3),
+       ylim = c(-3,3),
+       xlabs = ex7_7$城市)
+       
+abline(v = 0, h = 0, lty = 2, col = "grey25")
+```
+
+```{r}
+fa.pc.promax$scores %>% 
+  round(3) %>% 
+  cbind(ex7_7$城市,.) %>% 
+  data.frame() %>% 
+  arrange(desc(RC1)) %>% 
+  head()
+
+fa.pc.promax$scores %>% 
+  round(3) %>% 
+  cbind(ex7_7$城市,.) %>% 
+  data.frame() %>% 
+  arrange(desc(RC2)) %>% 
+  head()
+```
+
+

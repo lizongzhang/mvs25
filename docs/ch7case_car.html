@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Li Zongzhang">
+<meta name="dcterms.date" content="2025-10-23">
 
-<title>第7章 – 多元统计25秋</title>
+<title>7 FA习题讲评 – 多元统计25秋</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -108,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">第6章</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./chap7.html" aria-current="page"> 
+    <a class="nav-link" href="./chap7.html"> 
 <span class="menu-text">第7章</span></a>
   </li>  
   <li class="nav-item">
@@ -144,15 +180,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#第7章-因子分析" id="toc-第7章-因子分析" class="nav-link active" data-scroll-target="#第7章-因子分析">第7章 因子分析</a></li>
-  <li><a href="#r软件操作" id="toc-r软件操作" class="nav-link" data-scroll-target="#r软件操作">R软件操作</a></li>
-  <li><a href="#本章习题" id="toc-本章习题" class="nav-link" data-scroll-target="#本章习题">本章习题</a>
-  <ul class="collapse">
-  <li><a href="#习题1-教材p146例题7.1" id="toc-习题1-教材p146例题7.1" class="nav-link" data-scroll-target="#习题1-教材p146例题7.1">习题1: 教材P146,例题7.1</a></li>
-  <li><a href="#习题2-教材p151-案例7.1" id="toc-习题2-教材p151-案例7.1" class="nav-link" data-scroll-target="#习题2-教材p151-案例7.1">习题2: 教材P151， 案例7.1**</a></li>
-  <li><a href="#习题3-教材p160-习题7.7" id="toc-习题3-教材p160-习题7.7" class="nav-link" data-scroll-target="#习题3-教材p160-习题7.7">习题3: 教材P160， 习题7.7 **</a></li>
-  </ul></li>
-  <li><a href="#习题讲评" id="toc-习题讲评" class="nav-link" data-scroll-target="#习题讲评">习题讲评</a></li>
+  <li><a href="#应用举例" id="toc-应用举例" class="nav-link active" data-scroll-target="#应用举例">应用举例</a></li>
   </ul>
 </nav>
     </div>
@@ -161,14 +189,26 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">第7章</h1>
+<h1 class="title">7 FA习题讲评</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Li Zongzhang </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 23, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -178,48 +218,259 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="第7章-因子分析" class="level2">
-<h2 class="anchored" data-anchor-id="第7章-因子分析">第7章 因子分析</h2>
-<p><img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://lizongzhang.github.io/mvs25/chap7slide.html">chap 7 讲义</a></p>
-<p><img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"> <a href="https://lizongzhang.github.io/mvs25/fcR.html">因子分析 R代码</a></p>
-<p><img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"> <a href="https://lizongzhang.github.io/mvs25/ch7case_car.html">汽车性能因子分析</a></p>
-</section>
-<section id="r软件操作" class="level1">
-<h1>R软件操作</h1>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1rG4y147NP/" target="_blank">因子分析在R中的实现——psych::principal() 主成分法估计因子载荷</a></p>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1Fd4y187c8/" target="_blank">因子分析输出结果解读——因子载荷、共同度、方差贡献比例的计算过程</a></p>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1te4y1p7BK/" target="_blank">如何用极大似然法/主轴因子法估计因子载荷？</a></p>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV11d4y1475K/" target="_blank">因子分析中面临的决策——提取几个因子？因子载荷估计方法？旋转方法？</a></p>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1P24y117rv/" target="_blank">因子分析中的可视化工具——路径图 因子载荷及因子得分图</a></p>
-</section>
-<section id="本章习题" class="level1">
-<h1>本章习题</h1>
-<p><strong>答题要求：将R的命令和输出结果转成图片，上传至提交作业窗口。</strong></p>
-<section id="习题1-教材p146例题7.1" class="level2">
-<h2 class="anchored" data-anchor-id="习题1-教材p146例题7.1">习题1: 教材P146,例题7.1</h2>
-<p>完成下列要求：</p>
-<p>1.1 采用主成分(principal component)法估计因子载荷，对因子载荷进行旋转，绘制因子得分和因子载荷图。你提取了几个因子？各个因子的方差贡献率是多少？各个因子主要代表哪些原始变量？</p>
-<p>1.2 采用极大似然法估计因子载荷，对因子载荷进行旋转，绘制因子得分和因子载荷图。</p>
-<p>1.3 采用主因子(principal factor)法估计因子载荷，对因子载荷进行旋转，绘制因子得分和因子载荷图。</p>
-</section>
-<section id="习题2-教材p151-案例7.1" class="level2">
-<h2 class="anchored" data-anchor-id="习题2-教材p151-案例7.1">习题2: 教材P151， 案例7.1**</h2>
-<p>要求：</p>
-<p>2.1实现教材P154的表7-3、表7-4中的估计。</p>
-<p>2.2 绘制P157的图7-5.</p>
-<p>2.3 实现P158-159的表7-5，表7-6，表7-7的因子得分的计算，无需报告完整的表7-5，表7-6，表7-7，截取上述三张表格的前6家公司即可。</p>
-</section>
-<section id="习题3-教材p160-习题7.7" class="level2">
-<h2 class="anchored" data-anchor-id="习题3-教材p160-习题7.7">习题3: 教材P160， 习题7.7 **</h2>
-<p>要求：</p>
-<p>3.1 对习题7.7的进行因子分析，你使用的因子载荷的估计方法是什么？是否对因子载荷进行了旋转？旋转方法是什么？</p>
-<p>3.2 你提取了几个因子？各个因子的方差贡献率是多少？各个因子主要代表哪些原始变量的信息？</p>
-<p>3.3 绘制因子得分和因子载荷图。</p>
-</section>
-</section>
-<section id="习题讲评" class="level1">
-<h1>习题讲评</h1>
-<p><img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"> <a href="https://lizongzhang.github.io/mvs25/chap7ex.html">Chap 7 习题代码</a></p>
+<section id="应用举例" class="level1">
+<h1>应用举例</h1>
+<p><a href="https://github.com/lizongzhang/mvs25/raw/main/car_sales.xlsx" target="_blank" style="text-decoration: none; display: inline-flex; align-items: center;"> <img src="img/download.png" alt="Download icon" style="width: 24px; height: 24px; margin-right: 8px;"> 点击下载数据文件: car_sales.xlsx </a></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="img/car_sales varible definition.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>car_sales <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"car_sales.xlsx"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>fa.pc.varimax <span class="ot">&lt;-</span> car_sales <span class="sc">%&gt;%</span> <span class="fu">select</span>(engine_s<span class="sc">:</span>mpg) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">principal</span>(<span class="at">nfactors =</span> <span class="dv">2</span>, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">rotate =</span> <span class="st">"varimax"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>fa.pc.varimax</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Principal Components Analysis
+Call: principal(r = ., nfactors = 2, rotate = "varimax")
+Standardized loadings (pattern matrix) based upon correlation matrix
+           RC1   RC2   h2   u2 com
+engine_s  0.88  0.32 0.87 0.13 1.3
+horsepow  0.89  0.09 0.80 0.20 1.0
+wheelbas  0.19  0.94 0.91 0.09 1.1
+width     0.52  0.69 0.75 0.25 1.9
+length    0.23  0.89 0.84 0.16 1.1
+curb_wgt  0.72  0.58 0.85 0.15 1.9
+fuel_cap  0.64  0.59 0.76 0.24 2.0
+mpg      -0.80 -0.37 0.78 0.22 1.4
+
+                       RC1  RC2
+SS loadings           3.49 3.06
+Proportion Var        0.44 0.38
+Cumulative Var        0.44 0.82
+Proportion Explained  0.53 0.47
+Cumulative Proportion 0.53 1.00
+
+Mean item complexity =  1.5
+Test of the hypothesis that 2 components are sufficient.
+
+The root mean square of the residuals (RMSR) is  0.07 
+ with the empirical chi square  38.95  with prob &lt;  2e-04 
+
+Fit based upon off diagonal values = 0.99</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fa.pc.varimax<span class="sc">$</span>loadings, <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">cutoff =</span> <span class="fl">0.5</span>,<span class="at">sort =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Loadings:
+         RC1    RC2   
+engine_s  0.876       
+horsepow  0.888       
+curb_wgt  0.722  0.577
+fuel_cap  0.644  0.586
+mpg      -0.803       
+wheelbas         0.935
+width     0.517  0.693
+length           0.888
+
+                 RC1   RC2
+SS loadings    3.493 3.063
+Proportion Var 0.437 0.383
+Cumulative Var 0.437 0.819</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fa.pc.varimax <span class="ot">&lt;-</span> car_sales <span class="sc">%&gt;%</span> <span class="fu">select</span>(engine_s<span class="sc">:</span>mpg) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">principal</span>(<span class="at">nfactors =</span> <span class="dv">3</span>, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">rotate =</span> <span class="st">"varimax"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>fa.pc.varimax</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Principal Components Analysis
+Call: principal(r = ., nfactors = 3, rotate = "varimax")
+Standardized loadings (pattern matrix) based upon correlation matrix
+           RC2   RC1   RC3   h2    u2 com
+engine_s  0.31  0.43  0.80 0.92 0.084 1.9
+horsepow  0.13  0.26  0.92 0.93 0.066 1.2
+wheelbas  0.88  0.37  0.04 0.91 0.090 1.3
+width     0.68  0.35  0.45 0.78 0.216 2.3
+length    0.91  0.18  0.24 0.91 0.085 1.2
+curb_wgt  0.43  0.75  0.39 0.90 0.099 2.2
+fuel_cap  0.39  0.84  0.22 0.91 0.085 1.6
+mpg      -0.19 -0.83 -0.41 0.89 0.107 1.6
+
+                       RC2  RC1  RC3
+SS loadings           2.55 2.50 2.12
+Proportion Var        0.32 0.31 0.26
+Cumulative Var        0.32 0.63 0.90
+Proportion Explained  0.36 0.35 0.30
+Cumulative Proportion 0.36 0.70 1.00
+
+Mean item complexity =  1.7
+Test of the hypothesis that 3 components are sufficient.
+
+The root mean square of the residuals (RMSR) is  0.03 
+ with the empirical chi square  8.66  with prob &lt;  0.28 
+
+Fit based upon off diagonal values = 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fa.pc.varimax<span class="sc">$</span>loadings, <span class="at">digits =</span> <span class="dv">3</span>, <span class="at">cutoff =</span> <span class="fl">0.5</span>,<span class="at">sort =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Loadings:
+         RC2    RC1    RC3   
+wheelbas  0.879              
+width     0.680              
+length    0.908              
+curb_wgt         0.748       
+fuel_cap         0.842       
+mpg             -0.829       
+engine_s                0.797
+horsepow                0.922
+
+                 RC2   RC1   RC3
+SS loadings    2.550 2.500 2.119
+Proportion Var 0.319 0.312 0.265
+Cumulative Var 0.319 0.631 0.896</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">cbind</span>(car_sales, fa.pc.varimax<span class="sc">$</span>scores)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">suv =</span> <span class="fu">if_else</span>(type <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>,<span class="dv">0</span>)) </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># RC1，其值越大，代表车重大、油箱容积大、耗油越高（SUV）</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(RC1, <span class="at">fill =</span> <span class="fu">as.factor</span>(suv)))<span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">col =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> suv,<span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ch7case_car_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># RC2，其值越大，代表车子轮距、车宽、车长大</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(RC2, <span class="at">fill =</span> <span class="fu">as.factor</span>(suv)))<span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">col =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> suv,<span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ch7case_car_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># RC3，动力性能</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(RC3, <span class="at">fill =</span> <span class="fu">as.factor</span>(suv)))<span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">col =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> suv,<span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ch7case_car_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>eq1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> RC1 <span class="sc">+</span>RC2 <span class="sc">+</span>RC3, data)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(eq1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = price ~ RC1 + RC2 + RC3, data = data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-21.468  -5.049  -0.936   2.972  36.978 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  27.4646     0.7014  39.156  &lt; 2e-16 ***
+RC1           4.3130     0.6999   6.162 6.47e-09 ***
+RC2          -1.0709     0.7001  -1.530    0.128    
+RC3          10.6574     0.7036  15.148  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 8.643 on 148 degrees of freedom
+  (5 observations deleted due to missingness)
+Multiple R-squared:  0.6479,    Adjusted R-squared:  0.6407 
+F-statistic: 90.76 on 3 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>eq2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(resale <span class="sc">~</span> RC1 <span class="sc">+</span>RC2 <span class="sc">+</span>RC3, data)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(eq2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = resale ~ RC1 + RC2 + RC3, data = data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-14.680  -4.848  -1.442   2.978  30.519 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  18.5900     0.7066  26.310  &lt; 2e-16 ***
+RC1           3.0571     0.7242   4.222  4.9e-05 ***
+RC2          -2.1020     0.6729  -3.124  0.00227 ** 
+RC3           7.5295     0.6661  11.303  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.639 on 114 degrees of freedom
+  (39 observations deleted due to missingness)
+Multiple R-squared:  0.5742,    Adjusted R-squared:  0.563 
+F-statistic: 51.25 on 3 and 114 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>eq3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(sales <span class="sc">~</span> RC1 <span class="sc">+</span>RC2 <span class="sc">+</span>RC3, data)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(eq3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = sales ~ RC1 + RC2 + RC3, data = data)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-88.46 -35.92 -18.67  20.10 397.87 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  53.30585    5.08555  10.482  &lt; 2e-16 ***
+RC1           0.05693    5.08494   0.011  0.99108    
+RC2          25.16954    5.09264   4.942 2.05e-06 ***
+RC3         -14.56111    5.11090  -2.849  0.00501 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 62.88 on 149 degrees of freedom
+  (4 observations deleted due to missingness)
+Multiple R-squared:  0.1808,    Adjusted R-squared:  0.1643 
+F-statistic: 10.96 on 3 and 149 DF,  p-value: 1.508e-06</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">biplot</span>(fa.pc.varimax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ch7case_car_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
