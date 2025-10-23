@@ -1,0 +1,36 @@
+---
+title: "Chapter 7 因子分析"
+author: "Li Zongzhang"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+    toc: yes
+    number_sections: yes
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,comment="")
+```
+
+
+
+**注意：本讲义供学习交流使用，请勿用于商业用途**
+
+
+
+```{r echo=FALSE, results='asis'}
+
+
+files <- list.files(path = 'img/ch7', pattern = "png", full.names = TRUE)
+ 
+for (f in files) {
+  cat(paste0("![image_label](", f, ")\n"))
+}
+```
+
+

@@ -1,0 +1,409 @@
+---
+title: "7 FA在R中的实现"
+author: "Li Zongzhang"
+date: today
+output:
+    highlight: github
+    toc: yes
+    number_sections: yes
+editor_options:
+  markdown:
+    wrap: 72
+execute:
+  warning: false
+  message: false
+---
+
+本章介绍R中的因子分析。
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+#MAC OS系统上图形中无法显示汉字，请运行第3-6行。
+# 指定图形的中文字体
+#install.packages("showtext")
+library(showtext)
+par(family  = 'STKaiti')
+showtext_auto()
+```
+
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+# 读取数据
+#P146，例题7.1 52名学生的6科目成绩
+library(readr)
+library(tidyverse)
+eg7_1 <- read_csv("eg6.1.csv")
+eg7_1 <- eg7_1 %>% rename(数学 = x1,
+                 物理 = x2,
+                 化学 = x3,
+                 语文 = x4,
+                 历史 = x5,
+                 英语 = x6)
+```
+
+# 第1步：评估数据是否适合做因子分析
+
+
+```{r message=FALSE}
+#计算KMO值，大于0.8适合，小于0.5不适合，适合降维。
+library(psych)
+KMO(eg7_1)
+
+#BARTLETT检验，p值小于0.05，拒绝“原始变量的相关系数矩阵是单位阵（相互独立）”的原假设，适合降维。
+library(EFAtools)
+BARTLETT(eg7_1)
+```
+
+# 第2步：确定提取的因子个数
+
+
+```{r message=FALSE, warning=FALSE}
+#计算特征值和特征向量
+eg7_1.ev <- eg7_1 %>% cor() %>% 
+  eigen()
+eg7_1.ev
+
+#绘制碎石图
+#install.packages("nFactors")
+library(nFactors)
+
+eg7_1.ev$values %>% nScree() %>% 
+  plotnScree(legend = F)
+
+```
+
+# 第3步：估计因子载荷
+
+## 主成分法 principal component method
+
+### 无旋转
+
+```{r}
+library(psych)
+
+#未旋转
+fa.pc.none <- principal(eg7_1, nfactors = 2,
+                       rotate = "none")
+fa.pc.none
+
+# com的含义
+# com : Hoffman's index of complexity for each item，
+#该值越接近于1，代表该原始变量主要由某个因子代表。 
+
+```
+
+**输出结果解读**
+
+  - 因子载荷矩阵（loadings）
+  
+    - PC1、PC2：第 1、第 2个公共因子在各变量上的标准化载荷（loading）。载荷实际上是变量在该成分方向上的相关系数（或投影系数），绝对值越大表示该成分对该变量解释力越强。注意载荷的正负只是方向的约定（可以同时乘以 −1），不影响结构本质。
+
+  - h2（communalities，共同度）
+  
+    - 每个变量被这两个公共因子共同解释的方差比例。比如 数学 的 h2 = 0.81，表示两个公共因子可以解释数学 81% 的方差；剩下 19%（u2）是变量的独特方差或噪声。
+
+  - u2（uniqueness，特有方差）：等于 1 − h2，表示未被提取成分解释的方差比例。
+
+  - com（complexity）: 衡量某个变量在提取的因子/成分上“分布多少”的指标，越接近 1 表示该变量主要加载在单一因子上（结构简单），越接近因子数 m 表示该变量在所有因子上分布得较均匀（结构复杂）。
+
+  - SS loadings 就是每个因子的“载荷的平方和”，计算方法是把该因子在所有变量上的载荷取。
+
+  - Proportion Var 是某个因子解释的“总体方差”的比例。
+
+    - SS loadings 为 3.71 和 1.26，p = 6（因为用相关矩阵）。
+
+    - Proportion Var_1 = 3.71 / 6 ≈ 0.6183 → 0.62（输出）
+
+    - Proportion Var_2 = 1.26 / 6 = 0.21 → 0.21
+
+  - Cumulative Var after 2 = (3.71+1.26)/6 = 0.83
+
+  - "Proportion Explained 0.75 0.25" 表示在“提取出的两个公共因子”这部分方差中，PC1 占 75%，PC2 占 25%。
+
+  - "Cumulative Proportion 0.75 1.00" 表示按顺序累加：前 1 个因子累计占 75%，前 2 个因子（即两个因子一起）占 100%（因为你只看这两个被提取的因子，所以它们合起来占提取方差的全部）。
+
+  - Mean item complexity = 1.6
+
+    - 所有变量复杂度（complexity）的平均值，衡量每个变量在提取的成分上“分布得多均匀”。Mean item complexity1.6（m=2时）表示大多数变量较接近简单结构，但也有一些变量在两个成分上都有明显载荷。
+
+  - “Test of the hypothesis that 2 components are sufficient.”检验：两个成分是否足够，用于评估用两个成分重构相关矩阵是否与观测相关矩阵差异显著。
+
+    - RMSR = 0.06（残差的均方根）
+
+    - RMSR 观测相关矩阵与模型重构相关矩阵（通常只看非对角元素，即变量间相关）的残差的均方根：
+
+
+    - 经验判断：RMSR ≈ 0.05 或更低通常认为拟合很好；0.05–0.08 可接受；>0.10 则拟合较差。但这些阈值不是绝对规则，应结合样本量与其他拟合指标一起看。
+
+  - empirical chi square = 5.96 with prob < 0.2（经验卡方统计与 p 值）
+
+    - 含义：基于残差构造的卡方检验，其原假设 H0：所提取的 2 个成分能在总体上重构观测的相关结构（即模型拟合良好）。检验统计量约为 5.96，对应的 p 值约为 0.2（输出写成 “prob < 0.2”）。结论：p ≈ 0.2（大于常用显著性水平 0.05），因此不能拒绝 H0——没有足够证据表明 2个成分不足以解释相关结构，换句话说模型可以接受。
+
+
+### varimax正交旋转
+
+```{r}
+#varimax正交旋转
+fa.pc.varimax <- principal(eg7_1, nfactors = 2,
+                        rotate = "varimax")
+fa.pc.varimax
+
+#按因子载荷系数降序排列
+print(fa.pc.varimax$loadings, digits = 3, cutoff = 0.5,sort = T)
+
+```
+
+```{r}
+
+#绘制因子载荷系数图
+fa.diagram(fa.pc.varimax$loadings, digits = 3)
+
+```
+
+### promax正交旋转
+
+```{r}
+
+#promax斜交旋转
+fa.pc.promax <- principal(eg7_1, nfactors = 2,
+                           rotate = "promax")
+fa.pc.promax
+
+```
+
+```{r}
+
+#按因子载荷系数降序排列
+print(fa.pc.promax$loadings, digits = 3, cutoff = 0.5,sort = T)
+
+fa.diagram(fa.pc.promax$loadings, digits = 3)
+```
+
+## 极大似然法 Maximum Likelihood
+
+```{r}
+#方法一：psych::fa
+fa.ml.none1 <- fa(eg7_1, 
+                 nfactors = 2, 
+                 fm = "ml",
+                 rotate = "none")
+
+fa.ml.none1
+
+```
+
+```{r}
+
+#方法二：stats::factanal
+fa.ml.none2 <- factanal(eg7_1, 
+                 factors = 2,
+                 rotation = "none")
+fa.ml.none2
+```
+
+## 主因子法 principal factor 
+
+### varimax旋转
+
+```{r}
+#函数psych::fa，varimax旋转
+library(psych)
+fa.pa.varimax <- fa(eg7_1, 
+                  nfactors = 2, 
+                  fm = "pa",
+                  rotate = "varimax")
+
+fa.pa.varimax
+
+```
+
+### quartimax旋转
+
+```{r}
+
+#函数psych::fa，quartimax旋转
+library(psych)
+fa.pa.quartimax <- fa(eg7_1, 
+                    nfactors = 2, 
+                    fm = "pa",
+                    rotate = "quartimax")
+
+fa.pa.quartimax
+```
+
+## 主成分分析中的主成分载荷与因子分析中的主成分估计方法下的因子载荷的区别
+
+```{r}
+eg7_1.pr <- prcomp(eg7_1, scale = TRUE)
+eg7_1.pr$rotation # 查看主成分载荷矩阵
+
+#求相关系数矩阵的特征值和特征向量
+pc <- eg7_1 %>% cor %>% eigen() %>% .$vectors # 查看主成分载荷矩阵
+
+eigen <- eg7_1 %>% cor %>% eigen() %>% .$values # 查看特征值
+
+```
+
+```{r}
+
+sqrt(eigen[1]) * pc[,1] # 计算第1个公共因子载荷
+
+eg7_1.pc <- eg7_1 %>% prcomp(scale = TRUE)
+eg7_1.pc$rotation[,1] # 查看第1个主成分载荷
+
+
+#因子分析中的主成分法
+fa.pc.none <- psych::principal(eg7_1, nfactors = 2,
+                       rotate = "none")
+fa.pc.none$loadings[,1] # 查看第1个因子公共因子载荷
+
+```
+
+
+
+## 因子分析面临的决策：提取几个因子？因子载荷估计方法？旋转方法？
+
+提取的因子个数
+  特征值大于1
+  因子的累积贡献达到70%-80%以上
+
+因子载荷估计方法
+  主成分法 principal()
+  极大似然法 fa()
+  主轴因子法 fa()
+
+因子旋转方法
+  正交旋转：varimax, quartimax 因子相互独立的
+  斜交旋转：oblimin, promax 因子之间是相关的
+ 
+
+# 第4步 可视化
+
+## 因子载荷系数图
+
+```{r}
+#主成分法 Principal Component Method无旋转
+fa.pc.none <- principal(eg7_1, 
+                        nfactors = 2,
+                        rotate = "none")
+
+fa.pc.none$loadings 
+
+fa.diagram(fa.pc.none$loadings, 
+           digits = 3, 
+           rsize = 0.8)
+
+
+
+```
+
+```{r}
+
+#主成分法 Principal Component Method 正交旋转varimax
+fa.pc.varimax <- principal(eg7_1, 
+                        nfactors = 2,
+                        rotate = "varimax")
+
+fa.pc.varimax$loadings %>% print(digits = 3,
+                                 cut = 0.5,
+                                 sort = TRUE)
+
+fa.diagram(fa.pc.varimax$loadings, 
+           digits = 3, 
+           rsize = 0.5)
+
+colnames(fa.pc.varimax$loadings) <- c("文科", "理科")
+```
+
+
+```{r}
+#maximum likelihood 极大似然 斜交旋转promax
+fa.ml.promax <- fa(eg7_1, 
+                   nfactors = 2, 
+                   fm = "ml",
+                   rotate = "promax")
+
+fa.ml.promax$loadings %>% print(digits = 3,
+                                 cut = 0.5,
+                                 sort = TRUE)
+
+colnames(fa.ml.promax$loadings) <- c("文科", "理科")
+
+fa.ml.promax %>% fa.diagram(rsize = 0.5,
+                            digits = 3)
+```
+
+## 因子载荷和因子得分图
+
+```{r}
+#主成分法 Principal Component Method无旋转
+fa.pc.none <- principal(eg7_1, 
+                        nfactors = 2,
+                        rotate = "none")
+biplot(fa.pc.none,
+       main = "Principal Component, no rotation")
+
+```
+
+```{r}
+
+#主成分法 Principal Component 正交旋转varimax
+fa.pc.varimax <- principal(eg7_1, 
+                        nfactors = 2,
+                        rotate = "varimax")
+
+biplot(fa.pc.varimax,
+       col = c(5,6),
+       main = "Principal Component, Varimax")
+
+#查看个案在原始变量的观测值与因子得分的关系
+fa.pc.varimax$scores %>% cbind(eg7_1,.) %>%
+                         arrange(desc(RC1))
+```
+
+```{r}
+#极大似然法, 斜交promax旋转  
+fa.ml.promax <- fa(eg7_1, 
+                   nfactors = 2, 
+                   fm = "ml",
+                   rotate = "promax")
+
+biplot(fa.ml.promax,
+       col = c(3,4),
+       main = "Maximum Likelihood, Promax")
+```
+
+
+
+# 本章作业
+
+**答题要求：将R的命令和输出结果转成图片，上传至提交作业窗口。**
+
+**习题1: 教材P146,例题7.1**
+
+完成下列要求：
+
+1.1 采用主成分(principal component)法估计因子载荷，对因子载荷进行旋转，绘制因子得分和因子载荷图。你提取了几个因子？各个因子的方差贡献率是多少？各个因子主要代表哪些原始变量？
+
+1.2 采用极大似然法估计因子载荷，对因子载荷进行旋转，绘制因子得分和因子载荷图。
+
+1.3 采用主因子(principal factor)法估计因子载荷，对因子载荷进行旋转，绘制因子得分和因子载荷图。
+
+**习题2: 教材P151， 案例7.1**
+
+要求：
+
+2.1实现教材P154的表7-3、表7-4中的估计。 
+
+2.2 绘制P157的图7-5.
+
+2.3 实现P158-159的表7-5，表7-6，表7-7的因子得分的计算，无需报告完整的表7-5，表7-6，表7-7，截取上述三张表格的前6家公司即可。
+
+**习题3: 教材P160， 习题7.7 **
+
+要求：
+
+3.1 对习题7.7的进行因子分析，你使用的因子载荷的估计方法是什么？是否对因子载荷进行了旋转？旋转方法是什么？
+
+3.2 你提取了几个因子？各个因子的方差贡献率是多少？各个因子主要代表哪些原始变量的信息？
+
+3.3 绘制因子得分和因子载荷图。
