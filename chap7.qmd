@@ -60,6 +60,6 @@ title: "第7章"
 
 # 习题讲评
     
-<img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"> [Chap 7 习题代码](https://lizongzhang.github.io/mvs25/chap7ex.html)
+<img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"> [Chap 7 习题代码](https://lizongzhang.github.io/mvs25/ch7ex.html)
 
   
