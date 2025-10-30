@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Li Zongzhang">
+<meta name="dcterms.date" content="2025-10-30">
 
-<title>第8章 – 多元统计25秋</title>
+<title>Chapter 8 对应分析 – 多元统计25秋</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -112,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">第7章</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./chap8.html" aria-current="page"> 
+    <a class="nav-link" href="./chap8.html"> 
 <span class="menu-text">第8章</span></a>
   </li>  
   <li class="nav-item">
@@ -139,36 +141,34 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#第8章-对应分析" id="toc-第8章-对应分析" class="nav-link active" data-scroll-target="#第8章-对应分析">第8章 对应分析</a></li>
-  <li><a href="#r软件操作" id="toc-r软件操作" class="nav-link" data-scroll-target="#r软件操作">R软件操作</a></li>
-  <li><a href="#本章习题" id="toc-本章习题" class="nav-link" data-scroll-target="#本章习题">本章习题</a>
-  <ul class="collapse">
-  <li><a href="#习题1-发色和眼球颜色-教材p165例题8.1" id="toc-习题1-发色和眼球颜色-教材p165例题8.1" class="nav-link" data-scroll-target="#习题1-发色和眼球颜色-教材p165例题8.1">习题1: 发色和眼球颜色 教材P165,例题8.1</a></li>
-  <li><a href="#习题2-收入满意度" id="toc-习题2-收入满意度" class="nav-link" data-scroll-target="#习题2-收入满意度">习题2: 收入&amp;满意度</a></li>
-  <li><a href="#习题3-婚姻状况汽车偏好" id="toc-习题3-婚姻状况汽车偏好" class="nav-link" data-scroll-target="#习题3-婚姻状况汽车偏好">习题3: 婚姻状况&amp;汽车偏好</a></li>
-  </ul></li>
-  <li><a href="#习题讲评" id="toc-习题讲评" class="nav-link" data-scroll-target="#习题讲评">习题讲评</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">第8章</h1>
+<h1 class="title">Chapter 8 对应分析</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Li Zongzhang </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 30, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -178,59 +178,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="第8章-对应分析" class="level1">
-<h1>第8章 对应分析</h1>
-<p><img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://lizongzhang.github.io/mvs25/chap8slide.html">chap 8 讲义</a></p>
-<p><img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://lizongzhang.github.io/mvs25/caR.html">对应分析 R代码</a></p>
-</section>
-<section id="r软件操作" class="level1">
-<h1>R软件操作</h1>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV17841177uQ/" target="_blank">对应分析在R中的实现——FactoMineR::CA()</a></p>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1ud4y1s7T2/" target="_blank">对应分析的计算步骤</a></p>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1V24y1k7P6/" target="_blank">列联表的可视化工具——马赛克图的绘制mosaicplot()</a></p>
-</section>
-<section id="本章习题" class="level1">
-<h1>本章习题</h1>
-<p><strong>答题要求：将R的命令和输出结果转成图片，上传至提交作业窗口。</strong></p>
-<section id="习题1-发色和眼球颜色-教材p165例题8.1" class="level2">
-<h2 class="anchored" data-anchor-id="习题1-发色和眼球颜色-教材p165例题8.1">习题1: 发色和眼球颜色 教材P165,例题8.1</h2>
-<p>要求：</p>
-<p>1.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？</p>
-<p>1.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？</p>
-<p>1.3 绘制对应分析图。</p>
-<p>1.4 绘制行变量的contribution、cos2的图像。</p>
-<p>1.5 绘制列变量的contribution、cos2的图像。列变量的哪几个组别是相对重要的组别？</p>
-<p>1.6 从图中可以发现哪些组别关系紧密？</p>
-</section>
-<section id="习题2-收入满意度" class="level2">
-<h2 class="anchored" data-anchor-id="习题2-收入满意度">习题2: 收入&amp;满意度</h2>
-<p><img src="img/chap8pic1.png" alt="Image Description" width="60%"></p>
-<p>提示：数据请自行录入，可在EXCEL录入好后，再导入R。</p>
-<p>要求： 2.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？</p>
-<p>2.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？</p>
-<p>2.3 绘制对应分析图。</p>
-<p>2.4 绘制行变量的contribution、cos2的图像。</p>
-<p>2.5 绘制列变量的contribution、cos2的图像。</p>
-<p>2.6 从图中可以发现哪些组别关系紧密？</p>
-</section>
-<section id="习题3-婚姻状况汽车偏好" class="level2">
-<h2 class="anchored" data-anchor-id="习题3-婚姻状况汽车偏好">习题3: 婚姻状况&amp;汽车偏好</h2>
-<p><img src="img/chap8pic2.png" alt="Image Description" width="60%"></p>
-<p>提示：数据请自行录入，可在EXCEL录入好后，再导入R。</p>
-<p>要求： 3.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？</p>
-<p>3.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？</p>
-<p>3.3 绘制对应分析图。</p>
-<p>3.4 绘制行变量的contribution、cos2的图像。</p>
-<p>3.5 绘制列变量的contribution、cos2的图像。</p>
-<p>3.6 从图中可以发现哪些组别关系紧密？</p>
-</section>
-</section>
-<section id="习题讲评" class="level1">
-<h1>习题讲评</h1>
-<p><img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"> <a href="https://lizongzhang.github.io/mvs25/8ex.html">Chap 8 习题代码</a></p>
+<p><strong>注意：本讲义供学习交流使用，请勿用于商业用途</strong></p>
+<p><img src="img/ch8/chap 8 correspondence analysis.001.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.002.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.003.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.004.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.005.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.006.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.007.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.008.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.009.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.010.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.011.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.012.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.013.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.014.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.015.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.016.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.017.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.018.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.019.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.020.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.021.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.022.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.023.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.024.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.025.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.026.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.027.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.028.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.029.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.030.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.031.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.032.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.033.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.034.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.035.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.036.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.037.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.038.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.039.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.040.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.041.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.042.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.043.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.044.png" class="img-fluid" alt="image_label"> <img src="img/ch8/chap 8 correspondence analysis.045.png" class="img-fluid" alt="image_label"></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

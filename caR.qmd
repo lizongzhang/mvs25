@@ -1,0 +1,490 @@
+---
+title: "8 CA在R中的实现"
+author: "Li Zongzhang"
+date: today
+output:
+    highlight: github
+    toc: yes
+    number_sections: yes
+editor_options:
+  markdown:
+    wrap: 72
+execute:
+  warning: false
+  message: false
+---
+
+本章介绍R中的对应分析。
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+#MAC OS系统上图形中无法显示汉字，请运行第3-6行。
+# 指定图形的中文字体
+#install.packages("showtext")
+library(showtext)
+par(family  = 'STKaiti')
+showtext_auto()
+```
+
+
+
+```{r eval=FALSE}
+# 安装包
+install.packages("tidyverse")
+install.packages("FactoMineR")
+install.packages("factoextra")
+install.packages("MASS")
+install.packages("gplots")
+install.packages("corrplot")
+install.packages("RColorBrewer")
+```
+
+```{r message=FALSE, warning=FALSE}
+# 加载包
+library(tidyverse)
+library(FactoMineR)
+library(factoextra)
+library(MASS)
+library(gplots)
+```
+
+```{r message=FALSE, warning=TRUE}
+#导入数据，修改行名，列名
+library(MASS)
+data(caith)
+
+rownames(caith) <- c("eye.blue", "eye.light", "eye.medium", "eye.dark")
+
+colnames(caith) <- c("hair.fair", "hair.red", "hair.medium",
+                     "hair.dark", "hair.black")
+```
+
+# 第1步 独立性检验、列联表可视化
+
+```{r message=FALSE, warning=TRUE}
+chisq.test(caith)
+```
+
+```{r message=FALSE, warning=FALSE}
+mosaicplot(caith, 
+           color = TRUE,
+           cex.axis = 0.8,
+           border = 5,
+           main = "Eye Color and Hair Color")
+```
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(gplots)
+caith %>% 
+  as.matrix() %>% 
+  as.table() %>% 
+  t() %>% 
+  balloonplot(main ="Eye Color and Hair Color", 
+              label = FALSE, 
+              show.margins = FALSE)
+```
+
+# 第2步 计算Compute CA
+
+
+```{r message=FALSE, warning=TRUE}
+library(FactoMineR)
+
+res.ca <- CA(caith, graph = FALSE)
+
+res.ca %>% summary()
+
+res.ca
+
+```
+
+
+```{r message=FALSE, warning=TRUE}
+#查看特征值、维度贡献率、累积贡献率
+res.ca$eig
+```
+
+```{r message=FALSE, warning=TRUE}
+#查看过渡矩阵Z的奇异值分解
+res.ca$svd
+```
+
+```{r message=FALSE, warning=TRUE}
+#查看行变量的坐标、贡献、cos2(the quality of each dimension for each point)
+res.ca$row
+
+## calculate 第1个行变量的contribution
+#计算对应矩阵correspondence matrix ——P
+P <- as.matrix(caith/sum(caith))
+P %>% round(3)
+#计算边缘概率、独立性假定下的期望概率
+pi. <- rowSums(P)
+pi.
+pj. <- colSums(P)
+pj.
+
+(res.ca$row$coord[,1]^2 * pi.)/sum(res.ca$row$coord[,1]^2 * pi.)
+
+## calculate 第1个行变量的cos2
+(res.ca$row$coord[1,]^2 )/sum(res.ca$row$coord[1,]^2)
+```
+
+```{r message=FALSE, warning=TRUE}
+#查看列变量的坐标、贡献、cos2(the quality of each dimension for each point)
+res.ca$col
+
+## calculate 第1个列变量的cos2
+res.ca$col$coord[1,]^2/sum(res.ca$col$coord[1,]^2)
+```
+
+# 第3步 可视化Visualization
+
+
+## 碎石图scree plot
+
+```{r message=FALSE, warning=TRUE}
+#绘制scree plot
+library(factoextra)
+fviz_screeplot(res.ca, addlabels = TRUE, ylim = c(0, 100))
+```
+
+
+
+```{r message=FALSE, warning=TRUE}
+# symmetric plot
+library(factoextra)
+fviz_ca_biplot(res.ca, repel = TRUE)
+
+dimdesc(res.ca)
+
+#Rows are represented by blue points and columns by red triangles.
+```
+
+## 行变量绘图 Graph of row variables
+
+
+```{r message=FALSE, warning=TRUE}
+row <- get_ca_row(res.ca)
+row
+
+```
+
+row$coord: coordinates of each row point in each dimension (1, 2 and 3). Used to create the scatter plot.
+
+row$cos2: quality of representation of rows.
+
+var$contrib: contribution of rows (in %) to the definition of the dimensions.
+
+
+
+```{r  message=FALSE, warning=TRUE}
+#Coordinates of row points
+
+row$coord[,1:2]
+
+fviz_ca_row(res.ca, repel = TRUE)
+
+fviz_ca_row(res.ca, col.row="steelblue", shape.row = 15, repel = TRUE)
+
+
+
+```
+
+```{r  message=FALSE, warning=TRUE}
+#Quality of representation of rows
+
+#The quality of representation of the rows on the factor map is called the squared cosine (cos2) or the squared correlations.
+
+row$cos2
+
+# Color by cos2 values: quality on the factor map
+fviz_ca_row(res.ca, col.row = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE)
+
+# Change the transparency by cos2 values
+fviz_ca_row(res.ca, alpha.row="cos2")
+
+```
+
+
+```{r  message=FALSE, warning=TRUE}
+#visualize the cos2 of row points on all the dimensions
+library(corrplot)
+corrplot(row$cos2, is.corr=FALSE)
+```
+
+```{r  message=FALSE, warning=TRUE}
+# Cos2 of rows on Dim.1
+fviz_cos2(res.ca, choice = "row", axes = 1)
+
+# Cos2 of rows on Dim.2
+fviz_cos2(res.ca, choice = "row", axes = 2)
+
+# Cos2 of rows on Dim.1 and Dim.2
+fviz_cos2(res.ca, choice = "row", axes = 1:2)
+
+```
+
+```{r  message=FALSE, warning=TRUE}
+#Coordinates of row points
+row$contrib
+
+# Contributions of rows to dimension 1
+fviz_contrib(res.ca, choice = "row", axes = 1)
+
+# Contributions of rows to dimension 2
+fviz_contrib(res.ca, choice = "row", axes = 2, top = 2)
+```
+
+```{r  message=FALSE, warning=TRUE}
+#The most important (or, contributing) row points can be highlighted on the scatter plot as follow:
+
+fviz_ca_row(res.ca, col.row = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE)
+
+
+```
+
+## 列变量绘图 Graph of column variables
+
+
+```{r  message=FALSE, warning=TRUE}
+fviz_ca_col(res.ca, col.col = "cos2", 
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE)
+```
+
+
+## 筛选画图变量Filter Results
+
+```{r message=FALSE, warning=TRUE}
+# Visualize rows with cos2 >= 0.9
+fviz_ca_row(res.ca, select.row = list(cos2 = 0.9), repel  = T)
+
+# Top 3 active rows  with the highest cos2
+fviz_ca_row(res.ca, select.row = list(cos2 = 3), repel  = T)
+
+# Select by names
+name <- list(name = c("eye.dark", "eye.medium"))
+fviz_ca_row(res.ca, select.row = name, repel  = T)
+
+
+# Top 3 contributing rows and columns
+fviz_ca_biplot(res.ca, select.row = list(contrib = 3), 
+               select.col = list(contrib = 3), repel  = T) +
+  theme_minimal()
+```
+
+```{r}
+
+
+```
+
+# 应用举例: Nobel Prize
+
+
+<a href="https://github.com/lizongzhang/mvs25/raw/main/nobel_prize.xlsx" 
+   target="_blank" 
+   style="text-decoration: none; display: inline-flex; align-items: center;">
+  <img src="img/download.png" 
+       alt="Download icon" 
+       style="width: 24px; height: 24px; margin-right: 8px;">
+  点击下载数据文件: nobel_prize.xlsx
+</a>
+
+
+```{r message=FALSE, warning=TRUE}
+library(readxl)
+#读取数据，将其保存为data frame
+nobel_prize <- read_excel("nobel_prize.xlsx") %>% 
+              data.frame()
+
+#为nobel_prize添加行名，才能在图中显示出行名标签
+rownames(nobel_prize) <- nobel_prize$Country
+nobel_prize
+
+```
+
+
+```{r message=FALSE, warning=TRUE}
+#转换nobel_prize数据结构
+library(tidyverse)
+
+nobel_long <- nobel_prize %>% 
+  pivot_longer(c("Chemistry","Economics","Literature",
+                 "Literature", "Medicine", "Peace", "Physics"),
+               names_to = "field",
+               values_to = "number")
+```
+
+```{r message=FALSE, warning=TRUE}
+#查看色卡
+library(RColorBrewer)
+RColorBrewer::display.brewer.all()
+
+#绘制堆栈条形图,先按国家分，再按领域分
+nobel_long %>%
+  ggplot(aes(Country,number,fill = field))+
+  geom_col(position = "fill")+
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())+
+  labs(title = "Nobel Prize by country and Field",
+       x = "Country",
+       y = "Number")+
+  scale_fill_brewer(palette = "Accent")+
+  coord_flip()+
+  theme_minimal()
+```
+
+```{r message=FALSE, warning=TRUE}
+#绘制堆栈条形图,先按领域分，再国家分
+nobel_long %>%
+  ggplot(aes(field,number,fill = Country))+
+  geom_col(position = "fill")+
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())+
+  labs(title = "Nobel Prize by Field and Country",
+       x = "Field",
+       y = "Number")+
+  scale_fill_brewer(palette = "Spectral")+
+  theme_minimal() 
+```
+
+```{r message=FALSE, warning=TRUE}
+#计算CA
+res.ca <- CA(nobel_prize[-1])
+
+#查看CA详细结果
+summary(res.ca)
+```
+
+```{r message=FALSE, warning=TRUE}
+#绘制scree plot
+library(factoextra)
+fviz_screeplot(res.ca, addlabels = TRUE, ylim = c(0, 75))#Coordinates of row points
+
+```
+
+
+```{r message=FALSE, warning=TRUE}
+# 绘制coordinate plot
+res.ca$row$coord[,1:2]
+
+fviz_ca_row(res.ca, col.row="steelblue", shape.row = 15, repel = TRUE)
+
+res.ca$col$coord[,1:2]
+
+fviz_ca_col(res.ca, col.row="steelblue", shape.row = 15, repel = TRUE)
+```
+
+```{r message=FALSE, warning=TRUE}
+#绘制cos2 plot
+row$cos2
+
+# Color by cos2 values: quality on the factor map
+fviz_ca_row(res.ca, col.row = "cos2",
+            gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+            repel = TRUE)
+
+library(corrplot)
+corrplot(row$cos2, is.corr=FALSE, 
+         col=colorRampPalette(c("blue","white","green"))(100))
+```
+
+```{r message=FALSE, warning=TRUE}
+#绘制contrib plot
+res.ca$row$contrib
+
+fviz_ca_row(res.ca, col.row = "contrib",
+            gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+            repel = TRUE)
+
+
+fviz_ca_col(res.ca, col.col = "cos2", 
+            gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+            repel = TRUE)
+```
+
+```{r message=FALSE, warning=TRUE}
+#筛选满足条件的组别
+# Visualize rows with cos2 >= 0.8
+fviz_ca_row(res.ca, select.row = list(cos2 = 0.8), repel  = T)
+
+# Visualize columns with cos2 >= 0.8
+fviz_ca_col(res.ca, select.col = list(cos2 = 0.8), repel  = T)
+
+# Top 3 contributing rows and columns
+fviz_ca_biplot(res.ca, select.row = list(contrib = 3), 
+               select.col = list(contrib = 3), repel  = T) +
+  theme_minimal()
+```
+
+```{r message=FALSE, warning=TRUE}
+
+```
+
+# 本章作业
+
+**答题要求：将R的命令和输出结果转成图片，上传。**
+
+## 习题1: 发色和眼球颜色 教材P165,例题8.1
+
+要求：
+
+1.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？
+
+1.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？
+
+1.3 绘制对应分析图。
+
+1.4 绘制行变量的contribution、cos2的图像。
+
+1.5 绘制列变量的contribution、cos2的图像。列变量的哪几个组别是相对重要的组别？
+
+1.6 从图中可以发现哪些组别关系紧密？
+
+
+
+## 习题2: 收入&满意度
+
+<img src="img/chap8pic1.png" alt="Image Description" width="60%"/>
+
+提示：数据请自行录入，可在EXCEL录入好后，再导入R。
+
+要求：
+2.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？
+
+2.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？
+
+2.3 绘制对应分析图。
+
+2.4 绘制行变量的contribution、cos2的图像。
+
+2.5 绘制列变量的contribution、cos2的图像。
+
+2.6 从图中可以发现哪些组别关系紧密？
+
+## 习题3: 婚姻状况&汽车偏好
+
+
+<img src="img/chap8pic2.png" alt="Image Description" width="60%"/>
+
+提示：数据请自行录入，可在EXCEL录入好后，再导入R。
+
+要求：
+3.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？
+
+3.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？
+
+3.3 绘制对应分析图。
+
+3.4 绘制行变量的contribution、cos2的图像。
+
+3.5 绘制列变量的contribution、cos2的图像。
+
+3.6 从图中可以发现哪些组别关系紧密？
+

@@ -1,0 +1,296 @@
+---
+title: "8 对应分析习题答案"
+author: "Li Zongzhang"
+date: today
+output:
+    highlight: github
+    toc: yes
+    number_sections: yes
+editor_options:
+  markdown:
+    wrap: 72
+execute:
+  warning: false
+  message: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,comment="")
+```
+
+# 习题2: 收入&满意度
+
+<img src="img/chap8pic1.png" alt="Image Description" width="60%"/>
+
+提示：数据请自行录入，可在EXCEL录入好后，再导入R。
+
+要求：
+2.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？
+
+2.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？
+
+2.3 绘制对应分析图。
+
+2.4 绘制行变量的contribution、cos2的图像。
+
+2.5 绘制列变量的contribution、cos2的图像。
+
+2.6 从图中可以发现哪些组别关系紧密？
+
+## 创建列联表的数据框
+```{r message = FALSE}
+#创建列联表的数据框
+ex2 <- data.frame(
+  very_dissatisfied = c(42,35,13,7,3),
+  somewhat_dissatified = c(82,62,28,18,7),
+  somewhat_satisfied = c(67,165,92,54,32),
+  very_satisfied = c(55, 118,81,75,54)
+)
+
+#给ex2添加行名，以便在图中能添加标签
+rownames(ex2) <- c("less than 10k", "10k-30k",
+                   "30k-50k", "50k-100k", "more than 100k")
+ex2
+
+```
+
+## 2.1 独立性检验
+
+```{r}
+#2.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？
+
+chisq.test(ex2)
+
+#卡方检验统计量是118.1, P值接近于0。在0.01的显著性水平下，拒绝“收入等级和满意度等级相互独立”的原假设。
+
+```
+## 2.2 绘制碎石图
+```{r message=FALSE, warning=TRUE}
+
+#2.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？
+
+library(FactoMineR)
+res.ca <- CA(ex2, graph = FALSE)
+
+#绘制scree plot
+library(factoextra)
+fviz_screeplot(res.ca, addlabels = TRUE, ylim = c(0, 100))
+
+#提取两个维度，维度1的贡献是86.8%， 维度2的贡献是13.0%. 
+
+```
+
+## 2.3 绘制对应分析图
+
+```{r message=FALSE, warning=FALSE}
+#2.3 绘制对应分析图
+CA(ex2)
+
+```
+
+## 2.4 绘制行变量的contribution/cos2图像
+
+```{r }
+#2.4 绘制行变量的contribution的图像。
+
+#行变量对维度1的贡献
+fviz_contrib(res.ca, choice = "row", axes = 1)
+
+#行变量对维度2的贡献
+fviz_contrib(res.ca, choice = "row", axes = 2)
+```
+
+
+```{r }
+#2.4 绘制行变量的cos2的图像。
+row <- get_ca_row(res.ca)
+row$cos2
+
+#维度对行变量的代表性cos2（representation）
+fviz_ca_row(res.ca, col.row = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE)
+```
+
+## 2.5 绘制列变量的contribution/cos2图像
+
+```{r }
+#2.5 绘制列变量的contribution的图像。
+
+#列变量对维度1的贡献
+fviz_contrib(res.ca, choice = "col", axes = 1)
+
+#列变量对维度2的贡献
+fviz_contrib(res.ca, choice = "col", axes = 2)
+```
+
+
+```{r }
+#2.5 绘制列变量的cos2的图像。
+col <- get_ca_col(res.ca)
+col$cos2
+
+#维度对列变量的代表性cos2（representation）
+fviz_ca_col(res.ca, col.row = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE)
+```
+
+## 2.6 结论
+
+从图中可以发现哪些组别关系紧密？
+
+```{r , message=FALSE, warning=FALSE}
+CA(ex2)
+
+```
+收入介于5万至10万与非常满意关系紧密。 
+
+收入小于1万与有些不满意关系紧密。 
+
+收入介于1万至3万与有些满意关系紧密。 
+
+
+
+# 习题3
+
+
+<img src="img/chap8pic2.png" alt="Image Description" width="60%"/>
+
+提示：数据请自行录入，可在EXCEL录入好后，再导入R。
+
+要求：
+3.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？
+
+3.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？
+
+3.3 绘制对应分析图。
+
+3.4 绘制行变量的contribution、cos2的图像。
+
+3.5 绘制列变量的contribution、cos2的图像。
+
+3.6 从图中可以发现哪些组别关系紧密？
+
+## 创建列联表的数据框
+```{r message = FALSE}
+#创建列联表的数据框
+ex3 <- data.frame(
+  American = c(37,52,33,6),
+  European = c(14,15,15,1),
+  Japanese = c(51,44,63,8)
+)
+
+#给ex2添加行名，以便在图中能添加标签
+rownames(ex3) <- c("Married", "Married with Kids",
+                   "Single", "Single with Kids")
+ex3
+```
+
+## 3.1 独立性检验
+
+```{r}
+#3.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？
+
+chisq.test(ex3)
+
+chisq.test(ex3)$expected
+
+#卡方检验统计量是8.3495, P值等于0.2136。在0.10的显著性水平下，不拒绝“婚姻状况和汽车类型相互独立”的原假设。
+```
+
+
+
+```{r}
+#3.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？
+
+fisher.test(ex3, workspace = 2e7)
+
+#卡方检验统计量是118.1, P值接近于0。在0.01的显著性水平下，拒绝“收入等级和满意度等级相互独立”的原假设。
+
+```
+
+
+## 3.2 绘制碎石图
+```{r message=FALSE, warning=TRUE}
+#3.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？
+
+library(FactoMineR)
+res.ca <- CA(ex3, graph = FALSE)
+
+#绘制scree plot
+library(factoextra)
+fviz_screeplot(res.ca, addlabels = TRUE, ylim = c(0, 100))
+
+#提取两个维度，维度1的贡献是92.8%， 维度2的贡献是7.2%. 
+
+```
+
+## 3.3 绘制对应分析图
+
+```{r , message=FALSE, warning=FALSE}
+#2.3 绘制对应分析图
+CA(ex3)
+
+```
+
+## 3.4 绘制行变量的contribution/cos2图像
+
+```{r }
+#3.4 绘制行变量的contribution的图像。
+
+#行变量对维度1的贡献
+fviz_contrib(res.ca, choice = "row", axes = 1)
+
+#行变量对维度2的贡献
+fviz_contrib(res.ca, choice = "row", axes = 2)
+```
+
+
+```{r }
+#3.4 绘制行变量的cos2的图像。
+row <- get_ca_row(res.ca)
+row$cos2
+
+#维度对行变量的代表性cos2（representation）
+fviz_ca_row(res.ca, col.row = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE)
+```
+
+## 3.5 绘制列变量的contribution/cos2图像
+
+```{r }
+#3.5 绘制列变量的contribution的图像。
+
+#列变量对维度1的贡献
+fviz_contrib(res.ca, choice = "col", axes = 1)
+
+#列变量对维度2的贡献
+fviz_contrib(res.ca, choice = "col", axes = 2)
+```
+
+
+```{r }
+#3.5 绘制列变量的cos2的图像。
+col <- get_ca_col(res.ca)
+col$cos2
+
+#维度对列变量的代表性cos2（representation）
+fviz_ca_col(res.ca, col.row = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE)
+```
+
+## 3.6 结论
+
+从图中可以发现哪些组别关系紧密？
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+CA(ex3)
+```
+单身与日系车关系紧密。 
+
+已婚有孩子与美系车关系紧密。 
+
+已婚、单身有孩子的购车倾向不明显。 

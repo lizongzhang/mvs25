@@ -389,7 +389,7 @@
     "href": "chap8.html",
     "title": "第8章",
     "section": "",
-    "text": "chap 8 讲义\n对应分析 R代码\nChap 8 习题代码"
+    "text": "chap 8 讲义\n对应分析 R代码"
   },
   {
     "objectID": "chap9.html",
@@ -1062,5 +1062,194 @@
     "title": "主观态度因子分析",
     "section": "不同组别因子得分分布的比较",
     "text": "不同组别因子得分分布的比较\n\n# 分析男性和女性在因子1上的得分的分布的直方图\nfinal_data %&gt;%\n  ggplot(aes(RC1, fill = as.factor(male))) +\n  geom_histogram(col = 1, position = \"identity\", alpha = 0.5) +\n  labs(fill = \"Male\") +\n  scale_fill_manual(values = c(\"blue\", \"pink\")) +\n  theme_minimal() +\n  ggtitle(\"Distribution of RC1 by Gender\")\n\n\n\n\n\n\n\n\n\n# 分析不同教育水平在各个因子上的得分差异因1的分布的直方图\n\nfinal_data %&gt;%\n  ggplot(aes(RC1, fill = as.factor(EDU))) +\n  geom_histogram(col = 1, position = \"identity\", alpha = 0.5) +\n  labs(fill = \"EDU\") +\n  theme_minimal() +\n  ggtitle(\"Distribution of RC1 by Education\")"
+  },
+  {
+    "objectID": "chap8slide.html",
+    "href": "chap8slide.html",
+    "title": "Chapter 8 对应分析",
+    "section": "",
+    "text": "注意：本讲义供学习交流使用，请勿用于商业用途"
+  },
+  {
+    "objectID": "caR.html",
+    "href": "caR.html",
+    "title": "8 CA在R中的实现",
+    "section": "",
+    "text": "本章介绍R中的对应分析。\n# 安装包\ninstall.packages(\"tidyverse\")\ninstall.packages(\"FactoMineR\")\ninstall.packages(\"factoextra\")\ninstall.packages(\"MASS\")\ninstall.packages(\"gplots\")\ninstall.packages(\"corrplot\")\ninstall.packages(\"RColorBrewer\")\n# 加载包\nlibrary(tidyverse)\nlibrary(FactoMineR)\nlibrary(factoextra)\nlibrary(MASS)\nlibrary(gplots)\n#导入数据，修改行名，列名\nlibrary(MASS)\ndata(caith)\n\nrownames(caith) &lt;- c(\"eye.blue\", \"eye.light\", \"eye.medium\", \"eye.dark\")\n\ncolnames(caith) &lt;- c(\"hair.fair\", \"hair.red\", \"hair.medium\",\n                     \"hair.dark\", \"hair.black\")"
+  },
+  {
+    "objectID": "caR.html#碎石图scree-plot",
+    "href": "caR.html#碎石图scree-plot",
+    "title": "8 CA在R中的实现",
+    "section": "碎石图scree plot",
+    "text": "碎石图scree plot\n\n#绘制scree plot\nlibrary(factoextra)\nfviz_screeplot(res.ca, addlabels = TRUE, ylim = c(0, 100))\n\nWarning in geom_bar(stat = \"identity\", fill = barfill, color = barcolor, :\nIgnoring empty aesthetic: `width`.\n\n\n\n\n\n\n\n\n\n\n# symmetric plot\nlibrary(factoextra)\nfviz_ca_biplot(res.ca, repel = TRUE)\n\n\n\n\n\n\n\ndimdesc(res.ca)\n\n$`Dim 1`\n$`Dim 1`$row\n                 coord\neye.light  -0.44070764\neye.blue   -0.40029985\neye.medium  0.03361434\neye.dark    0.70273880\n\n$`Dim 1`$col\n                  coord\nhair.fair   -0.54399533\nhair.red    -0.23326097\nhair.medium -0.04202412\nhair.dark    0.58870853\nhair.black   1.09438828\n\n\n$`Dim 2`\n$`Dim 2`$row\n                 coord\neye.medium -0.24500190\neye.light   0.08846303\neye.dark    0.13391383\neye.blue    0.16541100\n\n$`Dim 2`$col\n                  coord\nhair.medium -0.20830421\nhair.red     0.04827895\nhair.dark    0.10395044\nhair.fair    0.17384449\nhair.black   0.28643670\n\n#Rows are represented by blue points and columns by red triangles."
+  },
+  {
+    "objectID": "caR.html#行变量绘图-graph-of-row-variables",
+    "href": "caR.html#行变量绘图-graph-of-row-variables",
+    "title": "8 CA在R中的实现",
+    "section": "行变量绘图 Graph of row variables",
+    "text": "行变量绘图 Graph of row variables\n\nrow &lt;- get_ca_row(res.ca)\nrow\n\nCorrespondence Analysis - Results for rows\n ===================================================\n  Name       Description                \n1 \"$coord\"   \"Coordinates for the rows\" \n2 \"$cos2\"    \"Cos2 for the rows\"        \n3 \"$contrib\" \"contributions of the rows\"\n4 \"$inertia\" \"Inertia of the rows\"      \n\n\nrow$coord: coordinates of each row point in each dimension (1, 2 and 3). Used to create the scatter plot.\nrow$cos2: quality of representation of rows.\nvar$contrib: contribution of rows (in %) to the definition of the dimensions.\n\n#Coordinates of row points\n\nrow$coord[,1:2]\n\n                 Dim 1       Dim 2\neye.blue   -0.40029985  0.16541100\neye.light  -0.44070764  0.08846303\neye.medium  0.03361434 -0.24500190\neye.dark    0.70273880  0.13391383\n\nfviz_ca_row(res.ca, repel = TRUE)\n\n\n\n\n\n\n\nfviz_ca_row(res.ca, col.row=\"steelblue\", shape.row = 15, repel = TRUE)\n\n\n\n\n\n\n\n\n\n#Quality of representation of rows\n\n#The quality of representation of the rows on the factor map is called the squared cosine (cos2) or the squared correlations.\n\nrow$cos2\n\n                Dim 1      Dim 2        Dim 3\neye.blue   0.83581532 0.14271455 2.147013e-02\neye.light  0.95648915 0.03853918 4.971671e-03\neye.medium 0.01846682 0.98102924 5.039418e-04\neye.dark   0.96492376 0.03503934 3.689437e-05\n\n# Color by cos2 values: quality on the factor map\nfviz_ca_row(res.ca, col.row = \"cos2\",\n             gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"), \n             repel = TRUE)\n\n\n\n\n\n\n\n# Change the transparency by cos2 values\nfviz_ca_row(res.ca, alpha.row=\"cos2\")\n\n\n\n\n\n\n\n\n\n#visualize the cos2 of row points on all the dimensions\nlibrary(corrplot)\ncorrplot(row$cos2, is.corr=FALSE)\n\n\n\n\n\n\n\n\n\n# Cos2 of rows on Dim.1\nfviz_cos2(res.ca, choice = \"row\", axes = 1)\n\n\n\n\n\n\n\n# Cos2 of rows on Dim.2\nfviz_cos2(res.ca, choice = \"row\", axes = 2)\n\n\n\n\n\n\n\n# Cos2 of rows on Dim.1 and Dim.2\nfviz_cos2(res.ca, choice = \"row\", axes = 1:2)\n\n\n\n\n\n\n\n\n\n#Coordinates of row points\nrow$contrib\n\n                Dim 1     Dim 2     Dim 3\neye.blue   10.7191765 12.120781 63.831659\neye.light  28.5906733  7.628833 34.450625\neye.medium  0.1867536 65.700687  1.181429\neye.dark   60.5033967 14.549698  0.536287\n\n# Contributions of rows to dimension 1\nfviz_contrib(res.ca, choice = \"row\", axes = 1)\n\n\n\n\n\n\n\n# Contributions of rows to dimension 2\nfviz_contrib(res.ca, choice = \"row\", axes = 2, top = 2)\n\n\n\n\n\n\n\n\n\n#The most important (or, contributing) row points can be highlighted on the scatter plot as follow:\n\nfviz_ca_row(res.ca, col.row = \"contrib\",\n             gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"), \n             repel = TRUE)"
+  },
+  {
+    "objectID": "caR.html#列变量绘图-graph-of-column-variables",
+    "href": "caR.html#列变量绘图-graph-of-column-variables",
+    "title": "8 CA在R中的实现",
+    "section": "列变量绘图 Graph of column variables",
+    "text": "列变量绘图 Graph of column variables\n\nfviz_ca_col(res.ca, col.col = \"cos2\", \n             gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"),\n             repel = TRUE)"
+  },
+  {
+    "objectID": "caR.html#筛选画图变量filter-results",
+    "href": "caR.html#筛选画图变量filter-results",
+    "title": "8 CA在R中的实现",
+    "section": "筛选画图变量Filter Results",
+    "text": "筛选画图变量Filter Results\n\n# Visualize rows with cos2 &gt;= 0.9\nfviz_ca_row(res.ca, select.row = list(cos2 = 0.9), repel  = T)\n\n\n\n\n\n\n\n# Top 3 active rows  with the highest cos2\nfviz_ca_row(res.ca, select.row = list(cos2 = 3), repel  = T)\n\n\n\n\n\n\n\n# Select by names\nname &lt;- list(name = c(\"eye.dark\", \"eye.medium\"))\nfviz_ca_row(res.ca, select.row = name, repel  = T)\n\n\n\n\n\n\n\n# Top 3 contributing rows and columns\nfviz_ca_biplot(res.ca, select.row = list(contrib = 3), \n               select.col = list(contrib = 3), repel  = T) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "8ex.html",
+    "href": "8ex.html",
+    "title": "8 对应分析习题答案",
+    "section": "",
+    "text": "提示：数据请自行录入，可在EXCEL录入好后，再导入R。\n要求： 2.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？\n2.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？\n2.3 绘制对应分析图。\n2.4 绘制行变量的contribution、cos2的图像。\n2.5 绘制列变量的contribution、cos2的图像。\n2.6 从图中可以发现哪些组别关系紧密？\n\n\n\n#创建列联表的数据框\nex2 &lt;- data.frame(\n  very_dissatisfied = c(42,35,13,7,3),\n  somewhat_dissatified = c(82,62,28,18,7),\n  somewhat_satisfied = c(67,165,92,54,32),\n  very_satisfied = c(55, 118,81,75,54)\n)\n\n#给ex2添加行名，以便在图中能添加标签\nrownames(ex2) &lt;- c(\"less than 10k\", \"10k-30k\",\n                   \"30k-50k\", \"50k-100k\", \"more than 100k\")\nex2\n\n               very_dissatisfied somewhat_dissatified somewhat_satisfied\nless than 10k                 42                   82                 67\n10k-30k                       35                   62                165\n30k-50k                       13                   28                 92\n50k-100k                       7                   18                 54\nmore than 100k                 3                    7                 32\n               very_satisfied\nless than 10k              55\n10k-30k                   118\n30k-50k                    81\n50k-100k                   75\nmore than 100k             54\n\n\n\n\n\n\n#2.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？\n\nchisq.test(ex2)\n\n\n    Pearson's Chi-squared test\n\ndata:  ex2\nX-squared = 118.1, df = 12, p-value &lt; 2.2e-16\n\n#卡方检验统计量是118.1, P值接近于0。在0.01的显著性水平下，拒绝“收入等级和满意度等级相互独立”的原假设。\n\n\n\n\n\n#2.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？\n\nlibrary(FactoMineR)\nres.ca &lt;- CA(ex2, graph = FALSE)\n\n#绘制scree plot\nlibrary(factoextra)\nfviz_screeplot(res.ca, addlabels = TRUE, ylim = c(0, 100))\n\nWarning in geom_bar(stat = \"identity\", fill = barfill, color = barcolor, :\nIgnoring empty aesthetic: `width`.\n\n\n\n\n\n\n\n\n#提取两个维度，维度1的贡献是86.8%， 维度2的贡献是13.0%. \n\n\n\n\n\n#2.3 绘制对应分析图\nCA(ex2)\n\n\n\n\n\n\n\n\n**Results of the Correspondence Analysis (CA)**\nThe row variable has  5  categories; the column variable has 4 categories\nThe chi square of independence between the two variables is equal to 118.0959 (p-value =  1.48029e-19 ).\n*The results are available in the following objects:\n\n   name              description                   \n1  \"$eig\"            \"eigenvalues\"                 \n2  \"$col\"            \"results for the columns\"     \n3  \"$col$coord\"      \"coord. for the columns\"      \n4  \"$col$cos2\"       \"cos2 for the columns\"        \n5  \"$col$contrib\"    \"contributions of the columns\"\n6  \"$row\"            \"results for the rows\"        \n7  \"$row$coord\"      \"coord. for the rows\"         \n8  \"$row$cos2\"       \"cos2 for the rows\"           \n9  \"$row$contrib\"    \"contributions of the rows\"   \n10 \"$call\"           \"summary called parameters\"   \n11 \"$call$marge.col\" \"weights of the columns\"      \n12 \"$call$marge.row\" \"weights of the rows\"         \n\n\n\n\n\n\n#2.4 绘制行变量的contribution的图像。\n\n#行变量对维度1的贡献\nfviz_contrib(res.ca, choice = \"row\", axes = 1)\n\n\n\n\n\n\n\n#行变量对维度2的贡献\nfviz_contrib(res.ca, choice = \"row\", axes = 2)\n\n\n\n\n\n\n\n\n\n#2.4 绘制行变量的cos2的图像。\nrow &lt;- get_ca_row(res.ca)\nrow$cos2\n\n                     Dim 1      Dim 2        Dim 3\nless than 10k  0.969960339 0.03003387 5.791844e-06\n10k-30k        0.005022974 0.98842064 6.556387e-03\n30k-50k        0.848488225 0.14144329 1.006848e-02\n50k-100k       0.828708215 0.16984574 1.446041e-03\nmore than 100k 0.823408163 0.17415844 2.433397e-03\n\n#维度对行变量的代表性cos2（representation）\nfviz_ca_row(res.ca, col.row = \"cos2\",\n             gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"), \n             repel = TRUE)\n\n\n\n\n\n\n\n\n\n\n\n\n#2.5 绘制列变量的contribution的图像。\n\n#列变量对维度1的贡献\nfviz_contrib(res.ca, choice = \"col\", axes = 1)\n\n\n\n\n\n\n\n#列变量对维度2的贡献\nfviz_contrib(res.ca, choice = \"col\", axes = 2)\n\n\n\n\n\n\n\n\n\n#2.5 绘制列变量的cos2的图像。\ncol &lt;- get_ca_col(res.ca)\ncol$cos2\n\n                         Dim 1        Dim 2        Dim 3\nvery_dissatisfied    0.9950893 0.0002326784 4.677993e-03\nsomewhat_dissatified 0.9786700 0.0199298451 1.400105e-03\nsomewhat_satisfied   0.3068527 0.6930317994 1.155260e-04\nvery_satisfied       0.8349172 0.1650352038 4.757035e-05\n\n#维度对列变量的代表性cos2（representation）\nfviz_ca_col(res.ca, col.row = \"cos2\",\n             gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"), \n             repel = TRUE)\n\n\n\n\n\n\n\n\n\n\n\n从图中可以发现哪些组别关系紧密？\n\nCA(ex2)\n\n\n\n\n\n\n\n\n**Results of the Correspondence Analysis (CA)**\nThe row variable has  5  categories; the column variable has 4 categories\nThe chi square of independence between the two variables is equal to 118.0959 (p-value =  1.48029e-19 ).\n*The results are available in the following objects:\n\n   name              description                   \n1  \"$eig\"            \"eigenvalues\"                 \n2  \"$col\"            \"results for the columns\"     \n3  \"$col$coord\"      \"coord. for the columns\"      \n4  \"$col$cos2\"       \"cos2 for the columns\"        \n5  \"$col$contrib\"    \"contributions of the columns\"\n6  \"$row\"            \"results for the rows\"        \n7  \"$row$coord\"      \"coord. for the rows\"         \n8  \"$row$cos2\"       \"cos2 for the rows\"           \n9  \"$row$contrib\"    \"contributions of the rows\"   \n10 \"$call\"           \"summary called parameters\"   \n11 \"$call$marge.col\" \"weights of the columns\"      \n12 \"$call$marge.row\" \"weights of the rows\"         \n\n\n收入介于5万至10万与非常满意关系紧密。\n收入小于1万与有些不满意关系紧密。\n收入介于1万至3万与有些满意关系紧密。"
+  },
+  {
+    "objectID": "8ex.html#创建列联表的数据框",
+    "href": "8ex.html#创建列联表的数据框",
+    "title": "8 对应分析习题答案",
+    "section": "",
+    "text": "#创建列联表的数据框\nex2 &lt;- data.frame(\n  very_dissatisfied = c(42,35,13,7,3),\n  somewhat_dissatified = c(82,62,28,18,7),\n  somewhat_satisfied = c(67,165,92,54,32),\n  very_satisfied = c(55, 118,81,75,54)\n)\n\n#给ex2添加行名，以便在图中能添加标签\nrownames(ex2) &lt;- c(\"less than 10k\", \"10k-30k\",\n                   \"30k-50k\", \"50k-100k\", \"more than 100k\")\nex2\n\n               very_dissatisfied somewhat_dissatified somewhat_satisfied\nless than 10k                 42                   82                 67\n10k-30k                       35                   62                165\n30k-50k                       13                   28                 92\n50k-100k                       7                   18                 54\nmore than 100k                 3                    7                 32\n               very_satisfied\nless than 10k              55\n10k-30k                   118\n30k-50k                    81\n50k-100k                   75\nmore than 100k             54"
+  },
+  {
+    "objectID": "8ex.html#独立性检验",
+    "href": "8ex.html#独立性检验",
+    "title": "8 对应分析习题答案",
+    "section": "",
+    "text": "#2.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？\n\nchisq.test(ex2)\n\n\n    Pearson's Chi-squared test\n\ndata:  ex2\nX-squared = 118.1, df = 12, p-value &lt; 2.2e-16\n\n#卡方检验统计量是118.1, P值接近于0。在0.01的显著性水平下，拒绝“收入等级和满意度等级相互独立”的原假设。"
+  },
+  {
+    "objectID": "8ex.html#绘制碎石图",
+    "href": "8ex.html#绘制碎石图",
+    "title": "8 对应分析习题答案",
+    "section": "",
+    "text": "#2.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？\n\nlibrary(FactoMineR)\nres.ca &lt;- CA(ex2, graph = FALSE)\n\n#绘制scree plot\nlibrary(factoextra)\nfviz_screeplot(res.ca, addlabels = TRUE, ylim = c(0, 100))\n\nWarning in geom_bar(stat = \"identity\", fill = barfill, color = barcolor, :\nIgnoring empty aesthetic: `width`.\n\n\n\n\n\n\n\n\n#提取两个维度，维度1的贡献是86.8%， 维度2的贡献是13.0%."
+  },
+  {
+    "objectID": "8ex.html#绘制对应分析图",
+    "href": "8ex.html#绘制对应分析图",
+    "title": "8 对应分析习题答案",
+    "section": "",
+    "text": "#2.3 绘制对应分析图\nCA(ex2)\n\n\n\n\n\n\n\n\n**Results of the Correspondence Analysis (CA)**\nThe row variable has  5  categories; the column variable has 4 categories\nThe chi square of independence between the two variables is equal to 118.0959 (p-value =  1.48029e-19 ).\n*The results are available in the following objects:\n\n   name              description                   \n1  \"$eig\"            \"eigenvalues\"                 \n2  \"$col\"            \"results for the columns\"     \n3  \"$col$coord\"      \"coord. for the columns\"      \n4  \"$col$cos2\"       \"cos2 for the columns\"        \n5  \"$col$contrib\"    \"contributions of the columns\"\n6  \"$row\"            \"results for the rows\"        \n7  \"$row$coord\"      \"coord. for the rows\"         \n8  \"$row$cos2\"       \"cos2 for the rows\"           \n9  \"$row$contrib\"    \"contributions of the rows\"   \n10 \"$call\"           \"summary called parameters\"   \n11 \"$call$marge.col\" \"weights of the columns\"      \n12 \"$call$marge.row\" \"weights of the rows\""
+  },
+  {
+    "objectID": "8ex.html#绘制行变量的contributioncos2图像",
+    "href": "8ex.html#绘制行变量的contributioncos2图像",
+    "title": "8 对应分析习题答案",
+    "section": "",
+    "text": "#2.4 绘制行变量的contribution的图像。\n\n#行变量对维度1的贡献\nfviz_contrib(res.ca, choice = \"row\", axes = 1)\n\n\n\n\n\n\n\n#行变量对维度2的贡献\nfviz_contrib(res.ca, choice = \"row\", axes = 2)\n\n\n\n\n\n\n\n\n\n#2.4 绘制行变量的cos2的图像。\nrow &lt;- get_ca_row(res.ca)\nrow$cos2\n\n                     Dim 1      Dim 2        Dim 3\nless than 10k  0.969960339 0.03003387 5.791844e-06\n10k-30k        0.005022974 0.98842064 6.556387e-03\n30k-50k        0.848488225 0.14144329 1.006848e-02\n50k-100k       0.828708215 0.16984574 1.446041e-03\nmore than 100k 0.823408163 0.17415844 2.433397e-03\n\n#维度对行变量的代表性cos2（representation）\nfviz_ca_row(res.ca, col.row = \"cos2\",\n             gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"), \n             repel = TRUE)"
+  },
+  {
+    "objectID": "8ex.html#绘制列变量的contributioncos2图像",
+    "href": "8ex.html#绘制列变量的contributioncos2图像",
+    "title": "8 对应分析习题答案",
+    "section": "",
+    "text": "#2.5 绘制列变量的contribution的图像。\n\n#列变量对维度1的贡献\nfviz_contrib(res.ca, choice = \"col\", axes = 1)\n\n\n\n\n\n\n\n#列变量对维度2的贡献\nfviz_contrib(res.ca, choice = \"col\", axes = 2)\n\n\n\n\n\n\n\n\n\n#2.5 绘制列变量的cos2的图像。\ncol &lt;- get_ca_col(res.ca)\ncol$cos2\n\n                         Dim 1        Dim 2        Dim 3\nvery_dissatisfied    0.9950893 0.0002326784 4.677993e-03\nsomewhat_dissatified 0.9786700 0.0199298451 1.400105e-03\nsomewhat_satisfied   0.3068527 0.6930317994 1.155260e-04\nvery_satisfied       0.8349172 0.1650352038 4.757035e-05\n\n#维度对列变量的代表性cos2（representation）\nfviz_ca_col(res.ca, col.row = \"cos2\",\n             gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"), \n             repel = TRUE)"
+  },
+  {
+    "objectID": "8ex.html#结论",
+    "href": "8ex.html#结论",
+    "title": "8 对应分析习题答案",
+    "section": "",
+    "text": "从图中可以发现哪些组别关系紧密？\n\nCA(ex2)\n\n\n\n\n\n\n\n\n**Results of the Correspondence Analysis (CA)**\nThe row variable has  5  categories; the column variable has 4 categories\nThe chi square of independence between the two variables is equal to 118.0959 (p-value =  1.48029e-19 ).\n*The results are available in the following objects:\n\n   name              description                   \n1  \"$eig\"            \"eigenvalues\"                 \n2  \"$col\"            \"results for the columns\"     \n3  \"$col$coord\"      \"coord. for the columns\"      \n4  \"$col$cos2\"       \"cos2 for the columns\"        \n5  \"$col$contrib\"    \"contributions of the columns\"\n6  \"$row\"            \"results for the rows\"        \n7  \"$row$coord\"      \"coord. for the rows\"         \n8  \"$row$cos2\"       \"cos2 for the rows\"           \n9  \"$row$contrib\"    \"contributions of the rows\"   \n10 \"$call\"           \"summary called parameters\"   \n11 \"$call$marge.col\" \"weights of the columns\"      \n12 \"$call$marge.row\" \"weights of the rows\"         \n\n\n收入介于5万至10万与非常满意关系紧密。\n收入小于1万与有些不满意关系紧密。\n收入介于1万至3万与有些满意关系紧密。"
+  },
+  {
+    "objectID": "8ex.html#创建列联表的数据框-1",
+    "href": "8ex.html#创建列联表的数据框-1",
+    "title": "8 对应分析习题答案",
+    "section": "创建列联表的数据框",
+    "text": "创建列联表的数据框\n\n#创建列联表的数据框\nex3 &lt;- data.frame(\n  American = c(37,52,33,6),\n  European = c(14,15,15,1),\n  Japanese = c(51,44,63,8)\n)\n\n#给ex2添加行名，以便在图中能添加标签\nrownames(ex3) &lt;- c(\"Married\", \"Married with Kids\",\n                   \"Single\", \"Single with Kids\")\nex3\n\n                  American European Japanese\nMarried                 37       14       51\nMarried with Kids       52       15       44\nSingle                  33       15       63\nSingle with Kids         6        1        8"
+  },
+  {
+    "objectID": "8ex.html#独立性检验-1",
+    "href": "8ex.html#独立性检验-1",
+    "title": "8 对应分析习题答案",
+    "section": "3.1 独立性检验",
+    "text": "3.1 独立性检验\n\n#3.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？\n\nchisq.test(ex3)\n\n\n    Pearson's Chi-squared test\n\ndata:  ex3\nX-squared = 8.3495, df = 6, p-value = 0.2136\n\nchisq.test(ex3)$expected\n\n                   American European  Japanese\nMarried           38.513274 13.53982 49.946903\nMarried with Kids 41.911504 14.73451 54.353982\nSingle            41.911504 14.73451 54.353982\nSingle with Kids   5.663717  1.99115  7.345133\n\n#卡方检验统计量是8.3495, P值等于0.2136。在0.10的显著性水平下，不拒绝“婚姻状况和汽车类型相互独立”的原假设。\n\n\n#3.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？\n\nfisher.test(ex3, workspace = 2e7)\n\n\n    Fisher's Exact Test for Count Data\n\ndata:  ex3\np-value = 0.2145\nalternative hypothesis: two.sided\n\n#卡方检验统计量是118.1, P值接近于0。在0.01的显著性水平下，拒绝“收入等级和满意度等级相互独立”的原假设。"
+  },
+  {
+    "objectID": "8ex.html#绘制碎石图-1",
+    "href": "8ex.html#绘制碎石图-1",
+    "title": "8 对应分析习题答案",
+    "section": "3.2 绘制碎石图",
+    "text": "3.2 绘制碎石图\n\n#3.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？\n\nlibrary(FactoMineR)\nres.ca &lt;- CA(ex3, graph = FALSE)\n\n#绘制scree plot\nlibrary(factoextra)\nfviz_screeplot(res.ca, addlabels = TRUE, ylim = c(0, 100))\n\nWarning in geom_bar(stat = \"identity\", fill = barfill, color = barcolor, :\nIgnoring empty aesthetic: `width`.\n\n\n\n\n\n\n\n\n#提取两个维度，维度1的贡献是92.8%， 维度2的贡献是7.2%."
+  },
+  {
+    "objectID": "8ex.html#绘制对应分析图-1",
+    "href": "8ex.html#绘制对应分析图-1",
+    "title": "8 对应分析习题答案",
+    "section": "3.3 绘制对应分析图",
+    "text": "3.3 绘制对应分析图\n\n#2.3 绘制对应分析图\nCA(ex3)\n\n\n\n\n\n\n\n\n**Results of the Correspondence Analysis (CA)**\nThe row variable has  4  categories; the column variable has 3 categories\nThe chi square of independence between the two variables is equal to 8.349475 (p-value =  0.2136014 ).\n*The results are available in the following objects:\n\n   name              description                   \n1  \"$eig\"            \"eigenvalues\"                 \n2  \"$col\"            \"results for the columns\"     \n3  \"$col$coord\"      \"coord. for the columns\"      \n4  \"$col$cos2\"       \"cos2 for the columns\"        \n5  \"$col$contrib\"    \"contributions of the columns\"\n6  \"$row\"            \"results for the rows\"        \n7  \"$row$coord\"      \"coord. for the rows\"         \n8  \"$row$cos2\"       \"cos2 for the rows\"           \n9  \"$row$contrib\"    \"contributions of the rows\"   \n10 \"$call\"           \"summary called parameters\"   \n11 \"$call$marge.col\" \"weights of the columns\"      \n12 \"$call$marge.row\" \"weights of the rows\""
+  },
+  {
+    "objectID": "8ex.html#绘制行变量的contributioncos2图像-1",
+    "href": "8ex.html#绘制行变量的contributioncos2图像-1",
+    "title": "8 对应分析习题答案",
+    "section": "3.4 绘制行变量的contribution/cos2图像",
+    "text": "3.4 绘制行变量的contribution/cos2图像\n\n#3.4 绘制行变量的contribution的图像。\n\n#行变量对维度1的贡献\nfviz_contrib(res.ca, choice = \"row\", axes = 1)\n\n\n\n\n\n\n\n#行变量对维度2的贡献\nfviz_contrib(res.ca, choice = \"row\", axes = 2)\n\n\n\n\n\n\n\n\n\n#3.4 绘制行变量的cos2的图像。\nrow &lt;- get_ca_row(res.ca)\nrow$cos2\n\n                        Dim 1       Dim 2\nMarried           0.812065457 0.187934543\nMarried with Kids 0.998972772 0.001027228\nSingle            0.998031174 0.001968826\nSingle with Kids  0.005440686 0.994559314\n\n#维度对行变量的代表性cos2（representation）\nfviz_ca_row(res.ca, col.row = \"cos2\",\n             gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"), \n             repel = TRUE)"
+  },
+  {
+    "objectID": "8ex.html#绘制列变量的contributioncos2图像-1",
+    "href": "8ex.html#绘制列变量的contributioncos2图像-1",
+    "title": "8 对应分析习题答案",
+    "section": "3.5 绘制列变量的contribution/cos2图像",
+    "text": "3.5 绘制列变量的contribution/cos2图像\n\n#3.5 绘制列变量的contribution的图像。\n\n#列变量对维度1的贡献\nfviz_contrib(res.ca, choice = \"col\", axes = 1)\n\n\n\n\n\n\n\n#列变量对维度2的贡献\nfviz_contrib(res.ca, choice = \"col\", axes = 2)\n\n\n\n\n\n\n\n\n\n#3.5 绘制列变量的cos2的图像。\ncol &lt;- get_ca_col(res.ca)\ncol$cos2\n\n                Dim 1       Dim 2\nAmerican 0.9919873782 0.008012622\nEuropean 0.0001441929 0.999855807\nJapanese 0.9871383541 0.012861646\n\n#维度对列变量的代表性cos2（representation）\nfviz_ca_col(res.ca, col.row = \"cos2\",\n             gradient.cols = c(\"#00AFBB\", \"#E7B800\", \"#FC4E07\"), \n             repel = TRUE)"
+  },
+  {
+    "objectID": "8ex.html#结论-1",
+    "href": "8ex.html#结论-1",
+    "title": "8 对应分析习题答案",
+    "section": "3.6 结论",
+    "text": "3.6 结论\n从图中可以发现哪些组别关系紧密？\n\n\n\n\n\n\n\n\n\n**Results of the Correspondence Analysis (CA)**\nThe row variable has  4  categories; the column variable has 3 categories\nThe chi square of independence between the two variables is equal to 8.349475 (p-value =  0.2136014 ).\n*The results are available in the following objects:\n\n   name              description                   \n1  \"$eig\"            \"eigenvalues\"                 \n2  \"$col\"            \"results for the columns\"     \n3  \"$col$coord\"      \"coord. for the columns\"      \n4  \"$col$cos2\"       \"cos2 for the columns\"        \n5  \"$col$contrib\"    \"contributions of the columns\"\n6  \"$row\"            \"results for the rows\"        \n7  \"$row$coord\"      \"coord. for the rows\"         \n8  \"$row$cos2\"       \"cos2 for the rows\"           \n9  \"$row$contrib\"    \"contributions of the rows\"   \n10 \"$call\"           \"summary called parameters\"   \n11 \"$call$marge.col\" \"weights of the columns\"      \n12 \"$call$marge.row\" \"weights of the rows\"         \n\n\n单身与日系车关系紧密。\n已婚有孩子与美系车关系紧密。\n已婚、单身有孩子的购车倾向不明显。"
+  },
+  {
+    "objectID": "caR.html#习题1-发色和眼球颜色-教材p165例题8.1",
+    "href": "caR.html#习题1-发色和眼球颜色-教材p165例题8.1",
+    "title": "8 CA在R中的实现",
+    "section": "习题1: 发色和眼球颜色 教材P165,例题8.1",
+    "text": "习题1: 发色和眼球颜色 教材P165,例题8.1\n要求：\n1.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？\n1.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？\n1.3 绘制对应分析图。\n1.4 绘制行变量的contribution、cos2的图像。\n1.5 绘制列变量的contribution、cos2的图像。列变量的哪几个组别是相对重要的组别？\n1.6 从图中可以发现哪些组别关系紧密？"
+  },
+  {
+    "objectID": "caR.html#习题2-收入满意度",
+    "href": "caR.html#习题2-收入满意度",
+    "title": "8 CA在R中的实现",
+    "section": "习题2: 收入&满意度",
+    "text": "习题2: 收入&满意度\n\n提示：数据请自行录入，可在EXCEL录入好后，再导入R。\n要求： 2.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？\n2.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？\n2.3 绘制对应分析图。\n2.4 绘制行变量的contribution、cos2的图像。\n2.5 绘制列变量的contribution、cos2的图像。\n2.6 从图中可以发现哪些组别关系紧密？"
+  },
+  {
+    "objectID": "caR.html#习题3-婚姻状况汽车偏好",
+    "href": "caR.html#习题3-婚姻状况汽车偏好",
+    "title": "8 CA在R中的实现",
+    "section": "习题3: 婚姻状况&汽车偏好",
+    "text": "习题3: 婚姻状况&汽车偏好\n\n提示：数据请自行录入，可在EXCEL录入好后，再导入R。\n要求： 3.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？\n3.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？\n3.3 绘制对应分析图。\n3.4 绘制行变量的contribution、cos2的图像。\n3.5 绘制列变量的contribution、cos2的图像。\n3.6 从图中可以发现哪些组别关系紧密？"
+  },
+  {
+    "objectID": "chap8.html#习题1-发色和眼球颜色-教材p165例题8.1",
+    "href": "chap8.html#习题1-发色和眼球颜色-教材p165例题8.1",
+    "title": "第8章",
+    "section": "习题1: 发色和眼球颜色 教材P165,例题8.1",
+    "text": "习题1: 发色和眼球颜色 教材P165,例题8.1\n要求：\n1.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？\n1.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？\n1.3 绘制对应分析图。\n1.4 绘制行变量的contribution、cos2的图像。\n1.5 绘制列变量的contribution、cos2的图像。列变量的哪几个组别是相对重要的组别？\n1.6 从图中可以发现哪些组别关系紧密？"
+  },
+  {
+    "objectID": "chap8.html#习题2-收入满意度",
+    "href": "chap8.html#习题2-收入满意度",
+    "title": "第8章",
+    "section": "习题2: 收入&满意度",
+    "text": "习题2: 收入&满意度\n\n提示：数据请自行录入，可在EXCEL录入好后，再导入R。\n要求： 2.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？\n2.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？\n2.3 绘制对应分析图。\n2.4 绘制行变量的contribution、cos2的图像。\n2.5 绘制列变量的contribution、cos2的图像。\n2.6 从图中可以发现哪些组别关系紧密？"
+  },
+  {
+    "objectID": "chap8.html#习题3-婚姻状况汽车偏好",
+    "href": "chap8.html#习题3-婚姻状况汽车偏好",
+    "title": "第8章",
+    "section": "习题3: 婚姻状况&汽车偏好",
+    "text": "习题3: 婚姻状况&汽车偏好\n\n提示：数据请自行录入，可在EXCEL录入好后，再导入R。\n要求： 3.1 对行变量和列变量进行独立性检验，独立性检验的卡方检验统计量是多少？P值是什么，你的检验结论是什么？\n3.2 绘制碎石图。你提取几个维度？每个维度的贡献分别是多少？\n3.3 绘制对应分析图。\n3.4 绘制行变量的contribution、cos2的图像。\n3.5 绘制列变量的contribution、cos2的图像。\n3.6 从图中可以发现哪些组别关系紧密？"
   }
 ]
