@@ -45,6 +45,7 @@ library(FactoMineR)
 library(factoextra)
 library(MASS)
 library(gplots)
+library(RColorBrewer)
 ```
 
 ```{r message=FALSE, warning=TRUE}
@@ -69,23 +70,56 @@ mosaicplot(caith,
            color = TRUE,
            cex.axis = 0.8,
            border = 5,
+           las = 1,
            main = "Eye Color and Hair Color")
 ```
 
-```{r message=FALSE, warning=FALSE}
-library(tidyverse)
-library(gplots)
-caith %>% 
-  as.matrix() %>% 
-  as.table() %>% 
-  t() %>% 
-  balloonplot(main ="Eye Color and Hair Color", 
-              label = FALSE, 
-              show.margins = FALSE)
+```{r}
+mosaicplot(caith, 
+           color = RColorBrewer::brewer.pal(4, "Set2"),
+           cex.axis = 1,
+           main = "Eye Color and Hair Color",
+           las = 1)
 ```
+
 
 # 第2步 计算Compute CA
 
+### MASS:corresp()
+
+```{r}
+# 运行对应分析，保留前 2 轴
+res <- corresp(caith, nf = 2)
+res
+
+# 检查结果对象有哪些内容
+str(res)
+names(res)
+
+```
+
+
+“First canonical correlation(s)”  0.4463684 , 0.1734554 过渡矩阵的前两个奇异值（singular values）
+
+第1轴：0.4463684^2 ≈ 0.1992 ≈ 19.9%
+
+第2轴：0.1734554^2 ≈ 0.0301 ≈ 3.0%
+
+第一轴捕捉到的大约 19.9% 的“卡方变异”（或关联量），第二轴大约 3.0%。两轴合计约 22.9%（≈0.1992+0.0301）。
+
+结论（定性）：第一轴比第二轴解释的关联远多，是主要的结构方向；第二轴较弱，提供一些次要/补充信息。
+
+Row scores / Column scores 这两组表格分别是“行类别”（eye 的各水平）和“列类别”（hair 的各水平）在前两个主轴（canonical axes）上的坐标（scores）。
+
+正/负号表示方向（注意：轴的符号可被整体翻转，不影响相对关系），大小表示在该轴上偏离原点的程度（距离越大，说明该类别在该维度上的区分越显著）。
+
+
+
+
+
+
+
+## FactoMineR:CA()
 
 ```{r message=FALSE, warning=TRUE}
 library(FactoMineR)
