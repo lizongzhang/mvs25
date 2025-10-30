@@ -383,7 +383,7 @@ fviz_ca_col(res.ca, col.row="steelblue", shape.row = 15, repel = TRUE)
 
 ```{r message=FALSE, warning=TRUE}
 #绘制cos2 plot
-row$cos2
+res.ca$row$cos2
 
 # Color by cos2 values: quality on the factor map
 fviz_ca_row(res.ca, col.row = "cos2",
@@ -391,7 +391,7 @@ fviz_ca_row(res.ca, col.row = "cos2",
             repel = TRUE)
 
 library(corrplot)
-corrplot(row$cos2, is.corr=FALSE, 
+corrplot(res.ca$row$cos2, is.corr=FALSE, 
          col=colorRampPalette(c("blue","white","green"))(100))
 ```
 

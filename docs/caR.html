@@ -1014,13 +1014,17 @@ Physics     0.004937747 -0.16376482</code></pre>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co">#绘制cos2 plot</span></span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>row<span class="sc">$</span>cos2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>res.ca<span class="sc">$</span>row<span class="sc">$</span>cos2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                Dim 1      Dim 2        Dim 3
-eye.blue   0.83581532 0.14271455 2.147013e-02
-eye.light  0.95648915 0.03853918 4.971671e-03
-eye.medium 0.01846682 0.98102924 5.039418e-04
-eye.dark   0.96492376 0.03503934 3.689437e-05</code></pre>
+<pre><code>             Dim 1       Dim 2      Dim 3        Dim 4        Dim 5
+Canada  0.03453927 0.199291224 0.19463816 0.0749824057 0.4965489435
+France  0.69802441 0.209807695 0.06792086 0.0240922563 0.0001547871
+Germany 0.18470295 0.752079219 0.02761260 0.0238343970 0.0117708331
+Italy   0.65345071 0.090492296 0.10239997 0.1490887156 0.0045683080
+Japan   0.08237415 0.710990924 0.15914111 0.0234728102 0.0240210030
+Russia  0.41631131 0.007742082 0.41396123 0.1556342609 0.0063511110
+UK      0.02823277 0.036997223 0.92859341 0.0008559733 0.0053206206
+USA     0.91545260 0.065268628 0.01780094 0.0003007782 0.0011770496</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Color by cos2 values: quality on the factor map</span></span>
 <span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_ca_row</span>(res.ca, <span class="at">col.row =</span> <span class="st">"cos2"</span>,</span>
@@ -1034,7 +1038,7 @@ eye.dark   0.96492376 0.03503934 3.689437e-05</code></pre>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
-<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(row<span class="sc">$</span>cos2, <span class="at">is.corr=</span><span class="cn">FALSE</span>, </span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(res.ca<span class="sc">$</span>row<span class="sc">$</span>cos2, <span class="at">is.corr=</span><span class="cn">FALSE</span>, </span>
 <span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">col=</span><span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">"blue"</span>,<span class="st">"white"</span>,<span class="st">"green"</span>))(<span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
