@@ -114,11 +114,6 @@ Row scores / Column scores 这两组表格分别是“行类别”（eye 的各�
 正/负号表示方向（注意：轴的符号可被整体翻转，不影响相对关系），大小表示在该轴上偏离原点的程度（距离越大，说明该类别在该维度上的区分越显著）。
 
 
-
-
-
-
-
 ## FactoMineR:CA()
 
 ```{r message=FALSE, warning=TRUE}
@@ -128,6 +123,22 @@ res.ca <- CA(caith, graph = FALSE)
 
 res.ca %>% summary()
 
+```
+
+<img src="img/res.ca1.png" style=width:800px; height:auto>
+
+<img src="img/res.ca2.png" style=width:800px; height:auto>
+
+<img src="img/res.ca3.png" style=width:800px; height:auto>
+
+<img src="img/res.ca4.png" style=width:800px; height:auto>
+
+<img src="img/res.ca5.png" style=width:800px; height:auto>
+
+<img src="img/res.ca6.png" style=width:800px; height:auto>
+
+
+```{r message=FALSE, warning=TRUE}
 res.ca
 
 ```
@@ -146,20 +157,31 @@ res.ca$svd
 ```{r message=FALSE, warning=TRUE}
 #查看行变量的坐标、贡献、cos2(the quality of each dimension for each point)
 res.ca$row
+```
 
-## calculate 第1个行变量的contribution
+
+
+
+## 计算行变量的contribution和cos2
+
+```{r message=FALSE, warning=TRUE}
+
+# 计算第1个行变量的contribution
+
 #计算对应矩阵correspondence matrix ——P
 P <- as.matrix(caith/sum(caith))
 P %>% round(3)
+
 #计算边缘概率、独立性假定下的期望概率
 pi. <- rowSums(P)
 pi.
 pj. <- colSums(P)
 pj.
 
+# 第1个行变量的contribution
 (res.ca$row$coord[,1]^2 * pi.)/sum(res.ca$row$coord[,1]^2 * pi.)
 
-## calculate 第1个行变量的cos2
+# 第1个行变量的cos2(quality of representation)
 (res.ca$row$coord[1,]^2 )/sum(res.ca$row$coord[1,]^2)
 ```
 
