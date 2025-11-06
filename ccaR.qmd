@@ -114,7 +114,7 @@ res.cc.score %>%
   geom_point()
 ```
 
-## helio plot
+## helio plot 放射状图
 
 
 ```{r  message=FALSE}
