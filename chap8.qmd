@@ -8,6 +8,8 @@ title: "第8章"
 
 <img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[对应分析 R代码](https://lizongzhang.github.io/mvs25/caR.html)
 
+<img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[多重对应分析 R代码](https://lizongzhang.github.io/mvs25/ch8MCA.html)
+
         
 #  R软件操作 
   
