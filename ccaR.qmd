@@ -1,0 +1,188 @@
+---
+title: "9 典型相关分析在R中的实现"
+author: "Li Zongzhang"
+date: today
+output:
+    highlight: github
+    toc: yes
+    number_sections: yes
+editor_options:
+  markdown:
+    wrap: 72
+execute:
+  warning: false
+  message: false
+---
+
+本章介绍R中的典型相关分析（Canonical Correlation Analysis）。
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+#MAC OS系统上图形中无法显示汉字，请运行第3-6行。
+# 指定图形的中文字体
+#install.packages("showtext")
+library(showtext)
+par(family  = 'STKaiti')
+showtext_auto()
+```
+
+
+```{r message=FALSE}
+#安装和加载包
+#install.packages("CCA")
+#install.packages("yacca")
+```
+
+<a href="https://github.com/lizongzhang/mvs25/raw/main/eg9.1.xls" 
+   target="_blank" 
+   style="text-decoration: none; display: inline-flex; align-items: center;">
+  <img src="img/download.png" 
+       alt="Download icon" 
+       style="width: 24px; height: 24px; margin-right: 8px;">
+  点击下载数据文件: eg9.1.xls
+</a>
+
+
+# 第1步 定义两组变量
+
+```{r message=FALSE}
+library(readr)
+#读取数据文件
+library(readxl)
+eg9_1 <- read_excel("eg9.1.xls")
+
+#对eg9_1重命名，去掉第1列，保存为数据框data
+library(tidyverse)
+data <- eg9_1 %>% rename(
+  weight = x1,  waist = x2,  pulse = x3, 
+  chinup = y1,   situp = y2,   jump = y3) %>% select(-1)
+#定义两组变量
+physical <- data[,1:3]
+train <- data[,4:6]
+
+```
+
+# 第2步： 计算典型相关分析模型
+
+## 方法一：CCA::cc
+
+```{r  message=FALSE}
+library(CCA)
+res.cc <- cc(physical, train)
+
+#查看典型相关系数
+res.cc$cor
+
+#查看典型变量与原始变量的关系
+res.cc$xcoef
+res.cc$ycoef
+
+```
+
+## 方法二：yacca::cca
+
+```{r  message=FALSE}
+library(yacca)
+res.cca <- cca(physical, train)
+
+#查看结果
+res.cca
+```
+
+# 第3步 检验相关系数的显著性
+
+```{r  message=FALSE}
+library(yacca)
+res.cca <- cca(physical, train)
+F.test.cca(res.cca)
+```
+
+# 第4步 可视化
+
+## 典型变量u1和典型变量v1的散点图
+
+
+```{r message=FALSE}
+library(CCA)
+res.cc <- cc(physical, train)
+
+res.cc.score <- data.frame(
+  physical_u1 = res.cc$scores$xscores[,1], 
+  train_v1 = res.cc$scores$yscores[,1])
+
+res.cc.score %>% 
+  ggplot(aes(physical_u1,train_v1)) +
+  geom_point()
+```
+
+## helio plot
+
+
+```{r  message=FALSE}
+#典型变量与原始变量的相关系数
+library(yacca)
+res.cca <- cca(physical, train)
+
+helio.plot(res.cca, x.name="Physical Variables",
+           y.name="Train Variables")
+```
+
+
+```{r  message=FALSE}
+#Show variances on first canonical variate
+helio.plot(res.cca, x.name="Physical Variables",
+           y.name="Train Variables", 
+           type = "variance")
+```
+
+# 应用举例
+
+```{r  message=FALSE}
+#调用数据LifeCycleSavings
+library(yacca)
+data(LifeCycleSavings)
+
+# LifeCycleSavings
+# Format
+# A data frame with 50 observations on 5 variables.
+# 
+# [,1]	sr	numeric	aggregate personal savings
+# [,2]	pop15	numeric	% of population under 15
+# [,3]	pop75	numeric	% of population over 75
+# [,4]	dpi	numeric	real per-capita disposable income
+# [,5]	ddpi	numeric	% growth rate of dpi
+
+#定义两组变量
+pop <- LifeCycleSavings[, 2:3]
+eco <- LifeCycleSavings[, -(2:3)]
+
+#估计典型相关模型
+cca.fit <- cca(pop, eco)
+
+#查看典型相关系数
+cca.fit$corr
+
+# 典型变量u1和典型变量v1的散点图
+res.cc.score <- data.frame(
+  pop_u1 = res.cc$scores$xscores[,1], 
+  eco_v1 = res.cc$scores$yscores[,1])
+
+res.cc.score %>% 
+  ggplot(aes(pop_u1,eco_v1)) +
+  geom_point()
+
+#检验典型相关系数显著性
+F.test.cca(cca.fit)
+
+#查看CCA模型估计结果
+cca.fit
+
+#Show loadings on first canonical variate
+helio.plot(cca.fit, x.name="Population Variables",
+           y.name="Economic Variables")
+
+#Show variances on first canonical variate
+helio.plot(cca.fit, cv=1, x.name="Population Variables",
+           y.name="Economic Variables", type="variance")
+
+
+```

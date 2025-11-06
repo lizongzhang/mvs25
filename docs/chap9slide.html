@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Li Zongzhang">
+<meta name="dcterms.date" content="2025-11-06">
 
-<title>第9章 – 多元统计25秋</title>
+<title>Chapter 9 典型相关分析 – 多元统计25秋</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -116,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">第8章</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./chap9.html" aria-current="page"> 
+    <a class="nav-link" href="./chap9.html"> 
 <span class="menu-text">第9章</span></a>
   </li>  
   <li class="nav-item">
@@ -139,29 +141,34 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#第9章-典型相关分析" id="toc-第9章-典型相关分析" class="nav-link active" data-scroll-target="#第9章-典型相关分析">第9章 典型相关分析</a></li>
-  <li><a href="#r软件操作" id="toc-r软件操作" class="nav-link" data-scroll-target="#r软件操作">R软件操作</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">第9章</h1>
+<h1 class="title">Chapter 9 典型相关分析</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Li Zongzhang </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 6, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -171,19 +178,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="第9章-典型相关分析" class="level1">
-<h1>第9章 典型相关分析</h1>
-<p><img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://lizongzhang.github.io/mvs25/chap9slide.html">chap 9 讲义</a></p>
-<p><img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://lizongzhang.github.io/mvs/9CCA.html">典型相关分析 R代码</a></p>
-</section>
-<section id="r软件操作" class="level1">
-<h1>R软件操作</h1>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1T44y1S7J5/" target="_blank">典型相关分析计算步骤</a></p>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV17G4y1R7Yh/" target="_blank">典型相关分析在R中的实现 ——CCA::cc()函数的运用</a></p>
-<p><img src="img/video.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px"><a href="https://www.bilibili.com/video/BV1jd4y1473B/" target="_blank">典型相关分析的可视化工具</a></p>
+<p><strong>注意：本讲义供学习交流使用，请勿用于商业用途</strong></p>
+<p><img src="img/ch9/chap 9 CCA_页面_02.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_03.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_04.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_05.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_06.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_07.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_08.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_09.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_10.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_11.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_12.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_13.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_14.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_15.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_16.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_17.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_18.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_19.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_20.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_21.png" class="img-fluid" alt="image_label"> <img src="img/ch9/chap 9 CCA_页面_22.png" class="img-fluid" alt="image_label"></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
