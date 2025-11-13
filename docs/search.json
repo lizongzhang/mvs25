@@ -1397,7 +1397,7 @@
     "href": "deepseek.html#大纲",
     "title": "DeepSeek辅助统计分析和R运用",
     "section": "大纲",
-    "text": "大纲\n\n1 DeepSeek助力：重塑统计学习方式\n2 DeepSeek辅助统计方法学习和运用\n3 DeepSeek辅助论文统计分析写作\n4 DeepSeek辅助统计分析和R运用\n5 告别统计焦虑：DeepSeek让数据分析变简单"
+    "text": "大纲\n\n1 DeepSeek助力：重塑统计学习方式\n2 DeepSeek辅助统计方法学习和运用\n3 DeepSeek辅助论文统计分析写作\n4 DeepSeek辅助统计分析和R运用"
   },
   {
     "objectID": "deepseek.html#与deepseek协作重塑统计学习方式",
@@ -1607,7 +1607,7 @@
     "href": "deepseek.html#代码细节的追问",
     "title": "DeepSeek辅助统计分析和R运用",
     "section": "4.4.2 代码细节的追问",
-    "text": "4.4.2 代码细节的追问\n\n让DeepSeek辅助理解函数帮助\n赋值符&lt;- 和 等于= 的区别？\n%&gt;% 和 ｜&gt; 的区别？"
+    "text": "4.4.2 代码细节的追问\n\n让DeepSeek辅助理解函数帮助\n赋值符&lt;- 和 等于= 的区别？\n%&gt;% 和 ｜&gt; 的区别？\n\nR语言两种形式的管道符 %&gt;% 和 |&gt;：二者的区别和该用哪种？"
   },
   {
     "objectID": "deepseek.html#解决报错",
