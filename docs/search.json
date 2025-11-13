@@ -396,7 +396,7 @@
     "href": "chap9.html",
     "title": "第9章",
     "section": "",
-    "text": "第9章 典型相关分析\nchap 9 讲义\n典型相关分析 R代码\n\n\nR软件操作\n典型相关分析计算步骤\n典型相关分析在R中的实现 ——CCA::cc()函数的运用\n典型相关分析的可视化工具\n\n\n本章作业\n利用教材例题9.1的数据，进行典型相关分析，完成以下任务：\n\n列出每一对典型变量对应的典型相关系数\n第一对典型变量的标准化典型系数。\n对典型相关系数进行统计显著性检验（整体检验每一个典型函数是否显著）。\n绘制至少两幅图（任选两种或更多），并解释图中所反映的信息。"
+    "text": "第9章 典型相关分析\nchap 9 讲义\n典型相关分析 R代码\nDeepSeek辅助统计分析和R运用\n\n\nR软件操作\n典型相关分析计算步骤\n典型相关分析在R中的实现 ——CCA::cc()函数的运用\n典型相关分析的可视化工具\n\n\n本章作业\n利用教材例题9.1的数据，进行典型相关分析，完成以下任务：\n\n列出每一对典型变量对应的典型相关系数\n第一对典型变量的标准化典型系数。\n对典型相关系数进行统计显著性检验（整体检验每一个典型函数是否显著）。\n绘制至少两幅图（任选两种或更多），并解释图中所反映的信息。"
   },
   {
     "objectID": "chap4slide.html",
@@ -1384,5 +1384,250 @@
     "title": "9 典型相关分析在R中的实现",
     "section": "helio plot 放射状图",
     "text": "helio plot 放射状图\n\n#典型变量与原始变量的相关系数\nlibrary(yacca)\nres.cca &lt;- cca(physical, train)\n\nhelio.plot(res.cca, x.name=\"Physical Variables\",\n           y.name=\"Train Variables\")\n\n\n\n\n\n\n\n\n\n#Show variances on first canonical variate\nhelio.plot(res.cca, x.name=\"Physical Variables\",\n           y.name=\"Train Variables\", \n           type = \"variance\")"
+  },
+  {
+    "objectID": "deepseek.html",
+    "href": "deepseek.html",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "",
+    "text": "🏠 Home"
+  },
+  {
+    "objectID": "deepseek.html#大纲",
+    "href": "deepseek.html#大纲",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "大纲",
+    "text": "大纲\n\n1 DeepSeek助力：重塑统计学习方式\n2 DeepSeek辅助统计方法学习和运用\n3 DeepSeek辅助论文统计分析写作\n4 DeepSeek辅助统计分析和R运用\n5 告别统计焦虑：DeepSeek让数据分析变简单"
+  },
+  {
+    "objectID": "deepseek.html#与deepseek协作重塑统计学习方式",
+    "href": "deepseek.html#与deepseek协作重塑统计学习方式",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "1.1 与DeepSeek协作：重塑统计学习方式",
+    "text": "1.1 与DeepSeek协作：重塑统计学习方式\n\n不知道该用什么统计方法？\n看不懂输出结果\n为写论文而发愁\n\n💡 理念重塑: 从“工具”到“伙伴”:\n\n“我不会统计方法” ➡️ “我会提问”\n“我不会用R/STATA/Python” ➡ “在AI辅助下我能”\n“我写不好论文中的统计部分” ➡ “我能借助 AI表达、优化”"
+  },
+  {
+    "objectID": "deepseek.html#deepseek辅助统计方法学习和运用",
+    "href": "deepseek.html#deepseek辅助统计方法学习和运用",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "2 DeepSeek辅助统计方法学习和运用",
+    "text": "2 DeepSeek辅助统计方法学习和运用\n\n重构统计学习方式\n\n互动式\n针对性\n不要撒网式学习"
+  },
+  {
+    "objectID": "deepseek.html#deepseek如何助力统计学习",
+    "href": "deepseek.html#deepseek如何助力统计学习",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "2.1 DeepSeek如何助力统计学习？",
+    "text": "2.1 DeepSeek如何助力统计学习？\n\n统计学习的重心\n\n基础知识(本科课程已涵盖)\n\n变量类型: 定性(无序/有序), 定量(离散/连续)\n参数估计: 置信水平，置信区间\n假设检验: 双/单侧检验，显著性水平, p值, 临界值, 检验统计量\n\n方法选择\n结果解读"
+  },
+  {
+    "objectID": "deepseek.html#统计基础知识补遗",
+    "href": "deepseek.html#统计基础知识补遗",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "2.2 统计基础知识补遗",
+    "text": "2.2 统计基础知识补遗\n🎯 提问句式\n\n🧭 提示语: 请用最通俗的方式解释“统计术语”\n\n\n🧭 提示语: 请用数值模拟解释“统计术语”，并提供 R 代码与详细解释，以便更直观地理解。"
+  },
+  {
+    "objectID": "deepseek.html#重构统计学习方式从被动学习到主动建构",
+    "href": "deepseek.html#重构统计学习方式从被动学习到主动建构",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "2.3 重构统计学习方式：从被动学习到主动建构",
+    "text": "2.3 重构统计学习方式：从被动学习到主动建构\n💡 不再是“学完了才能用”，而是“在用中学习，在问中学”\n📕️ 传统模式：教科书主导，学生被动接受\n\n教材编什么，读者学什么\n\n顺着教材目录走，忽视了统计思维的培养、“统计写作”能力的训练\n\n🚀 DeepSeek模式：需求驱动，Prompt引导学习\n\n先有问题，后找方法\n不再强调公式/计算/软件操作，而是围绕科研任务主动构建统计能力\n\n\n📌 统计学习的未来，不是依靠更全面系统的教材，而是善于利用AI工具的引导。"
+  },
+  {
+    "objectID": "deepseek.html#从统计学习者到提问专家如何与-deepseek-高效对话",
+    "href": "deepseek.html#从统计学习者到提问专家如何与-deepseek-高效对话",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "2.4 从统计学习者到提问专家：如何与 DeepSeek 高效对话？",
+    "text": "2.4 从统计学习者到提问专家：如何与 DeepSeek 高效对话？\n\nDeepSeek可以回答”如何做”\n选择方法, 解释结果, 润色语言\nDeepSeek无法判断统计分析结论的“现实意义”\n① 它不了解社会经济语境\n\n无法判断1.2%的收入增长是否有社会学意义\n无法判断失业率降低3%是否足以推动政策调整\n无法判断某项干预措施对社会群体是否“可感知”\n\n② 它无法识别研究的局限\n\n样本的代表性\n数据质量\n研究全貌"
+  },
+  {
+    "objectID": "deepseek.html#从工具到能力构建ai辅助统计思维",
+    "href": "deepseek.html#从工具到能力构建ai辅助统计思维",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "从工具到能力，构建AI辅助统计思维",
+    "text": "从工具到能力，构建AI辅助统计思维\n\n统计学习不只是掌握方法，更是形成解决问题的思维方式。\nDeepSeek不只是工具，更可以成为统计学习与科研写作的智能伙伴。\n借助 AI，可以加速理解、提升效率，但不能替代判断与思考。\n真正有效的统计学习，应注重：\n\n明确目标（用AI解决具体问题）；\n精准提问（提升与AI对话质量）；\n灵活应用（将建议转化为科研能力）。\n\n\n\n📌 从“学习统计”到“用统计解决问题”"
+  },
+  {
+    "objectID": "deepseek.html#deepseek辅助统计方法的学习和运用",
+    "href": "deepseek.html#deepseek辅助统计方法的学习和运用",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "2.5 DeepSeek辅助统计方法的学习和运用",
+    "text": "2.5 DeepSeek辅助统计方法的学习和运用\n\n统计方法全景图\nDeepSeek如何辅助统计方法选择？\nDeepSeek如何辅助结果解读？"
+  },
+  {
+    "objectID": "deepseek.html#统计方法全景图",
+    "href": "deepseek.html#统计方法全景图",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "统计方法全景图",
+    "text": "统计方法全景图"
+  },
+  {
+    "objectID": "deepseek.html#deepseek如何辅助选择统计方法",
+    "href": "deepseek.html#deepseek如何辅助选择统计方法",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "DeepSeek如何辅助选择统计方法？",
+    "text": "DeepSeek如何辅助选择统计方法？\n✅ 研究目的: 描述/推断/比较/预测/因果推断\n✅ 数据结构: 横截面/纵向/分层/RCT/生存数据等\n✅ 变量类型: 定性变量(无序/有序), 定量变量(离散/连续)\n✅ 变量地位：结局变量/自变量/协变量\n✅ 变量分布：正态/非正态/泊松分布等\n✅ 样本容量"
+  },
+  {
+    "objectID": "deepseek.html#deepseek辅助深入学习统计方法",
+    "href": "deepseek.html#deepseek辅助深入学习统计方法",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "deepseek辅助深入学习统计方法",
+    "text": "deepseek辅助深入学习统计方法\n\n追问统计分析过程细节\n追问检验方法的细节\n追问图形工具的细节\n追问如何评估模型拟合效果"
+  },
+  {
+    "objectID": "deepseek.html#deepseek辅助统计方法的学习和运用-1",
+    "href": "deepseek.html#deepseek辅助统计方法的学习和运用-1",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "DeepSeek辅助统计方法的学习和运用",
+    "text": "DeepSeek辅助统计方法的学习和运用\n\n将“现实问题”转换为“统计问题”\n\n提问句式：研究目的 + 研究对象 + 自变量 + 因变量 + 特殊说明\n\n追问统计分析过程的细节\n\n方法/模型，还可以做哪些检验或者绘制可视化图形？请参考学术文献的主流做法，回答上述问题。\n\n追问检验方法的细节\n追问图形工具的细节\n追问如何评估模型拟合效果\n关于输出结果的解读\n\n统计学意义：P值、效应量、置信区间\n临床学意义：临床相关性、实际应用价值\n\n优化统计分析的建议\n\n样本数据、选用的变量、估计方法是否存在局限性？请提出改进建议"
+  },
+  {
+    "objectID": "deepseek.html#deepseek辅助统计写作",
+    "href": "deepseek.html#deepseek辅助统计写作",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "3 DeepSeek辅助统计写作",
+    "text": "3 DeepSeek辅助统计写作\n\n建立自己的提示词库\n建立自己的范文库\n不要忙于统计分析，而疏于写作\n\n💡 统计写作不是“最后一步”，而是每一步统计分析的记录、反馈与构建。"
+  },
+  {
+    "objectID": "deepseek.html#deepseek辅助r运用",
+    "href": "deepseek.html#deepseek辅助r运用",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4 DeepSeek辅助R运用",
+    "text": "4 DeepSeek辅助R运用"
+  },
+  {
+    "objectID": "deepseek.html#deepseek辅助r语言快速入门",
+    "href": "deepseek.html#deepseek辅助r语言快速入门",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.1 DeepSeek辅助R语言快速入门",
+    "text": "4.1 DeepSeek辅助R语言快速入门\n\n4.1.1 为什么用DeepSeek学R？\n4.1.2 人人都能用R了！一个简单的示例\n4.1.3 DeepSeek教不会什么？这几点你得自己掌握"
+  },
+  {
+    "objectID": "deepseek.html#为什么用deepseek学r",
+    "href": "deepseek.html#为什么用deepseek学r",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.1.1 为什么用DeepSeek学R",
+    "text": "4.1.1 为什么用DeepSeek学R\n\nR语言是一门强大但语法灵活的编程语言，对初学者有一定门槛。\nDeepSeek具备自然语言理解与代码生成能力：\n\n快速生成代码\n解释代码, 报错寻因, 解读结果\n扩展功能包、实现复杂流程\n\n进入“AI辅助编程”时代，将改变R语言的学习方式，从”查命令”转为”提问题”。"
+  },
+  {
+    "objectID": "deepseek.html#人人都能用r了一个简单的示例",
+    "href": "deepseek.html#人人都能用r了一个简单的示例",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.1.2 人人都能用R了！一个简单的示例",
+    "text": "4.1.2 人人都能用R了！一个简单的示例\n\n🧭 提示语: 用iris数据，进行方差分析，给出R代码。"
+  },
+  {
+    "objectID": "deepseek.html#deepseek教不会什么这几点你得自己掌握",
+    "href": "deepseek.html#deepseek教不会什么这几点你得自己掌握",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.1.3 DeepSeek教不会什么？这几点你得自己掌握",
+    "text": "4.1.3 DeepSeek教不会什么？这几点你得自己掌握\n\nRStudio主界面\n如何高效管理文件？\n\n项目project\n\n在写R代码的实践中积累的“经验”\n\n📚 如何读懂 R 的帮助文档\n📚 如何写一段”漂亮聪明”的代码\n\n简洁/可复制性\n美观/易读(代码注释、分节)\n\n📚 如何用最少的代码完成最多的任务\n\n编程思维的形成\n学习高手写的代码"
+  },
+  {
+    "objectID": "deepseek.html#r语言编程特点优势",
+    "href": "deepseek.html#r语言编程特点优势",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.2 R语言编程特点–优势",
+    "text": "4.2 R语言编程特点–优势\n\n免费\n可重复性\n扩展包\n\n按任务浏览R包：https://cran.r-project.org/web/views/\nR包下载排行榜: https://www.r-pkg.org/\n\n学术前沿"
+  },
+  {
+    "objectID": "deepseek.html#r语言编程特点挑战",
+    "href": "deepseek.html#r语言编程特点挑战",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.2 R语言编程特点–挑战",
+    "text": "4.2 R语言编程特点–挑战\n\n入门难\n代码容易忘\n\n注释/R自带的提示性键入\n\n包太多/难以选择\n\n问DeepSeek：R中能做XXX的有哪些包？比较这些包？哪个更好用？\n🎯 专为 R 用户定制的搜索引擎 https://rseek.org\n\n📚 快速找到函数用法、R 包文档、代码示例\n✅ 搜索结果只与 R 有关，不混杂其他语言\n\n\n报错\n\nAI可以帮你分析报错信息"
+  },
+  {
+    "objectID": "deepseek.html#deepseek辅助r语言统计分析",
+    "href": "deepseek.html#deepseek辅助r语言统计分析",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.3 DeepSeek辅助R语言统计分析",
+    "text": "4.3 DeepSeek辅助R语言统计分析\n4.3.1 先看看R能做什么？\n4.3.2 绘图\n4.3.3 检验\n4.3.4 建模\n4.3.5 表格化输出\n4.3.6 如何让DeepSeek分析自己的数据？"
+  },
+  {
+    "objectID": "deepseek.html#先看看r能做什么",
+    "href": "deepseek.html#先看看r能做什么",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.3.1 先看看R能做什么？",
+    "text": "4.3.1 先看看R能做什么？\n\n🧭 提示语：利用iris数据，可以开展哪些统计分析，写出R代码。"
+  },
+  {
+    "objectID": "deepseek.html#绘图",
+    "href": "deepseek.html#绘图",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.3.2 绘图",
+    "text": "4.3.2 绘图\n\n🧭 绘图提示语\n\n\n用R绘制iris的箱线图\n按species定性变量分组，绘制petal.length的箱线图。\n按species分组，绘制箱线图，用ggplot2绘制。\n让上述多个个图形显示在同一窗口。\n绘制具有学术期刊风格的分组箱线图。\n用ggpubr绘制分组箱线图。"
+  },
+  {
+    "objectID": "deepseek.html#检验",
+    "href": "deepseek.html#检验",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.3.3 检验",
+    "text": "4.3.3 检验\n检验：目的/数据容量/数据类型和分布/原假设和备择假设/局限/结论\n\n🧭 提示语\n\n\n按species分组，检验不同组别的petal.length的均值是否相等？。\n该数据满足ANOVA检验的适用条件吗？\n每个组别内的petal.length观测值是否近似正态分布？\n如何进行方差齐性检验是什么？\nbartlett.test()函数的结果如何看？\n若不同组别之间的petal.length观测值方差不等，还能用ANOVA检验吗？\nWelch’s ANOVA的命令是什么？"
+  },
+  {
+    "objectID": "deepseek.html#建模",
+    "href": "deepseek.html#建模",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.3.4 建模",
+    "text": "4.3.4 建模\n模型：目的/数据容量/数据类型和分布/估计结果的解释/可视化工具/评估\n\n🧭 提示语\n\n\n描述判别函数适合的研究场景？\n利用iris数据，开展判别分析，写出R代码，并添加注释。\n判别分析中需要做哪些检验？\n判别分析中有哪些可视化工具？\n如何评估判别分析模型？\n有哪些前沿方法可以替代判别分析？R中有哪些包可以实现这类前沿方法？"
+  },
+  {
+    "objectID": "deepseek.html#表格化输出",
+    "href": "deepseek.html#表格化输出",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.3.5 表格化输出",
+    "text": "4.3.5 表格化输出\n\n🧭 提示语\n\n\n利用iris数据，如何输出学术论文中的表1（描述性统计表）？\n利用mpg数据，如何输出学术论文中的回归估计结果的表格？\n利用survival包中的数据lung，输出学术论文中的基线特征表？\n利用survival包中的数据lung，用表格报告Cox比例风险模型的估计结果？\n用别的更简便的方法吗？用专门的包实现表格化输出吗？"
+  },
+  {
+    "objectID": "deepseek.html#如何让deepseek分析自己的数据",
+    "href": "deepseek.html#如何让deepseek分析自己的数据",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.3.6 如何让DeepSeek分析自己的数据？",
+    "text": "4.3.6 如何让DeepSeek分析自己的数据？\n\n生成模拟数据\n\n\n🧭 提示语: 我有实验组和对照组各10人的服药后7天，14天和21天的血压数据，可以开展什么统计分析，来判断药物是否有效？\n\n\n🧭 提示语: 请在R中生成上述模拟数据，及实现Repeated Measures ANOVA的代码？\n\n\n数据脱敏\n\n数据扰动: 给定量变量增加一个5%的随机扰动\n\n=C2 * (1 + (RAND() - 0.5) * 0.1) (Excel公式)\n\n随机抽样 30% ~ 70%： =rand() 然后排序 (Excel)\n点击下载数据脱敏练习文件: stroke.xlsx"
+  },
+  {
+    "objectID": "deepseek.html#deepseek辅助r语言学习",
+    "href": "deepseek.html#deepseek辅助r语言学习",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.4 DeepSeek辅助R语言学习",
+    "text": "4.4 DeepSeek辅助R语言学习\n4.4.1 理解消化代码\n4.4.2 代码细节的追问\n4.4.3 解决报错\n4.4.4 简化/美化代码\n4.4.5 整理代码/重复利用"
+  },
+  {
+    "objectID": "deepseek.html#理解消化代码",
+    "href": "deepseek.html#理解消化代码",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.4.1 理解消化代码",
+    "text": "4.4.1 理解消化代码\n\n逐行阅读代码并理解每个函数\n逐步运行代码, 理解输出结果\n理解复杂符号，如管道符, [[]], 占位符.等\n测试不同的参数"
+  },
+  {
+    "objectID": "deepseek.html#代码细节的追问",
+    "href": "deepseek.html#代码细节的追问",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.4.2 代码细节的追问",
+    "text": "4.4.2 代码细节的追问\n\n让DeepSeek辅助理解函数帮助\n赋值符&lt;- 和 等于= 的区别？\n%&gt;% 和 ｜&gt; 的区别？"
+  },
+  {
+    "objectID": "deepseek.html#解决报错",
+    "href": "deepseek.html#解决报错",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.4.3 解决报错",
+    "text": "4.4.3 解决报错\n\n典型报错错：“未找到函数”、“对象未定义”、“无法读取文件”等\n\n查看环境：确保对象存在\n加载相关包\n\n函数输入的参数的类型错误\n复制Console中的代码及报错, 发送给DeepSeek"
+  },
+  {
+    "objectID": "deepseek.html#简化美化代码",
+    "href": "deepseek.html#简化美化代码",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "4.4.4 简化/美化代码",
+    "text": "4.4.4 简化/美化代码\n\n使用适当的命名\n\n可以包含字母, 数字,下划线_和小圆点., 但不能以数字开头，不能有中划线-，特殊符号$,@等\n\n避免使用不必要的中间变量\n\n管道符\n\n避免重复代码\n\n优化数据结构/循环语句\n\n格式化和缩进\n把代码发送给AI，简化我的代码？"
+  },
+  {
+    "objectID": "deepseek.html#总结",
+    "href": "deepseek.html#总结",
+    "title": "DeepSeek辅助统计分析和R运用",
+    "section": "总结",
+    "text": "总结\n\nAI助力，让R语言学习变得简单、高效、充满乐趣！\n\n\nAI助力, 形成编程思维, 独立实践才是用好R的关键。\n\n\n高质量的提问，源自对R的深度使用。"
   }
 ]
