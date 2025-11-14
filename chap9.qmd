@@ -8,7 +8,7 @@ title: "第9章"
 
 <img src="img/code.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[典型相关分析 R代码](https://lizongzhang.github.io/mvs25/ccaR.html)
 
-<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[DeepSeek辅助统计分析和R运用](https://lizongzhang.github.io/mvs25/deepseek.html)
+<img src="img/teacher.png" alt="讲义" style="width: 24px; height: 24px;margin-right: 10px">[DeepSeek辅助统计分析和R运用](https://lizongzhang.github.io/mvs25/deepseek_update.html)
 
 #  R软件操作 
   
